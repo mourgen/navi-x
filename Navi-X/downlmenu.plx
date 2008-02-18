@@ -1,0 +1,15 @@
+version=1
+background=default
+logo=none
+title=Downloads
+#
+type=playlist
+name=Queue
+thumb=default
+URL=downlqueue.plx
+#
+type=playlist
+name=Complete
+thumb=default
+URL=downlcompl.plx
+#
