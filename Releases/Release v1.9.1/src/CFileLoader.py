@@ -1,0 +1,140 @@
+#############################################################################
+#
+# Navi-X Playlist browser
+# by rodejo (rodejo16@gmail.com)
+#############################################################################
+
+#############################################################################
+#
+# CFileloader:
+# This class is a generic file loader and handles downloading a file to disk.
+#############################################################################
+
+from string import *
+import sys, os.path
+import urllib
+import urllib2
+import re, random, string
+import xbmc, xbmcgui
+import re, os, time, datetime, traceback
+import Image, ImageFile
+import shutil
+import zipfile
+import socket
+from settings import *
+
+try: Emulating = xbmcgui.Emulating
+except: Emulating = False
+
+RootDir = os.getcwd()
+if RootDir[-1]==';': RootDir=RootDir[0:-1]
+if RootDir[-1]!='\\': RootDir=RootDir+'\\'
+imageDir = RootDir + "\\images\\"
+cacheDir = RootDir + "\\cache\\"
+imageCacheDir = RootDir + "\\cache\\imageview\\"
+scriptDir = "Q:\\scripts\\"
+myDownloadsDir = RootDir + "My Downloads\\"
+initDir = RootDir + "\\init\\"
+
+######################################################################
+# Description: Downloads a URL to local disk. 
+######################################################################
+#class CFileLoader:
+#    ######################################################################
+#    # Description: Downloads a file in case of URL and returns absolute
+#    #              path to the local file.
+#    # Parameters : URL=source, localfile=destination
+#    # Return     : -
+#    ######################################################################
+#    def load(self, URL, localfile):
+#        if URL[:4] == 'http':
+#            try:
+#                loc = urllib.URLopener()
+#                loc.retrieve(URL, localfile)
+#            except IOError:
+#                self.state = -1 #failed
+#                return
+#            self.state = 0 #success
+#            self.localfile = localfile
+#        elif URL[1] == ':': #absolute path
+#            self.localfile = URL
+#            self.state = 0 #success
+#        else: #assuming relative path
+#            self.localfile = RootDir + '\\' + URL
+#            self.state = 0 #success 
+
+class CFileLoader:
+    ######################################################################
+    # Description: Downloads a file in case of URL and returns absolute
+    #              path to the local file.
+    # Parameters : URL=source
+    #              localfile=destination
+    #              timeout(optional)=Funtion time out time.
+    # Return     : -
+    ######################################################################
+    def load(self, URL, localfile, timout=url_open_timeout):
+        if URL[:4] == 'http':
+            try:
+                oldtimeout=socket.getdefaulttimeout()
+                socket.setdefaulttimeout(timout)
+            
+                f = urllib.urlopen(URL)
+                #get the size of the file in bytes
+#                size_string=f.info().getheader("Content-Length")
+
+                #open the destination file
+                file = open(localfile, "wb")
+                #file.write(f.read(int(size_string)))
+                file.write(f.read())
+                file.close()          
+                  
+            except IOError:
+                socket.setdefaulttimeout(oldtimeout)            
+                self.state = -1 #failed
+                return
+
+            socket.setdefaulttimeout(oldtimeout)
+                
+            self.localfile = localfile
+            self.state = 0 #success
+            
+        elif URL[1] == ':': #absolute path
+            self.localfile = URL
+            self.state = 0 #success
+        else: #assuming relative path
+            self.localfile = RootDir + '\\' + URL
+            self.state = 0 #success 
+
+class CFileLoader2:
+    ######################################################################
+    # Description: Downloads a file in case of URL and returns absolute
+    #              path to the local file.
+    # Parameters : URL=source, localfile=destination
+    # Return     : -
+    ######################################################################
+    def load(self, URL, localfile):
+        if URL[:4] == 'http':
+            try:
+                values = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
+                req = urllib2.Request(URL, None, values)
+                f = urllib2.urlopen(req)
+                
+                #open the destination file
+                file = open(localfile, "wb")
+                #file.write(f.read(int(size_string)))
+                file.write(f.read())
+                file.close()          
+                  
+            except IOError:
+                self.state = -1 #failed
+                return
+                
+            self.localfile = localfile
+            self.state = 0 #success
+            
+        elif URL[1] == ':': #absolute path
+            self.localfile = URL
+            self.state = 0 #success
+        else: #assuming relative path
+            self.localfile = RootDir + '\\' + URL
+            self.state = 0 #success 
