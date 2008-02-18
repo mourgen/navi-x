@@ -1,0 +1,22 @@
+Navi-X News
+(Questions, suggestions, help, playlists to rodejo16@gmail.com)
+
+www.navi-x.nl is the new official Navi-X website. 
+This site will become the main source for new Navi-X releases,
+forums, playlists sharing, etc. The site is still under development.
+
+History:
+Click the 'About' button for the latest changes.
+
+2008/02/17 - New: Started Google project page at:
+http://code.google.com/p/navi-x/
+
+2008/02/10 - Released Navi-X v1.9.1
+2008/02/08 - Released Navi-X v1.9
+2007/12/31 - Released Navi-X v1.8
+2007/12/15 - Released Navi-X v1.7.1
+2007/12/01 - Released Navi-X v1.7
+2007/10/19 - Released Navi-X v1.6.1:
+2007/10/09 - Released Navi-X v1.6:
+2007/09/14 - Released Navi-X v1.5 at http://home.planet.nl/~jon70928/
+2007/07/04 - Released Navi-X v1.4 at http://home.planet.nl/~jon70928/
