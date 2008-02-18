@@ -1,0 +1,2 @@
+To watch these South Park episodes you will need one of the latest XBMC builds 
+that support .flv files.
