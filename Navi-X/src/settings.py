@@ -42,13 +42,14 @@ PAL60_16x9 = 9      #(720x480, 16:9, pixels are 5760:4739)
 
 ######################################################################
 Version='1' #program version
-SubVersion='9.1'
+SubVersion='9.2'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
 downloads_queue='downlqueue.plx'
 downloads_complete='downloads.plx'
 plxVersion = '7'
-home_URL='http://home.planet.nl/~jon70928/home.plx'
+home_URL='http://www.navi-x.nl/playlists/home.plx'
+home_URL_old='http://home.planet.nl/~jon70928/home.plx'
 
 url_open_timeout = 15

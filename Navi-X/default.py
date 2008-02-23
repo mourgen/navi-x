@@ -22,7 +22,11 @@
 # -v1.7.2 (2007/12/20)
 # -v1.8 (2007/12/31)
 # -v1.9 (2008/02/10)
-# -v1.9.1 (2008/02/11)
+# -v1.9.1 (2008/02/10)
+# -v1.9.2 (2008/02/23)
+#
+# Changelog (v1.9.2)
+#   - Improved caching of playlists and images to improve UI performance.
 #
 # Changelog (v1.9.1)
 #   - Stage6 HTML parser fix.
@@ -122,6 +126,7 @@ scriptDir = "Q:\\scripts\\"
 myDownloadsDir = RootDir + "My Downloads\\"
 initDir = RootDir + "\\init\\"
 myPlaylistsDir = RootDir + "My Playlists\\"
+srcDir = RootDir + "\\src\\"
 
 ######################################################################
 # Description: Main Window class
@@ -131,6 +136,8 @@ class MainWindow(xbmcgui.Window):
             if Emulating: xbmcgui.Window.__init__(self)
             if not Emulating:
                 self.setCoordinateResolution(PAL_4x3)
+
+            self.delFiles(cacheDir) #clear the cache first
 
             #Create DIRs
             if not os.path.exists(cacheDir): 
@@ -168,9 +175,17 @@ class MainWindow(xbmcgui.Window):
                 self.downloadqueue.load_plx(downloads_queue)
             
             #check if My Playlists exists, otherwise copy it from the init dir
-            if not os.path.exists(myPlaylistsDir +"My Playlists.plx"): 
+            if not os.path.exists(myPlaylistsDir + "My Playlists.plx"): 
+                shutil.copyfile(initDir+"My Playlists.plx", myPlaylistsDir+"My Playlists.plx")
+
+            #check if My Playlists exists, otherwise copy it from the init dir
+            if not os.path.exists(myPlaylistsDir + "My Playlists.plx"): 
                 shutil.copyfile(initDir+"My Playlists.plx", myPlaylistsDir+"My Playlists.plx")
             
+            #check if My skin file exists, otherwise copy it from the init dir
+            if not os.path.exists(srcDir + "skin.py"): 
+                shutil.copyfile(initDir+"skin.py", srcDir+"skin.py")
+
             #Create the downloader object
             self.downloader = CDownLoader(self.downloadqueue, self.downloadslist)
             
@@ -194,7 +209,7 @@ class MainWindow(xbmcgui.Window):
             self.logo_visible = False # true if logo shall be displayed
             self.thumb_visible = False # true if thumb shall be displayed
             
-            self.loader = CFileLoader3() #file loader
+            self.loader = CFileLoader() #file loader
             
             #read the non volatile settings from the settings.dat file
             self.onReadSettings()
@@ -250,7 +265,7 @@ class MainWindow(xbmcgui.Window):
                         else:
                             if self.history_count > 0:
                                 previous = self.History[len(self.History)-1]
-                                result = self.ParsePlaylist(mediaitem=previous.mediaitem, start_index=previous.index)
+                                result = self.ParsePlaylist(mediaitem=previous.mediaitem, start_index=previous.index, proxy=True)
                                 if result == 0:
                                     flush = self.History.pop()
                                     self.history_count = self.history_count - 1
@@ -369,7 +384,7 @@ class MainWindow(xbmcgui.Window):
         #              reloaded or only displayed.
         # Return     : 0 on success, -1 if failed.
         ######################################################################
-        def ParsePlaylist(self, URL='', mediaitem=CMediaItem(), start_index=0, reload=True):
+        def ParsePlaylist(self, URL='', mediaitem=CMediaItem(), start_index=0, reload=True, proxy=False):
             #avoid recursive call of this function by setting state to busy.
             self.state_busy = 1
 
@@ -392,21 +407,21 @@ class MainWindow(xbmcgui.Window):
             if reload == True:
                 #load the playlist
                 if type == 'rss':
-                    result = playlist.load_rss_20(URL, mediaitem)
+                    result = playlist.load_rss_20(URL, mediaitem, proxy)
                 elif type == 'rss_flickr_daily':
-                    result = playlist.load_rss_flickr_daily(URL, mediaitem)
+                    result = playlist.load_rss_flickr_daily(URL, mediaitem, proxy)
                 elif type == 'html_body_content' or type == 'html_body_sidebar':
-                    result = playlist.load_html(URL, mediaitem, type)
+                    result = playlist.load_html(URL, mediaitem, type, proxy)
                 elif type == 'html_youtube':
-                    result = playlist.load_html_youtube(URL, mediaitem)
+                    result = playlist.load_html_youtube(URL, mediaitem, proxy)
                 elif type == 'html_stage6':
-                    result = playlist.load_html_stage6(URL, mediaitem)
+                    result = playlist.load_html_stage6(URL, mediaitem, proxy)
                 elif type == 'xml_shoutcast':
-                    result = playlist.load_xml_shoutcast(URL, mediaitem)
+                    result = playlist.load_xml_shoutcast(URL, mediaitem, proxy)
                 elif type == 'html_qsscreen_thumb' or type == 'html_qsscreen_list':
-                    result = playlist.load_html_QSScreen(URL, mediaitem)
+                    result = playlist.load_html_QSScreen(URL, mediaitem, proxy)
                 else: #assume playlist file
-                    result = playlist.load_plx(URL, mediaitem)
+                    result = playlist.load_plx(URL, mediaitem, proxy)
                 
                 if result == -1: #error
                     dialog = xbmcgui.Dialog()
@@ -1235,7 +1250,9 @@ class MainWindow(xbmcgui.Window):
                 f=open(RootDir + 'settings.dat', 'r')
                 data = f.read()
                 data = data.split('\n')
-                self.home=data[0]
+                home=data[0]
+                if home != home_URL_old:
+                    self.home=home
                 self.dwnlddir=data[1]
                 f.close()
             except IOError:
@@ -1275,9 +1292,12 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def delFiles(self, folder):
-            for root, dirs, files in os.walk(folder , topdown=False):
-                for name in files:
-                    os.remove(os.path.join(root, name))
+            try:        
+                for root, dirs, files in os.walk(folder , topdown=False):
+                    for name in files:
+                        os.remove(os.path.join(root, name))
+            except IOError:
+                return
                     
         ######################################################################
         # Description: Unzip a file into a dir

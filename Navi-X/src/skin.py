@@ -55,12 +55,12 @@ def load_skin(window):
     window.addControl(window.logo)
 
     #user logo below the buttons
-    window.user_logo = xbmcgui.ControlImage(32,120,210,150, imageDir + "logo.png")
+    window.user_logo = xbmcgui.ControlImage(32,120,210,172, imageDir + "logo.png")
     window.addControl(window.user_logo)
     window.user_logo.setVisible(0)
             
     #user thumb below the buttons (overlaps with the user logo)
-    window.user_thumb = xbmcgui.ControlImage(32,120,210,150, imageDir + "logo.png")
+    window.user_thumb = xbmcgui.ControlImage(32,120,210,172, imageDir + "logo.png")
     window.addControl(window.user_thumb)
     window.user_thumb.setVisible(0)
     
@@ -93,7 +93,7 @@ def load_skin(window):
     
     #buttons creation
     x=50
-    y=280
+    y=303
     window.button_home = xbmcgui.ControlButton(x,y,120,32,'      Home', RootDir + "images\\button-focus1.png", RootDir + "images\\button-nofocus1.png")
     window.addControl(window.button_home)
     window.button_favorites = xbmcgui.ControlButton(x,y+32,120,32,'      Favorites', RootDir + "images\\button-focus1.png", RootDir + "images\\button-nofocus1.png")            

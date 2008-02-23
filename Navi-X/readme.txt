@@ -1,7 +1,9 @@
-Welcome to Navi-X v1.9.1
+Welcome to Navi-X v1.9.2
 
-Changelog (v1.9.1)
-- Stage6 HTML parser fix. HTML has changed.
+Changelog (v1.9.2)
+- Improved caching of playlists and images to improve UI performance.
+- Slightly increased the top left user logo.
+- Moved to new server www.navi-x.nl
 
 Changelog (v1.9)
 - New default skin based on Mayhem III.

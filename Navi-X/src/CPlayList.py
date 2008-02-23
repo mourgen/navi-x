@@ -90,14 +90,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_plx(self, filename='', mediaitem=CMediaItem()):
+    def load_plx(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
         
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'playlist.plx')
+        loader.load(self.URL, cacheDir + 'playlist.plx', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -182,14 +182,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_rss_20(self, filename='', mediaitem=CMediaItem()):
+    def load_rss_20(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
 
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'feed.xml')
+        loader.load(self.URL, cacheDir + 'feed.xml', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -308,14 +308,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_rss_flickr_daily(self, filename='', mediaitem=CMediaItem()):
+    def load_rss_flickr_daily(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
 
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'feed.xml')
+        loader.load(self.URL, cacheDir + 'feed.xml', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -399,14 +399,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html(self, filename='', mediaitem=CMediaItem(), type='html_body_sidebar'):
+    def load_html(self, filename='', mediaitem=CMediaItem(), type='html_body_sidebar', proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
         
         loader = CFileLoader2()
-        loader.load(self.URL, cacheDir + 'page.html')
+        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -492,14 +492,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html_youtube(self, filename='', mediaitem=CMediaItem()):
+    def load_html_youtube(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
         
         loader = CFileLoader2()
-        loader.load(self.URL, cacheDir + 'page.html')
+        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -587,14 +587,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html_stage6(self, filename='', mediaitem=CMediaItem()):
+    def load_html_stage6(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
         
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'page.html')
+        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -688,14 +688,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_xml_shoutcast(self, filename='', mediaitem=CMediaItem()):
+    def load_xml_shoutcast(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
         
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'shoutcast.xml')
+        loader.load(self.URL, cacheDir + 'shoutcast.xml', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -791,14 +791,14 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html_QSScreen(self, filename='', mediaitem=CMediaItem()):
+    def load_html_QSScreen(self, filename='', mediaitem=CMediaItem(), proxy=False):
         if filename != '':
             self.URL = filename
         else:
             self.URL = mediaitem.URL
         
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'page.html')
+        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
