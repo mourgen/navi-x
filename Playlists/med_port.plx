@@ -8,7 +8,7 @@ logo=none
 title=Navi-X Media Portal
 #Next the playlist content
 type=playlist
-name=XBMC Scripts + skins (New XBOX 360 skin. Check it out)
+name=XBMC Scripts + Skins (2008/02/23 Navi-X 1.9.2)
 thumb=default
 URL=http://home.planet.nl/~jon70928/scripts/scripts.plx
 #

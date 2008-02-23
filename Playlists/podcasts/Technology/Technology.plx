@@ -31,6 +31,7 @@ URL=http://home.planet.nl/~jon70928/podcasts/Technology/TWiT.plx
 type=rss
 name=GeekBrief.TV
 thumb=default
+background=http://home.planet.nl/~jon70928/podcasts/Technology/geekbrief.jpg
 URL=http://www.podshow.com/feeds/hd.xml
 #
 type=rss

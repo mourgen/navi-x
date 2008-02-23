@@ -14,6 +14,11 @@ thumb=default
 URL=http://ll3ph7.googlepages.com/index.txt
 #
 type=script
+name=2008/02/23 Navi-X v1.9.2 (minor update)
+thumb=default
+URL=http://www.navi-x.nl/playlists/scripts/Navi-X_v192.zip
+#
+type=script
 name=Orange skin by Alwin
 thumb=http://www.navi-x.nl/playlists/scripts/skinorange.png
 URL=http://www.navi-x.nl/playlists/scripts/navi-x_orange_Skin.zip

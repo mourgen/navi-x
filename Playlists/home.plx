@@ -8,8 +8,8 @@ title=Navi-X Home
 #logo=none
 #logo=http://home.planet.nl/cgi-bin/Count.cgi?expires=0|sh=1|st=1|incr=T|df=jon70928.dat
 #logo=http://members.lycos.nl/navix/webcount.php?fn=http://home.planet.nl/cgi-bin/Count.cgi?expires=0|sh=1|st=1|incr=T|df=jon70928.dat
-#logo=http://members.lycos.nl/navix/webcount_png.php?fn=logo.png
-logo=http://home.planet.nl/~jon70928/logo2.jpg
+logo=http://members.lycos.nl/navix/webcount_png.php?fn=logo.png
+#logo=http://home.planet.nl/~jon70928/logo2.jpg
 #Next the playlist content
 type=playlist
 name=Navi-X Media Portal
