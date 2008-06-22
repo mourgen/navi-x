@@ -1,4 +1,13 @@
-Welcome to Navi-X v1.9.2
+Welcome to Navi-X v1.9.3
+
+Changelog (v1.9.3)
+- Started development again.
+- Added download resume support.
+- Added Apple movie trailer support.
+- Added new media type called 'directory'. This type retrieves all PLX-files
+from a given local directory including sub-directories.
+- Added parsing of RSS new feeds. Link to HTML file cannot be opened.
+- Extended youtube search. Added sorting option.
 
 Changelog (v1.9.2)
 - Improved caching of playlists and images to improve UI performance.

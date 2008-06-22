@@ -90,7 +90,7 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_plx(self, filename='', mediaitem=CMediaItem(), proxy=False):
+    def load_plx(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
         if filename != '':
             self.URL = filename
         else:
@@ -182,7 +182,7 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_rss_20(self, filename='', mediaitem=CMediaItem(), proxy=False):
+    def load_rss_20(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
         if filename != '':
             self.URL = filename
         else:
@@ -282,19 +282,30 @@ class CPlayList:
                         if index2 != -1:
                             value = m[index+5:index2]
                             tmp.URL = value
+                            
+                    if tmp.URL != '':
+                        #validate the type based on file extension
+                        ext_pos = tmp.URL.rfind('.') #find last '.' in the string
+                        if ext_pos != -1:
+                            ext = tmp.URL[ext_pos+1:]
+                            if ext == 'jpg' or ext == 'gif' or ext == 'png':
+                                tmp.type = 'image'
+                            elif ext == 'mp3':
+                                tmp.type = 'audio'
+                            else:
+                                tmp.type = 'video'
+                            
+                            
+                else: #no enclosed URL, use the link
+                    index = m.find('<link>')
+                    if index != -1:
+                        index2 = m.find('</link>', index+6)
+                        if index2 != -1:
+                            value = m[index+6:index2]
+                            tmp.URL = value
+                        tmp.type = 'html'
                 
                 if tmp.URL != '':
-                    #validate the type based on file extension
-                    ext_pos = tmp.URL.rfind('.') #find last '.' in the string
-                    if ext_pos != -1:
-                        ext = tmp.URL[ext_pos+1:]
-                        if ext == 'jpg' or ext == 'gif' or ext == 'png':
-                            tmp.type = 'image'
-                        elif ext == 'mp3':
-                            tmp.type = 'audio'
-                        else:
-                            tmp.type = 'video'
-                
                     self.list.append(tmp)
                     counter = counter + 1
                     
@@ -308,7 +319,7 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_rss_flickr_daily(self, filename='', mediaitem=CMediaItem(), proxy=False):
+    def load_rss_flickr_daily(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
         if filename != '':
             self.URL = filename
         else:
@@ -390,100 +401,6 @@ class CPlayList:
                 
         return 0
 
-
-    ######################################################################
-    # Description: Loads html elements from stage6 website. 
-    # Parameters : filename=URL or local file
-    #              mediaitem=CMediaItem object to load    
-    # Return     : 0=succes, 
-    #              -1=invalid playlist version, 
-    #              -2=could not open playlist
-    ######################################################################
-    def load_html(self, filename='', mediaitem=CMediaItem(), type='html_body_sidebar', proxy=False):
-        if filename != '':
-            self.URL = filename
-        else:
-            self.URL = mediaitem.URL
-        
-        loader = CFileLoader2()
-        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
-        if loader.state != 0:
-            return -2
-        filename = loader.localfile
-        
-        try:
-            f = open(filename, 'r')
-            data = f.read()
-            data = data.split('\n')
-            f.close()
-        except IOError:
-            return -2
-        
-        #defaults
-        self.version = plxVersion
-        self.background = mediaitem.background
-        self.logo = 'none'
-        self.title = 'Stage6' + ' - ' + mediaitem.name
-        self.player = mediaitem.player
-        #clear the list
-        del self.list[:]
-        
-        if type == 'html_body_sidebar':
-            string = 'body-sidebar'
-        else:
-            string = 'body-content'
-        
-        counter=0
-        #parse playlist entries 
-        for m in data:
-            if counter == 0:
-                index = m.find(string)
-                if index != -1:
-                    counter=1 #string was found
-            else:
-                #fill the title
-                index1 = m.find('href="./cat')
-                index2 = m.find('href="./id')
-                index3 = m.find('</a><br')
-                index4 = m.find('id/')
-                index5 = m.find('">')
-                index6 = m.find('"',index4)
-                if index1 != -1 or index2 != -1:
-                    if index3 != -1:
-                        tmp = CMediaItem() #create new item
-                        tmp.player = self.player
-                        
-                        if index4 != -1:
-                            value = m[index4+3:index6]
-                            tmp.URL = 'http://video.stage6.com/' + value + '/.divx'
-                            tmp.thumb = 'http://images.stage6.com/video_images/' + value + 't.jpg'
-
-                            value = m[index5+2:index3]
-                            tmp.name = value
-
-                            counter = counter + 1
-                            tmp.type = 'video'
-
-                        else:
-                            value = m[index1+7:index5]
-                            index7 = self.URL.find('/', 7)
-                            tmp.URL = self.URL[:index7] + value
-
-                            value = m[index5+2:index3]
-                            tmp.name = value                            
-
-                            counter = counter + 1
-                            tmp.type = 'html_body_sidebar'
-                   
-                        self.list.append(tmp)
-                        counter = counter + 1
-                elif counter > 1:
-                    index = m.find('</div>')
-                    if index != -1:
-                        return 0 #we are done
-
-        return 0
-
     ######################################################################
     # Description: Loads html elements from the Youtube website
     # Parameters : filename=URL or local file
@@ -492,7 +409,7 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html_youtube(self, filename='', mediaitem=CMediaItem(), proxy=False):
+    def load_html_youtube(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
         if filename != '':
             self.URL = filename
         else:
@@ -580,107 +497,6 @@ class CPlayList:
         return 0
 
     ######################################################################
-    # Description: Loads html elements from the Stage6 website
-    # Parameters : filename=URL or local file
-    #              mediaitem=CMediaItem object to load    
-    # Return     : 0=succes, 
-    #              -1=invalid playlist version, 
-    #              -2=could not open playlist
-    ######################################################################
-    def load_html_stage6(self, filename='', mediaitem=CMediaItem(), proxy=False):
-        if filename != '':
-            self.URL = filename
-        else:
-            self.URL = mediaitem.URL
-        
-        loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
-        if loader.state != 0:
-            return -2
-        filename = loader.localfile
-        
-        try:
-            f = open(filename, 'r')
-            data = f.read()
-            f.close()
-        except IOError:
-            return -2
-        
-        #defaults
-        self.version = plxVersion
-        self.background = mediaitem.background
-        self.logo = 'none'
-        self.title = 'Stage6' + ' - ' + mediaitem.name
-        self.player = mediaitem.player
-        #clear the list
-        del self.list[:]
-        
-        #parse playlist entries
-        index1 = 0
-        while index1 != -1:
-            index1 = data.find('class=\'video\'',index1+1)
-            if index1 != -1:
-                time=''
-                title=''
-                id=''
-                index2 = data.find('class=\'video-overlay\'', index1) #time indication
-                if index2 != -1:
-                    index3 = data.find('</div>',index2)
-                    if index3 != -1:
-                        index4 = data.rfind('</acronym>', index2, index3)                    
-                        if index4 == -1:
-                            time = data[index2+22:index3]
-                        else:
-                            time = data[index4+10:index3]
-
-                #Get the movie title and ID
-                index2 = data.find('class=\'video-title\'', index1) #title
-                if index2 != -1:
-                    index3 = data.find('</div>',index2)
-                    if index3 != -1:
-                        index4 = data.find('title=',index2, index3)
-                        if index4 != -1:
-                            index5 = data.find('\'',index4+7, index3)
-                            if index5 != -1:
-                                title = data[index4+7:index5]
-                                title = title.replace('&#39;',"\'")
-
-                        #Get the movie ID
-                        index4 = data.find('/video/',index2, index3)
-                        if index4 != -1:
-                            index5 = data.find('/',index4+7, index3)
-                            if index5 != -1:
-                                id = data[index4+7:index5]
-                if id != '': #add only if valid ID found
-                    tmp = CMediaItem() #create new item
-                    tmp.type = 'video'
-                    tmp.name = title + ' ' + '(' + time + ')'
-                    tmp.URL = 'http://video.stage6.com/' + id + '/.divx'
-                    tmp.thumb = 'http://images.stage6.com/video_images/' + id + 't.jpg'
-                    tmp.player = self.player
-                    self.list.append(tmp)
-
-        #check if there is a next page in the html
-        index1 = data.find('class=\'pagination-number pagination-right\'')
-        if index1 != -1:
-            index2 = data.find('</div>',index1)
-            if index2 != -1:
-                index3 = data.find('href=', index1, index2)
-                if index3 != -1:
-                    index4 = data.find('\'',index3+6, index2)
-                    if index4 != -1:
-                        value = data[index3+6:index4]
-                        tmp = CMediaItem() #create new item
-                        tmp.type = 'html_stage6'
-                        tmp.name = 'Next page'
-                        tmp.player = self.player
-                        tmp.URL = 'http://www.stage6.com' + value
-                    
-                        self.list.append(tmp)                
-
-        return 0
-
-    ######################################################################
     # Description: Loads shoutcast XML file.
     # Parameters : filename=URL or local file
     #              mediaitem=CMediaItem object to load    
@@ -688,7 +504,7 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_xml_shoutcast(self, filename='', mediaitem=CMediaItem(), proxy=False):
+    def load_xml_shoutcast(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
         if filename != '':
             self.URL = filename
         else:
@@ -782,7 +598,7 @@ class CPlayList:
                     self.list.append(tmp)
                 
         return 0
-
+        
     ######################################################################
     # Description: Loads Quicksilverscreen HTML.
     # Parameters : filename=URL or local file
@@ -791,7 +607,7 @@ class CPlayList:
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html_QSScreen(self, filename='', mediaitem=CMediaItem(), proxy=False):
+    def load_xml_applemovie(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
         if filename != '':
             self.URL = filename
         else:
@@ -806,6 +622,7 @@ class CPlayList:
         try:
             f = open(filename, 'r')
             data = f.read()
+            data = data.split('</movieinfo>')
             f.close()
         except IOError:
             return -2
@@ -814,73 +631,99 @@ class CPlayList:
         self.version = plxVersion
         self.background = mediaitem.background
         self.logo = 'none'
-        self.title = 'QuickSilverScreen' + ' - ' + mediaitem.name
+        self.title = 'Apple Movie Trailers'
         self.player = mediaitem.player
         #clear the list
         del self.list[:]
-
-        if mediaitem.type == 'html_qsscreen_thumb':
-            #parse playlist entries from page containing thumb images
-            entries = data.split('</table>')
-            for m in entries:
-                index1 = m.find("src=\"http://images.stage6.com/video_images/")
-                if index1 != -1: #valid entry
-                    index2 = m.find(".", index1+43)
-                    index3 = m.find("\"", index1+43)
-                    if index2 != -1 and index3 != -1:
-                        tmp = CMediaItem() #create new item
-                        tmp.type = 'video'
-                        tmp.player = self.player
-                    
-                        tmp.thumb = "http://images.stage6.com/video_images/" + m[index1+43:index3]
-                        tmp.URL= "http://video.stage6.com/" + m[index1+43:index2-1] + "/.divx"
-                    
-                        #Find the name
-                        index4 = m.rfind("href=\"watch?video=")
-                        if index4 != -1:
-                            index5 = m.find("\">", index4)
-                            index6 = m.find("</a>", index4)
-                            if index5 != -1 and index6 != -1:
-                                tmp.name = m[index5+2:index6]
-                    
-                        self.list.append(tmp)
-                    
-            #check if there is a next page in the html
-            index1 = data.rfind('class=\"nextpage\"')
-            if index1 != -1:
-                index2 = data.find('>></a></li>',index1)
+        
+        #parse playlist entries 
+        for m in data:
+            #fill the title
+            index = m.find('<title>')
+            if index != -1:
+                #create a new entry
+                tmp = CMediaItem() #create new item
+                tmp.type = 'video'
+            
+                index2 = m.find('</title>')
                 if index2 != -1:
-                    index3 = data.find('href=', index1, index2)
-                    if index3 != -1:
-                        index4 = data.find('\"',index3+6, index2)
-                        if index4 != -1:
-                            value = data[index3+6:index4]
-                            tmp = CMediaItem() #create new item
-                            tmp.type = 'html_qsscreen_thumb'
-                            tmp.name = 'Next page'
-                            tmp.player = self.player
-                            tmp.URL = 'http://quicksilverscreen.com/' + value
-                    
-                            self.list.append(tmp)
-                            
-        else: #must be 'html_qsscreen_list'
-            lines = data.split('\n')   
-            for m in lines:
-                if m.find("<td class=\"communityColumn videoInfoContainer\">") != -1:
-                    break
-                index1 = m.find("href=\"videos?c=")
-                if index1 != -1:
-                    index2 = m.find("\"",index1+15)
-                    index3 = m.find("</a><br/>", index1+15)
-                    if index2 != -1 and index3 != -1:
+                    value = m[index+7:index2]
+                    tmp.name = value
+
+                #fill the release date
+                index = m.find('<releasedate>')
+                if index != -1:
+                    index2 = m.find('</releasedate>')
+                    if index2 != -1:
+                        value = m[index+13:index2]
+                        tmp.name = tmp.name + "  - (Release Date: " + value + ")"
+
+                #fill the thumb
+                index = m.find('<location>')
+                if index != -1:
+                    index2 = m.find('</location>')
+                    if index2 != -1:
+                        value = m[index+10:index2]
+                        tmp.thumb = value
+
+                #fill the URL
+                index = m.find('<preview>')
+                if index != -1:
+                    index2 = m.find('</large>')
+                    if index2 != -1:
+                        index3 = m.find('http', index, index2)
+                        if index3 != -1:
+                            value = m[index3:index2]
+                            tmp.URL = value
+
+                self.list.append(tmp)
+                
+        return 0        
+
+    ######################################################################
+    # Description: Loads the PLX files from a directory on the local disk. 
+    #              Filename indicates the root directory to scan. Also the
+    #              subdirectorys will be scanned for PLX files.
+    # Parameters : filename=URL or local file (dir name)
+    #              mediaitem=CMediaItem object to load
+    # Return     : 0=succes, 
+    #              -1=invalid playlist version, 
+    #              -2=could not open playlist
+    ######################################################################
+    def load_dir(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
+        if filename != '':
+            self.URL = filename
+        else:
+            self.URL = mediaitem.URL
+
+        if self.URL[1] != ':':
+            self.URL = RootDir + self.URL
+
+        if not os.path.exists(self.URL):
+            return -2
+
+        #defaults
+        self.version = plxVersion
+        self.background = mediaitem.background
+        self.logo = 'none'
+        self.title = mediaitem.name
+        self.player = mediaitem.player
+        #clear the list
+        del self.list[:]        
+
+        #parse directory (including subdirectory) entries 
+        try:        
+            for root, dirs, files in os.walk(self.URL , topdown=False):
+                for name in files:
+                    if name[-4:] == '.plx':
                         tmp = CMediaItem() #create new item
-                        tmp.type = 'html_qsscreen_thumb'
-                        tmp.player = self.player
-                        tmp.URL = "http://quicksilverscreen.com/videos?c=" + m[index1+15:index2]
-                        #Find the name
-                        tmp.name = m[index2+2:index3]
-                        
-                        self.list.append(tmp)                                                      
+                        tmp.type = 'playlist'
+                        tmp.name = name[:-4]
+                        tmp.URL = os.path.join(root, name)
+                        self.list.append(tmp)                    
+        except IOError:
+            return -2
+
         return 0
 
     ######################################################################

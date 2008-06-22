@@ -123,4 +123,14 @@ def getFileExtension(filename):
     else:
         return ''
         
+######################################################################
+# Description: Trace function for debugging
+# Parameters : string: text string to trace
+# Return     : -
+######################################################################
+def Trace(string):
+    f = open(RootDir + "trace.txt", "w")
+    f.write(string + '\n')
+    f.close()
+        
  

@@ -41,6 +41,18 @@ myDownloadsDir = RootDir + "My Downloads\\"
 initDir = RootDir + "\\init\\"
 
 ######################################################################
+# Description: See comments in class body
+######################################################################
+class myURLOpener(urllib.FancyURLopener):
+    """Create sub-class in order to overide error 206.  This error means a
+       partial file is being sent,
+       which is ok in this case.  Do nothing with this error.
+    """
+    def http_error_206(self, url, fp, errcode, errmsg, headers, data=None):
+        pass
+
+
+######################################################################
 # Description: File downloader including progress bar. 
 ######################################################################
 class CDownLoader:
@@ -63,38 +75,45 @@ class CDownLoader:
             self.state = -1 #URL does not point to internet file.
             return
 
-        pos = URL.rfind('http://') #find last 'http' in the URL
-        loc_url = URL[pos:]
- 
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(URL)
+        if result != 0:
+            self.state = -1 #URL does not point to internet file.
+            return
+        loc_url = urlopener.loc_url
+
         #Now we try to open the URL. If it does not exist an error is
         #returned.
-        try:
-            oldtimeout=socket.getdefaulttimeout()
-            socket.setdefaulttimeout(url_open_timeout)
+#        try:
+#            oldtimeout=socket.getdefaulttimeout()
+#            socket.setdefaulttimeout(url_open_timeout)
 
-            f = urllib.urlopen(loc_url)
-            #get the size of the file in bytes
-#            size_string=f.info().getheader("Content-Length")
-            loc_url=f.geturl()
+#            values = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
+#            req = urllib2.Request(loc_url, None, values)
+#            f = urllib2.urlopen(req)
+#            loc_url=f.geturl()
+#            socket.setdefaulttimeout(oldtimeout)
 
-            socket.setdefaulttimeout(oldtimeout)
-
-        except IOError:
-            socket.setdefaulttimeout(oldtimeout)
-            self.state = -1 #failed to open URL
-            return
-
+#        except IOError:
+#            socket.setdefaulttimeout(oldtimeout)
+#            self.state = -1 #failed to open URL
+#            return
+            
         #special handing for some URL's
         pos = URL.find('http://youtube.com/v') #find last 'http' in the URL
         if pos != -1:
             ext='.flv'
         else:
-            #strip the file extension
-            pos = loc_url.rfind('.') #find last '.' in the string
+            pos = URL.find("flyupload.com")
             if pos != -1:
-                ext = loc_url[pos:] #the file extension
+                ext='.avi'
             else:
-                ext = ""
+                #strip the file extension
+                pos = loc_url.rfind('.') #find last '.' in the string
+                if pos != -1:
+                    ext = loc_url[pos:] #the file extension
+                else:
+                    ext = ""
         
         #For the local file name we use the playlist item 'name' field.
         #But this string may contain invalid characters. Therefore
@@ -129,7 +148,7 @@ class CDownLoader:
         #Check if the file already exists
         if os.path.exists(self.localfile):
             dialog = xbmcgui.Dialog()
-            if dialog.yesno("Message", "The destination file already exists, overwrite?") == False:
+            if dialog.yesno("Message", "The destination file already exists, continue?") == False:
                 self.state = -2 #cancel download
 
     ######################################################################
@@ -203,50 +222,62 @@ class CDownLoader:
         try:
             oldtimeout=socket.getdefaulttimeout()
             socket.setdefaulttimeout(url_open_timeout)
-        
-            f = urllib.urlopen(URL)
-            #get the size of the file in bytes
-            size_string=f.info().getheader("Content-Length")
 
-            if shutdown == True:
-                string = "Downloading + Shutdown " + header
+            existSize=0
+            myUrlclass = myURLOpener()
+            if os.path.exists(localfile):
+                file = open(localfile,"ab")
+                existSize = os.path.getsize(localfile)
+                #If the file exists, then only download the remainder
+                myUrlclass.addheader("User-Agent","Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)")
+                myUrlclass.addheader("Range","bytes=%s-" % existSize)
             else:
-                string = "Downloading " + header
+                #open the destination file
+                file = open(localfile, "wb")
 
-            dialog = xbmcgui.DialogProgress()
-            dialog.create(string, entry.name)
+            f = myUrlclass.open(URL)
+            #If the file exists, but we already have the whole thing, don't download again
+            size_string = f.headers['Content-Length']
+            size = int(size_string) #The remaining bytes
+            if size > 0:
+                if shutdown == True:
+                    string = "Downloading + Shutdown " + header
+                else:
+                    string = "Downloading " + header
 
-
-            #open the destination file
-            file = open(localfile, "wb")
-            bytes = 0 #bytes downloaded
-            size = int(size_string)
-            size_MB = float(size) / (1024 * 1024)
-
-            #download in chunks of 100kBytes
-            while bytes < size:
-                chunk = 100 * 1024
-                if (bytes + chunk) > size:
-                    chunk = size-bytes #remainder
-                file.write(f.read(chunk))
-                bytes = bytes + chunk
-            
-                if(dialog.iscanceled()):
-                    self.state = -2 #cancel download
-                    break
+                dialog = xbmcgui.DialogProgress()
+                dialog.create(string, entry.name)
                 
-                percent = 100 * bytes / int(size)
-                done = float(bytes) / (1024 * 1024)
-                line2 = '%.1f MB of %.1f MB copied.' % (done, size_MB)
-                dialog.update(percent, entry.name, line2)
-            
-            file.close()      
-            dialog.close()
+                bytes = existSize #bytes downloaded already
+                size = size + existSize
+                size_MB = float(size) / (1024 * 1024)
 
+                #download in chunks of 100kBytes
+                while bytes < size:
+                    chunk = 100 * 1024
+                    if (bytes + chunk) > size:
+                        chunk = size-bytes #remainder
+                    file.write(f.read(chunk))
+                    bytes = bytes + chunk
+            
+                    if(dialog.iscanceled()):
+                        self.state = -2 #cancel download
+                        break
+                
+                    percent = 100 * bytes / size
+                    done = float(bytes) / (1024 * 1024)
+                    line2 = '%.1f MB of %.1f MB copied.' % (done, size_MB)
+                    dialog.update(percent, entry.name, line2)
+                
+                dialog.close()
+                f.close()                
+            
         except IOError:
-            socket.setdefaulttimeout(oldtimeout)
+            dialog.close()
+            f.close()            
             self.state = -1 #failed to download the file
 
+        file.close()      
         socket.setdefaulttimeout(oldtimeout)
   
         #add the downloaded file to the download list

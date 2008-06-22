@@ -1,7 +1,7 @@
 #############################################################################
 #
 # Navi-X Playlist browser
-# v1.9 by rodejo (rodejo16@gmail.com)
+# v1.9.3 by rodejo (rodejo16@gmail.com)
 #
 # -v1.01  (2007/04/01) first release
 # -v1.2   (2007/05/10)
@@ -24,6 +24,15 @@
 # -v1.9 (2008/02/10)
 # -v1.9.1 (2008/02/10)
 # -v1.9.2 (2008/02/23)
+# -v1.9.3 (2008/03/xx)
+#
+# Changelog (v1.9.3)
+#   - Added download resume support
+#   - Added Apple movie trailer support.
+#   - Added new media type called 'directory'. This type retrieves all PLX-files 
+#     from a given local directory including sub-directories.
+#   - Added parsing of RSS new feeds. Link to HTML file cannot be opened.
+#   - Extended youtube search. Added sorting option.
 #
 # Changelog (v1.9.2)
 #   - Improved caching of playlists and images to improve UI performance.
@@ -84,11 +93,6 @@
 #   -Improved parsing of URL's which allows to read stage6 podcasts and 
 #    Comedy central podcasts
 #   -Replaced buttons bitmaps. More common for different backgrounds
-#
-# Changelog (v1.3):
-#   -Added "Play + Auto Next" menu option to play all files from current position
-#   -Added (foreground) Downloading functionality
-#   -Added skin.py file which contains all widget drawing.
 #
 #############################################################################
 
@@ -265,7 +269,7 @@ class MainWindow(xbmcgui.Window):
                         else:
                             if self.history_count > 0:
                                 previous = self.History[len(self.History)-1]
-                                result = self.ParsePlaylist(mediaitem=previous.mediaitem, start_index=previous.index, proxy=True)
+                                result = self.ParsePlaylist(mediaitem=previous.mediaitem, start_index=previous.index, proxy="ENABLED")
                                 if result == 0:
                                     flush = self.History.pop()
                                     self.history_count = self.history_count - 1
@@ -384,7 +388,7 @@ class MainWindow(xbmcgui.Window):
         #              reloaded or only displayed.
         # Return     : 0 on success, -1 if failed.
         ######################################################################
-        def ParsePlaylist(self, URL='', mediaitem=CMediaItem(), start_index=0, reload=True, proxy=False):
+        def ParsePlaylist(self, URL='', mediaitem=CMediaItem(), start_index=0, reload=True, proxy="CACHING"):
             #avoid recursive call of this function by setting state to busy.
             self.state_busy = 1
 
@@ -410,16 +414,14 @@ class MainWindow(xbmcgui.Window):
                     result = playlist.load_rss_20(URL, mediaitem, proxy)
                 elif type == 'rss_flickr_daily':
                     result = playlist.load_rss_flickr_daily(URL, mediaitem, proxy)
-                elif type == 'html_body_content' or type == 'html_body_sidebar':
-                    result = playlist.load_html(URL, mediaitem, type, proxy)
                 elif type == 'html_youtube':
                     result = playlist.load_html_youtube(URL, mediaitem, proxy)
-                elif type == 'html_stage6':
-                    result = playlist.load_html_stage6(URL, mediaitem, proxy)
                 elif type == 'xml_shoutcast':
                     result = playlist.load_xml_shoutcast(URL, mediaitem, proxy)
-                elif type == 'html_qsscreen_thumb' or type == 'html_qsscreen_list':
-                    result = playlist.load_html_QSScreen(URL, mediaitem, proxy)
+                elif type == 'xml_applemovie':
+                    result = playlist.load_xml_applemovie(URL, mediaitem, proxy)
+                elif type == 'directory':
+                    result = playlist.load_dir(URL, mediaitem, proxy)
                 else: #assume playlist file
                     result = playlist.load_plx(URL, mediaitem, proxy)
                 
@@ -428,7 +430,7 @@ class MainWindow(xbmcgui.Window):
                     dialog.ok("Error", "This playlist requires a newer Navi-X version")
                 elif result == -2: #error
                     dialog = xbmcgui.Dialog()
-                    dialog.ok("Error", "Playlist could not be opened.")
+                    dialog.ok("Error", "The requested file could not be opened or does not exist")
                 
                 if result != 0:
                     self.loading.setVisible(0)
@@ -460,7 +462,7 @@ class MainWindow(xbmcgui.Window):
                     self.bg.setImage(imageDir + "background.png")
                 elif m != 'previous': #URL to image located elsewhere
                     ext = getFileExtension(m)
-                    self.loader.load(m, cacheDir + "background." + ext, 8, True)
+                    self.loader.load(m, cacheDir + "background." + ext, 8, proxy="ENABLED")
                     if self.loader.state == 0:
                         self.bg.setImage(self.loader.localfile)
                 self.background = m
@@ -472,7 +474,7 @@ class MainWindow(xbmcgui.Window):
                     self.logo_visible = False
                 elif m != 'previous': #URL to image located elsewhere
                     ext = getFileExtension(m)
-                    self.loader.load(m, cacheDir + "logo." + ext, 8, True)
+                    self.loader.load(m, cacheDir + "logo." + ext, 8, proxy="ENABLED")
                     if self.loader.state == 0: #success
                         #next line is fix, makes sure logo is update.
                         self.user_logo.setVisible(0)
@@ -517,21 +519,17 @@ class MainWindow(xbmcgui.Window):
         def getPlEntryThumb(self, type):
             if type == 'rss_flickr_daily':
                 return imageDir+'icon_rss.png'
-            elif type == 'html_body_content' or type == 'html_body_sidebar':
+            elif type == 'xml_applemovie':
                 return imageDir+'icon_playlist.png'
             elif type == 'html_youtube':
                 return imageDir+'icon_playlist.png'
             elif type == 'search_youtube':
                 return imageDir+'icon_search.png'
-            elif type == 'html_stage6':
-                return imageDir+'icon_playlist.png'
-            elif type == 'search_stage6':
-                return imageDir+'icon_search.png'
             elif type == 'xml_shoutcast':
                 return imageDir+'icon_playlist.png'
             elif type == 'search_shoutcast':
                 return imageDir+'icon_search.png'
-            elif type == 'html_qsscreen_thumb' or type == 'html_qsscreen_list':
+            elif type == 'directory':
                 return imageDir+'icon_playlist.png'
                 
             return imageDir+'icon_'+str(type)+'.png'
@@ -582,24 +580,21 @@ class MainWindow(xbmcgui.Window):
                     return
                
                 mediaitem = playlist.list[pos]
-                
+            
             self.state_busy = 1                
             
             type = mediaitem.type
             if type == 'playlist' or type == 'favorite' or type == 'rss' or \
-               type == 'rss_flickr_daily' or type == 'html_body_content' or \
-               type == 'html_body_sidebar' or type == 'html_youtube' or \
-               type == 'html_stage6' or type == 'xml_shoutcast' or\
-               type == 'html_qsscreen_thumb' or type == 'html_qsscreen_list':
+               type == 'rss_flickr_daily' or type == 'directory' or \
+               type == 'html_youtube' or type == 'xml_shoutcast' or \
+               type == 'xml_applemovie':
                 #add new URL to the history array
                 tmp = CHistorytem() #new history item
                 tmp.index = self.list.getSelectedPosition()
                 tmp.mediaitem = self.mediaitem
 
                 #exception case: Do not add Youtube pages to history list
-                if self.mediaitem.type == 'html_youtube' or \
-                   self.mediaitem.type == 'html_stage6' or\
-                   self.mediaitem.type == 'html_qsscreen_thumb':
+                if self.mediaitem.type == 'html_youtube':
                     append = False
             
                 self.pl_focus = self.playlist #switch back to main list
@@ -632,8 +627,14 @@ class MainWindow(xbmcgui.Window):
                 self.OpenTextFile(mediaitem.URL)
             elif type == 'script':
                 self.InstallScript(mediaitem.URL)
-            elif type == 'search_youtube' or type == 'search_stage6' or type == 'search_shoutcast':
+            elif type == 'search_youtube' or type == 'search_shoutcast':
                 self.PlaylistSearch(mediaitem, append)
+            elif type == 'html':
+                #at this moment we do nothing with HTML files
+                pass
+            else:
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Playlist format error", '"' + type + '"' + " is not a valid type.")
                 
             self.state_busy = 0
 
@@ -644,6 +645,10 @@ class MainWindow(xbmcgui.Window):
         ######################################################################
         def myPlayerChanged(self, state):
             #At this moment nothing to handle.
+            pass
+
+
+        def viewHTML(self, URL):
             pass
 
         ######################################################################
@@ -711,7 +716,7 @@ class MainWindow(xbmcgui.Window):
                 ext = getFileExtension(URL)
 
                 if URL[:4] == 'http':
-                    self.loader.load(URL, localfile + ext)
+                    self.loader.load(URL, localfile + ext, proxy="DISABLED")
                     if self.loader.state == 0:
                         xbmc.executebuiltin('xbmc.slideshow(' + imageCacheDir + ')')
                     else:
@@ -745,7 +750,7 @@ class MainWindow(xbmcgui.Window):
                             localfile=imageCacheDir+'%d.'%(count)
                             URL = playlist.list[i].URL
                             ext = getFileExtension(URL)
-                            self.loader.load(URL, localfile + ext)
+                            self.loader.load(URL, localfile + ext, proxy="DISABLED")
                             if self.loader.state == 0:
                                 count = count + 1
 
@@ -804,39 +809,23 @@ class MainWindow(xbmcgui.Window):
                     fn = self.searchstring.replace(' ','+')
                     URL = 'http://www.youtube.com/results?search_query='
                     URL = URL + fn
-                    URL = URL + '&search=Search'
+                    
+                    #ask the end user how to sort
+                    possibleChoices = ["Relevance", "Date Added", "View Count", "Rating"]
+                    dialog = xbmcgui.Dialog()
+                    choice = dialog.select("Sort by", possibleChoices)
+
+                    #validate the selected item
+                    if choice == 1: #Date Added
+                        URL = URL + '&search_sort=video_date_uploaded'
+                    elif choice == 2: #View Count
+                        URL = URL + '&search_sort=video_view_count'
+                    elif choice == 3: #Rating
+                        URL = URL + '&search_sort=video_avg_rating'
         
                     mediaitem=CMediaItem()
                     mediaitem.URL = URL
                     mediaitem.type = 'html_youtube'
-                    mediaitem.name = 'search results: ' + self.searchstring
-                    mediaitem.player = item.player
-
-                    #create history item
-                    tmp = CHistorytem()
-                    tmp.index = self.list.getSelectedPosition()
-                    tmp.mediaitem = self.mediaitem
-
-                    self.pl_focus = self.playlist
-                    result = self.ParsePlaylist(mediaitem=mediaitem)
-                
-                    if result == 0 and append == True: #successful
-                        self.History.append(tmp)
-                        self.history_count = self.history_count + 1
-            elif item.type == 'search_stage6':
-                keyboard = xbmc.Keyboard(self.searchstring, 'Stage6 Search')
-                keyboard.doModal()
-                
-                if (keyboard.isConfirmed() == True):
-                    self.searchstring = keyboard.getText()
-                    
-                    fn = self.searchstring.replace(' ','&plus;')
-                    URL = 'http://www.stage6.com/videos/search:'
-                    URL = URL + fn
-        
-                    mediaitem=CMediaItem()
-                    mediaitem.URL = URL
-                    mediaitem.type = 'html_stage6'
                     mediaitem.name = 'search results: ' + self.searchstring
                     mediaitem.player = item.player
 
@@ -880,8 +869,35 @@ class MainWindow(xbmcgui.Window):
                     if result == 0 and append == True: #successful
                         self.History.append(tmp)
                         self.history_count = self.history_count + 1
+            elif item.type == 'search_flickr':
+                keyboard = xbmc.Keyboard(self.searchstring, 'Flickr Search')
+                keyboard.doModal()
+                
+                if (keyboard.isConfirmed() == True):
+                    self.searchstring = keyboard.getText()
 
-            
+                    fn = self.searchstring.replace(' ','+')
+                    URL = 'http://www.flickr.com/search/?q='
+                    URL = URL + fn
+        
+                    mediaitem=CMediaItem()
+                    mediaitem.URL = URL
+                    mediaitem.type = 'html_flickr'
+                    mediaitem.name = 'search results: ' + self.searchstring
+                    mediaitem.player = item.player
+
+                    #create history item
+                    tmp = CHistorytem()
+                    tmp.index = self.list.getSelectedPosition()
+                    tmp.mediaitem = self.mediaitem
+
+                    self.pl_focus = self.playlist
+                    result = self.ParsePlaylist(mediaitem=mediaitem)
+                
+                    if result == 0 and append == True: #successful
+                        self.History.append(tmp)
+                        self.history_count = self.history_count + 1
+
         ######################################################################
         # Description: Handles selection of 'Browse' button.
         # Parameters : -
@@ -1117,8 +1133,9 @@ class MainWindow(xbmcgui.Window):
                     URL = self.downloadslist.list[pos].URL
                     dialog = xbmcgui.Dialog()                 
                     if dialog.yesno("Message", "Delete file from disk?") == True:
-                        os.remove(URL)
-                        self.downloadslist.remove(pos)
+                        if os.path.exists(URL): 
+                            os.remove(URL)
+                        selfs.downloadslist.remove(pos)
                         self.downloadslist.save(RootDir + downloads_complete)
                         self.ParsePlaylist(reload=False) #display download list
 
@@ -1269,22 +1286,6 @@ class MainWindow(xbmcgui.Window):
             f.write(self.dwnlddir + '\n')
             f.close()
             
-        ######################################################################
-        # Description: Get the file extension of a URL
-        # Parameters : filename=local path + file name
-        # Return     : -
-        ######################################################################
-#        def getFileEntension(self, filename):
-#            ext_pos = filename.rfind('.') #find last '.' in the string
-#            if ext_pos != -1:
-#                ext_pos2 = filename.rfind('?', ext_pos) #find last '.' in the string
-#                if ext_pos2 != -1:
-#                    return filename[ext_pos+1:ext_pos2]
-#                else:
-#                    return filename[ext_pos+1:]
-#            else:
-#                return ''
-                
         ######################################################################
         # Description: Deletes all files in a given folder and sub-folders.
         #              Note that the sub-folders itself are not deleted.

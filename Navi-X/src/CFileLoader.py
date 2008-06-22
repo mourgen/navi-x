@@ -148,21 +148,24 @@ class CFileLoader:
     #              timeout(optional)=Funtion time out time.
     # Return     : -
     ######################################################################
-    def load(self, URL, localfile, timout=url_open_timeout, proxy=False):
+    def load(self, URL, localfile, timout=url_open_timeout, proxy="CACHING"):
         
         if URL[:4] == 'http':
-            sum = 0
-            #calculate hash of URL
-            for i in range(len(URL)):
-                sum = sum + ord(URL[i])
+            sum_str = ''
+            if proxy != "DISABLED":
+                sum = 0
+                #calculate hash of URL
+                for i in range(len(URL)):
+                    sum = sum + ord(URL[i])
+                    sum_str = str(sum)
 
             ext_pos = localfile.rfind('.') #find last '.' in the string
             if ext_pos != -1:
-                localfile = localfile[:ext_pos] + str(sum) + localfile[ext_pos:]
+                localfile = localfile[:ext_pos] + sum_str + localfile[ext_pos:]
             else:
-                localfile = localfile + str(sum)
+                localfile = localfile + sum_str
 
-            if (proxy == False) or ((proxy == True) and (os.path.exists(localfile) == False)): 
+            if (not((proxy == "ENABLED") and (os.path.exists(localfile) == True))): 
                 try:
                     oldtimeout=socket.getdefaulttimeout()
                     socket.setdefaulttimeout(timout)
@@ -201,21 +204,24 @@ class CFileLoader2:
     # Parameters : URL=source, localfile=destination
     # Return     : -
     ######################################################################
-    def load(self, URL, localfile, timout=url_open_timeout, proxy=False):
+    def load(self, URL, localfile, timout=url_open_timeout, proxy="CACHING"):
         
         if URL[:4] == 'http':
-            sum = 0
-            #calculate hash of URL
-            for i in range(len(URL)):
-                sum = sum + ord(URL[i])
+            sum_str = ''
+            if proxy != "DISABLED":
+                sum = 0
+                #calculate hash of URL
+                for i in range(len(URL)):
+                    sum = sum + ord(URL[i])
+                    sum_str = str(sum)
 
             ext_pos = localfile.rfind('.') #find last '.' in the string
             if ext_pos != -1:
-                localfile = localfile[:ext_pos] + str(sum) + localfile[ext_pos:]
+                localfile = localfile[:ext_pos] + sum_str + localfile[ext_pos:]
             else:
-                localfile = localfile + str(sum)
+                localfile = localfile + sum_str
 
-            if (proxy == False) or ((proxy == True) and (os.path.exists(localfile) == False)): 
+            if (not((proxy == "ENABLED") and (os.path.exists(localfile) == True))): 
                 try:
                     oldtimeout=socket.getdefaulttimeout()
                     socket.setdefaulttimeout(timout)

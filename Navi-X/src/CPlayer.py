@@ -107,10 +107,10 @@ class CPlayer(xbmc.Player):
         return 0
         
     def play_URL(self, URL):
-#http://www.shoutcast.com/sbin/newxml.phtml
-#http://www.shoutcast.com/sbin/newxml.phtml?search=blah
-#http://www.shoutcast.com/sbin/newxml.phtml?genre=Rock
-#http://www.shoutcast.com/sbin/newxml.phtml?random=20    
+        #check if the URL is empty or not
+        if URL == '':
+            return -1
+    
         ext = getFileExtension(URL)
         if ext == 'pls' or ext == 'm3u':
             loader = CFileLoader() #file loader

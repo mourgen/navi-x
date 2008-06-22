@@ -42,7 +42,7 @@ PAL60_16x9 = 9      #(720x480, 16:9, pixels are 5760:4739)
 
 ######################################################################
 Version='1' #program version
-SubVersion='9.2'
+SubVersion='9.3'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
