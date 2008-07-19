@@ -2,43 +2,51 @@
 version=1
 #Second line indicates background image.
 background=default
-#background=http://home.planet.nl/~jon70928/newyear.jpg
+#background=http://www.navi-x.nl/playlists/newyear.jpg
 #third line indicates the title
 title=Navi-X Home
 #logo=none
-#logo=http://home.planet.nl/cgi-bin/Count.cgi?expires=0|sh=1|st=1|incr=T|df=jon70928.dat
-#logo=http://members.lycos.nl/navix/webcount.php?fn=http://home.planet.nl/cgi-bin/Count.cgi?expires=0|sh=1|st=1|incr=T|df=jon70928.dat
 logo=http://members.lycos.nl/navix/webcount_png.php?fn=logo.png
-#logo=http://home.planet.nl/~jon70928/logo2.jpg
 #Next the playlist content
+#
 type=playlist
 name=Navi-X Media Portal
 thumb=default
-URL=http://home.planet.nl/~jon70928/med_port.plx
+URL=http://www.navi-x.nl/playlists/med_port.plx
+#URL=http://www.navi-x.nl/playlists/med_port.plx
+#
+#type=playlist
+#name=My Playlists
+#thumb=default
+#URL=My Playlists\My Playlists.plx
+#
+type=directory
+name=My Playlists (Q:\scripts\Navi-X\My Playlists)
+thumb=default
+URL=Q:\scripts\Navi-X\My Playlists
 #
 type=playlist
-name=My Playlists
+name=Navi-X scripts + skins (2008/06/15 Navi-X 1.9.3)
 thumb=default
-URL=My Playlists\My Playlists.plx
+URL=http://www.navi-x.nl/playlists/scripts/scripts.plx
 #
 type=playlist
 name=Examples
 thumb=default
 URL=examples\examples.plx
 #
-
-type=image
-name=Started Navi-X Google project page allowing other developers to join the project.
-thumb=default
-URL=http://home.planet.nl/~jon70928/googlenavi-x.jpg
-#
-type=text
-name=News... (Sun, Feb 17 2008)
-thumb=default
-URL=http://home.planet.nl/~jon70928/news.txt
+#type=image
+#name=Started Navi-X Google project page allowing other developers to join the project.
+#thumb=default
+#URL=http://www.navi-x.nl/playlists/googlenavi-x.jpg
 #
 type=text
 name=People requested...
 thumb=default
-URL=http://home.planet.nl/~jon70928/wishlist.txt
+URL=http://www.navi-x.nl/playlists/wishlist.txt
+#
+type=text
+name=Latest News...
+thumb=default
+URL=http://www.navi-x.nl/playlists/news.txt
 #
