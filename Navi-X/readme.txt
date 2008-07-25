@@ -1,25 +1,17 @@
-Welcome to Navi-X v1.9.3
+Welcome to Navi-X v2.0.1
 
-Changelog (v1.9.3)
-- Started development again.
-- Added download resume support.
-- Added Apple movie trailer support.
-- Added new media type called 'directory'. This type retrieves all PLX-files
-from a given local directory including sub-directories.
-- Added parsing of RSS new feeds. Link to HTML file cannot be opened.
-- Extended youtube search. Added sorting option.
+Changelog (v2.0.1)
+- Fixed Youtube parser according site changes.
 
-Changelog (v1.9.2)
-- Improved caching of playlists and images to improve UI performance.
-- Slightly increased the top left user logo.
-- Moved to new server www.navi-x.nl
-
-Changelog (v1.9)
-- New default skin based on Mayhem III.
-- QuickSilverScreen support.
-- Shoutcast support including search function.
-- All skinning is now handled in new skin.py file.
-  Makes the skin independent of the core functionality. 
+Changelog (v2.0)
+- Youtube: Switched to high resolution mode. Also download possible.
+- Added search history. Remembers last searches.
+- Updated context menu options (Play... and View...).
+- Added view mode option in menu: Ascencding/Descencing
+- Play using menu accessible via Y-button.
+- Move items up and down the favorite list.
+- New playlist option called 'playmode. Example: 
+   playmode=autonext #plays all entries in playlist
 
 Navi-X is tested using the T3CH build. If you are facing problems
 and are using a different XBMC then please let me know. Thanks.
