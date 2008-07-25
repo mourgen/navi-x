@@ -35,7 +35,7 @@ name=Examples
 thumb=default
 URL=examples\examples.plx
 #
-#type=image
+##type=image
 #name=Started Navi-X Google project page allowing other developers to join the project.
 #thumb=default
 #URL=http://navi-x.googlecode.com/svn/trunk/Playlists/googlenavi-x.jpg
