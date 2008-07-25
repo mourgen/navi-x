@@ -2,16 +2,22 @@
 version=1
 #Second line indicates background image.
 background=default
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/podcast.jpg
 #third line indicates the title
 #
 title=Comedy
 #
 #Next the playlist content
 #
-type=playlist
-name=Comedy Central
+#type=playlist
+#name=Comedy Central
+3thumb=default
+#URL=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/Comedy/ComCentral.plx
+#
+type=rss
+name=HotForWords
 thumb=default
-URL=http://home.planet.nl/~jon70928/podcasts/Comedy/ComCentral.plx
+URL=http://hotforwords.wizzard.libsynpro.com/rss
 #
 type=rss
 name=Ask A Ninja
@@ -33,10 +39,10 @@ name=Boing Boing TV
 thumb=default
 URL=http://feeds.boingboing.net/boingboing/tv
 #
-type=rss
-name=Dilbert...
-thumb=default
-URL=http://feeds.feedburner.com/tapestrydilbert 
+#type=rss
+#name=Dilbert...
+#thumb=default
+#URL=http://feeds.feedburner.com/tapestrydilbert 
 #
 type=rss
 name=Lynchland
@@ -53,10 +59,10 @@ name=Happy Tree Friends
 thumb=default
 URL=http://podcast.happytreefriends.com/htfrss.xml
 #
-type=rss
-name=Joe Cartoon
-thumb=default
-URL=http://www.joecartoon.com/files/joecartoon.xml
+#type=rss
+#name=Joe Cartoon
+#thumb=default
+#URL=http://www.joecartoon.com/files/joecartoon.xml
 #
 type=rss
 name=The Monkey Box - Sketch Comedy

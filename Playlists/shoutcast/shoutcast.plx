@@ -1,7 +1,7 @@
 version=7
 background=default
-logo=http://streamingtvandradio.com/logo_shoutcast.gif
 title=Shoutcast - Genre list
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/shoutcast/shoutcast.jpg
 player=default
 #
 type=search_shoutcast

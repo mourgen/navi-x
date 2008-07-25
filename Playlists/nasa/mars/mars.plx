@@ -8,4 +8,4 @@ title=Mars Rover Mission
 type=playlist
 name=Spirit Paronamas Images
 thumb=default
-URL=http://home.planet.nl/~jon70928/nasa/mars/spirit-images.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/nasa/mars/spirit-images.plx

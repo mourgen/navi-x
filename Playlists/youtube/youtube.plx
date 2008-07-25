@@ -1,7 +1,7 @@
 version=5
 #playlist properties:
 background=default
-logo=http://home.planet.nl/~jon70928/youtube/logo.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
 title=Youtube videos
 #
 type=search_youtube
@@ -10,11 +10,11 @@ player=mplayer
 #
 type=playlist
 name=Popular Channels
-URL=http://home.planet.nl/~jon70928/youtube/Channels.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/Channels.plx
 #
 type=playlist
 name=Most Viewed
-URL=http://home.planet.nl/~jon70928/youtube/MV.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/MV.plx
 #
 type=html_youtube
 name=Most Recent
@@ -23,27 +23,27 @@ player=mplayer
 #
 type=playlist
 name=Top Rated
-URL=http://home.planet.nl/~jon70928/youtube/TR.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/TR.plx
 #
 type=playlist
 name=Top Favorites
-URL=http://home.planet.nl/~jon70928/youtube/TF.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/TF.plx
 #
 type=playlist
 name=Most Discussed
-URL=http://home.planet.nl/~jon70928/youtube/MD.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/MD.plx
 #
 type=playlist
 name=Most Linked
-URL=http://home.planet.nl/~jon70928/youtube/ML.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/ML.plx
 #
 type=playlist
 name=Most Responded
-URL=http://home.planet.nl/~jon70928/youtube/MR.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/MR.plx
 #
 type=playlist
 name=Previously Popular
-URL=http://home.planet.nl/~jon70928/youtube/PP.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/PP.plx
 #
 type=html_youtube
 name=Recently Featured

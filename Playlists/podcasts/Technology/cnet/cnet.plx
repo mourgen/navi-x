@@ -8,39 +8,76 @@ title=CNET home
 #type=playlist
 #name=CNET Tech Shows
 #thumb=default
-#URL=http://home.planet.nl/~jon70928/podcasts/Technology/cnet/vcast_ts.plx
+#URL=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/Technology/cnet/vcast_ts.plx
 #
 type=playlist
 name=Audio podcast 
 thumb=default
-URL=http://home.planet.nl/~jon70928/podcasts/Technology/cnet/podcast.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/Technology/cnet/podcast.plx
 #
 type=rss
-name=CNET Loaded (Direct streaming)
-thumb=default
-URL=http://feeds.feedburner.com/cnet/loaded
-#
-type=rss
-name=All Video podcasts (Download first, then watch)
+name=All Video podcasts
 thumb=default
 URL=http://feeds.feedburner.com/allcnetvideopodcasts
 player=dvdplayer
 #
 type=rss
-name=The Buzz Report from CNET (Download first, then watch)
+name=CNET Loaded
+thumb=default
+URL=http://feeds.feedburner.com/cnet/loaded
+player=dvdplayer
+#
+type=rss
+name=Car Tech Video
+thumb=default
+URL=http://feeds.feedburner.com/cnet/cartechvideo
+player=dvdplayer
+#
+type=rss
+name=CNET News
+thumb=default
+URL=http://feeds.feedburner.com/cnet/news
+player=dvdplayer
+#
+type=rss
+name=CNET's Top5
+thumb=default
+URL=http://feeds.feedburner.com/cnet/top5
+player=dvdplayer
+#
+type=rss
+name=Crossfade TV
+thumb=default
+URL=http://feeds.feedburner.com/cnet/crossfadetv
+player=dvdplayer
+#
+type=rss
+name=Mailbag
+thumb=default
+URL=http://feeds.feedburner.com/cnet/mailbag
+player=dvdplayer
+#
+type=rss
+name=QuickCast
+thumb=default
+URL=http://feeds.feedburner.com/cnet/quickcast
+player=dvdplayer
+#
+type=rss
+name=The Buzz Report from CNET
 thumb=default
 #URL=http://feeds.feedburner.com/cnet/buzzreport
 URL=http://www.cnet.com/av/vcast/buzz_video.xml
 player=dvdplayer
 #
 type=rss
-name=CNET Live (Download first, then watch)
+name=CNET Live
 thumb=default
 URL=http://feeds.feedburner.com/cnet/cnetlive
 player=dvdplayer
 #
 type=rss
-name=Crave from CNET (Download first, then watch)
+name=Crave from CNET
 thumb=default
 URL=http://crave.cnet.com/av/vcast/crave.xml
 player=dvdplayer

@@ -1,11 +1,17 @@
 version=5
 #playlist properties:
 background=previous
-logo=http://home.planet.nl/~jon70928/youtube/logo.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
 title=Youtube Channels
 #
 type=html_youtube
-name=NBC
+name=Sxephil's Videos
+thumb=http://i.ytimg.com/vi/vB5G025s0cg/default.jpg
+URL=http://www.youtube.com/profile_videos?user=sxephil&p=r
+player=mplayer
+#
+type=html_youtube
+name=NBA
 thumb=http://i.ytimg.com/vi/5RoNoAIimVI/default.jpg
 URL=http://www.youtube.com/profile_videos?user=NBA&p=r
 player=mplayer

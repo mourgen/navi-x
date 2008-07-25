@@ -2,6 +2,7 @@
 version=1
 #Second line indicates background image.
 background=default
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/podcast.jpg
 #third line indicates the title
 #
 title=Science & Medicine
@@ -11,7 +12,7 @@ title=Science & Medicine
 type=playlist
 name=Discovery Channel
 thumb=default
-URL=http://home.planet.nl/~jon70928/podcasts/Science/discovery.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/Science/discovery.plx
 #
 type=rss
 name=The rest of Everest

@@ -2,9 +2,30 @@
 version=1
 #Second line indicates background image.
 background=default
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/Technology/g4tv.jpg
 #third line indicates the title
 title=G4TV
 #Next the playlist content
+type=rss
+name=Women of the Web
+thumb=default
+URL=http://www.g4tv.com/attackoftheshow/podcasts/32/AOTS_Women_of_the_Web.xml
+#
+type=rss
+name=Tech News Countdown
+thumb=default
+URL=http://www.g4tv.com/wii/podcasts/41/G4_Tech_News_Countdown.xml
+#
+type=rss
+name=ATN After Hours
+thumb=default
+URL=http://www.g4tv.com/10play/podcasts/43/Around_the_Net_After_Hours_Edition.xml
+#
+type=rss
+name=Sessler's Soapbox
+thumb=default
+URL=http://www.g4tv.com/thepile/podcasts/39/Sesslers_Soapbox.xml
+#
 type=rss
 name=Around the Net
 thumb=default

@@ -2,6 +2,7 @@
 version=1
 #Second line indicates background image.
 background=default
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/podcast.jpg
 #third line indicates the title
 #
 title=News & Politics
@@ -11,7 +12,7 @@ title=News & Politics
 type=playlist
 name=CNN
 thumb=default
-URL=http://home.planet.nl/~jon70928/podcasts/News/CNN.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/News/CNN.plx
 #
 type=rss
 name=AFN Europe

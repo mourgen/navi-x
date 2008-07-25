@@ -1,7 +1,7 @@
 version=5
 #playlist properties:
 background=previous
-logo=http://home.planet.nl/~jon70928/youtube/logo.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
 title=Most Responsed
 #
 type=html_youtube

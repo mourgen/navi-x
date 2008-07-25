@@ -19,5 +19,5 @@ URL=http://www.flourish.org/news/flickr-daily-interesting-one.xml
 type=text
 name=Read me
 thumb=default
-URL=http://www.navi-x.nl/playlists/flickr/readme.txt
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/flickr/readme.txt
 #

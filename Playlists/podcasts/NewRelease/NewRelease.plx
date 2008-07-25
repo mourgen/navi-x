@@ -7,6 +7,26 @@ title=New Releases
 #Next the playlist content
 #
 type=rss
+name=TrailerCast (HD 420p)
+thumb=default
+URL=http://feeds.feedburner.com/TrailercastHd480p?format=xml
+#
+type=rss
+name=TrailerCast (Large mov)
+thumb=default
+URL=http://feeds.feedburner.com/TrailercastLargeMov?format=xml
+#
+type=rss
+name=Hak5
+thumb=default
+URL=http://www.hak5.org/rss/xvid.xml
+#
+type=rss
+name=Control Point (Team Fortress 2 Audio Podcast)
+thumb=default
+URL=http://feeds.feedburner.com/controlpoint?format=xml
+#
+type=rss
 name=Internet Superstar
 thumb=default
 URL=http://revision3.com/internetsuperstar/feed/xvid-large
@@ -21,14 +41,14 @@ name=Democracy Now!
 thumb=default
 URL=http://www.democracynow.org/podcast-video.xml
 #
-type=rss
-name=Alex Jones Show Podcast
-thumb=default
-URL=http://xml.nfowars.net/Alex.rss
+#type=rss
+#name=Alex Jones Show Podcast
+#thumb=default
+#URL=http://xml.nfowars.net/Alex.rss
 #
-type=rss
-name=Prisonplanet Podcast
-thumb=default
-URL=http://www.prisonplanet.tv/feed.xml
+#type=rss
+#name=Prisonplanet Podcast
+#thumb=default
+#URL=http://www.prisonplanet.tv/feed.xml
 #
 

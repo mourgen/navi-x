@@ -9,7 +9,7 @@ title=NASA TV
 type=text
 name=Regular Daily Schedule (Public Channel) 
 thumb=default
-URL=http://home.planet.nl/~jon70928/nasa/nasatv/daily_public.txt
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/nasa/nasatv/daily_public.txt
 #
 #type=video
 #name= (NEEDS FIXING) NASA Public Channel stream 1 (720x540, 2.3Mbps)
