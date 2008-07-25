@@ -44,9 +44,11 @@ class CPlayList:
     def __init__(self):
         self.version = '0'
         self.background = 'default'
+        self.logo = 'none'
         self.title = ''
         self.URL = ''
         self.player = 'default'
+        self.playmode = 'default'
         self.list = []
     
     ######################################################################
@@ -111,11 +113,12 @@ class CPlayList:
             return -2
         
         #defaults
-        self.version = '0'
+        self.version = '-1'
         self.background = mediaitem.background
         self.logo = 'none'
         self.title = ''
         self.player = mediaitem.player
+        self.playmode = 'default'
         #clear the list
 #        del self.list[:]
 
@@ -141,6 +144,8 @@ class CPlayList:
                         self.logo=value
                     elif key == 'title':
                             self.title=value
+                    elif key == 'playmode':
+                            self.playmode=value
                     elif key == 'type':
                         if state == 1:
                             self.list.append(tmp)
@@ -167,12 +172,15 @@ class CPlayList:
                         tmp.player=value 
                     elif key == 'background':
                         tmp.background=value 
-                        
                     
         if state == 1:
             self.list.append(tmp)
-            
-        return 0
+        
+        #if no version ID is found then this is not a valid playlist.
+        if self.version == '-1':
+            return -2
+        
+        return 0 #successful
         
     ######################################################################
     # Description: Loads a RSS2.0 feed xml file.
@@ -738,6 +746,7 @@ class CPlayList:
         f.write('logo=' + self.logo + '\n')
         f.write('title=' + self.title + '\n')
         f.write('player=' + self.player + '\n')
+        f.write('playmode=' + self.playmode + '\n')
         f.write('#\n')
 
         for i in range(len(self.list)):

@@ -64,10 +64,10 @@ class CURLLoader:
 
                     self.f = urllib.urlopen(loc_url)
                     self.loc_url=self.f.geturl()
-                
-                    pos = self.loc_url.rfind('http://') #find last 'http' in the URL
-                    if pos != -1:
-                        self.loc_url = self.loc_url[pos:]                
+
+#                    pos = self.loc_url.rfind('http://') #find last 'http' in the URL
+#                    if pos != -1:
+#                        self.loc_url = self.loc_url[pos:]                
                 
                 except IOError:
                     self.loc_url = "" #could not open URL
@@ -77,9 +77,9 @@ class CURLLoader:
                 socket.setdefaulttimeout(oldtimeout)
                 
                 #post processing for youtube files
-                pos = URL.find('http://youtube.com/v') #find last 'http' in the URL
+                pos = URL.find('http://youtube.com') #find last 'http' in the URL
                 if pos != -1:
-                    result = self.geturl_youtube(URL)
+                    result = self.geturl_youtube(self.loc_url)
         else:
             self.loc_url = URL
         
@@ -94,6 +94,7 @@ class CURLLoader:
     ######################################################################
     def geturl_youtube(self, URL):
         #retrieve the flv file URL
+        
         pos = self.loc_url.find('video_id=') #find last 'http' in the URL
         if pos != -1:
             pos2 = self.loc_url.find('&',pos) #find last 'http' in the URL
@@ -107,7 +108,11 @@ class CURLLoader:
             else:
                 t=self.loc_url[pos:]
 
-        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t #flv file 
+#        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t #flv file 
+        #high resolution movies
+        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t+'&fmt=18'  #flv file 
+        
+#        Trace(self.loc_url)
         
         return 0
     
@@ -144,7 +149,7 @@ class CURLLoader:
         else:
             return -1 #failure
 
-#        Trace(self.loc_url)    
+#        Trace(self.loc_url)
 
         return 0
         

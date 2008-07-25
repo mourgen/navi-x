@@ -1,31 +1,16 @@
-#first line is the PLX Playlist version. Shall be '1'.
-version=1
+version=7
 #
 #playlist properties:
-background=default
-logo=none
 title=Examples
 #
 #next the playlist entries:
 type=playlist
-name=Example PLX playlist 1
-thumb=default
+name=Example 1: All media types
 URL=examples\example 1.plx
 #
 type=playlist
-name=Example PLX playlist 2
-thumb=default
+name=Example 2: background, logo and thumb
 URL=examples\example 2.plx
-#
-type=playlist
-name=Example PLX playlist 3
-thumb=default
-URL=examples\example 3.plx
-#
-type=rss
-name=New on CNET
-thumb=default
-URL=http://reviews.cnet.com/html/xml/2001-12839_7-0.xml
 #
 
 

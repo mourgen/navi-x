@@ -102,7 +102,7 @@ class CDownLoader:
         #special handing for some URL's
         pos = URL.find('http://youtube.com/v') #find last 'http' in the URL
         if pos != -1:
-            ext='.flv'
+            ext='.mp4'
         else:
             pos = URL.find("flyupload.com")
             if pos != -1:

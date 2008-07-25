@@ -43,7 +43,6 @@ initDir = RootDir + "\\init\\"
 ######################################################################
 def load_skin(window):
     #background image
-
     window.bg = xbmcgui.ControlImage(0,0,720,576, imageDir + "background.png")
     window.addControl(window.bg)
 
@@ -51,7 +50,7 @@ def load_skin(window):
     window.addControl(window.bg1)
     
     #Navi-X logo at top-right position
-    window.logo = xbmcgui.ControlImage(610,20,80,80, imageDir + "logo.png")
+    window.logo = xbmcgui.ControlImage(620,20,80,80, imageDir + "logo.png")
     window.addControl(window.logo)
 
     #user logo below the buttons

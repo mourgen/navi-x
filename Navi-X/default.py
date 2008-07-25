@@ -1,7 +1,7 @@
 #############################################################################
 #
 # Navi-X Playlist browser
-# v1.9.3 by rodejo (rodejo16@gmail.com)
+# v2.0 by rodejo (rodejo16@gmail.com)
 #
 # -v1.01  (2007/04/01) first release
 # -v1.2   (2007/05/10)
@@ -24,14 +24,24 @@
 # -v1.9 (2008/02/10)
 # -v1.9.1 (2008/02/10)
 # -v1.9.2 (2008/02/23)
-# -v1.9.3 (2008/03/xx)
+# -v1.9.3 (2008/06/20)
+# -v2.0   (2008/07/21)
+#
+# Changelog (v2.0)
+# - Youtube: Switched to high resolution mode. Also downloaded possible.
+# - Added search history. Remembers last searches.
+# - Updated context menu options (Play... and View...).
+# - Added view mode option in menu: Ascencding/Descencing
+# - Play using menu accessible via Y-button.
+# - New playlist option called 'playmode. Example: 
+#   playmode=autonext #plays all entries in playlist
 #
 # Changelog (v1.9.3)
 #   - Added download resume support
 #   - Added Apple movie trailer support.
 #   - Added new media type called 'directory'. This type retrieves all PLX-files 
 #     from a given local directory including sub-directories.
-#   - Added parsing of RSS new feeds. Link to HTML file cannot be opened.
+#   - Added parsing of RSS news feeds. Link to HTML file cannot be opened.
 #   - Extended youtube search. Added sorting option.
 #
 # Changelog (v1.9.2)
@@ -209,17 +219,24 @@ class MainWindow(xbmcgui.Window):
             self.pl_focus = self.playlist
             self.downlshutdown = False # shutdown after download flag
             self.mediaitem = 0
-            self.searchstring = '' # default search string for (youtube) search
+#            self.searchstring = '' # default search string for (youtube) search
             self.logo_visible = False # true if logo shall be displayed
             self.thumb_visible = False # true if thumb shall be displayed
+            self.vieworder = 'ascending' #ascending
+            self.SearchHistory = [] #contains the search history
             
             self.loader = CFileLoader() #file loader
             
             #read the non volatile settings from the settings.dat file
             self.onReadSettings()
+            
+            #read the search history from the search.dat file
+            self.onReadSearchHistory()
  
             #parse the home URL
-            self.ParsePlaylist(URL=self.home)
+            result = self.ParsePlaylist(URL=self.home)
+            if result != 0: #failed
+                self.ParsePlaylist(URL=home_URL_mirror)
 
         ######################################################################
         # Description: Handles key events.
@@ -273,8 +290,8 @@ class MainWindow(xbmcgui.Window):
                                 if result == 0:
                                     flush = self.History.pop()
                                     self.history_count = self.history_count - 1
-#                elif action == ACTION_YBUTTON:
-#                    self.onPlayUsing()
+                elif action == ACTION_YBUTTON:
+                    self.onPlayUsing()
                 elif self.ChkContextMenu(action) == True: #White
                     if self.URL == favorite_file:
                         self.selectBoxFavoriteList()
@@ -430,7 +447,7 @@ class MainWindow(xbmcgui.Window):
                     dialog.ok("Error", "This playlist requires a newer Navi-X version")
                 elif result == -2: #error
                     dialog = xbmcgui.Dialog()
-                    dialog.ok("Error", "The requested file could not be opened or does not exist")
+                    dialog.ok("Error", "The requested file could not be opened.")
                 
                 if result != 0:
                     self.loading.setVisible(0)
@@ -440,7 +457,9 @@ class MainWindow(xbmcgui.Window):
                     return -1
             
             #succesful
-            playlist.save(RootDir + 'source.plx')                    
+            playlist.save(RootDir + 'source.plx')
+            
+            self.vieworder = 'ascending' #ascending by default
         
             self.URL = playlist.URL
             self.type = type
@@ -607,16 +626,30 @@ class MainWindow(xbmcgui.Window):
             elif type == 'video' or type == 'audio':
 #                self.onDownload()
 #                self.state_busy = 0
+#                self.selectBoxMainList()
+#                self.state_busy = 0                
 #                return
                 
-                self.infotekst.setVisible(1)
-                if mediaitem.player == 'mplayer':
-                    MyPlayer = CPlayer(xbmc.PLAYER_CORE_MPLAYER, function=self.myPlayerChanged)
-                elif mediaitem.player == 'dvdplayer':
-                    MyPlayer = CPlayer(xbmc.PLAYER_CORE_DVDPLAYER, function=self.myPlayerChanged)
+                self.infotekst.setVisible(1) #loading text
+
+                if (playlist != 0) and (playlist.playmode == 'autonext'):
+                    size = playlist.size()
+                    if playlist.player == 'mplayer':
+                        MyPlayer = CPlayer(xbmc.PLAYER_CORE_MPLAYER, function=self.myPlayerChanged)
+                    elif playlist.player == 'dvdplayer':
+                        MyPlayer = CPlayer(xbmc.PLAYER_CORE_DVDPLAYER, function=self.myPlayerChanged)
+                    else:
+                        MyPlayer = CPlayer(self.player_core, function=self.myPlayerChanged)                
+                    result = MyPlayer.play(playlist, pos, size-1)
                 else:
-                    MyPlayer = CPlayer(self.player_core, function=self.myPlayerChanged)                
-                result = MyPlayer.play_URL(mediaitem.URL)
+                    if mediaitem.player == 'mplayer':
+                        MyPlayer = CPlayer(xbmc.PLAYER_CORE_MPLAYER, function=self.myPlayerChanged)
+                    elif mediaitem.player == 'dvdplayer':
+                        MyPlayer = CPlayer(xbmc.PLAYER_CORE_DVDPLAYER, function=self.myPlayerChanged)
+                    else:
+                        MyPlayer = CPlayer(self.player_core, function=self.myPlayerChanged)
+                    result = MyPlayer.play_URL(mediaitem.URL)
+                
                 self.infotekst.setVisible(0)
                 if result != 0:
                     dialog = xbmcgui.Dialog()
@@ -647,7 +680,6 @@ class MainWindow(xbmcgui.Window):
             #At this moment nothing to handle.
             pass
 
-
         def viewHTML(self, URL):
             pass
 
@@ -658,27 +690,73 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def onPlayUsing(self):
-            possibleChoices = ["DVD Player", "MPlayer", "Cancel"]
-            dialog = xbmcgui.Dialog()
-            choice = dialog.select("Select", possibleChoices)
             pos = self.list.getSelectedPosition()
+            mediaitem = self.pl_focus.list[pos]
             URL = self.pl_focus.list[pos].URL
-              
-            result = 0
-            if choice == 0:
-                self.infotekst.setVisible(1) 
-                MyPlayer = CPlayer(xbmc.PLAYER_CORE_DVDPLAYER, function=self.myPlayerChanged)
-                result = MyPlayer.play_URL(URL) 
-                self.infotekst.setVisible(0)  
-            elif choice == 1:
-                self.infotekst.setVisible(1)
-                MyPlayer = CPlayer(xbmc.PLAYER_CORE_MPLAYER, function=self.myPlayerChanged)
-                result = MyPlayer.play_URL(URL) 
-                self.infotekst.setVisible(0)
-                
-            if result != 0:
+            autonext = False
+
+            if (mediaitem.type != 'video') and (mediaitem.type != 'audio'):
                 dialog = xbmcgui.Dialog()
-                dialog.ok("Error", "Could not open file.")
+                dialog.ok("Error", "Not a video or audio file.")
+                return
+
+            possibleChoices = ["Default Player", "Default Player (Auto Next)", "DVD Player", "DVD Player (Auto Next)", "MPlayer", "MPlayer (Auto Next)", "Cancel"]
+            dialog = xbmcgui.Dialog()
+            choice = dialog.select("Play...", possibleChoices)
+            
+            if (choice != -1) and (choice < 6): #if not cancel
+                result = 0            
+                if (choice == 0) or (choice == 1):
+                    if mediaitem.player == 'mplayer':
+                        MyPlayer = CPlayer(xbmc.PLAYER_CORE_MPLAYER, function=self.myPlayerChanged)
+                    elif mediaitem.player == 'dvdplayer':
+                        MyPlayer = CPlayer(xbmc.PLAYER_CORE_DVDPLAYER, function=self.myPlayerChanged)
+                    else:
+                        MyPlayer = CPlayer(self.player_core, function=self.myPlayerChanged)                
+                elif (choice == 2) or (choice == 3):
+                    MyPlayer = CPlayer(xbmc.PLAYER_CORE_DVDPLAYER, function=self.myPlayerChanged)
+                elif (choice == 4) or (choice == 5):
+                    MyPlayer = CPlayer(xbmc.PLAYER_CORE_MPLAYER, function=self.myPlayerChanged)
+
+                if (choice == 1) or (choice == 3) or (choice == 5):
+                    autonext = True
+
+                self.infotekst.setVisible(1) 
+                if autonext == False:
+                    result = MyPlayer.play_URL(URL) 
+                else:
+                    size = self.pl_focus.size()
+                    #play from current position to end of list.
+                    result = MyPlayer.play(self.pl_focus, pos, size-1)                    
+                self.infotekst.setVisible(0)  
+                
+                if result != 0:
+                    dialog = xbmcgui.Dialog()
+                    dialog.ok("Error", "Could not play file.")
+
+        ######################################################################
+        # Description: Handles the view selection menu.
+        # Parameters : -
+        # Return     : -
+        ######################################################################
+        def onView(self):
+            possibleChoices = ["Ascending (default)", \
+                               "Descending",\
+                               "Cancel"]
+            dialog = xbmcgui.Dialog()
+            choice = dialog.select("View...", possibleChoices)
+            
+            if (choice == 0) and (self.vieworder != 'ascending'): #Ascending
+                self.ParsePlaylist(mediaitem=self.mediaitem)
+                self.vieworder = 'ascending'
+            elif (choice == 1) and (self.vieworder != 'descending'): #Descending
+                size = self.pl_focus.size()
+                for i in range(size/2):
+                    item = self.pl_focus.list[i]
+                    self.pl_focus.list[i] = self.pl_focus.list[size-1-i]
+                    self.pl_focus.list[size-1-i] = item
+                self.ParsePlaylist(mediaitem=self.mediaitem, reload=False) #display download list
+                self.vieworder = 'descending'
             
         ######################################################################
         # Description: Handles display of a text file.
@@ -798,64 +876,82 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def PlaylistSearch(self, item, append):
+            possibleChoices = []
+            possibleChoices.append("New Search")
+            for m in self.SearchHistory:
+                possibleChoices.append(m)
+            possibleChoices.append("Cancel")                
+            dialog = xbmcgui.Dialog()
+            choice = dialog.select("Search", possibleChoices)
+
+            if (choice == -1) or (choice == (len(possibleChoices)-1)):
+                return #canceled
+
+            if choice > 0:
+                string = self.SearchHistory[choice-1]
+            else:  #New search
+                string = ''
+            
+            keyboard = xbmc.Keyboard(string, 'Search')
+            keyboard.doModal()
+            if (keyboard.isConfirmed() == False):
+                return #canceled
+            searchstring = keyboard.getText()
+            if len(searchstring) == 0:
+                return  #empty string search, cancel
+            
+            #if search string is different then we add it to the history list.
+            if searchstring != string:
+                self.SearchHistory.insert(0,searchstring)
+                if len(self.SearchHistory) > 8: #maximum 8 items
+                    self.SearchHistory.pop()
+                self.onSaveSearchHistory()
+        
             #youtube search
             if item.type == 'search_youtube':
-                keyboard = xbmc.Keyboard(self.searchstring, 'Youtube Search')
-                keyboard.doModal()
-                
-                if (keyboard.isConfirmed() == True):
-                    self.searchstring = keyboard.getText()
-                    
-                    fn = self.searchstring.replace(' ','+')
-                    URL = 'http://www.youtube.com/results?search_query='
-                    URL = URL + fn
-                    
-                    #ask the end user how to sort
-                    possibleChoices = ["Relevance", "Date Added", "View Count", "Rating"]
-                    dialog = xbmcgui.Dialog()
-                    choice = dialog.select("Sort by", possibleChoices)
+                fn = searchstring.replace(' ','+')
+                URL = 'http://www.youtube.com/results?search_query='
+                URL = URL + fn
+                  
+                #ask the end user how to sort
+                possibleChoices = ["Relevance", "Date Added", "View Count", "Rating"]
+                dialog = xbmcgui.Dialog()
+                choice = dialog.select("Sort by", possibleChoices)
 
-                    #validate the selected item
-                    if choice == 1: #Date Added
-                        URL = URL + '&search_sort=video_date_uploaded'
-                    elif choice == 2: #View Count
-                        URL = URL + '&search_sort=video_view_count'
-                    elif choice == 3: #Rating
-                        URL = URL + '&search_sort=video_avg_rating'
+                #validate the selected item
+                if choice == 1: #Date Added
+                    URL = URL + '&search_sort=video_date_uploaded'
+                elif choice == 2: #View Count
+                    URL = URL + '&search_sort=video_view_count'
+                elif choice == 3: #Rating
+                    URL = URL + '&search_sort=video_avg_rating'
         
-                    mediaitem=CMediaItem()
-                    mediaitem.URL = URL
-                    mediaitem.type = 'html_youtube'
-                    mediaitem.name = 'search results: ' + self.searchstring
-                    mediaitem.player = item.player
+                mediaitem=CMediaItem()
+                mediaitem.URL = URL
+                mediaitem.type = 'html_youtube'
+                mediaitem.name = 'search results: ' + searchstring
+                mediaitem.player = item.player
 
-                    #create history item
-                    tmp = CHistorytem()
-                    tmp.index = self.list.getSelectedPosition()
-                    tmp.mediaitem = self.mediaitem
+                #create history item
+                tmp = CHistorytem()
+                tmp.index = self.list.getSelectedPosition()
+                tmp.mediaitem = self.mediaitem
 
-                    self.pl_focus = self.playlist
-                    result = self.ParsePlaylist(mediaitem=mediaitem)
+                self.pl_focus = self.playlist
+                result = self.ParsePlaylist(mediaitem=mediaitem)
                 
-                    if result == 0 and append == True: #successful
-                        self.History.append(tmp)
-                        self.history_count = self.history_count + 1
+                if result == 0 and append == True: #successful
+                    self.History.append(tmp)
+                    self.history_count = self.history_count + 1
             elif item.type == 'search_shoutcast':
-                keyboard = xbmc.Keyboard(self.searchstring, 'Shoutcast Search: Station, Genre')
-                keyboard.doModal()
-                
-                if (keyboard.isConfirmed() == True):
-                    self.searchstring = keyboard.getText()
-                    
-                    fn=self.searchstring
-#                    fn = self.searchstring.replace(' ','&plus;')
+                    fn=searchstring
                     URL = 'http://www.shoutcast.com/sbin/newxml.phtml?search='
                     URL = URL + fn
         
                     mediaitem=CMediaItem()
                     mediaitem.URL = URL
                     mediaitem.type = 'xml_shoutcast'
-                    mediaitem.name = 'search results: ' + self.searchstring
+                    mediaitem.name = 'search results: ' + searchstring
                     mediaitem.player = item.player
 
                     #create history item
@@ -870,20 +966,14 @@ class MainWindow(xbmcgui.Window):
                         self.History.append(tmp)
                         self.history_count = self.history_count + 1
             elif item.type == 'search_flickr':
-                keyboard = xbmc.Keyboard(self.searchstring, 'Flickr Search')
-                keyboard.doModal()
-                
-                if (keyboard.isConfirmed() == True):
-                    self.searchstring = keyboard.getText()
-
-                    fn = self.searchstring.replace(' ','+')
+                    fn = searchstring.replace(' ','+')
                     URL = 'http://www.flickr.com/search/?q='
                     URL = URL + fn
         
                     mediaitem=CMediaItem()
                     mediaitem.URL = URL
                     mediaitem.type = 'html_flickr'
-                    mediaitem.name = 'search results: ' + self.searchstring
+                    mediaitem.name = 'search results: ' + searchstring
                     mediaitem.player = item.player
 
                     #create history item
@@ -961,7 +1051,7 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def selectBoxFavoriteList(self):
-            possibleChoices = ["Play Using...", "Remove Item", "Rename", "Cancel"]
+            possibleChoices = ["Play...", "Move Item Up", "Move Item Down", "Remove Item", "Rename", "Cancel"]
             dialog = xbmcgui.Dialog()
             choice = dialog.select("Select", possibleChoices)
 
@@ -970,14 +1060,32 @@ class MainWindow(xbmcgui.Window):
                 return
             
             #validate the selected item
-            if choice == 0: #Play using
+            if choice == 0: #Play...
                 self.onPlayUsing()
-            elif choice == 1: #Remove Item
+            elif choice == 1: #Move Item Up
+                pos = self.list.getSelectedPosition()
+                if pos > 0:
+                    item = self.favoritelist.list[pos-1]
+                    self.favoritelist.list[pos-1] = self.favoritelist.list[pos]
+                    self.favoritelist.list[pos] = item
+                    self.favoritelist.save(RootDir + favorite_file)
+                    self.ParsePlaylist(reload=False) #display download list
+                    self.list.selectItem(pos-1)
+            elif choice == 2: #Move Item Down
+                pos = self.list.getSelectedPosition()
+                if pos < (self.list.size())-1:
+                    item = self.favoritelist.list[pos+1]
+                    self.favoritelist.list[pos+1] = self.favoritelist.list[pos]
+                    self.favoritelist.list[pos] = item
+                    self.favoritelist.save(RootDir + favorite_file)
+                    self.ParsePlaylist(reload=False) #display download list
+                    self.list.selectItem(pos+1)
+            elif choice == 3: #Remove Item
                 pos = self.list.getSelectedPosition()
                 self.favoritelist.remove(pos)
                 self.favoritelist.save(RootDir + favorite_file)
                 self.ParsePlaylist(reload=False) #display favorite list
-            elif choice == 2: #Rename
+            elif choice == 4: #Rename
                 pos = self.list.getSelectedPosition()
                 item = self.favoritelist.list[pos]
                 keyboard = xbmc.Keyboard(item.name, 'Rename')
@@ -1075,7 +1183,7 @@ class MainWindow(xbmcgui.Window):
                         xbmc.shutdown() #shutdown the X-box
                     elif self.downloader.state == 0:
                         dialog = xbmcgui.Dialog()
-                        dialog.ok("Downloading", "Download complete.")
+                        dialog.ok("Downloading", "Download completed.")
                     elif self.downloader.state == -1:
                         dialog = xbmcgui.Dialog()
                         dialog.ok("Error", "Download failed.")                    
@@ -1090,6 +1198,7 @@ class MainWindow(xbmcgui.Window):
                         self.downloadqueue.list[pos] = item
                         self.downloadqueue.save(RootDir + downloads_queue)
                         self.ParsePlaylist(reload=False) #display download list
+                        self.list.selectItem(pos-1)
                 elif choice == 3: #Move Item Down
                     pos = self.list.getSelectedPosition()
                     if pos < (self.list.size())-1:
@@ -1098,6 +1207,7 @@ class MainWindow(xbmcgui.Window):
                         self.downloadqueue.list[pos] = item
                         self.downloadqueue.save(RootDir + downloads_queue)
                         self.ParsePlaylist(reload=False) #display download list
+                        self.list.selectItem(pos+1)                        
                 elif choice == 4: #Remove
                     pos = self.list.getSelectedPosition()
                     self.downloadqueue.remove(pos)
@@ -1108,7 +1218,7 @@ class MainWindow(xbmcgui.Window):
                     self.downloadqueue.save(RootDir + downloads_queue)
                     self.ParsePlaylist(reload=False) #display download list
             else: #download completed
-                possibleChoices = ["Play Using...", "Remove Item", "Clear List", "Delete Item", "Cancel"]
+                possibleChoices = ["Play...", "Remove Item", "Clear List", "Delete Item", "Cancel"]
                 dialog = xbmcgui.Dialog()
                 choice = dialog.select("Select", possibleChoices)
             
@@ -1117,7 +1227,7 @@ class MainWindow(xbmcgui.Window):
                     return
             
                 #validate the selected item
-                if choice == 0: #Play using
+                if choice == 0: #Play...
                     self.onPlayUsing()
                 elif choice == 1: #Remove
                     pos = self.list.getSelectedPosition()
@@ -1132,10 +1242,14 @@ class MainWindow(xbmcgui.Window):
                     pos = self.list.getSelectedPosition()            
                     URL = self.downloadslist.list[pos].URL
                     dialog = xbmcgui.Dialog()                 
-                    if dialog.yesno("Message", "Delete file from disk?") == True:
-                        if os.path.exists(URL): 
-                            os.remove(URL)
-                        selfs.downloadslist.remove(pos)
+                    if dialog.yesno("Message", "Delete file from disk?", URL) == True:
+                        if os.path.exists(URL):
+                            try:        
+                                os.remove(URL)
+                            except IOError:
+                                pass
+                            
+                        self.downloadslist.remove(pos)
                         self.downloadslist.save(RootDir + downloads_complete)
                         self.ParsePlaylist(reload=False) #display download list
 
@@ -1177,7 +1291,8 @@ class MainWindow(xbmcgui.Window):
                             xbmc.shutdown() #shutdown the X-box
                         elif self.downloader.state == 0:
                             dialog = xbmcgui.Dialog()
-                            dialog.ok("Downloading", "Download complete.")
+                            if dialog.yesno("Downloading", "Download completed. Open file now?") == True:
+                                self.SelectItem(iURL=entry.DLloc)
                         elif self.downloader.state == -1:
                             dialog = xbmcgui.Dialog()
                             dialog.ok("Error", "Download failed.")                    
@@ -1201,26 +1316,24 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def selectBoxMainList(self):
-            possibleChoices = ["Download...", "Play Using...", "Play + Auto Next", "Image Slideshow", \
-            "Add Selected Item to Favorites", "Add Playlist to Favorites", "Set Playlist as Home", \
-            "View Playlist Source", "Cancel"]
+            possibleChoices = ["Download...", \
+                                "Play...", \
+                                "View...", \
+                                "Image Slideshow", \
+                                "Add Selected Item to Favorites", \
+                                "Add Playlist to Favorites", \
+                                "Set Playlist as Home", \
+                                "View Playlist Source", \
+                                "Cancel"]
             dialog = xbmcgui.Dialog()
             choice = dialog.select("Select", possibleChoices)
             
             if choice == 0: #Download
                 self.onDownload()
-            elif choice == 1: #play using
+            elif choice == 1: #play...
                 self.onPlayUsing()
-            elif choice == 2: #Play auto next
-                pos = self.list.getSelectedPosition()
-                size = self.playlist.size()
-                self.infotekst.setVisible(1)
-                MyPlayer = CPlayer(self.player_core, function=self.myPlayerChanged)                
-                result=MyPlayer.play(self.playlist, pos, size-1)
-                self.infotekst.setVisible(0)
-                if result != 0:
-                    dialog = xbmcgui.Dialog()
-                    dialog.ok("Error", "No video or audio in playlist.")
+            elif choice == 2: #view...
+                self.onView()
             elif choice == 3: #Slideshow
                 self.viewImage(self.playlist, 0, 1) #slide show show
             elif choice == 4: #Add selected file to Favorites
@@ -1249,14 +1362,19 @@ class MainWindow(xbmcgui.Window):
                     tmp.name = self.playlist.title
                 tmp.URL = self.URL
                 tmp.player = self.mediaitem.player
+                tmp.background = self.mediaitem.background
                 self.favoritelist.add(tmp)
                 self.favoritelist.save(RootDir + favorite_file)
             elif choice == 6: #Set Playlist as Home
+                if dialog.yesno("Message", "Overwrite current Home playlist?") == False:
+                    return
                 self.home = self.URL
  #               self.onSaveSettings()
-            elif choice == 7: #View playlist properties
+            elif choice == 7: #View playlist source
                 self.OpenTextFile(RootDir + "source.plx")
-                
+              
+
+  
         ######################################################################
         # Description: Read the home URL from disk. Called at program init. 
         # Parameters : -
@@ -1268,8 +1386,8 @@ class MainWindow(xbmcgui.Window):
                 data = f.read()
                 data = data.split('\n')
                 home=data[0]
-                if home != home_URL_old:
-                    self.home=home
+#                if home != home_URL_old:
+#                    self.home=home
                 self.dwnlddir=data[1]
                 f.close()
             except IOError:
@@ -1285,7 +1403,38 @@ class MainWindow(xbmcgui.Window):
             f.write(self.home + '\n')
             f.write(self.dwnlddir + '\n')
             f.close()
-            
+
+        ######################################################################
+        # Description: Read the home URL from disk. Called at program init. 
+        # Parameters : -
+        # Return     : -
+        ######################################################################
+        def onReadSearchHistory(self):
+            try:
+                f=open(RootDir + 'search.dat', 'r')
+                data = f.read()
+                data = data.split('\n')
+                for m in data:
+                    if len(m) > 0:
+                        self.SearchHistory.append(m)
+                f.close()
+            except IOError:
+                return
+
+        ######################################################################
+        # Description: Saves the home URL to disk. Called at program exit. 
+        # Parameters : -
+        # Return     : -
+        ######################################################################
+        def onSaveSearchHistory(self):
+            try:
+                f=open(RootDir + 'search.dat', 'w')
+                for m in self.SearchHistory:
+                    f.write(m + '\n')
+                f.close()
+            except IOError:
+                return
+
         ######################################################################
         # Description: Deletes all files in a given folder and sub-folders.
         #              Note that the sub-folders itself are not deleted.

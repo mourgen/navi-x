@@ -6,7 +6,7 @@ player=default
 #
 type=playlist
 name=Navi-X Home
-URL=http://home.planet.nl/~jon70928/home.plx
+URL=http://www.navi-x.nl/playlists/home.plx
 #
 type=search_youtube
 name=Youtube Search
