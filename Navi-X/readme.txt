@@ -1,19 +1,18 @@
-Welcome to Navi-X v2.0.1
+Welcome to Navi-X v2.3
 
-Changelog (v2.0.1)
-- Fixed Youtube parser according site changes.
+Changelog (v2.3)
+-Added new playlist "description=" element. Description can be multiple lines.
+ The description shall be put in the header field above the playlist entries.
+ Description shall start with text "description=".
+ Description SHALL end with text "/description=". 
+-Youtube parser: added Youtube playlists support.
+-Youtube parser fix.
+-Youtube long video name display.
+-Improved caching for a better user experience.
+-Apple movie trailer parser fix.
+-Other minor improvements.
 
-Changelog (v2.0)
-- Youtube: Switched to high resolution mode. Also download possible.
-- Added search history. Remembers last searches.
-- Updated context menu options (Play... and View...).
-- Added view mode option in menu: Ascencding/Descencing
-- Play using menu accessible via Y-button.
-- Move items up and down the favorite list.
-- New playlist option called 'playmode. Example: 
-   playmode=autonext #plays all entries in playlist
-
-Navi-X is tested using the T3CH build. If you are facing problems
+Navi-X is tested using the T3CH build. If you are having problems
 and are using a different XBMC then please let me know. Thanks.
 
 -----------------
