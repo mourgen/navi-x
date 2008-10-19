@@ -17,11 +17,12 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
-import socket
+#import socket
 from settings import *
+from libs2 import *
 
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
@@ -148,7 +149,10 @@ class CFileLoader:
     #              timeout(optional)=Funtion time out time.
     # Return     : -
     ######################################################################
-    def load(self, URL, localfile, timout=url_open_timeout, proxy="CACHING"):
+    def load(self, URL, localfile, timeout=url_open_timeout, proxy="CACHING", content_type= ''):
+        if (URL == '') or (localfile == ''):
+            self.state = -1 #failed
+            return
         
         if URL[:4] == 'http':
             sum_str = ''
@@ -156,8 +160,8 @@ class CFileLoader:
                 sum = 0
                 #calculate hash of URL
                 for i in range(len(URL)):
-                    sum = sum + ord(URL[i])
-                    sum_str = str(sum)
+                    sum = sum + (ord(URL[i]) * i)
+                sum_str = str(sum)
 
             ext_pos = localfile.rfind('.') #find last '.' in the string
             if ext_pos != -1:
@@ -167,12 +171,21 @@ class CFileLoader:
 
             if (not((proxy == "ENABLED") and (os.path.exists(localfile) == True))): 
                 try:
-                    oldtimeout=socket.getdefaulttimeout()
-                    socket.setdefaulttimeout(timout)
+                    oldtimeout=socket_getdefaulttimeout()
+                    socket_setdefaulttimeout(timeout)
             
                     f = urllib.urlopen(URL)
-                    #get the size of the file in bytes
-                    #size_string=f.info().getheader("Content-Length")
+
+                    headers = f.info()
+                    type = headers['Content-Type']
+                    
+#                    Trace(type)
+                    
+                    if (content_type != '') and (type.find(content_type)  == -1):
+                        #unexpected type
+                        socket_setdefaulttimeout(oldtimeout)            
+                        self.state = -1 #failed
+                        return
 
                     #open the destination file
                     file = open(localfile, "wb")
@@ -181,11 +194,11 @@ class CFileLoader:
                     file.close()          
                   
                 except IOError:
-                    socket.setdefaulttimeout(oldtimeout)            
+                    socket_setdefaulttimeout(oldtimeout)            
                     self.state = -1 #failed
                     return
 
-                socket.setdefaulttimeout(oldtimeout)
+                socket_setdefaulttimeout(oldtimeout)
                 
             self.localfile = localfile
             self.state = 0 #success
@@ -197,6 +210,7 @@ class CFileLoader:
             self.localfile = RootDir + '\\' + URL
             self.state = 0 #success
 
+
 class CFileLoader2:
     ######################################################################
     # Description: Downloads a file in case of URL and returns absolute
@@ -205,6 +219,9 @@ class CFileLoader2:
     # Return     : -
     ######################################################################
     def load(self, URL, localfile, timout=url_open_timeout, proxy="CACHING"):
+        if (URL == '') or (localfile == ''):
+            self.state = -1 #failed
+            return
         
         if URL[:4] == 'http':
             sum_str = ''
@@ -212,8 +229,8 @@ class CFileLoader2:
                 sum = 0
                 #calculate hash of URL
                 for i in range(len(URL)):
-                    sum = sum + ord(URL[i])
-                    sum_str = str(sum)
+                    sum = sum + (ord(URL[i]) * i)
+                sum_str = str(sum)
 
             ext_pos = localfile.rfind('.') #find last '.' in the string
             if ext_pos != -1:
@@ -223,8 +240,8 @@ class CFileLoader2:
 
             if (not((proxy == "ENABLED") and (os.path.exists(localfile) == True))): 
                 try:
-                    oldtimeout=socket.getdefaulttimeout()
-                    socket.setdefaulttimeout(timout)
+                    oldtimeout=socket_getdefaulttimeout()
+                    socket_setdefaulttimeout(timout)
             
                     values = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
                     req = urllib2.Request(URL, None, values)
@@ -237,11 +254,11 @@ class CFileLoader2:
                     file.close()          
                   
                 except IOError:
-                    socket.setdefaulttimeout(oldtimeout)            
+                    socket_setdefaulttimeout(oldtimeout)            
                     self.state = -1 #failed
                     return
 
-                socket.setdefaulttimeout(oldtimeout)
+                socket_setdefaulttimeout(oldtimeout)
                 
             self.localfile = localfile
             self.state = 0 #success
@@ -252,5 +269,6 @@ class CFileLoader2:
         else: #assuming relative (local) path
             self.localfile = RootDir + '\\' + URL
             self.state = 0 #success
+           
 
         

@@ -17,7 +17,7 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
 import socket
@@ -81,10 +81,24 @@ def load_skin(window):
     window.addControl(window.loading)
     window.loading.setVisible(0)
     
-    #main list displaying playlist entries
-    window.list = xbmcgui.ControlList(260,120,450,440,'font14','0xFFDDDDDD', buttonFocusTexture=RootDir+'images\\list-focus.png', imageWidth=32, imageHeight=32, itemHeight=38)
-    window.addControl(window.list)
-    window.list.setPageControlVisible(False)
+    #Main lists displaying playlist entries.
+    #Large list 10 entries without text box on top.
+    window.list1 = xbmcgui.ControlList(260,120,450,435,'font14','0xFFDDDDDD', buttonFocusTexture=RootDir+'images\\list-focus.png', imageWidth=32, imageHeight=32, itemHeight=38)
+    window.addControl(window.list1)
+    window.list1.setPageControlVisible(False)
+
+    #Small list 8 entries with text box on top.
+    window.list2 = xbmcgui.ControlList(260,210,450,345,'font14','0xFFDDDDDD', buttonFocusTexture=RootDir+'images\\list-focus.png', imageWidth=32, imageHeight=32, itemHeight=38)
+    window.addControl(window.list2)
+    window.list2.setPageControlVisible(False)
+
+    #the text box above main list 2
+    window.list2tb = xbmcgui.ControlTextBox(270, 115, 420, 85)
+    window.addControl(window.list2tb)
+    window.list2tb.setVisible(0)
+
+    #set the large list as default
+    window.list = window.list1
 
     #list cursor position label displayed at the bottom right of the screen
     window.listpos = xbmcgui.ControlLabel(640,540,250,30, "")
@@ -105,6 +119,7 @@ def load_skin(window):
     window.addControl(window.button_about)
 
     #button behaviour
+    window.list2tb.controlDown(window.list1)
     window.button_home.controlDown(window.button_favorites)
     window.button_favorites.controlDown(window.button_downloads)
     window.button_downloads.controlDown(window.button_url)
@@ -113,12 +128,14 @@ def load_skin(window):
     window.button_url.controlUp(window.button_downloads)
     window.button_downloads.controlUp(window.button_favorites)
     window.button_favorites.controlUp(window.button_home)
+    window.button_home.controlUp(window.list2tb)
 
-    window.button_home.controlRight(window.list)
-    window.button_favorites.controlRight(window.list)
-    window.button_downloads.controlRight(window.list)
-    window.button_url.controlRight(window.list)
-    window.button_about.controlRight(window.list)
-    window.list.controlLeft(window.button_home)
+    window.button_home.controlRight(window.list1)
+    window.button_favorites.controlRight(window.list1)
+    window.button_downloads.controlRight(window.list1)
+    window.button_url.controlRight(window.list1)
+    window.button_about.controlRight(window.list1)
+    window.list1.controlLeft(window.button_home)
+    window.list2.controlLeft(window.button_home)
   
 

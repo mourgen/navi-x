@@ -18,7 +18,7 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
 from settings import *
@@ -126,13 +126,13 @@ class CDialogBrowse(xbmcgui.WindowDialog):
        
     def onControl(self, control):
         self.setFocus(control)
-        
+    
     def SetFile(self, dir, filename, type):
         self.dir = dir
         self.filename = filename
         self.SetLabel(dir + filename)
         self.type = type
-        
+
         if self.type == 3:
             label = 'Browse Folder'
         else:

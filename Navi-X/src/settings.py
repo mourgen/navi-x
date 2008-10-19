@@ -26,7 +26,7 @@ ACTION_CONTEXT_MENU2   = 229 # pops up the context menu (remote control "title" 
 
 
 #############################################################################
-# autoscaling values
+# auto scaling values
 #############################################################################
 
 HDTV_1080i = 0      #(1920x1080, 16:9, pixels are 1:1)
@@ -42,13 +42,13 @@ PAL60_16x9 = 9      #(720x480, 16:9, pixels are 5760:4739)
 
 ######################################################################
 Version='2' #program version
-SubVersion='0.1'
+SubVersion='3'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
 downloads_queue='downlqueue.plx'
 downloads_complete='downloads.plx'
-plxVersion = '7'
+plxVersion = '8'
 home_URL='http://www.navi-x.nl/playlists/home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 

@@ -18,10 +18,10 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
-import socket
+#import socket
 from libs2 import *
 from settings import *
 from CURLLoader import *
@@ -48,6 +48,8 @@ class CPlayer(xbmc.Player):
         self.function=function
         self.core=core
         self.stopped=False
+        self.pls = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
+#        self.pls.clear()
 
         xbmc.Player.__init__(self)
 
@@ -70,12 +72,13 @@ class CPlayer(xbmc.Player):
     # Return     : 0 if succesful, -1 if no audio, video files in list
     ######################################################################    
     def play(self, playlist, first, last):
+        self.pls.clear()
+
         if first == last:
             URL = playlist.list[first].URL
             xbmc.Player.play(self, URL)
         else:
-            self.pls = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)                    
-            self.pls.clear()
+#            self.pls = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
         
             index = first
             urlopener = CURLLoader()
@@ -111,24 +114,29 @@ class CPlayer(xbmc.Player):
         if URL == '':
             return -1
     
+        self.pls.clear() #clear the playlist
+    
         ext = getFileExtension(URL)
         if ext == 'pls' or ext == 'm3u':
             loader = CFileLoader() #file loader
             loader.load(URL, cacheDir + "playlist." + ext)
             if loader.state == 0: #success
-                playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)                    
-                playlist.clear()
-                result = playlist.load(loader.localfile)
+#                playlist = xbmc.PlayList(xbmc.PLAYLIST_MUSIC)
+#                playlist.clear()
+#                result = playlist.load(loader.localfile)
+                result = self.pls.load(loader.localfile)
                 if result == False:
                     return -1
-                loc_url = playlist
+#                loc_url = playlist
         else:
             urlopener = CURLLoader()
             result = urlopener.urlopen(URL)
             if result != 0:
                 return -1
-            loc_url = urlopener.loc_url
+#            loc_url = urlopener.loc_url
+            self.pls.add(urlopener.loc_url)
 
-        xbmc.Player.play(self, loc_url)
+#        xbmc.Player.play(self, loc_url)
+        xbmc.Player.play(self, self.pls)
         return 0
         

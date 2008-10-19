@@ -1,7 +1,7 @@
 #############################################################################
 #
 # Navi-X Playlist browser
-# v2.0 by rodejo (rodejo16@gmail.com)
+# v2.3 by rodejo (rodejo16@gmail.com)
 #
 # -v1.01  (2007/04/01) first release
 # -v1.2   (2007/05/10)
@@ -26,7 +26,34 @@
 # -v1.9.2 (2008/02/23)
 # -v1.9.3 (2008/06/20)
 # -v2.0   (2008/07/21)
+# -v2.1   (2008/08/08)
+# -v2.2   (2008/08/31)
+# -v2.3   (2008/10/18)
 #
+# Changelog (v2.3)
+# -Added new playlist "description=" element.
+# -Youtube parser added playlist support.
+# -Youtube parser fix.
+# -Youtube long video name display.
+# -Improved caching for a better user experience.
+# -Apple movie trailer parser fix.
+# -Other minor improvements.
+#
+# Changelog (v2.2)
+# -Improved RSS reader to support image elements in XML file.
+# -Y-button starts image slide show.
+# -Youtube: Minor bug fixed HTML parser.
+# -Apple movie trailers: Changed the sorting order to "release date".
+# -Stability improvements.
+#
+# Changelog (v2.1)
+# -Added a new type called 'download'. This type can be used to download
+#  any type of file from a webserver to the XBOX (e.g a plugin rar file).
+# -Improved text viewer: Added setting of text viewer background image
+# -Improved RSS parser. Fix some problems and added thumb images.
+# -Improved Youtube: Next page is now added to the existing page.
+# -Minor problems solved.
+# 
 # Changelog (v2.0)
 # - Youtube: Switched to high resolution mode. Also downloaded possible.
 # - Added search history. Remembers last searches.
@@ -36,74 +63,6 @@
 # - New playlist option called 'playmode. Example: 
 #   playmode=autonext #plays all entries in playlist
 #
-# Changelog (v1.9.3)
-#   - Added download resume support
-#   - Added Apple movie trailer support.
-#   - Added new media type called 'directory'. This type retrieves all PLX-files 
-#     from a given local directory including sub-directories.
-#   - Added parsing of RSS news feeds. Link to HTML file cannot be opened.
-#   - Extended youtube search. Added sorting option.
-#
-# Changelog (v1.9.2)
-#   - Improved caching of playlists and images to improve UI performance.
-#
-# Changelog (v1.9.1)
-#   - Stage6 HTML parser fix.
-#
-# Changelog (v1.9)
-#   - QuickSilverScreen support.
-#   - Shoutcast support.
-#   - some minor fixes
-#
-# Changelog (v1.8)
-#   - Youtube download support.
-#   - Added Stage6 html parser including stage6 search.
-#   - Download queue: New menu items to move items up and down the queue.
-#   - Download file: Check if file already exists, ask for overwrite.
-#   - New menu item to rename favorite list item.
-#
-# Changelog (v1.7.2)
-#   - Fixed Youtube HTML parser
-#
-# Changelog (v1.7)
-#   - Favorites list supports all type of media, not only playlists.
-#   - Added youtube support.
-#   - Atrributes in PLX file have been extended:
-#       1. Added 'player' attribute which allows selection of default player for
-#          whole playlist or single mediaitem. See help.html
-#       2. Added 'background' attribute for every playlist item which allows to
-#          set the background image for a rss feed. see help.html
-#
-# Changelog (v1.6.1)
-#   -Download destination file browser sometimes shows a empty name. This has been
-#    changed. Local filename now based on playlist name field which is more clear.
-#
-# Changelog (v1.6)
-#   -Added selection of player core (Mplayer or DVDplayer).
-#   -Added download+sutdown option.
-#   -Added download queue
-#
-# Changelog (v1.5.2)
-#   -Reorganised main list. Increased number of item from 5 to 8
-#   -Fixed html parser
-# 
-# Changelog (v1.5)
-#   -Fixed http parsing. Some media did not download due to this.
-#   -Add menu option to view the playlist source
-#   -Code re-organisation to prepare for future changes
-#   -Added flickr daily RSS parsing
-#   -Added html parser
-#
-# Changelog (v1.4.1)
-#   -Fixed http parsing. Some media did not play due to this.
-#   -Improved white key handling to support DVD-kit remote control.
-#
-# Changelog (v1.4):
-#   -Replaced URL button by browse button for more efficient browsing
-#   -Improved parsing of URL's which allows to read stage6 podcasts and 
-#    Comedy central podcasts
-#   -Replaced buttons bitmaps. More common for different backgrounds
-#
 #############################################################################
 
 from string import *
@@ -112,10 +71,10 @@ import urllib
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
-import threading
+#import threading
 
 sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
 from libs2 import *
@@ -125,6 +84,7 @@ from CFileLoader import *
 from CDownLoader import *
 from CPlayer import *
 from CDialogBrowse import *
+from CTextView import *
 from skin import *
 
 try: Emulating = xbmcgui.Emulating
@@ -153,7 +113,7 @@ class MainWindow(xbmcgui.Window):
 
             self.delFiles(cacheDir) #clear the cache first
 
-            #Create DIRs
+            #Create default DIRs if not existing.
             if not os.path.exists(cacheDir): 
                 os.mkdir(cacheDir) 
             if not os.path.exists(myDownloadsDir): 
@@ -219,13 +179,13 @@ class MainWindow(xbmcgui.Window):
             self.pl_focus = self.playlist
             self.downlshutdown = False # shutdown after download flag
             self.mediaitem = 0
-#            self.searchstring = '' # default search string for (youtube) search
             self.logo_visible = False # true if logo shall be displayed
             self.thumb_visible = False # true if thumb shall be displayed
             self.vieworder = 'ascending' #ascending
             self.SearchHistory = [] #contains the search history
+            self.background = '' #current background image
             
-            self.loader = CFileLoader() #file loader
+            self.loader = CFileLoader() #create file loader instance
             
             #read the non volatile settings from the settings.dat file
             self.onReadSettings()
@@ -237,6 +197,8 @@ class MainWindow(xbmcgui.Window):
             result = self.ParsePlaylist(URL=self.home)
             if result != 0: #failed
                 self.ParsePlaylist(URL=home_URL_mirror)
+            
+            #end of function
 
         ######################################################################
         # Description: Handles key events.
@@ -255,7 +217,8 @@ class MainWindow(xbmcgui.Window):
                 if action == ACTION_SELECT_ITEM:
                     if self.getFocus() == self.list:
                         #main list
-                        if self.URL == favorite_file:
+                        #if self.URL == favorite_file:
+                        if self.pl_focus == self.favoritelist:
                             self.onSelectFavorites()
                         elif self.URL == downloads_file or self.URL == downloads_queue or self.URL == downloads_complete:
                             self.onSelectDownloads()
@@ -279,7 +242,8 @@ class MainWindow(xbmcgui.Window):
                         self.OpenTextFile('readme.txt')
                 elif action == ACTION_PARENT_DIR:
                     if self.state_busy == 0:
-                        if self.URL == favorite_file:            
+#                        if self.URL == favorite_file:            
+                        if self.pl_focus == self.favoritelist:
                             self.onCloseFavorites()
                         elif self.URL == downloads_queue or self.URL == downloads_complete:    
                             self.onCloseDownloads()
@@ -304,7 +268,9 @@ class MainWindow(xbmcgui.Window):
                 self.listpos.setLabel(str(pos+1) + '/' + str(self.list.size()))
                 
                 self.UpdateThumb() #update thumb image
-                
+            #end of function
+             
+    
         ######################################################################
         # Description: Checks if one of the context menu keys is pressed.
         # Parameters : control=handle to UI control
@@ -330,7 +296,6 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def onControl(self, control):
-        
             #Nothing to do for now.
             if control == self.list:
                 self.setFocus(self.list)
@@ -358,11 +323,12 @@ class MainWindow(xbmcgui.Window):
                 index = self.list.getSelectedPosition()
                 m = self.pl_focus.list[index].thumb
                 if m != self.userthumb:
-                    if m == 'default': #no image
+                    if (m == 'default') or (m == ""): #no image
                         self.thumb_visible = False
                     elif m != 'previous': #URL to image located elsewhere
                         ext = getFileExtension(m)
-                        self.loader.load(m, cacheDir + "thumb." + ext, 2)
+
+                        self.loader.load(m, cacheDir + "thumb." + ext, timeout=2, proxy="ENABLED", content_type='image')
                         if self.loader.state == 0: #success
                             #next line is fix, makes sure thumb is update.
                             self.thumb_visible = True
@@ -379,6 +345,7 @@ class MainWindow(xbmcgui.Window):
                     self.user_thumb.setVisible(0)
                     self.user_thumb.setImage("")
                     self.user_thumb.setImage(self.loader.localfile)
+
                 self.user_thumb.setVisible(1)
             else:
                 self.user_thumb.setVisible(0)
@@ -394,7 +361,6 @@ class MainWindow(xbmcgui.Window):
         #              -PLX file;
         #              -RSS v2.0 file (e.g. podcasts);
         #              -RSS daily Flick file (XML1.0);
-        #              -html page having stage6 like format;
         #              -html Youtube file;
         # Parameters : URL (optional) =URL of the playlist file.
         #              mediaitem (optional)=Playlist mediaitem containing 
@@ -422,6 +388,8 @@ class MainWindow(xbmcgui.Window):
             listcontrol = self.list
 
             listcontrol.setVisible(0)
+            self.list2tb.setVisible(0)
+            
             self.loading.setVisible(1)
             
             type = mediaitem.type
@@ -449,7 +417,7 @@ class MainWindow(xbmcgui.Window):
                     dialog = xbmcgui.Dialog()
                     dialog.ok("Error", "The requested file could not be opened.")
                 
-                if result != 0:
+                if result != 0: #failure
                     self.loading.setVisible(0)
                     listcontrol.setVisible(1)
                     self.setFocus(listcontrol)
@@ -460,6 +428,9 @@ class MainWindow(xbmcgui.Window):
             playlist.save(RootDir + 'source.plx')
             
             self.vieworder = 'ascending' #ascending by default
+        
+            if start_index == 0: 
+                start_index = playlist.start_index
         
             self.URL = playlist.URL
             self.type = type
@@ -479,12 +450,13 @@ class MainWindow(xbmcgui.Window):
             if m != self.background:
                 if m == 'default': #default BG image
                     self.bg.setImage(imageDir + "background.png")
+                    self.background = m
                 elif m != 'previous': #URL to image located elsewhere
                     ext = getFileExtension(m)
-                    self.loader.load(m, cacheDir + "background." + ext, 8, proxy="ENABLED")
+                    self.loader.load(m, cacheDir + "background." + ext, timeout=2, proxy="ENABLED", content_type='image')
                     if self.loader.state == 0:
                         self.bg.setImage(self.loader.localfile)
-                self.background = m
+                    self.background = m
             
             #set the user logo image
             m = playlist.logo
@@ -493,7 +465,7 @@ class MainWindow(xbmcgui.Window):
                     self.logo_visible = False
                 elif m != 'previous': #URL to image located elsewhere
                     ext = getFileExtension(m)
-                    self.loader.load(m, cacheDir + "logo." + ext, 8, proxy="ENABLED")
+                    self.loader.load(m, cacheDir + "logo." + ext, timeout=2, proxy="ENABLED", content_type='image')
                     if self.loader.state == 0: #success
                         #next line is fix, makes sure logo is update.
                         self.user_logo.setVisible(0)
@@ -507,6 +479,20 @@ class MainWindow(xbmcgui.Window):
             #loading was successful
             listcontrol.reset() #clear the list control view
             
+            if playlist.description != "":
+                self.list = self.list2
+                listcontrol = self.list2
+            else:
+                self.list = self.list1
+                listcontrol = self.list1
+
+            self.button_home.controlRight(self.list)
+            self.button_favorites.controlRight(self.list)
+            self.button_downloads.controlRight(self.list)
+            self.button_url.controlRight(self.list)
+            self.button_about.controlRight(self.list)
+            self.list2tb.controlDown(self.list)
+            
             #fill the main list
             i=0
             for m in playlist.list:
@@ -516,9 +502,17 @@ class MainWindow(xbmcgui.Window):
                     listcontrol.addItem(item)                    
                     i=i+1
  
+            #fill the main list description text box
+            if playlist.description != "":
+                self.list2tb.reset()
+                self.list2tb.setText(playlist.description)
+                
             listcontrol.selectItem(start_index)
             self.loading.setVisible(0)
             listcontrol.setVisible(1)
+            if playlist.description != "":
+                self.list2tb.setVisible(1)
+            
             self.setFocus(listcontrol)
 
             pos = self.list.getSelectedPosition()
@@ -553,20 +547,6 @@ class MainWindow(xbmcgui.Window):
                 
             return imageDir+'icon_'+str(type)+'.png'
                 
-        ######################################################################
-        # Description: Download file to local cache.
-        # Parameters : URL=URL to source file
-        #              localfile=path+name of local (destination) file
-        # Return     : 0=succes, -1=failed
-        ######################################################################
-#        def downloadFile(self, URL, localfile):
-#            try:
-#                loc = urllib.URLopener()
-#                loc.retrieve(URL, localfile)
-#            except IOError:
-#                return -1
-#            return 0
-
         ######################################################################
         # Description: Handles the selection of an item in the list.
         # Parameters : playlist(optional)=the source playlist;
@@ -657,9 +637,11 @@ class MainWindow(xbmcgui.Window):
             elif type == 'image':
                 self.viewImage(playlist, pos, 0, mediaitem.URL) #single file show
             elif type == 'text':
-                self.OpenTextFile(mediaitem.URL)
+                self.OpenTextFile(mediaitem=mediaitem)
             elif type == 'script':
                 self.InstallScript(mediaitem.URL)
+            elif type == 'download':
+                self.onDownload()
             elif type == 'search_youtube' or type == 'search_shoutcast':
                 self.PlaylistSearch(mediaitem, append)
             elif type == 'html':
@@ -680,8 +662,15 @@ class MainWindow(xbmcgui.Window):
             #At this moment nothing to handle.
             pass
 
+        ######################################################################
+        # Description: view HTML page.
+        # Parameters : URL: URL to the page.
+        # Return     : -
+        ######################################################################
         def viewHTML(self, URL):
-            pass
+            #At this moment we do not support HTML display.
+            dialog = xbmcgui.Dialog()
+            dialog.ok("HTML is not supported.")
 
         ######################################################################
         # Description: Handles the player selection menu which allows the user
@@ -695,9 +684,15 @@ class MainWindow(xbmcgui.Window):
             URL = self.pl_focus.list[pos].URL
             autonext = False
 
+            #check if the cursor is on a image
+            if mediaitem.type == 'image':
+                self.viewImage(self.pl_focus, pos, 1) #slide show show
+                return
+            
+            #not on an image, check if video or audio file
             if (mediaitem.type != 'video') and (mediaitem.type != 'audio'):
                 dialog = xbmcgui.Dialog()
-                dialog.ok("Error", "Not a video or audio file.")
+                dialog.ok("Error", "Not a video, audio or image file.")
                 return
 
             possibleChoices = ["Default Player", "Default Player (Auto Next)", "DVD Player", "DVD Player (Auto Next)", "MPlayer", "MPlayer (Auto Next)", "Cancel"]
@@ -763,11 +758,21 @@ class MainWindow(xbmcgui.Window):
         # Parameters : URL=URL to the text file.
         # Return     : -
         ######################################################################
-        def OpenTextFile( self, URL):
+        def OpenTextFile( self, URL='', mediaitem=CMediaItem()):
+            self.infotekst.setVisible(1) #loading text on
+           
+            if (mediaitem.background == 'default') and (self.pl_focus.background != 'default'):
+                mediaitem.background = self.background
+            
             textwnd = CTextView()
-            result = textwnd.OpenDocument(URL)
+            result = textwnd.OpenDocument(URL, mediaitem)
+            self.infotekst.setVisible(0) #loading text off            
+
             if result == 0:
                 textwnd.doModal()
+            else:
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Error", "Could not open file.")
                 
         ######################################################################
         # Description: Handles image slideshow.
@@ -817,20 +822,22 @@ class MainWindow(xbmcgui.Window):
                         count = count + 1
                 if count > 0:
                     count = 0
+                    index = pos
                     for i in range(self.list.size()):
                         if count == 2:
                             xbmc.executebuiltin('xbmc.recursiveslideshow(' + imageCacheDir + ')')
                             self.state_action = 0
-                        elif count > 2 and self.state_action == 1:
+                        elif (count > 2) and (self.state_action == 1):
                             break
                             
-                        if playlist.list[i].type == 'image':
+                        if playlist.list[index].type == 'image':
                             localfile=imageCacheDir+'%d.'%(count)
-                            URL = playlist.list[i].URL
+                            URL = playlist.list[index].URL
                             ext = getFileExtension(URL)
                             self.loader.load(URL, localfile + ext, proxy="DISABLED")
                             if self.loader.state == 0:
                                 count = count + 1
+                        index = (index + 1) % self.list.size()
 
                     if self.list.size() < 3:
                         #start the slideshow after the first two files. load the remaining files
@@ -843,7 +850,7 @@ class MainWindow(xbmcgui.Window):
             self.infotekst.setVisible(0)
             
         ######################################################################
-        # Description: Handles Installation of scripts
+        # Description: Handles Installation of 1scripts
         # Parameters : URL=URL to the script ZIP file.
         # Return     : -
         ######################################################################
@@ -910,7 +917,10 @@ class MainWindow(xbmcgui.Window):
             #youtube search
             if item.type == 'search_youtube':
                 fn = searchstring.replace(' ','+')
-                URL = 'http://www.youtube.com/results?search_query='
+                if item.URL != '':
+                    URL = item.URL
+                else:
+                    URL = 'http://www.youtube.com/results?search_query='
                 URL = URL + fn
                   
                 #ask the end user how to sort
@@ -1017,7 +1027,7 @@ class MainWindow(xbmcgui.Window):
             #Select the favorite playlist.
             self.pl_focus = self.favoritelist
               
-            #Show the downloads list
+            #Show the favorite list
             self.ParsePlaylist(reload=False) #display favorite list
 
         ######################################################################
@@ -1042,7 +1052,6 @@ class MainWindow(xbmcgui.Window):
             #Select the main playlist.
             self.pl_focus = self.playlist
         
-#            self.favoritelist.save(RootDir + favorite_file)
             self.ParsePlaylist(reload=False) #display main list
 
         ######################################################################
@@ -1051,7 +1060,12 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def selectBoxFavoriteList(self):
-            possibleChoices = ["Play...", "Move Item Up", "Move Item Down", "Remove Item", "Rename", "Cancel"]
+            possibleChoices = ["Play...", \
+                               "Move Item Up", \
+                               "Move Item Down", \
+                               "Remove Item", "Rename", \
+                               "Set Playlist as Home", \
+                               "Cancel"]
             dialog = xbmcgui.Dialog()
             choice = dialog.select("Select", possibleChoices)
 
@@ -1094,6 +1108,10 @@ class MainWindow(xbmcgui.Window):
                     item.name = keyboard.getText()
                     self.favoritelist.save(RootDir + favorite_file)
                     self.ParsePlaylist(reload=False) #display favorite list
+            elif choice == 5: #Set playlist as home
+                if dialog.yesno("Message", "Overwrite current Home playlist?") == False:
+                    return
+                self.home = self.URL
             
         ######################################################################
         # Description: Handles selection of the 'downloads' button.
@@ -1261,17 +1279,24 @@ class MainWindow(xbmcgui.Window):
         def onDownload(self):
             self.state_busy = 1 #busy
             
+            #first check if URL is a remote location
+            pos = self.list.getSelectedPosition()
+            entry = self.pl_focus.list[pos]
+            if entry.URL[:4] != 'http':
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Error", "File is already on local disk.")                    
+                self.state_busy = 0 #busy
+                return
+
             possibleChoices = ["Add To Download Queue", "Download", "Download + Shutdown", "Cancel"]
             dialog = xbmcgui.Dialog()
-            choice = dialog.select("Select", possibleChoices)
+            choice = dialog.select("Download...", possibleChoices)
                        
-            if choice < 3:
+            if (choice != -1) and (choice < 3):
                 self.downlshutdown = False #Reset flag
                 if choice == 2:
                     self.downlshutdown = True #Set flag
-                    
-                pos = self.list.getSelectedPosition()
-                entry = self.playlist.list[pos]
+                   
                 #select destination location for the file.
                 self.downloader.browse(entry, self.dwnlddir)
 
@@ -1291,8 +1316,11 @@ class MainWindow(xbmcgui.Window):
                             xbmc.shutdown() #shutdown the X-box
                         elif self.downloader.state == 0:
                             dialog = xbmcgui.Dialog()
-                            if dialog.yesno("Downloading", "Download completed. Open file now?") == True:
-                                self.SelectItem(iURL=entry.DLloc)
+                            if entry.type == "download":
+                                dialog.ok("Downloading", "Download completed.")
+                            else:
+                                if dialog.yesno("Downloading", "Download completed. Open file now?") == True:
+                                    self.SelectItem(iURL=entry.DLloc)
                         elif self.downloader.state == -1:
                             dialog = xbmcgui.Dialog()
                             dialog.ok("Error", "Download failed.")                    
@@ -1335,7 +1363,8 @@ class MainWindow(xbmcgui.Window):
             elif choice == 2: #view...
                 self.onView()
             elif choice == 3: #Slideshow
-                self.viewImage(self.playlist, 0, 1) #slide show show
+                pos = self.list.getSelectedPosition()            
+                self.viewImage(self.playlist, pos, 1) #slide show show
             elif choice == 4: #Add selected file to Favorites
                 pos = self.list.getSelectedPosition()
                 tmp = CMediaItem() #create new item
@@ -1372,9 +1401,7 @@ class MainWindow(xbmcgui.Window):
  #               self.onSaveSettings()
             elif choice == 7: #View playlist source
                 self.OpenTextFile(RootDir + "source.plx")
-              
 
-  
         ######################################################################
         # Description: Read the home URL from disk. Called at program init. 
         # Parameters : -
@@ -1387,7 +1414,7 @@ class MainWindow(xbmcgui.Window):
                 data = data.split('\n')
                 home=data[0]
 #                if home != home_URL_old:
-#                    self.home=home
+                self.home=home
                 self.dwnlddir=data[1]
                 f.close()
             except IOError:

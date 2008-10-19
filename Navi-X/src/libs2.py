@@ -11,11 +11,11 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
+import socket
 from settings import *
-from CFileLoader import *
 
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
@@ -61,51 +61,12 @@ class CHistorytem:
         self.index = index
         self.mediaitem = mediaitem
 
-class CHistorytem2:
-    def __init__(self, URL='', index=0, type='unknown'):
-        self.URL = URL        
-        self.index = index
-        self.type = type
+#class CHistorytem2:
+#    def __init__(self, URL='', index=0, type='unknown'):
+#        self.URL = URL        
+#        self.index = index
+#        self.type = type
  
-######################################################################
-# Description: Text viewer
-######################################################################
-class CTextView(xbmcgui.Window):
-    def __init__(self):
-        self.setCoordinateResolution(PAL_4x3)
-    
-        #background image
-        self.bg = xbmcgui.ControlImage(0,0,720,576, imageDir + "background_txt.png")
-        self.addControl(self.bg)
-        
-        self.TextBox = xbmcgui.ControlTextBox(60, 50, 600, 460)
-        self.addControl(self.TextBox)
-        self.TextBox.setVisible(1)
-        
-        self.setFocus(self.TextBox)
-       
-    def onAction(self, action):
-        if action == ACTION_PREVIOUS_MENU or action == ACTION_PARENT_DIR:
-            self.close()
-            
-    def onControl(self, control):
-        self.setFocus(control)
-        
-    def OpenDocument(self, filename):
-        loader = CFileLoader()
-        loader.load(filename, cacheDir + 'document.txt')
-        if loader.state == 0:
-            #download or open the file
-            f=open(loader.localfile, 'r')
-            data = f.read()
-            f.close()
-            self.TextBox.setText(data)
-            return 0 #success
-        else:
-            dialog = xbmcgui.Dialog()
-            dialog.ok("Error", "Could not open file.")
-            return -1 #failure        
-        
 
 ######################################################################
 # Description: Get the file extension of a URL
@@ -122,6 +83,22 @@ def getFileExtension(filename):
             return filename[ext_pos+1:]
     else:
         return ''
+
+######################################################################
+# Description: Get the socket timeout time
+# Parameters : -
+# Return     : -
+######################################################################
+def socket_getdefaulttimeout():
+    return socket.getdefaulttimeout()
+
+######################################################################
+# Description: Set the socket timeout time
+# Parameters : time in seconds
+# Return     : -
+######################################################################
+def socket_setdefaulttimeout(url_open_timeout):
+    socket.setdefaulttimeout(url_open_timeout)
         
 ######################################################################
 # Description: Trace function for debugging
@@ -129,7 +106,7 @@ def getFileExtension(filename):
 # Return     : -
 ######################################################################
 def Trace(string):
-    f = open(RootDir + "trace.txt", "w")
+    f = open(RootDir + "trace.txt", "a")
     f.write(string + '\n')
     f.close()
         

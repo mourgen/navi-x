@@ -18,10 +18,10 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
-import socket
+#import socket
 from libs2 import *
 from settings import *
 from CFileLoader import *
@@ -59,8 +59,8 @@ class CURLLoader:
                 loc_url = URL[pos:]
                     
                 try:
-                    oldtimeout=socket.getdefaulttimeout()
-                    socket.setdefaulttimeout(url_open_timeout)
+                    oldtimeout=socket_getdefaulttimeout()
+                    socket_setdefaulttimeout(url_open_timeout)
 
                     self.f = urllib.urlopen(loc_url)
                     self.loc_url=self.f.geturl()
@@ -71,10 +71,10 @@ class CURLLoader:
                 
                 except IOError:
                     self.loc_url = "" #could not open URL
-                    socket.setdefaulttimeout(oldtimeout)            
+                    socket_setdefaulttimeout(oldtimeout)            
                     return -1 #fail
 
-                socket.setdefaulttimeout(oldtimeout)
+                socket_setdefaulttimeout(oldtimeout)
                 
                 #post processing for youtube files
                 pos = URL.find('http://youtube.com') #find last 'http' in the URL
@@ -94,17 +94,19 @@ class CURLLoader:
     ######################################################################
     def geturl_youtube(self, URL):
         #retrieve the flv file URL
+        #URL parameter is not used.
+#        Trace("voor "+self.loc_url)
         
-        pos = self.loc_url.find('video_id=') #find last 'http' in the URL
+        pos = self.loc_url.find('&video_id=') #find last 'http' in the URL
         if pos != -1:
-            pos2 = self.loc_url.find('&',pos) #find last 'http' in the URL
-            id = self.loc_url[pos:pos2]
+            pos2 = self.loc_url.find('&',pos+1) #find last 'http' in the URL
+            id = self.loc_url[pos+1:pos2]
         
-        pos = self.loc_url.find('t=') #find last 'http' in the URL
+        pos = self.loc_url.find('&t=') #find last 'http' in the URL
         if pos != -1:
-            pos2 = self.loc_url.find('&',pos) #find last 'http' in the URL
+            pos2 = self.loc_url.find('&',pos+1) #find last 'http' in the URL
             if pos2 != -1:
-                t=self.loc_url[pos:pos2]
+                t=self.loc_url[pos+1:pos2]
             else:
                 t=self.loc_url[pos:]
 
@@ -112,7 +114,7 @@ class CURLLoader:
         #high resolution movies
         self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t+'&fmt=18'  #flv file 
         
-#        Trace(self.loc_url)
+#        Trace("na "+self.loc_url)
         
         return 0
     

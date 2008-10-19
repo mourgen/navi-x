@@ -18,14 +18,15 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-import Image, ImageFile
+#import Image, ImageFile
 import shutil
 import zipfile
-import socket
+#import socket
 from settings import *
 from CPlayList import *
 from CDialogBrowse import *
 from CURLLoader import *
+from libs2 import *
 
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
@@ -220,8 +221,8 @@ class CDownLoader:
         URL = urlopener.loc_url
 
         try:
-            oldtimeout=socket.getdefaulttimeout()
-            socket.setdefaulttimeout(url_open_timeout)
+            oldtimeout=socket_getdefaulttimeout()
+            socket_setdefaulttimeout(url_open_timeout)
 
             existSize=0
             myUrlclass = myURLOpener()
@@ -239,7 +240,8 @@ class CDownLoader:
             #If the file exists, but we already have the whole thing, don't download again
             size_string = f.headers['Content-Length']
             size = int(size_string) #The remaining bytes
-            if size > 0:
+#todo: size may be existsize if file is downloaded exactly 50%            
+            if (size > 0) and (size != existSize):
                 if shutdown == True:
                     string = "Downloading + Shutdown " + header
                 else:
@@ -278,7 +280,7 @@ class CDownLoader:
             self.state = -1 #failed to download the file
 
         file.close()      
-        socket.setdefaulttimeout(oldtimeout)
+        socket_setdefaulttimeout(oldtimeout)
   
         #add the downloaded file to the download list
         if self.state == 0:
