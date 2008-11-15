@@ -2,7 +2,7 @@
 version=1
 #Second line indicates background image.
 background=default
-logo=http://www.navi-x.nl/playlists/podcasts/podcast.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/podcast.jpg
 #third line indicates the title
 title=CNET home
 #Next the playlist content
@@ -14,7 +14,7 @@ title=CNET home
 type=playlist
 name=Audio podcast 
 thumb=default
-URL=http://www.navi-x.nl/playlists/podcasts/Technology/cnet/podcast.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/Technology/cnet/podcast.plx
 #
 type=rss
 name=All Video podcasts
