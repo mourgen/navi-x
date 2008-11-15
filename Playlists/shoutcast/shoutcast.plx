@@ -2,7 +2,7 @@ version=7
 background=default
 title=Shoutcast - Genre list
 #description=Shoutcast is having server problems causing this service to be unstable./description
-logo=http://www.navi-x.nl/playlists/shoutcast/shoutcast.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/shoutcast/shoutcast.jpg
 player=default
 #
 type=search_shoutcast
