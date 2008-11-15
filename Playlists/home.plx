@@ -4,7 +4,7 @@ version=1
 background=default
 #third line indicates the title
 title=Navi-X Home
-#description=This is the Navi-X backup server./description
+description=This is the Navi-X backup server./description
 logo=none
 #Next the playlist content
 #
