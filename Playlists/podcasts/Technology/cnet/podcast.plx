@@ -2,7 +2,7 @@
 version=2
 #Second line indicates background image.
 background=default
-logo=http://www.navi-x.nl/playlists/podcasts/podcast.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/podcast.jpg
 #third line indicates the title
 title=CNET home
 #Next the playlist content
