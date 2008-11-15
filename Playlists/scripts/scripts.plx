@@ -9,7 +9,7 @@ title=XBMC Scripts + skins
 #type=playlist
 #name=Navi-X skins
 #thumb=default
-#URL=http://www.navi-x.nl/playlists/scripts/skins.plx
+#URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts/skins.plx
 #URL=http://xtv-live.googlecode.com/files/index.plx
 #URL=http://ll3ph7.googlepages.com/index.txt
 #
