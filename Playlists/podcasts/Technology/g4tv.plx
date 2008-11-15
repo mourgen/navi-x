@@ -2,7 +2,7 @@
 version=1
 #Second line indicates background image.
 background=default
-logo=http://www.navi-x.nl/playlists/podcasts/Technology/g4tv.jpg
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/podcasts/Technology/g4tv.jpg
 #third line indicates the title
 title=G4TV
 #Next the playlist content
