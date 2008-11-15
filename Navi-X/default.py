@@ -71,7 +71,6 @@ import urllib
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-#import Image, ImageFile
 import shutil
 import zipfile
 #import threading
@@ -196,7 +195,7 @@ class MainWindow(xbmcgui.Window):
             #parse the home URL
             result = self.ParsePlaylist(URL=self.home)
             if result != 0: #failed
-                self.ParsePlaylist(URL=home_URL_mirror)
+                self.ParsePlaylist(URL=home_URL_mirror) #mirror site
             
             #end of function
 

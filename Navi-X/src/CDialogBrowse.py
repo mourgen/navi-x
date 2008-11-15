@@ -18,7 +18,6 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-#import Image, ImageFile
 import shutil
 import zipfile
 from settings import *

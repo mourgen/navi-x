@@ -18,10 +18,8 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-#import Image, ImageFile
 import shutil
 import zipfile
-#import socket
 from libs2 import *
 from settings import *
 from CFileLoader import *
@@ -96,27 +94,35 @@ class CURLLoader:
         #retrieve the flv file URL
         #URL parameter is not used.
 #        Trace("voor "+self.loc_url)
-        
+
+        id=''
         pos = self.loc_url.find('&video_id=') #find last 'http' in the URL
         if pos != -1:
             pos2 = self.loc_url.find('&',pos+1) #find last 'http' in the URL
             id = self.loc_url[pos+1:pos2]
         
-        pos = self.loc_url.find('&t=') #find last 'http' in the URL
-        if pos != -1:
-            pos2 = self.loc_url.find('&',pos+1) #find last 'http' in the URL
-            if pos2 != -1:
-                t=self.loc_url[pos+1:pos2]
-            else:
-                t=self.loc_url[pos:]
-
-#        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t #flv file 
-        #high resolution movies
-        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t+'&fmt=18'  #flv file 
+        self.loc_url="http://www.navi-x.nl/youtube_flv.php?"+id
         
 #        Trace("na "+self.loc_url)
         
         return 0
+        
+#        t=''
+#        pos = self.loc_url.find('&t=') #find last 'http' in the URL
+#        if pos != -1:
+#            pos2 = self.loc_url.find('&',pos+1) #find last 'http' in the URL
+#            if pos2 != -1:
+#                t=self.loc_url[pos+1:pos2]
+#            else:
+#                t=self.loc_url[pos:]
+#        
+#        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t #flv file 
+#        #high resolution movies
+#        self.loc_url = 'http://www.youtube.com/get_video.php?'+id+'&'+t+'&fmt=18'  #flv file 
+#        
+#        Trace("na "+self.loc_url)
+#        
+#        return 0
     
         
     ######################################################################

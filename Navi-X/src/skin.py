@@ -137,5 +137,6 @@ def load_skin(window):
     window.button_about.controlRight(window.list1)
     window.list1.controlLeft(window.button_home)
     window.list2.controlLeft(window.button_home)
+    window.list2tb.controlLeft(window.button_home)
   
 

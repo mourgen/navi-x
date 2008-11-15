@@ -17,7 +17,6 @@ import urllib
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-#import Image, ImageFile
 import shutil
 import zipfile
 from libs2 import *
