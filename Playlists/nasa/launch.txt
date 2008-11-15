@@ -1,0 +1,141 @@
+2008 Launches
+
+Date: October +
+Mission: TacSat-3
+Launch Vehicle: Orbital Sciences Minotaur Rocket
+Launch Site: Wallops Flight Facility - Goddard Space Flight Center
+Description: NASA will support the Air Force launch of the TacSat-3 satellite, managed by the Air Force Research Laboratory's Space Vehicles Directorate. TacSat-3 will demonstrate the capability to furnish real-time data to the combatant commander. NASA Ames will fly a microsat and NASA Wallops will fly the CubeSats on this flight in addition to providing the launch range.
+
+Date: Oct. 5
+Mission: IBEX
+Launch Vehicle: Orbital Sciences Pegasus XL Rocket
+Launch Site: Reagan Test Site, Kwajalein Atoll
+Launch Window: 12:41 to 12:48 p.m. EDT
+Description: IBEX's science objective is to discover the global interaction between the solar wind and the interstellar medium and will achieve this objective by taking a set of global energetic neutral atom images that will answer four fundamental science questions.
+
+Date: Oct. 8 +
+Mission: STS-125
+Launch Vehicle: Space Shuttle Atlantis
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Launch Time: 1:34 a.m. EDT
+Description: Space Shuttle Atlantis will fly seven astronauts into space for the fifth and final servicing mission to the Hubble Space Telescope. During the 11-day flight, the crew will repair and improve the observatory's capabilities through 2013.
+
+Date: Nov. 10 +
+Mission: STS-126
+Launch Vehicle: Space Shuttle Endeavour
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space Shuttle Endeavour launching on assembly flight ULF2, will deliver a Multi-Purpose Logistics Module to the International Space Station.
+
+Date: Nov. 20 *
+Mission: STSS Demonstrators Program - Missile Defense Agency
+Launch Vehicle: United Launch Alliance Delta II
+Launch Site: Cape Canaveral Air Force Station - Launch Complex 17, Pad A
+Description: STSS Demonstrators Program is a midcourse tracking technology demonstrator and is part of an evolving ballistic missile defense system. STSS is capable of tracking objects after boost phase and provides trajectory information to other sensors and interceptors. To be launched by NASA for the Missile Defense Agency.
+
+Date: Dec. 16 *
+Mission: GOES-O
+Launch Vehicle: United Launch Alliance Delta IV
+Launch Site: Cape Canaveral Air Force Station - Launch Complex 37
+Description: NASA and the National Oceanic and Atmospheric Administration (NOAA) are actively engaged in a cooperative program, the multimission Geostationary Operational Environmental Satellite series N-P. This series will be a vital contributor to weather, solar and space operations, and science.
+
+2009 Launches
+
+Date: Jan. 15
+Mission: OCO
+Launch Vehicle: Orbital Sciences Taurus Rocket
+Launch Site: Vandenberg Air Force Base - Launch Pad SLC 576-E
+Description: The Orbiting Carbon Observatory is a new Earth orbiting mission sponsored by NASA's Earth System Science Pathfinder Program.
+
+Date: Feb. 4
+Mission: NOAA-N Prime
+Launch Vehicle: United Launch Alliance Delta II
+Launch Site: Vandenberg Air Force Base - Launch Pad SLC-2
+Description: NOAA-N Prime is the latest polar-orbiting satellite developed by NASA/Goddard Spaceflight Center for the National Oceanic and Atmospheric Administration (NOAA). NOAA uses two satellites, a morning and afternoon satellite, to ensure every part of the Earth is observed at least twice every 12 hours. NOAA-N will collect information about Earth's atmosphere and environment to improve weather prediction and climate research across the globe.
+
+Date: Feb. 12 +
+Mission: STS-119
+Launch Vehicle: Space Shuttle Discovery
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Discovery launching on assembly flight 15A, will deliver the fourth starboard truss segment to the International Space Station.
+
+Date: Feb. 27 *
+Mission: LRO/LCROSS
+Launch Vehicle: United Launch Alliance Atlas V
+Launch Site: Cape Canaveral Air Force Station - Launch Complex 41
+Description: LRO will launch with the objectives to finding safe landing sites, locate potential resources, characterize the radiation environment and test new technology. The Lunar CRater Observing and Sensing Satellite mission is seeking a definitive answer about the presence or absence of water ice in a permanently shadowed crater at either the Moon's North or South Pole.
+
+Date: April 10
+Mission: Kepler
+Launch Vehicle: United Launch Alliance Delta II
+Launch Site: Cape Canaveral Air Force Station - Launch Complex 17 - Pad 17-B
+Description: The Kepler Mission, a NASA Discovery mission, is specifically designed to survey our region of the Milky Way galaxy to detect and characterize hundreds of Earth-size and smaller planets in or near the habitable zone.
+
+Date: April 30
+Mission: STSS ATRR - Missile Defense Agency
+Launch Vehicle: United Launch Alliance Delta II
+Launch Site: Vandenberg Air Force Base - Launch Pad SLC-2
+Description: STSS ATRR serves as a pathfinder for future launch and mission technology for the Missile Defense Agency. To be launched by NASA for the MDA.
+
+Date: May 15 +
+Mission: STS-127
+Launch Vehicle: Space Shuttle Endeavour
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Endeavour will deliver the exposed facility of Japan's Kibo laboratory to the International Space Station.
+
+Date: June 15
+Mission: Glory
+Launch Vehicle: Orbital Sciences Taurus Rocket
+Launch Site: Vandenberg Air Force Base - Launch Pad SLC 576-E
+Description: The Glory Mission will help increase our understanding of the Earth's energy balance by collecting data on the properties of aerosols and black carbon in the Earth's atmosphere and how the Sun's irradiance affects the Earth's climate.
+
+Date: July 30 +
+Mission: STS-128
+Launch Vehicle: Space Shuttle Atlantis
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Atlantis will use a Multi-Purpose Logistics Module to carry experiment and storage racks to the International Space Station.
+
+Date: Sept. 15 *
+Mission: Mars Science Laboratory
+Description: The Mars Science Laboratory is a rover that will assess whether Mars ever was, or is still today, an environment able to support microbial life and to determine the planet's habitability.
+
+Date:Oct. 15 +
+Mission: STS-129
+Launch Vehicle: Space Shuttle Discovery
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Discovery will deliver components including two spare gyroscopes, two nitrogen tank assemblies, two pump modules, an ammonia tank assembly and a spare latching end effector for the station's robotic arm to the International Space Station.
+
+Date: November +
+Mission: WISE
+Description: The Wide-field Infrared Survey Explorer (WISE) will survey the entire sky in the mid-infrared with far greater sensitivity than any previous mission or program ever has. The WISE survey will consist of over a million images, from which hundreds of millions of astronomical objects will be catalogued.
+
+Date: Dec. 10 +
+Mission: STS-130
+Launch Vehicle: Space Shuttle Endeavour
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Endeavour will deliver the final connecting node, Node 3, and the Cupola, a robotic control station with six windows around its sides and another in the center that provides a 360-degree view around the International Space Station.
+
+2010 Launches
+
+Date:Jan. 26
+Mission: SDO
+Launch Vehicle: United Launch Alliance Atlas V
+Launch Site: Cape Canaveral Air Force Station - Launch Complex 41
+Description: The first Space Weather Research Network mission in the Living With a Star (LWS) Program of NASA.
+
+Date: Feb. 11 +
+Mission: STS-131
+Launch Vehicle: Space Shuttle Atlantis
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Atlantis will carry a Multi-Purpose Logistics Module filled with science racks that will be transferred to laboratories of the International Space Station.
+
+Date: April 8 +
+Mission: STS-132
+Launch Vehicle: Space Shuttle Discovery
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Discovery mission will carry an integrated cargo carrier to deliver maintenance and assembly hardware, including spare parts for space station systems. In addition, the second in a series of new pressurized components for Russia, a Mini Research Module, will be permanently attached to the bottom port of the Zarya module.
+
+Date: May 31 +
+Mission: STS-133
+Launch Vehicle: Space Shuttle Endeavour
+Launch Site: Kennedy Space Center - Launch Pad 39A
+Description: Space shuttle Endeavour will deliver critical spare components including antennas and gas tanks to the International Space Station.
