@@ -4,8 +4,9 @@ version=1
 background=default
 #third line indicates the title
 title=Navi-X Home
-description=This is the Navi-X backup server./description
-logo=none
+description=The Navi-X server is down. This is the Navi-X backup server at google. Some playlists may not be available./description
+#logo=none
+logo=http://members.lycos.nl/navix/webcount_png.php?fn=logo.png
 #Next the playlist content
 #
 type=playlist
