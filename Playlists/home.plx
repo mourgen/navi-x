@@ -4,7 +4,7 @@ version=1
 background=default
 #third line indicates the title
 title=Navi-X Home
-#description=Navi-X 2.3 for Windows/Linux released. Comments to rodejo16@gmail.com./description
+#description=This is the Navi-X backup server./description
 logo=none
 #Next the playlist content
 #
@@ -21,7 +21,7 @@ URL=My Playlists
 type=playlist
 name=Navi-X scripts 2008/10/26 Navi-X 2.3 for Windows/Linux
 thumb=default
-URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts/scripts.plx
 #
 type=playlist
 name=PLX playlist building tips <NEW>
