@@ -1,0 +1,34 @@
+version=5
+#playlist properties:
+background=default
+logo=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
+title=Youtube Languages
+#
+type=playlist
+name=Worldwide
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/youtube.plx
+#
+type=playlist
+name=Australia
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/AU/youtube.plx
+#
+type=playlist
+name=Canada
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/CA/youtube.plx
+#
+type=playlist
+name=Germany
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/DE/youtube.plx
+#
+type=playlist
+name=Spain
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/ES/youtube.plx
+#
+type=playlist
+name=Netherlands
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/NL/youtube.plx
+#
+type=playlist
+name=UK
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/UK/youtube.plx
+#
