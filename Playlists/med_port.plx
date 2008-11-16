@@ -22,8 +22,8 @@ URL=http://www.dynatron.org/PLX/smokestop.plx
 #
 type=playlist
 name=Youtube
-thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
-#URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/youtube.plx
+#thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/index.plx
 #
 type=xml_applemovie
 name=Apple movie trailers
