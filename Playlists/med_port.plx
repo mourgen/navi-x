@@ -21,6 +21,11 @@ name=Litspliff's Smoke Stop!
 URL=http://www.dynatron.org/PLX/smokestop.plx
 #
 type=playlist
+name=Navi-xtreme - verified user media (New)
+thumb=http://navix.turner3d.net/images/logo.jpg
+URL=http://navix.turner3d.net/playlist/index.plx
+#
+type=playlist
 name=Youtube
 #thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/logo.jpg
 URL=http://navi-x.googlecode.com/svn/trunk/Playlists/youtube/index.plx
