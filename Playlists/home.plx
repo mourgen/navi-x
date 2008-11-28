@@ -12,6 +12,11 @@ logo=http://members.lycos.nl/navix/webcount_png.php?fn=logo.png
 type=playlist
 name=Navi-X Media Portal
 thumb=default
+URL=http://www.navi-x.org/playlists/med_port.plx
+#
+type=playlist
+name=Navi-X Media Portal
+thumb=default
 URL=http://navi-x.googlecode.com/svn/trunk/Playlists/med_port.plx
 #
 type=directory
