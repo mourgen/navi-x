@@ -10,12 +10,12 @@ logo=http://members.lycos.nl/navix/webcount_png.php?fn=logo.png
 #Next the playlist content
 #
 type=playlist
-name=Navi-X Media Portal
+name=Navi-X Media Portal (Navi-X.org)
 thumb=default
 URL=http://www.navi-x.org/playlists/med_port.plx
 #
 type=playlist
-name=Navi-X Media Portal
+name=Navi-X Media Portal (Google)
 thumb=default
 URL=http://navi-x.googlecode.com/svn/trunk/Playlists/med_port.plx
 #
