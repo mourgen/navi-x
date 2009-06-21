@@ -1,15 +1,20 @@
 version=1
 background=default
 logo=none
-title=Downloads
+title=Playlists
 #
 type=playlist
-name=Queue
+name=Download Queue
 thumb=default
 URL=downlqueue.plx
 #
 type=playlist
-name=Complete
+name=Completed Downloads
 thumb=default
-URL=downlcompl.plx
+URL=downloads.plx
+#
+type=playlist
+name=Blocked Content
+thumb=default
+URL=blacklist.plx
 #

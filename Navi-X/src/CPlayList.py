@@ -26,16 +26,6 @@ from CFileLoader import *
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
 
-RootDir = os.getcwd()
-if RootDir[-1]==';': RootDir=RootDir[0:-1]
-if RootDir[-1]!='\\': RootDir=RootDir+'\\'
-imageDir = RootDir + "\\images\\"
-cacheDir = RootDir + "\\cache\\"
-imageCacheDir = RootDir + "\\cache\\imageview\\"
-scriptDir = "Q:\\scripts\\"
-myDownloadsDir = RootDir + "My Downloads\\"
-initDir = RootDir + "\\init\\"
-
 ######################################################################
 # Description: Playlist class. Contains CMediaItem objects
 ######################################################################
@@ -44,6 +34,17 @@ class CPlayList:
         self.version = '0'
         self.background = 'default'
         self.logo = 'none'
+        #
+        self.icon_playlist = 'default'
+        self.icon_rss = 'default'
+        self.icon_script = 'default'
+        self.icon_video = 'default'
+        self.icon_audio = 'default'
+        self.icon_image = 'default'
+        self.icon_text = 'default'
+        self.icon_search = 'default'
+        self.icon_download = 'default'
+        #
         self.title = ''
         self.description = ''
         self.URL = ''
@@ -108,7 +109,8 @@ class CPlayList:
         try:
             f = open(filename, 'r')
             data = f.read()
-            data = data.split('\n')
+#            data = data.split('\n')
+            data = data.splitlines()
             f.close()
         except IOError:
             return -2
@@ -117,15 +119,30 @@ class CPlayList:
         self.version = '-1'
         self.background = mediaitem.background
         self.logo = 'none'
+        #
+        self.icon_playlist = 'default'
+        self.icon_rss = 'default'
+        self.icon_script = 'default'
+        self.icon_video = 'default'
+        self.icon_audio = 'default'
+        self.icon_image = 'default'
+        self.icon_text = 'default'
+        self.icon_search = 'default'
+        self.icon_download = 'default'
+        #
         self.title = ''
         self.description = ''
         self.player = mediaitem.player
+        self.processor = mediaitem.processor
         self.playmode = 'default'
         self.start_index = 0
 
         #parse playlist entries 
         counter = 0
         state = 0
+        tmp=''
+        previous_state = 0
+        
         for m in data:
             if state == 2: #parsing description field
                 index = m.find('/description')
@@ -134,7 +151,21 @@ class CPlayList:
                     state = 0
                 else:
                     self.description = self.description + "\n" + m
+            elif state == 3: #parsing description field
+                index = m.find('/description')
+                if index != -1:
+                    tmp.description = tmp.description + "\n" + m[:index]
+                    state = 1
+                else:
+                    tmp.description = tmp.description + "\n" + m
+            elif state == 4: #multiline comment 
+                if m[:3] == '"""':
+                    state = previous_state
             elif m and m[0] != '#':
+                if m[:3] == '"""':
+                    previous_state = state
+                    state = 4 #muliline comment state
+                    continue #continue with next line
                 index = m.find('=')
                 if index != -1:
                     key = m[:index]
@@ -148,18 +179,38 @@ class CPlayList:
                         self.background=value
                     elif key == 'player' and state == 0:
                         self.player=value
-                    elif key == 'logo':
+                    elif key == 'logo' and state == 0:
                         self.logo=value
-                    elif key == 'title':
+                    #
+                    elif key == 'icon_playlist' and state == 0:
+                        self.icon_playlist=value
+                    elif key == 'icon_rss' and state == 0:
+                        self.icon_rss=value                        
+                    elif key == 'icon_script' and state == 0:
+                        self.icon_script=value                        
+                    elif key == 'icon_video' and state == 0:
+                        self.icon_video=value                        
+                    elif key == 'icon_audio' and state == 0:
+                        self.icon_audio=value                        
+                    elif key == 'icon_image' and state == 0:
+                        self.icon_image=value
+                    elif key == 'icon_text' and state == 0:
+                        self.icon_text=value
+                    elif key == 'icon_search' and state == 0:
+                        self.icon_search=value
+                    elif key == 'icon_download' and state == 0:
+                        self.icon_download=value
+                    #                      
+                    elif key == 'title' and state == 0:
                             self.title=value
-                    elif key == 'description':
+                    elif key == 'description' and state == 0:
                             index = value.find('/description')
                             if index != -1:
                                 self.description=value[:index]
                             else:
                                 self.description=value
                                 state = 2 #description on more lines
-                    elif key == 'playmode':
+                    elif key == 'playmode' and state == 0:
                             self.playmode=value
                     elif key == 'type':
                         if state == 1:
@@ -170,15 +221,20 @@ class CPlayList:
                         tmp.type = value
                         if tmp.type == 'video' or tmp.type == 'audio':
                             tmp.player = self.player
+                            tmp.processor = self.processor
 
-                        counter = counter+1
+                        counter = counter + 1
                         state = 1
                     elif key == 'version' and state == 1:
                         tmp.version=value
                     elif key == 'name':
                         tmp.name=value
+                    elif key == 'date':
+                        tmp.date=value    
                     elif key == 'thumb':
                         tmp.thumb=value
+                    elif key == 'icon':
+                        tmp.icon=value    
                     elif key == 'URL':
                         tmp.URL=value
                     elif key == 'DLloc':
@@ -186,14 +242,31 @@ class CPlayList:
                     elif key == 'player':
                         tmp.player=value 
                     elif key == 'background':
-                        tmp.background=value 
+                        tmp.background=value
+                    elif key == 'processor':
+                        tmp.processor=value
+                    elif key == 'playpath':
+                        tmp.playpath=value  
+                    elif key == 'swfplayer':
+                        tmp.swfplayer=value    
+                    elif key == 'pageurl':
+                        tmp.pageurl=value    
+                    elif key == 'description':
+                        #self.description = ' ' #this will make the description field visible
+                        index = value.find('/description')
+                        if index != -1:
+                            tmp.description=value[:index]
+                        else:
+                            tmp.description=value
+                            state = 3 #description on more lines                 
                     
-        if state == 1:
+        if (state == 1) or (previous_state == 1):
             self.list.append(tmp)
         
         #if no version ID is found then this is not a valid playlist.
-        if self.version == '-1':
-            return -2
+#the next lines to not work because they current playlist is already lost.
+#        if self.version == '-1':
+#            return -2
         
         return 0 #successful
         
@@ -220,22 +293,32 @@ class CPlayList:
         try:
             f = open(filename, 'r')
             data = f.read()
-            data = data.split('<item>')
+            data = data.split('<item')
             f.close()
         except IOError:
             return -2
         
         #defaults
         self.version = plxVersion
-        self.background = mediaitem.background
+        #use the current background image if mediaitem background is not set.
+        if mediaitem.background != 'default':
+            self.background = mediaitem.background
         self.logo = 'none'
         self.title = ''
         self.description = ''
         self.player = mediaitem.player
+        self.processor = mediaitem.processor
         self.playmode = 'default'
         self.start_index = 0
         #clear the list
         del self.list[:]
+        
+        #set the default type
+        index=mediaitem.type.find(":")
+        if index != -1:
+            type_default = mediaitem.type[index+1:]
+        else:
+            type_default = ''
         
         counter=0
         #parse playlist entries 
@@ -252,9 +335,12 @@ class CPlayList:
                 index = m.find('<description>')
                 if index != -1:
                     index2 = m.find('</description>')
-                    if index != -1:
+                    if index2 != -1:
                         value = m[index+13:index2]
                         self.description = value
+                        index3 = self.description.find('<![CDATA[')
+                        if index3 != -1:
+                            self.description = self.description[9:-3]
                 
                 #fill the logo
                 index = m.find('<image>')
@@ -279,6 +365,7 @@ class CPlayList:
             else:
                 tmp = CMediaItem() #create new item
                 tmp.player = self.player
+                tmp.processor = self.processor
 
                 #get the publication date.
                 index = m.find('<pubDate')
@@ -305,6 +392,26 @@ class CPlayList:
                             else:
                                 value = m[index2+1:index3]
                             tmp.name = tmp.name + value
+                                             
+                #get the description.
+                index1 = m.find('<content:encoded>')
+                index = m.find('<description>')
+                if index1 != -1:
+                    index2 = m.find('</content:encoded>')
+                    if index2 != -1:
+                        value = m[index1+17:index2]
+                        tmp.description = value
+                        index3 = tmp.description.find('<![CDATA[')
+                        if index3 != -1:
+                            tmp.description = tmp.description[9:-3]
+                elif index != -1:
+                    index2 = m.find('</description>')
+                    if index2 != -1:
+                        value = m[index+13:index2]
+                        tmp.description = value
+                        index3 = tmp.description.find('<![CDATA[')
+                        if index3 != -1:
+                            tmp.description = tmp.description[9:-3]
 
                 #get the thumb
                 index = m.find('<media:thumbnail')
@@ -319,11 +426,12 @@ class CPlayList:
                 #get the enclosed content.
                 index = m.find('enclosure')
                 index1 = m.find ('<media:content')
-                if (index != -1) or (index1 != -1):
+                #if (index != -1) or (index1 != -1):                
+                if ((index != -1) or (index1 != -1)) and (tmp.processor==''):
                     #enclosure is first choice. If no enclosure then use media:content
                     if (index == -1) and (index1 != -1):
                         index = index1
-                    index2 = m.find('url="',index)
+                    index2 = m.find('url="',index) #get the URL attribute
                     if index2 != -1:
                         index3 = m.find('"', index2+5)
                     else:
@@ -333,8 +441,23 @@ class CPlayList:
                     if (index2 != -1) and (index3 != -1):
                         value = m[index2+5:index3]
                         tmp.URL = value
-                            
-                    if tmp.URL != '': #valid URL found
+                    
+                    #get the media type
+                    if type_default != '':
+                        tmp.type = type_default
+
+                    if tmp.type == 'unknown':   
+                        index2 = m.find('type="',index) #get the type attribute
+                        if index2 != -1:
+                            index3 = m.find('"', index2+6)
+                            if index3 != -1:
+                                type = m[index2+6:index3]
+                                if type[0:11] == 'application':
+                                    tmp.type = 'download'
+                                elif type[0:5] == 'video':
+                                    tmp.type = 'video'
+                        
+                    if (tmp.type == 'unknown') and (tmp.URL != ''): #valid URL found
                         #validate the type based on file extension
                         ext_pos = tmp.URL.rfind('.') #find last '.' in the string
                         if ext_pos != -1:
@@ -347,7 +470,7 @@ class CPlayList:
                             else:
                                 tmp.type = 'video'
                                                         
-                else: #no enclosed URL, use the link
+                else: #no enclosed URL and media content or the processor tag has been set, use the link
                     index = m.find('<link>')
                     if index != -1:
                         index2 = m.find('</link>', index+6)
@@ -469,6 +592,8 @@ class CPlayList:
         else:
             self.URL = mediaitem.URL
         
+#        Trace(self.URL)
+        
         loader = CFileLoader2()
         loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
         if loader.state != 0:
@@ -478,12 +603,7 @@ class CPlayList:
         try:
             f = open(filename, 'r')
             data = f.read()
-            if data.find('<!-- end vEntry -->') != -1:
-                entries = data.split('<!-- end vEntry -->')
-#                entries = data.split('class="vlentry"')
-            else:
-                entries = data.split('class="vDetailEntry"') #playlist
-
+            entries = data.split('<div class="video-entry">')
             lines = data.split('\n')
             f.close()
         except IOError:
@@ -511,7 +631,7 @@ class CPlayList:
         for m in entries:
             index1= m.find('class="vtitle marT5"')
             if index1 == -1:
-                index1= m.find('class="vllongTitle"')
+                index1= m.find('class="video-long-title"')
             if index1 == -1:
                 index1= m.find('class="vlshortTitle"')
             if index1 == -1:
@@ -548,14 +668,16 @@ class CPlayList:
         #check if there is a next page in the html. Get the last one in the page.
         next_page_str = ''
         for m in lines:
-            index1 = m.find('class="pagerNotCurrent">')
-            if index1 != -1:
+            #index1 = m.find('class="pagerNotCurrent" >')
+            index1a = m.find('class="pagerNotCurrent')
+            index1b = m.find(';start=')
+            if (index1a != -1) or (index1b != -1):
                 next_page_str = m
 
         if next_page_str != '': #next page found. Grab the URL
-            index2 = next_page_str.find('<a href="')
+            index2 = next_page_str.find("<a href=")
             if index2 != -1:
-                index3 = next_page_str.find('"',index2+9)
+                index3 = next_page_str.find(next_page_str[index2+8:index2+9],index2+9)
                 if index3 != -1:
                     value = next_page_str[index2+9:index3]
                     tmp = CMediaItem() #create new item
@@ -589,19 +711,27 @@ class CPlayList:
         else:
             self.URL = mediaitem.URL
         
-        loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'shoutcast.xml', proxy=proxy)
-        if loader.state != 0:
-            return -2
-        filename = loader.localfile
+        loader = CFileLoader2()
         
-        try:
-            f = open(filename, 'r')
-            data = f.read()
+        loader.load(self.URL, cacheDir + 'shoutcast.xml', proxy=proxy, retries=2)
+        if loader.state == 0:
+            filename = loader.localfile
+        
+            try:
+                f = open(filename, 'r')
+                data = f.read()
+                f.close()
+                  
+                if data.find('<?xml version="1.0"') == -1:
+                    return -2 #failed
+                    
+            except IOError:
+                return -2 #failed
+        else:
+            return -2 #failed
+            
+#        Message(str(counter))
 
-            f.close()
-        except IOError:
-            return -2
         
         #defaults
         self.version = plxVersion
@@ -756,7 +886,8 @@ class CPlayList:
                             date=int(value[2:4]) * 365
                             date = date + int(value[5:7]) * 31
                             date = date + int(value[8:])
-                        tmp.name = tmp.name + "  - (Release Date: " + value + ")"
+                        #tmp.name = tmp.name + "  - (Release Date: " + value + ")"
+                        tmp.name = value + " - " + tmp.name
                 dates.append(date)
                     
                 #fill the thumb
@@ -776,7 +907,15 @@ class CPlayList:
                         if index3 != -1:
                             value = m[index3:index2]
                             tmp.URL = value
-
+                            
+                #fill the postdate
+                index = m.find('<postdate>')
+                if index != -1:
+                    index2 = m.find('</postdate>')
+                    if index2 != -1:
+                            value = m[index+10:index2]
+                            tmp.date = value            
+                            
                 self.list.append(tmp)
 
         #sort the list according release date
@@ -821,6 +960,17 @@ class CPlayList:
         self.version = plxVersion
         self.background = mediaitem.background
         self.logo = 'none'
+        #
+        self.icon_playlist = 'default'
+        self.icon_rss = 'default'
+        self.icon_script = 'default'
+        self.icon_video = 'default'
+        self.icon_audio = 'default'
+        self.icon_image = 'default'
+        self.icon_text = 'default'
+        self.icon_search = 'default'
+        self.icon_download = 'default'
+        #
         self.title = mediaitem.name
         self.description = ''
         self.player = mediaitem.player
@@ -868,11 +1018,19 @@ class CPlayList:
         for i in range(len(self.list)):
             f.write('type=' + self.list[i].type + '\n')
             f.write('name=' + self.list[i].name + '\n')
+            if self.list[i].description != '':
+                f.write('description=' + self.list[i].description + '/description' + '\n')
             if self.list[i].thumb != 'default':
                 f.write('thumb=' + self.list[i].thumb + '\n')
+            if self.list[i].icon != 'default':
+                f.write('icon=' + self.list[i].icon + '\n')    
             f.write('URL=' + self.list[i].URL + '\n')
             if self.list[i].player != 'default':
                 f.write('player=' + self.list[i].player + '\n')
+            if self.list[i].processor != '':
+                f.write('processor=' + self.list[i].processor + '\n')                
+            if self.list[i].date != '':
+                f.write('date=' + self.list[i].date + '\n')               
             if len(self.list[i].DLloc) > 0:
                 f.write('DLloc=' + self.list[i].DLloc + '\n')
             f.write('#\n')

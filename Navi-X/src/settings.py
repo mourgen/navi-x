@@ -40,16 +40,46 @@ PAL_16x9 = 7        #(720x576, 16:9, pixels are 512:351)
 PAL60_4x3 = 8       #(720x480, 4:3, pixels are 4320:4739)
 PAL60_16x9 = 9      #(720x480, 16:9, pixels are 5760:4739)
 
+
+#############################################################################
+# directory settings
+#############################################################################
+import os
+RootDir = os.getcwd()
+if RootDir[-1]==';': RootDir=RootDir[0:-1]
+if RootDir[-1]!='\\': RootDir=RootDir+'\\'
+
+import xbmc
+version = xbmc.getInfoLabel("System.BuildVersion")[:1]
+
+imageDir = RootDir + "images\\"
+cacheDir = RootDir + "cache\\"
+imageCacheDir = RootDir + "cache\\imageview\\"
+if version == '9':
+    scriptDir = "special://home/scripts/"
+    pluginDir = "special://home/plugins/"
+    skinDir = "special://home/skin/"
+else: 
+    scriptDir = "Q:\\scripts\\"
+    pluginDir = "Q:\\plugins\\"
+    skinDir = "Q:\\skin\\"
+myDownloadsDir = RootDir + "My Downloads\\"
+initDir = RootDir + "init\\"
+myPlaylistsDir = RootDir + "My Playlists\\"
+srcDir = RootDir + "src\\"
+
 ######################################################################
 Version='2' #program version
-SubVersion='3'
+SubVersion='9'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
 downloads_queue='downlqueue.plx'
 downloads_complete='downloads.plx'
+parent_list='blacklist.plx'
 plxVersion = '8'
-home_URL='http://www.navi-x.nl/playlists/home.plx'
+home_URL_old='http://www.navi-x.nl/playlists/home.plx'
+home_URL='http://www.navi-x.org/playlists/home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 
-url_open_timeout = 15
+url_open_timeout = 10

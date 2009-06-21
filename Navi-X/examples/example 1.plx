@@ -19,7 +19,7 @@ name=Image: Angelina...
 URL=Q:\scripts\Navi-X\examples\ex2_bg.jpg
 #
 type=text
-name=Text: Navi-X readme
+name=Text: Navi-X readme file
 URL=readme.txt
 #
 type=rss
@@ -36,3 +36,9 @@ name=Directory
 thumb=default
 URL=Q:\scripts\Navi-X\My Playlists
 #
+type=download
+name=Download: Navi-X home page PLX file.
+thumb=default
+URL=http://www.navi-x.nl/playlists/home.plx
+#
+
