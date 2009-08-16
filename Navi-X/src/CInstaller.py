@@ -43,12 +43,16 @@ class CInstaller(xbmcgui.Window):
         else:
             self.URL = mediaitem.URL
         
+        SetInfoText("Downloading... ")
+        
         #download the file.
         loader = CFileLoader()
         loader.load(self.URL, cacheDir + 'script.zip')
         if loader.state != 0:
             return -2
         filename = loader.localfile
+
+        SetInfoText("Installing... ")
 
         result = self.unzip_file_into_dir(filename, scriptDir)   
 
@@ -73,6 +77,8 @@ class CInstaller(xbmcgui.Window):
         else:
             subdir = ''
         
+        SetInfoText("Downloading... ")
+        
         #download the file.
         loader = CFileLoader()
         loader.load(self.URL, cacheDir + 'plugin.zip', content_type='zip')
@@ -82,6 +88,8 @@ class CInstaller(xbmcgui.Window):
                 dialog.ok(" Installer", "Failed. Not a ZIP file.", "Use the standard Download feature.")
             return -2
         filename = loader.localfile
+        
+        SetInfoText("Installing... ")
         
         result = self.unzip_file_into_dir(filename, pluginDir + subdir)    
        
@@ -99,12 +107,16 @@ class CInstaller(xbmcgui.Window):
         else:
             self.URL = mediaitem.URL
         
+        SetInfoText("Downloading... ")
+        
         #download the file.
         loader = CFileLoader()
         loader.load(self.URL, cacheDir + 'skin.zip')
         if loader.state != 0:
             return -2
         filename = loader.localfile
+
+        SetInfoText("Installing... ")
 
         result = self.unzip_file_into_dir(filename, skinDir)   
 

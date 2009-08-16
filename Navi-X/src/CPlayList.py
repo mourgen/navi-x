@@ -62,6 +62,15 @@ class CPlayList:
         self.list.append(item)
 
     ######################################################################
+    # Description: Insert a item to playlist.
+    # Parameters : item = CMediaItem obect
+    #              index=index of entry to remove
+    # Return     : -
+    ######################################################################
+    def insert(self, item, index):
+        self.list.insert(index, item)
+
+    ######################################################################
     # Description: clears the complete playlist.
     # Parameters : -
     # Return     : -
@@ -284,6 +293,9 @@ class CPlayList:
         else:
             self.URL = mediaitem.URL
 
+        if self.URL[:6] == 'rss://':        
+            self.URL = self.URL.replace('rss:', 'http:')
+
         loader = CFileLoader()
         loader.load(self.URL, cacheDir + 'feed.xml', proxy=proxy)
         if loader.state != 0:
@@ -425,8 +437,7 @@ class CPlayList:
 
                 #get the enclosed content.
                 index = m.find('enclosure')
-                index1 = m.find ('<media:content')
-                #if (index != -1) or (index1 != -1):                
+                index1 = m.find ('<media:content')              
                 if ((index != -1) or (index1 != -1)) and (tmp.processor==''):
                     #enclosure is first choice. If no enclosure then use media:content
                     if (index == -1) and (index1 != -1):
@@ -475,10 +486,17 @@ class CPlayList:
                     if index != -1:
                         index2 = m.find('</link>', index+6)
                         if index2 != -1:
-                            value = m[index+6:index2]
+                            value = m[index+6:index2]  
                             tmp.URL = value
-                        tmp.type = 'html'
-                
+                        
+                            #get the media type
+                            if type_default != '':
+                                tmp.type = type_default
+                            elif value[:6] == 'rss://':
+                                tmp.type = 'rss'                       
+                            else:
+                                tmp.type = 'html'
+                                        
                 if tmp.URL != '':
                     self.list.append(tmp)
                     counter = counter + 1
@@ -603,7 +621,8 @@ class CPlayList:
         try:
             f = open(filename, 'r')
             data = f.read()
-            entries = data.split('<div class="video-entry">')
+            #entries = data.split('<div class="video-entry">')
+            entries = data.split('<div class="video-entry')
             lines = data.split('\n')
             f.close()
         except IOError:

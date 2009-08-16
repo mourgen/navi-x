@@ -70,7 +70,7 @@ srcDir = RootDir + "src\\"
 
 ######################################################################
 Version='2' #program version
-SubVersion='9'
+SubVersion='9.3'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -81,5 +81,7 @@ plxVersion = '8'
 home_URL_old='http://www.navi-x.nl/playlists/home.plx'
 home_URL='http://www.navi-x.org/playlists/home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
+background_image = 'background.png'
+background_image1 = 'background1.png'
 
-url_open_timeout = 10
+url_open_timeout = 10 #10 seconds

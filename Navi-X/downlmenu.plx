@@ -1,5 +1,5 @@
 version=1
-background=default
+background=previous
 logo=none
 title=Playlists
 #

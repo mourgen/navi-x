@@ -1,16 +1,10 @@
-Welcome to Navi-X v2.9
+Welcome to Navi-X v2.9.3
 
 Changelog:
--Improved the shoutcast parser. A auto retry mechanism has been added.
--RSS: The link attribute is used in case the processor is set.
--Processor: Updated the processor code. The processor now also works for file download.
--Textview: Implemented text scrolling using up/down keys.  
--Added skin media type. Allows installation of skins.
--Added setting of the media type for rss feed files.
--Added setting of the processor for plx and rss feed files.
--Solved browse button failure.
--Player: Solved play autonext in XBMC 9.04
--Installer: Solved script/plugin installer in XBMC 9.04
+-Number of GUI changes;
+-Added cut/paste support in favorite list to make organising easier;
+-Fixed parser for flick daily interesting foto;
+-Improved exception handling for improve Navi-X stability;
 
 Enjoy: Rodejo
 

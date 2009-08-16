@@ -153,15 +153,16 @@ def get_HTML(url,referer='',cookie=''):
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                 'Referer': referer,
                 'Cookie': cookie}
-    req = urllib2.Request(url=url, headers=headers)
-    response = urllib2.urlopen(req)
-    link=response.read()
-    response.close()
-    return link   
+    try:
+        req = urllib2.Request(url=url, headers=headers)
+        response = urllib2.urlopen(req)
+        link=response.read()
+        response.close()
+    except IOError:         
+        link = ""
+       
+    return link
      
-#retrieve the platform.
-platform = get_system_platform()
-
 
 ######################################################################
 # Description: Controls the info text label on the left bottom side
@@ -180,4 +181,11 @@ def SetInfoText(text='', window=0):
         win.setVisible(1)
     else:
         win.setVisible(0)
+
+        
+#retrieve the platform.
+platform = get_system_platform()
+
+        
+
 

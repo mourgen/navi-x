@@ -55,7 +55,7 @@ class CBackgroundLoader(threading.Thread):
 #            self.counter = self.counter + 1
 #            self.MainWindow.setInfoText(str(self.counter)) #loading text
             self.UpdateThumb()
-            
+            self.UpdateTime()
             #Update the thumb image  
             
     def kill(self):
@@ -123,5 +123,13 @@ class CBackgroundLoader(threading.Thread):
         else:
             self.MainWindow.user_thumb.setVisible(0)
             
-  
+    ######################################################################
+    # Description: Update the time
+    # Parameters : -
+    # Return     : -
+    ######################################################################
+    def UpdateTime(self):
+        today=datetime.date.today()
+        self.MainWindow.dt.setLabel(time.strftime("%A, %d %B | %I:%M %p"))
+    
         

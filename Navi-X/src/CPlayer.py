@@ -130,7 +130,7 @@ class CPlayer(xbmc.Player):
             self.play_RTMP(mediaitem.URL, mediaitem.playpath, mediaitem.swfplayer, mediaitem.pageurl);
         else:  
             xbmc.Player.play(self, self.pls)
-                   
+            
         return 0
 
     ######################################################################
@@ -151,5 +151,6 @@ class CPlayer(xbmc.Player):
             item.setProperty("PageURL", pageurl)
 
         xbmc.Player(xbmc.PLAYER_CORE_DVDPLAYER).play(URL, item)
+        
         return 0
         

@@ -35,7 +35,7 @@ class CURLLoader:
     # Description: This class is used to retrieve the direct URL of given
     #              URL which the XBMC player understands.
     #              
-    # Parameters : URL=source URL
+    # Parameters : URL=source URL, mediaitem = mediaitem to open
     # Return     : 0=successful, -1=fail
     ######################################################################
     def urlopen(self, URL, mediaitem=0):
@@ -132,34 +132,35 @@ class CURLLoader:
     
 
     ######################################################################
-    # Description: This class is used to retrieve the URL of a FlyUpload
-    #              webpage
+    # Description: This class is used to retrieve the URL using a 
+    #              processor server
     #              
-    # Parameters : URL=source URL
+    # Parameters : mediaitem = mediaitem to open
     # Return     : 0=successful, -1=fail
     ######################################################################
     def geturl_processor(self, mediaitem):
         SetInfoText("Processor: getting filter...")
         arr=get_HTML(mediaitem.processor+'?url='+urllib.quote_plus(mediaitem.URL)).splitlines()
-        if len(arr)<1:
+        if len(arr) < 1:
             return -1 # nothing retrieved from processor
         URL=arr[0]
-        if len(arr)<2:
+        if len(arr) < 2:
             self.loc_url = URL
             SetInfoText("")
             return 0 # success - final URL output by processor stage 1 - no further processing needed
         filt=arr[1]
-        if len(arr)>2:
+        if len(arr) > 2:
             ref=arr[2]
         else:
             ref=''
-        if len(arr)>3:
+        if len(arr) > 3:
             cookie=arr[3]
         else:
             cookie=''
+            
         SetInfoText("Processor: scraping...")
         htm=get_HTML(URL,ref,cookie)
-        if htm=='':
+        if htm == '':
             return -1 #nothing scraped
         p=re.compile(filt)
         match=p.search(htm)
@@ -173,10 +174,10 @@ class CURLLoader:
             SetInfoText("Processor: processing...")
             arr=get_HTML(tgt).splitlines()
             mediaitem.URL=arr[0]
-            if len(arr)>1:
+            if len(arr) > 1:
                 mediaitem.swfplayer=arr[1]
                 mediaitem.playpath=arr[2]
-            if len(arr)>3:
+            if len(arr) > 3:
                 mediaitem.pageurl=arr[3]
             mediaitem.processor=''
             

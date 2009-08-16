@@ -100,7 +100,6 @@ class CFileLoader:
             self.state = 0 #success
         else: #assuming relative (local) path
             self.localfile = RootDir + URL        
-#            self.localfile = RootDir + '\\' + URL
             self.state = 0 #success
 
 
