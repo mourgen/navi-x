@@ -1,7 +1,7 @@
 #############################################################################
 #
 # Navi-X Playlist browser
-# v2.9.3 by rodejo (rodejo16@gmail.com)
+# v3.0 by rodejo (rodejo16@gmail.com)
 #
 # -v1.01  (2007/04/01) first release
 # -v1.2   (2007/05/10)
@@ -38,7 +38,13 @@
 # -v2.9   (2009/06/13)
 # -v2.9.2 (2009/08/07)
 # -v2.9.3 (2009/08/14)
+# -v2.9.4 (2009/09/01)
+# -v3.0 RC  (2009/10/03)
+# -v3.0  (2009/11/08)
 #
+#@todo: youtube info.
+#@todo: only add content to history is name is not empty
+#@todo: change default timeout only at startup.
 #############################################################################
 
 from string import *
@@ -56,6 +62,7 @@ from libs2 import *
 from settings import *
 from CPlayList import *
 from CFileLoader import *
+from CURLLoader import *
 from CDownLoader import *
 from CPlayer import *
 from CDialogBrowse import *
@@ -119,7 +126,14 @@ class MainWindow(xbmcgui.Window):
             if result != 0:
                 shutil.copyfile(initDir+parent_list, RootDir+parent_list)
                 self.parentlist.load_plx(parent_list)                
-                          
+            
+            self.history = CPlayList()
+            #fill the playlist with history data
+            result = self.history.load_plx(history_list)
+            if result != 0:
+                shutil.copyfile(initDir+history_list, RootDir+history_list)
+                self.history.load_plx(history_list) 
+              
             #check if My Playlists exists, otherwise copy it from the init dir
             if not os.path.exists(myPlaylistsDir + "My Playlists.plx"): 
                 shutil.copyfile(initDir+"My Playlists.plx", myPlaylistsDir+"My Playlists.plx")
@@ -128,10 +142,6 @@ class MainWindow(xbmcgui.Window):
             if not os.path.exists(myPlaylistsDir + "My Playlists.plx"): 
                 shutil.copyfile(initDir+"My Playlists.plx", myPlaylistsDir+"My Playlists.plx")
             
-            #check if My skin file exists, otherwise copy it from the init dir
-#            if not os.path.exists(srcDir + "skin.py"): 
-#                shutil.copyfile(initDir+"skin.py", srcDir+"skin.py")
-
             #Configure the info text control
             SetInfoText(window=self.infotekst)
              
@@ -156,10 +166,12 @@ class MainWindow(xbmcgui.Window):
             self.SearchHistory = [] #contains the search history
             self.background = '' #current background image
             self.password = "" #parental control password.
+            self.hideblocked = "" #parental control hide blocked content
             self.access = False #parental control access.
             self.mediaitem_cutpaste = 0 # selected item for cut/paste
+            self.page = 0 #selected page
             
-            self.loader = CFileLoader() #create file loader instance
+            #self.loader = CFileLoader() #create file loader instance
             
             #read the non volatile settings from the settings.dat file
             self.onReadSettings()
@@ -179,10 +191,21 @@ class MainWindow(xbmcgui.Window):
             self.downloader = CDownLoader(window=self, playlist_src=self.downloadqueue, playlist_dst=self.downloadslist)
             self.downloader.start()
     
-            #parse the home URL
-            result = self.ParsePlaylist(URL=self.home)
-            if result != 0: #failed
-                self.ParsePlaylist(URL=home_URL_mirror) #mirror site
+            #check if there is a startup playlist
+            result=-1
+            if os.path.exists(RootDir + "startup.plx"):               
+                #yes there is a startup script, load it and use the first entry in the list.
+                startuplist = CPlayList()
+                result = startuplist.load_plx(RootDir + "startup.plx")
+                os.remove(RootDir + "startup.plx")
+                if result == 0:
+                    result = self.ParsePlaylist(mediaitem=startuplist.list[0]) #always use the first playlist item
+    
+            if result != 0: 
+                #there is no startup playlist, load the Navi-X home page
+                result = self.ParsePlaylist(URL=self.home)
+                if result != 0: #failed
+                    self.ParsePlaylist(URL=home_URL_mirror) #mirror site
 
 #            xbmc.executebuiltin("xbmc.ActivateWindow(VideoOverlay)")
                     
@@ -206,7 +229,7 @@ class MainWindow(xbmcgui.Window):
             #    self.downloader.join(10) #timeout after 10 seconds.
             #    
             #    self.close() #exit
-                
+             
             if self.state_busy == 0:
                 if action == ACTION_SELECT_ITEM:
                     #main list
@@ -261,9 +284,12 @@ class MainWindow(xbmcgui.Window):
                     self.onPlayUsing()
                 elif action == ACTION_MOVE_RIGHT:
                     if self.getFocus() == self.list:
-                        self.onShowDescription()
+                        self.onShowDescription(1)
                     else:                   
                         self.setFocus(self.list)
+                elif action == ACTION_MOVE_UP:
+                    if self.getFocus() == self.button_home:
+                        self.onShowDescription(0)
                 elif self.ChkContextMenu(action) == True: #White
                     if self.URL == favorite_file:
                         self.selectBoxFavoriteList()
@@ -274,9 +300,11 @@ class MainWindow(xbmcgui.Window):
                         self.selectBoxMainList()
                 
                 #update index number    
-                pos = self.list.getSelectedPosition()
-                self.listpos.setLabel(str(pos+1) + '/' + str(self.list.size()))
-                              
+                #pos = self.list.getSelectedPosition()
+                pos = self.getPlaylistPosition()
+                self.listpos.setLabel(str(pos+1) + '/' + str(self.pl_focus.size()))
+                
+                  
             #end of function
              
     
@@ -305,7 +333,7 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def onControl(self, control):
-            #Nothing to do for now.
+                       
             if control == self.list:
                 self.setFocus(self.list)
                                                           
@@ -322,6 +350,7 @@ class MainWindow(xbmcgui.Window):
         #              playlist.
         #              reload (optional)= indicates if the playlist shall be 
         #              reloaded or only displayed.
+        #              proxy = proxy to use for loading
         # Return     : 0 on success, -1 if failed.
         ######################################################################
         def ParsePlaylist(self, URL='', mediaitem=CMediaItem(), start_index=0, reload=True, proxy="CACHING"):
@@ -343,9 +372,11 @@ class MainWindow(xbmcgui.Window):
             listcontrol.setVisible(0)
             self.list2tb.setVisible(0)
             
+            self.loading.setLabel("Please wait...")
             self.loading.setVisible(1)
             
             type = mediaitem.type
+            type = mediaitem.GetType()
             if reload == True:
                 #load the playlist
                 if type == 'rss_flickr_daily':
@@ -380,6 +411,9 @@ class MainWindow(xbmcgui.Window):
             #succesful
             playlist.save(RootDir + 'source.plx')
             
+            #loading finished, display the list
+            self.loading.setLabel("Please wait......")
+            
             self.vieworder = 'ascending' #ascending by default
         
             if start_index == 0: 
@@ -412,10 +446,7 @@ class MainWindow(xbmcgui.Window):
                     if loader.state == 0:
                         self.bg.setImage(loader.localfile)
                         self.bg1.setImage(imageDir + background_image1)
-                    self.background = m
-                                 
-            #loading was successful
-            listcontrol.reset() #clear the list control view
+                    self.background = m                               
             
             if playlist.description != "":
                 self.list = self.list2
@@ -427,27 +458,64 @@ class MainWindow(xbmcgui.Window):
             self.list2tb.controlDown(self.list)
             self.list2tb.controlUp(self.list)
             
-            #fill the main list
-            i=0
+            #filter the playlist for parental control.
+            self.FilterPlaylist()
+            
+            #Display the playlist page
+            self.SelectPage(start_index / page_size, start_index % page_size)           
+            
+            self.loading.setVisible(0)
+            listcontrol.setVisible(1)
+            
+            self.setFocus(listcontrol)
+
+            pos = self.list.getSelectedPosition()
+            self.listpos.setLabel(str(pos+1) + '/' + str(self.playlist.size()))
+                 
+            if playlist.description != '':
+                self.list2tb.reset()
+                self.list2tb.setText(playlist.description)
+                self.list2tb.setVisible(1)      
+           
+            self.state_busy = 0
+            
+            return 0 #success
+
+        ######################################################################
+        # Description: Large playlists are splitup into pages to improve
+        # performance. This function select one of the playlist pages. The
+        # playlist size is defined by setting variable 'page_size'.
+        # Parameters : page = page to display
+        #              start_pos: cursor start position
+        # Return     : thumb image (local) file name
+        ######################################################################
+        def SelectPage(self, page=0, start_pos=0):
+            self.state_busy = 1 
+            
+            playlist = self.pl_focus
+            listcontrol = self.list
+            self.page = page
+
+            listcontrol.setVisible(0)           
+            self.loading.setLabel("Please wait......")
+            self.loading.setVisible(1)
+
+            listcontrol.reset() #clear the list control view
+
+            if page > 0:
+                item = xbmcgui.ListItem("<<<") #previous page item
+                listcontrol.addItem(item)   
+                start_pos = start_pos + 1
+
             today=datetime.date.today()
-            for m in playlist.list:         
+            n=0
+            for i in range(page*page_size, playlist.size()):
+                m = playlist.list[i]         
                 if int(m.version) <= int(plxVersion):
                     thumb = self.getPlEntryThumb(m)
                     
-                    #check if playlist item is on located in the blacklist
-#                    if self.access == False:
-                    for n in self.parentlist.list:
-                        if n.URL == m.URL:
-                            if self.access == False:
-                                thumb = imageDir+'lock-icon.png'
-                            else:
-                                thumb = imageDir+'unlock-icon.png'
-                            break
-                        
-                    
                     label2=''
                     if m.date != '':
-                        #entry_date = datetime.date(int(m.date[:4]), int(m.date[5:7]), int(m.date[8:]))
                         l=m.date.split('-')
                         entry_date = datetime.date(int(l[0]), int(l[1]), int(l[2]))
                         days_past = (today-entry_date).days
@@ -464,55 +532,72 @@ class MainWindow(xbmcgui.Window):
                         
                     #item = xbmcgui.ListItem(m.name, label2 ,"", thumb)
                     item = xbmcgui.ListItem(unicode(m.name, "utf-8", "ignore" ), label2 ,"", thumb)
-                    listcontrol.addItem(item)                    
-                    i=i+1
+                    listcontrol.addItem(item)   
+                    
+                    n=n+1
+                    if n >= page_size:
+                        break #m
+
+            if ((page+1)*page_size < playlist.size()): #next page item
+                item = xbmcgui.ListItem(">>>")
+                listcontrol.addItem(item)   
                 
-            listcontrol.selectItem(start_index)
             self.loading.setVisible(0)
-            listcontrol.setVisible(1)
-            
+            listcontrol.setVisible(1) 
             self.setFocus(listcontrol)
 
-            pos = self.list.getSelectedPosition()
-            self.listpos.setLabel(str(pos+1) + '/' + str(self.list.size()))
-                 
-            if playlist.description != '':
-                self.list2tb.reset()
-                self.list2tb.setText(playlist.description)
-                self.list2tb.setVisible(1)      
-           
-            self.state_busy = 0
-            
-            return 0 #success
+            pos = self.getPlaylistPosition()
+            self.listpos.setLabel(str(pos+1) + '/' + str(self.pl_focus.size()))              
+
+            listcontrol.selectItem(start_pos)      
+
+            self.state_busy = 0            
+
+        ######################################################################
+        # Description: Filter playlist for parental control.
+        # Parameters : none
+        # Return     : none
+        ######################################################################
+        def FilterPlaylist(self):
+            i=0
+            while i < self.pl_focus.size():
+            #for i in range(self.pl_focus.size()):
+                m = self.pl_focus.list[i]        
+                for p in self.parentlist.list:
+                    if p.URL == m.URL:
+                        #entry found in blocked list
+                        if self.access == False:
+                            if self.hideblocked == "Hided":
+                                self.pl_focus.remove(i)
+                                i = i - 1
+                            else:
+                                m.icon = imageDir+'lock-icon.png'
+                        else: #access allowed
+                            m.icon = imageDir+'unlock-icon.png'
+                        break
+                i = i + 1
 
         ######################################################################
         # Description: Gets the playlist entry thumb image for different types
         # Parameters : type = playlist entry type
         # Return     : thumb image (local) file name
         ######################################################################
-        def getPlEntryThumb(self, mediaitem):          
-            if mediaitem.type == 'rss_flickr_daily':
-                type = 'rss'
-            elif mediaitem.type == 'xml_applemovie':
+        def getPlEntryThumb(self, mediaitem):            
+            type = mediaitem.GetType()       
+        
+            #some types are overruled.
+            if type[0:3] == 'rss':
+                type = 'rss' 
+            elif type[0:3] == 'xml':
                 type = 'playlist'
-            elif mediaitem.type == 'html_youtube':
+            elif type == 'html_youtube':
                 type = 'playlist'
-            elif mediaitem.type == 'xml_shoutcast':
-                type = 'playlist'
-            elif mediaitem.type == 'directory':
-                type = 'playlist'
-            elif mediaitem.type[0:6] == 'script':
-                type = 'script'               
-            elif mediaitem.type[0:6] == 'plugin':
-                type = 'script'
+            elif type[0:6] == 'search':
+                type = 'search'               
+            elif type == 'directory':
+                type = 'playlist'               
             elif mediaitem.type == 'skin':
                 type = 'script'                
-            elif mediaitem.type[0:6] == 'search':
-                type = 'search'
-            elif mediaitem.type[0:3] == 'rss':
-                type = 'rss'                
-            else:
-                type = mediaitem.type
     
             #we now know the image type. Check the playlist specific icon is set
             URL=''
@@ -525,6 +610,9 @@ class MainWindow(xbmcgui.Window):
             elif type == 'script':
                 if self.pl_focus.icon_script != 'default':
                     URL = self.pl_focus.icon_script
+            elif type == 'plugin':
+                if self.pl_focus.icon_plugin != 'default':
+                    URL = self.pl_focus.icon_plugin                    
             elif type == 'video':
                 if self.pl_focus.icon_video != 'default':
                     URL = self.pl_focus.icon_video
@@ -553,11 +641,21 @@ class MainWindow(xbmcgui.Window):
                 loader = CFileLoader2() #file loader
                 loader.load(URL, cacheDir + "icon." + ext, timeout=2, proxy="ENABLED", content_type='image')
                 if loader.state == 0:
-                        return loader.localfile
+                    return loader.localfile
             
             return imageDir+'icon_'+str(type)+'.png'
            
-                        
+        ######################################################################
+        # Description: Handles the selection of an item in the list.
+        ######################################################################  
+        def getPlaylistPosition(self):
+            pos = self.list.getSelectedPosition()
+            
+            if (self.page > 0):
+                pos = pos + (self.page*page_size) - 1
+            
+            return pos
+              
         ######################################################################
         # Description: Handles the selection of an item in the list.
         # Parameters : playlist(optional)=the source playlist;
@@ -568,6 +666,18 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def SelectItem(self, playlist=0, pos=0, append=True, iURL=''):
+            if pos >= page_size: #next page
+                self.page = self.page + 1
+                self.SelectPage(page=self.page)
+                return
+            elif (self.page > 0):
+                if pos == 0:
+                    self.page = self.page - 1
+                    self.SelectPage(page=self.page)
+                    return
+                else:
+                    pos = (self.page*page_size) + pos - 1
+        
             if iURL != '':
                 mediaitem=CMediaItem()
                 mediaitem.URL = iURL
@@ -591,6 +701,7 @@ class MainWindow(xbmcgui.Window):
                
                 mediaitem = playlist.list[pos]
             
+            
             #check if playlist item is on located in the blacklist
             if self.access == False:
                 for m in self.parentlist.list:
@@ -600,18 +711,21 @@ class MainWindow(xbmcgui.Window):
             
             self.state_busy = 1                
             
-            type = mediaitem.type
+            #type = mediaitem.type
+            type = mediaitem.GetType()
+            
             if type == 'playlist' or type == 'favorite' or type[0:3] == 'rss' or \
                type == 'rss_flickr_daily' or type == 'directory' or \
                type == 'html_youtube' or type == 'xml_shoutcast' or \
                type == 'xml_applemovie':
                 #add new URL to the history array
                 tmp = CHistorytem() #new history item
-                tmp.index = self.list.getSelectedPosition()
+                #tmp.index = self.list.getSelectedPosition()
+                tmp.index = pos
                 tmp.mediaitem = self.mediaitem
 
                 #exception case: Do not add Youtube pages to history list
-                if self.mediaitem.type == 'html_youtube':
+                if self.mediaitem.GetType() == 'html_youtube':
                     append = False
             
                 self.pl_focus = self.playlist #switch back to main list
@@ -628,7 +742,9 @@ class MainWindow(xbmcgui.Window):
 #                self.selectBoxMainList()
 #                self.state_busy = 0                
 #                return
-                
+
+                self.AddHistoryItem()
+
                 self.setInfoText("Loading... ") #loading text
 
                 if (playlist != 0) and (playlist.playmode == 'autonext'):
@@ -655,16 +771,23 @@ class MainWindow(xbmcgui.Window):
                 if result != 0:
                     dialog = xbmcgui.Dialog()
                     dialog.ok("Error", "Cannot open file.")
+
             elif type == 'image':
+                self.AddHistoryItem()
                 self.viewImage(playlist, pos, 0, mediaitem.URL) #single file show
             elif type == 'text':
+                self.AddHistoryItem()
                 self.OpenTextFile(mediaitem=mediaitem)
-            elif (type[0:6] == 'script') or (type[0:6] == 'plugin') or (type == 'skin'):
+            #elif (type[0:6] == 'script') or (type[0:6] == 'plugin') or (type == 'skin'):
+            elif (type == 'script') or (type == 'plugin') or (type == 'skin'):
+                self.AddHistoryItem()
                 self.InstallApp(mediaitem=mediaitem)
             elif type == 'download':
+                self.AddHistoryItem()
                 self.onDownload()
             #elif (type[0:6] == 'search') or (type == 'search_youtube') or (type == 'search_shoutcast'):
             elif (type[0:6] == 'search'):
+                self.AddHistoryItem()
                 self.PlaylistSearch(mediaitem, append)
 #            elif type == 'html':
 #                #at this moment we do nothing with HTML files
@@ -674,6 +797,32 @@ class MainWindow(xbmcgui.Window):
                 dialog.ok("Playlist format error", '"' + type + '"' + " is not a valid type.")
                 
             self.state_busy = 0
+
+        
+        ######################################################################
+        # Description: Add item to history
+        # Parameters : none
+        # Return     : -
+        ######################################################################
+        def AddHistoryItem(self):
+            for i in range(self.history.size()):
+                item = self.history.list[i]
+                if item.URL == self.mediaitem.URL:
+                    #object already in the list, remove existing entry
+                    self.history.remove(i)
+                    break
+        
+            item = copy.copy(self.mediaitem)
+            if self.pl_focus.logo != 'none':
+                item.thumb = self.pl_focus.logo
+            item.background = self.pl_focus.background
+            
+            self.history.insert(item,0)
+            
+            if self.history.size() > history_size:
+                self.history.remove(self.history.size()-1)
+            
+            self.history.save(RootDir + history_list)
 
         ######################################################################
         # Description: Player changed info can be catched here
@@ -701,10 +850,10 @@ class MainWindow(xbmcgui.Window):
         # Return     : -
         ######################################################################
         def onPlayUsing(self):
-            pos = self.list.getSelectedPosition()
+            pos = self.getPlaylistPosition()
             if pos < 0: #invalid position
                 return
-                
+               
             mediaitem = self.pl_focus.list[pos]
             URL = self.pl_focus.list[pos].URL
             autonext = False
@@ -713,11 +862,9 @@ class MainWindow(xbmcgui.Window):
             if mediaitem.type == 'image':
                 self.viewImage(self.pl_focus, pos, 1) #slide show show
                 return
-            
+                     
             #not on an image, check if video or audio file
             if (mediaitem.type != 'video') and (mediaitem.type != 'audio'):
-                dialog = xbmcgui.Dialog()
-                dialog.ok("Error", "Not a video, audio or image file.")
                 return
 
             possibleChoices = ["Default Player", \
@@ -796,8 +943,6 @@ class MainWindow(xbmcgui.Window):
                 mediaitem = copy.copy(mediaitem)
                 mediaitem.background = self.pl_focus.background
             
-#            Trace(URL + " " + self.pl_focus.background)
-            
             textwnd = CTextView()
             result = textwnd.OpenDocument(URL, mediaitem)
             self.setInfoText(visible=0) #loading text off            
@@ -824,17 +969,25 @@ class MainWindow(xbmcgui.Window):
             if not os.path.exists(imageCacheDir): 
                 os.mkdir(imageCacheDir) 
 
+            loader = CFileLoader2() #create file loader instance
+
             if mode == 0: #single file show
                 localfile= imageCacheDir + '0.'
                 if iURL != '':
                     URL = iURL
                 else:    
                     URL = playlist.list[pos].URL
+                    
+                    urlopener = CURLLoader()
+                    result = urlopener.urlopen(URL, playlist.list[pos])
+                    if result == 0:
+                        URL = urlopener.loc_url                    
+                                       
                 ext = getFileExtension(URL)
 
-                if URL[:4] == 'http':
-                    self.loader.load(URL, localfile + ext, proxy="DISABLED")
-                    if self.loader.state == 0:
+                if URL[:4] == 'http':                   
+                    loader.load(URL, localfile + ext, proxy="DISABLED")
+                    if loader.state == 0:
                         xbmc.executebuiltin('xbmc.slideshow(' + imageCacheDir + ')')
                     else:
                         dialog = xbmcgui.Dialog()
@@ -868,8 +1021,8 @@ class MainWindow(xbmcgui.Window):
                             localfile=imageCacheDir+'%d.'%(count)
                             URL = playlist.list[index].URL
                             ext = getFileExtension(URL)
-                            self.loader.load(URL, localfile + ext, proxy="DISABLED")
-                            if self.loader.state == 0:
+                            loader.load(URL, localfile + ext, proxy="DISABLED")
+                            if loader.state == 0:
                                 count = count + 1
                         index = (index + 1) % self.list.size()
 
@@ -890,39 +1043,27 @@ class MainWindow(xbmcgui.Window):
         ######################################################################
         def InstallApp( self, URL='', mediaitem=CMediaItem()):
             dialog = xbmcgui.Dialog()
-            if mediaitem.type[0:6] == 'script':
-                index=mediaitem.type.find(":")
-                if index != -1:
-                    type = mediaitem.type[index+1:]
-                else:
-                    type = ''
+            
+            type = mediaitem.GetType(0)
+            attributes = mediaitem.GetType(1)
+            
+            if type == 'script':
                 if dialog.yesno("Message", "Install Script?") == False:
                     return
-#                self.setInfoText("Installing...")
+
                 installer = CInstaller()
                 result = installer.InstallScript(URL, mediaitem)
 
-            elif mediaitem.type[0:6] == 'plugin':
-                index=mediaitem.type.find(":")
-                if index != -1:
-                    type = mediaitem.type[index+1:] + " "
-                else:
-                    type = ''
+            elif type == 'plugin':
                 if dialog.yesno("Message", "Install " + type + "Plugin?") == False:
                     return
-#                self.setInfoText("Installing...")
+
                 installer = CInstaller()
                 result = installer.InstallPlugin(URL, mediaitem)
-            elif mediaitem.type[0:6] == 'skin':
-                type=''
-                #index=mediaitem.type.find(":")
-                #if index != -1:
-                #    type = mediaitem.type[index+1:] + " "
-                #else:
-                #    type = ''
+            elif type == 'skin':
                 if dialog.yesno("Message", "Install Skin?") == False:
                     return
-#                self.setInfoText("Installing...")
+
                 installer = CInstaller()
                 result = installer.InstallSkin(URL, mediaitem)
             else:
@@ -932,7 +1073,7 @@ class MainWindow(xbmcgui.Window):
             
             if result == 0:
                 dialog.ok(" Installer", "Installation successful.")
-                if type == 'navi-x':
+                if attributes == 'navi-x':
                     dialog.ok(" Installer", "Please restart Navi-X.")
             elif result == -1:
                 dialog.ok(" Installer", "Installation aborted.")
@@ -1017,7 +1158,8 @@ class MainWindow(xbmcgui.Window):
 
                 #create history item
                 tmp = CHistorytem()
-                tmp.index = self.list.getSelectedPosition()
+
+                tmp.index = self.getPlaylistPosition()
                 tmp.mediaitem = self.mediaitem
 
                 self.pl_focus = self.playlist
@@ -1039,7 +1181,8 @@ class MainWindow(xbmcgui.Window):
 
                     #create history item
                     tmp = CHistorytem()
-                    tmp.index = self.list.getSelectedPosition()
+
+                    tmp.index = self.getPlaylistPosition()
                     tmp.mediaitem = self.mediaitem
 
                     self.pl_focus = self.playlist
@@ -1061,7 +1204,8 @@ class MainWindow(xbmcgui.Window):
 
                     #create history item
                     tmp = CHistorytem()
-                    tmp.index = self.list.getSelectedPosition()
+
+                    tmp.index = self.getPlaylistPosition()
                     tmp.mediaitem = self.mediaitem
 
                     self.pl_focus = self.playlist
@@ -1087,7 +1231,8 @@ class MainWindow(xbmcgui.Window):
 
                     #create history item
                     tmp = CHistorytem()
-                    tmp.index = self.list.getSelectedPosition()
+
+                    tmp.index = self.getPlaylistPosition()
                     tmp.mediaitem = self.mediaitem
 
                     self.pl_focus = self.playlist
@@ -1138,8 +1283,8 @@ class MainWindow(xbmcgui.Window):
             if self.favoritelist.size() == 0:
                 #playlist is empty
                 return
-            
-            pos = self.list.getSelectedPosition()
+
+            pos = self.getPlaylistPosition()
             self.SelectItem(self.favoritelist, pos, append=False)
 
         ######################################################################
@@ -1177,7 +1322,8 @@ class MainWindow(xbmcgui.Window):
             if choice == 0: #Play...
                 self.onPlayUsing()
             elif choice == 1: #Cut item
-                pos = self.list.getSelectedPosition()
+
+                pos = self.getPlaylistPosition()
                 #if pos > 0:
                 #    item = self.favoritelist.list[pos-1]
                 #    self.favoritelist.list[pos-1] = self.favoritelist.list[pos]
@@ -1192,7 +1338,8 @@ class MainWindow(xbmcgui.Window):
                 self.ParsePlaylist(reload=False) #display favorite list
                 
             elif choice == 2: #Paste item
-                pos = self.list.getSelectedPosition()            
+    
+                pos = self.getPlaylistPosition()       
                 #if pos < (self.list.size())-1:
                 #    item = self.favoritelist.list[pos+1]
                 #    self.favoritelist.list[pos+1] = self.favoritelist.list[pos]
@@ -1211,12 +1358,14 @@ class MainWindow(xbmcgui.Window):
                     dialog = xbmcgui.Dialog()
                     dialog.ok("Error", "Nothing to paste.")
             elif choice == 3: #Remove Item
-                pos = self.list.getSelectedPosition()
+
+                pos = self.getPlaylistPosition()
                 self.favoritelist.remove(pos)
                 self.favoritelist.save(RootDir + favorite_file)
                 self.ParsePlaylist(reload=False) #display favorite list
             elif choice == 4: #Rename
-                pos = self.list.getSelectedPosition()
+
+                pos = self.getPlaylistPosition()
                 item = self.favoritelist.list[pos]
                 keyboard = xbmc.Keyboard(item.name, 'Rename')
                 keyboard.doModal()
@@ -1246,7 +1395,8 @@ class MainWindow(xbmcgui.Window):
         ######################################################################
         def onSelectDownloads(self):
             if self.URL == downloads_file:
-                pos = self.list.getSelectedPosition()
+
+                pos = self.getPlaylistPosition()
                 if pos >= 0:
                     if pos == 0:
                         #Select the DL queue playlist.
@@ -1259,7 +1409,7 @@ class MainWindow(xbmcgui.Window):
                         #fill and show the downloads list
                         self.ParsePlaylist(reload=False) #display download list
                     elif pos == 2:
-                        #first check password
+                        #Parental control. first check password
                         if self.access == True:
                             #Select the parent list playlist.
                             self.pl_focus = self.parentlist
@@ -1276,23 +1426,23 @@ class MainWindow(xbmcgui.Window):
                 if self.downloadqueue.size() == 0:
                     #playlist is empty
                     return
-            
-                pos = self.list.getSelectedPosition()          
+
+                pos = self.getPlaylistPosition()         
                 self.SelectItem(self.downloadqueue, pos, append=False)
             elif self.URL == downloads_complete: #download completed
                 if self.downloadslist.size() == 0:
                     #playlist is empty
                     return
-             
-                pos = self.list.getSelectedPosition()
+
+                pos = self.getPlaylistPosition()
                 self.SelectItem(self.downloadslist, pos, append=False)
             
             else: #parent list playlists
                 if self.parentlist.size() == 0:
                     #playlist is empty
                     return      
-                                
-                pos = self.list.getSelectedPosition()
+
+                pos = self.getPlaylistPosition()
                 self.SelectItem(self.parentlist, pos, append=False)
             
         ######################################################################
@@ -1341,7 +1491,8 @@ class MainWindow(xbmcgui.Window):
                 elif choice == 2: #Stop Downloading
                     self.downloader.download_stop()                   
                 elif choice == 3: #Move Item Up
-                    pos = self.list.getSelectedPosition()
+
+                    pos = self.getPlaylistPosition()
                     if pos > 0:
                         item = self.downloadqueue.list[pos-1]
                         self.downloadqueue.list[pos-1] = self.downloadqueue.list[pos]
@@ -1350,7 +1501,8 @@ class MainWindow(xbmcgui.Window):
                         self.ParsePlaylist(reload=False) #display download list
                         self.list.selectItem(pos-1)
                 elif choice == 4: #Move Item Down
-                    pos = self.list.getSelectedPosition()
+
+                    pos = self.getPlaylistPosition()
                     if pos < (self.list.size())-1:
                         item = self.downloadqueue.list[pos+1]
                         self.downloadqueue.list[pos+1] = self.downloadqueue.list[pos]
@@ -1359,7 +1511,8 @@ class MainWindow(xbmcgui.Window):
                         self.ParsePlaylist(reload=False) #display download list
                         self.list.selectItem(pos+1)                        
                 elif choice == 5: #Remove
-                    pos = self.list.getSelectedPosition()
+
+                    pos = self.getPlaylistPosition()
                     self.downloadqueue.remove(pos)
                     self.downloadqueue.save(RootDir + downloads_queue)
                     self.ParsePlaylist(reload=False) #display download list
@@ -1380,7 +1533,8 @@ class MainWindow(xbmcgui.Window):
                 if choice == 0: #Play...
                     self.onPlayUsing()
                 elif choice == 1: #Remove
-                    pos = self.list.getSelectedPosition()
+
+                    pos = self.getPlaylistPosition()
                     self.downloadslist.remove(pos)
                     self.downloadslist.save(RootDir + downloads_complete)
                     self.ParsePlaylist(reload=False) #display download list
@@ -1389,7 +1543,8 @@ class MainWindow(xbmcgui.Window):
                     self.downloadslist.save(RootDir + downloads_complete)
                     self.ParsePlaylist(reload=False) #display download list
                 elif choice == 3: #Delete
-                    pos = self.list.getSelectedPosition()            
+
+                    pos = self.getPlaylistPosition()            
                     URL = self.downloadslist.list[pos].URL
                     dialog = xbmcgui.Dialog()                 
                     if dialog.yesno("Message", "Delete file from disk?", URL) == True:
@@ -1402,13 +1557,18 @@ class MainWindow(xbmcgui.Window):
                         self.downloadslist.remove(pos)
                         self.downloadslist.save(RootDir + downloads_complete)
                         self.ParsePlaylist(reload=False) #display download list
-            else: #parent list
+            else: #Parental control list
                 #first check password before opening list
-                possibleChoices = ["Set Password", "Remove Item", "Clear List", "Cancel"]
+                possibleChoices = ["Set Password", \
+                                   "Hide blocked content in playlist", \
+                                   "Show block content in playlist", \
+                                   "Remove Item",  \
+                                   "Clear List", \
+                                   "Cancel"]
                 dialog = xbmcgui.Dialog()
                 choice = dialog.select("Select", possibleChoices)
             
-                if (choice > 0) and (self.parentlist.size() == 0):
+                if (choice > 2) and (self.parentlist.size() == 0):
                     #playlist is empty
                     return
             
@@ -1423,12 +1583,18 @@ class MainWindow(xbmcgui.Window):
                         dialog = xbmcgui.Dialog()
                         dialog.ok("Message", "Password changed.")
                         self.ParsePlaylist(reload=False) #refresh
-                elif choice == 1: #Remove
-                    pos = self.list.getSelectedPosition()
+                elif choice == 1: #Hide blocked content in playlist
+                    self.hideblocked = "Hided"
+                    self.ParsePlaylist(reload=False) #refresh                 
+                elif choice == 2: #Show block content in playlist
+                    self.hideblocked = ""
+                    self.ParsePlaylist(reload=False) #refresh                          
+                elif choice == 3: #Remove
+                    pos = self.getPlaylistPosition()
                     self.parentlist.remove(pos)
                     self.parentlist.save(RootDir + parent_list)
                     self.ParsePlaylist(reload=False) #display download list
-                elif choice == 2: #Clear List
+                elif choice == 4: #Clear List
                     self.parentlist.clear()
                     self.parentlist.save(RootDir + parent_list)
                     self.ParsePlaylist(reload=False) #refresh
@@ -1442,7 +1608,8 @@ class MainWindow(xbmcgui.Window):
             self.state_busy = 1 #busy
             
             #first check if URL is a remote location
-            pos = self.list.getSelectedPosition()
+
+            pos = self.getPlaylistPosition()
             entry = copy.copy(self.pl_focus.list[pos])
 
             #if the entry has no thumb then use the logo
@@ -1485,6 +1652,36 @@ class MainWindow(xbmcgui.Window):
                     
             self.state_busy = 0 #not busy            
 
+        ######################################################################
+        # Description: Handles parental control menu options.
+        # Parameters : -
+        # Return     : -
+        ######################################################################
+        def onParentalControl(self):
+            possibleChoices = ["Block Selected Item", \
+                                "Unlock Navi-X", \
+                                "Cancel"]
+            
+            dialog = xbmcgui.Dialog()
+            choice = dialog.select("Select", possibleChoices)
+
+            if choice == 0: #Block Selected Item          
+                #pos = self.list.getSelectedPosition()
+                pos = self.getPlaylistPosition()
+                tmp = CMediaItem() #create new item
+                tmp.type = self.playlist.list[pos].type
+                tmp.name = self.playlist.list[pos].name
+                tmp.thumb = self.playlist.list[pos].thumb
+                if tmp.thumb == 'default' and self.playlist.logo != 'none':
+                    tmp.thumb = self.playlist.logo
+                tmp.URL = self.playlist.list[pos].URL
+                tmp.player = self.playlist.list[pos].player
+                self.parentlist.add(tmp)
+                self.parentlist.save(RootDir + parent_list)
+                self.ParsePlaylist(reload=False) #refresh        
+            elif choice == 1: #Unlock Navi-X
+                self.verifyPassword()
+                self.ParsePlaylist(reload=False) #refresh                                
     
         ######################################################################
         # Description: Handles selection of the 'black' button in the main list.
@@ -1492,16 +1689,19 @@ class MainWindow(xbmcgui.Window):
         # Parameters : -
         # Return     : -
         ######################################################################
-        def selectBoxMainList(self):
+        def selectBoxMainList(self):      
+
             possibleChoices = ["Download...", \
                                 "Play...", \
                                 "View...", \
+                                "Parental Control...", \
                                 "Image Slideshow", \
                                 "Add Selected Item to Favorites", \
                                 "Add Playlist to Favorites", \
+                                "Create Playlist Shortcut", \
                                 "Set Playlist as Home", \
                                 "View Playlist Source", \
-                                "Parental Control Block Selected Item", \
+                                "Clear Browse History", \
                                 "About Navi-X",
                                 "Cancel"]
             dialog = xbmcgui.Dialog()
@@ -1513,11 +1713,15 @@ class MainWindow(xbmcgui.Window):
                 self.onPlayUsing()
             elif choice == 2: #view...
                 self.onView()
-            elif choice == 3: #Slideshow
-                pos = self.list.getSelectedPosition()            
+            elif choice == 3: #Block selected playlist
+                self.onParentalControl()        
+            elif choice == 4: #Slideshow
+
+                pos = self.getPlaylistPosition()            
                 self.viewImage(self.playlist, pos, 1) #slide show show
-            elif choice == 4: #Add selected file to Favorites
-                pos = self.list.getSelectedPosition()
+            elif choice == 5: #Add selected file to Favorites
+
+                pos = self.getPlaylistPosition()
                 tmp = CMediaItem() #create new item
                 tmp.type = self.playlist.list[pos].type
                 keyboard = xbmc.Keyboard(self.playlist.list[pos].name, 'Add to Favorites')
@@ -1533,7 +1737,7 @@ class MainWindow(xbmcgui.Window):
                 tmp.player = self.playlist.list[pos].player
                 self.favoritelist.add(tmp)
                 self.favoritelist.save(RootDir + favorite_file)
-            elif choice == 5: #Add playlist to Favorites
+            elif choice == 6: #Add playlist to Favorites
                 tmp = CMediaItem() #create new item
                 tmp.type = self.mediaitem.type
                 keyboard = xbmc.Keyboard(self.playlist.title, 'Add to Favorites')
@@ -1549,33 +1753,66 @@ class MainWindow(xbmcgui.Window):
                 tmp.background = self.mediaitem.background
                 self.favoritelist.add(tmp)
                 self.favoritelist.save(RootDir + favorite_file)
-            elif choice == 6: #Set Playlist as Home
+            elif choice == 7: # Create playlist shortcut
+                self.CreateShortCut()
+            elif choice == 8: #Set Playlist as Home
                 if dialog.yesno("Message", "Overwrite current Home playlist?") == False:
                     return
                 self.home = self.URL
  #               self.onSaveSettings()
-            elif choice == 7: #View playlist source
+            elif choice == 9: #View playlist source
                 self.OpenTextFile(RootDir + "source.plx")
-            elif choice == 8: #Block selected playlist
-                pos = self.list.getSelectedPosition()
-                tmp = CMediaItem() #create new item
-                tmp.type = self.playlist.list[pos].type
-#                keyboard = xbmc.Keyboard(self.playlist.list[pos].name, 'Block playlist')
-#                keyboard.doModal()
-#                if (keyboard.isConfirmed() == True):
-#                    tmp.name = keyboard.getText()
-#                else:
-                tmp.name = self.playlist.list[pos].name
-                tmp.thumb = self.playlist.list[pos].thumb
-                if tmp.thumb == 'default' and self.playlist.logo != 'none':
-                    tmp.thumb = self.playlist.logo
-                tmp.URL = self.playlist.list[pos].URL
-                tmp.player = self.playlist.list[pos].player
-                self.parentlist.add(tmp)
-                self.parentlist.save(RootDir + parent_list)
-                self.ParsePlaylist(reload=False) #refresh
-            elif choice == 9: #about Navi-X
+            elif choice == 10: #Clear Browse History
+                self.history.clear()
+                self.history.save(RootDir + history_list)
+                self.ParsePlaylist(mediaitem=self.mediaitem)
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Message", "Cleared Browse History.")
+            elif choice == 11: #about Navi-X
                 self.OpenTextFile('readme.txt')
+
+        ######################################################################
+        # Description: Create shortcut
+        # Parameters : -
+        # Return     : -
+        ######################################################################       
+        def CreateShortCut(self):
+            pos = self.getPlaylistPosition()
+            playlist = self.pl_focus
+            mediaitem = playlist.list[pos]
+            
+            if mediaitem.type != 'playlist':
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Error", "Selected item not a playlist.")
+                return
+            
+            keyboard = xbmc.Keyboard(mediaitem.name, 'Create Shortcut')
+            keyboard.doModal()
+            if (keyboard.isConfirmed() == True):
+                name = keyboard.getText()
+            else:
+                return #abort
+            
+            directory = scriptDir + mediaitem.name
+            if not os.path.exists(directory): 
+                os.mkdir(directory)
+          
+            if mediaitem.thumb != 'default':
+                loader = CFileLoader2()
+                loader.load(mediaitem.thumb, directory + SEPARATOR + 'default.tbn', proxy='DISABLED')           
+            elif playlist.logo != 'none':
+                loader = CFileLoader2()
+                loader.load(playlist.logo, directory + SEPARATOR + 'default.tbn', proxy='DISABLED') 
+            else:
+                shutil.copyfile(imageDir + 'shortcut.png' , directory + SEPARATOR + 'default.tbn')            
+            
+            shutil.copyfile(initDir+"default.py", directory + SEPARATOR + "default.py")
+            
+            playlist.save(directory + SEPARATOR + "startup.plx", pos, pos+1)
+            
+            dialog = xbmcgui.Dialog()
+            dialog.ok("Message", "Created new shortcut in script folder.")
+            
 
         ######################################################################
         # Description: Parental Control verify password.
@@ -1610,6 +1847,7 @@ class MainWindow(xbmcgui.Window):
                 self.home=home
                 self.dwnlddir=data[1]
                 self.password=data[2]
+                self.hideblocked=data[3]
                 f.close()
             except IOError:
                 return
@@ -1624,6 +1862,7 @@ class MainWindow(xbmcgui.Window):
             f.write(self.home + '\n')
             f.write(self.dwnlddir + '\n')
             f.write(self.password + '\n')
+            f.write(self.hideblocked + '\n')
             f.close()
 
         ######################################################################
@@ -1688,26 +1927,33 @@ class MainWindow(xbmcgui.Window):
         ######################################################################
         # Description: Controls the info text label on the left bottom side
         #              of the screen.
-        # Parameters : folder=path to local folder
+        # Parameters : element = playlist element to display
+        #                        0 = playlist description
+        #                        1 = entry description
         # Return     : -
         ######################################################################                        
-        def onShowDescription(self):      
-            pos = self.list.getSelectedPosition()
-            if pos < 0: #invalid position
-                return
+        def onShowDescription(self, element=0):
+            if element == 0: #playlist description
+                description = self.pl_focus.description
+                mediaitem = CMediaItem()
+            else: #entry description
+
+                pos = self.getPlaylistPosition()
+                if pos < 0: #invalid position
+                    return
                 
-            mediaitem = self.pl_focus.list[pos]
-            if mediaitem.description != '':
+                mediaitem = self.pl_focus.list[pos]
+                description = mediaitem.description
+             
+            if description != '':
                 #description = re.sub("&lt; */? *\w+ */?\ *&gt;", "", mediaitem.description)
                             
-                description = re.sub("&lt;.*&gt;", "", mediaitem.description)              
+                description = re.sub("&lt;.*&gt;", "", description)              
                 description = re.sub(r'<[^>]*?>', '', description) 
  
                 try:
                     f=open(cacheDir + 'description.dat', 'w')
                     f.write(description + '\n')
-                    #f.write('ronald \n')
-                    #f.write(mediaitem.description + '\n')
                     
                     f.close()
                 except IOError:

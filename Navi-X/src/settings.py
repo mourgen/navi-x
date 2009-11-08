@@ -47,7 +47,20 @@ PAL60_16x9 = 9      #(720x480, 16:9, pixels are 5760:4739)
 import os
 RootDir = os.getcwd()
 if RootDir[-1]==';': RootDir=RootDir[0:-1]
-if RootDir[-1]!='\\': RootDir=RootDir+'\\'
+if RootDir[0] == '/':
+    if RootDir[-1] != '/': RootDir = RootDir+'/'
+    myDownloadsDir = RootDir + "My Downloads/"
+    initDir = RootDir + "init/"
+    myPlaylistsDir = RootDir + "My Playlists/"
+    srcDir = RootDir + "src/"
+    SEPARATOR = '/'
+else:
+    if RootDir[-1]!='\\': RootDir = RootDir+'\\'
+    myDownloadsDir = RootDir + "My Downloads\\"
+    initDir = RootDir + "init\\"
+    myPlaylistsDir = RootDir + "My Playlists\\"
+    srcDir = RootDir + "src\\"
+    SEPARATOR = '\\'
 
 import xbmc
 version = xbmc.getInfoLabel("System.BuildVersion")[:1]
@@ -63,20 +76,18 @@ else:
     scriptDir = "Q:\\scripts\\"
     pluginDir = "Q:\\plugins\\"
     skinDir = "Q:\\skin\\"
-myDownloadsDir = RootDir + "My Downloads\\"
-initDir = RootDir + "init\\"
-myPlaylistsDir = RootDir + "My Playlists\\"
-srcDir = RootDir + "src\\"
+
 
 ######################################################################
-Version='2' #program version
-SubVersion='9.3'
+Version='3' #program version
+SubVersion='0'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
 downloads_queue='downlqueue.plx'
 downloads_complete='downloads.plx'
 parent_list='blacklist.plx'
+history_list='history.plx'
 plxVersion = '8'
 home_URL_old='http://www.navi-x.nl/playlists/home.plx'
 home_URL='http://www.navi-x.org/playlists/home.plx'
@@ -85,3 +96,6 @@ background_image = 'background.png'
 background_image1 = 'background1.png'
 
 url_open_timeout = 10 #10 seconds
+page_size = 200 #display maximum 100 entries on one page
+history_size = 50 #maximum of entries in the history list
+

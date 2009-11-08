@@ -18,7 +18,6 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-#import Image, ImageFile
 import shutil
 import zipfile
 from settings import *
@@ -37,7 +36,6 @@ class CDialogBrowse(xbmcgui.WindowDialog):
         self.dir=''
       
         width=parent.getWidth()
-#        Trace(str(width))
       
         #background image
         self.bg = xbmcgui.ControlImage(100,200,width-200,160, imageDir + "dialog-panel.png")
@@ -77,8 +75,12 @@ class CDialogBrowse(xbmcgui.WindowDialog):
                        
         if action == ACTION_SELECT_ITEM:
             if self.getFocus() == self.button_ok:
-                self.state = 0 #success
-                self.close() #exit
+                if os.path.exists(self.dir) == False:
+                    dialog = xbmcgui.Dialog()
+                    dialog.ok("Error", "Destination directory does not exist")
+                else:
+                    self.state = 0 #success
+                    self.close() #exit
             if self.getFocus() == self.button_cancel:
                 self.state = -1 #success
                 self.close() #exit
@@ -107,6 +109,7 @@ class CDialogBrowse(xbmcgui.WindowDialog):
                     if self.type == 3:
                         if fn[-1] != '\\':
                             fn = fn + '\\'
+                            
                         self.dir = fn
                     else:
                         pos = fn.rfind('\\') #find last '\' in the string

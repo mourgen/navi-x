@@ -63,6 +63,25 @@ class CMediaItem:
         self.swfplayer = swfplayer #(optional)
         self.pageurl = pageurl #(optional)
         self.background = background #(optional) background image
+               
+    ######################################################################
+    # Description: Get mediaitem type.
+    # Parameters : field: field to retrieve (type or attributes)
+    # Return     : -
+    ######################################################################
+    def GetType(self, field=0):
+        index = self.type.find(':')
+        if index != -1:
+            if field == 0:
+                value = self.type[:index]
+            elif field == 1:
+                value = self.type[index+1:]
+            else: #invalid field
+                value == ''
+        else:
+            value = self.type
+
+        return value
         
 ######################################################################
 # Description: Playlist item class. 
@@ -154,13 +173,17 @@ def get_HTML(url,referer='',cookie=''):
                 'Referer': referer,
                 'Cookie': cookie}
     try:
+        oldtimeout=socket_getdefaulttimeout()
+        socket_setdefaulttimeout(url_open_timeout)
         req = urllib2.Request(url=url, headers=headers)
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
     except IOError:         
         link = ""
-       
+    
+    socket_setdefaulttimeout(oldtimeout)
+    
     return link
      
 

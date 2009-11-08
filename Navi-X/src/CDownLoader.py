@@ -102,23 +102,24 @@ class CDownLoader(threading.Thread):
             self.state = -1 #URL does not point to internet file.
             return
         loc_url = urlopener.loc_url
-
+##########################
         #Now we try to open the URL. If it does not exist an error is
         #returned.
-#        try:
-#            oldtimeout=socket.getdefaulttimeout()
-#            socket.setdefaulttimeout(url_open_timeout)
+        try:
+            oldtimeout=socket.getdefaulttimeout()
+            socket.setdefaulttimeout(url_open_timeout)
 
-#            values = { 'User-Agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
-#            req = urllib2.Request(loc_url, None, values)
-#            f = urllib2.urlopen(req)
-#            loc_url=f.geturl()
-#            socket.setdefaulttimeout(oldtimeout)
+            values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+            req = urllib2.Request(loc_url, None, values)
+            f = urllib2.urlopen(req)
+            loc_url=f.geturl()
+            socket.setdefaulttimeout(oldtimeout)
 
-#        except IOError:
-#            socket.setdefaulttimeout(oldtimeout)
-#            self.state = -1 #failed to open URL
-#            return
+        except IOError:
+            socket.setdefaulttimeout(oldtimeout)
+            self.state = -1 #failed to open URL
+            return
+########################
             
         #special handing for some URL's
         pos = URL.find('http://youtube.com/v') #find last 'http' in the URL
@@ -209,13 +210,18 @@ class CDownLoader(threading.Thread):
         while (self.state != -2) and (index < self.playlist_src.size()) and (self.killed == False) and (self.running == True):
             header = str(counter+1) + " of " + str(size)
             self.download_file(self.playlist_src.list[0], shutdown, header) #download single file
-            
-            if self.state == 0:
-                #only on success remove the item
+
+            if self.state == -1:
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Error", "Download failed.")
+
+#@todo: index can be removed            
+            if self.state != -2:
+                #When not Navi-X shutdown and not downloading stopped by user.
                 self.playlist_src.remove(0)
                 self.playlist_src.save(RootDir + downloads_queue)
-            else:
-                index = index + 1
+            #else:
+            #    index = index + 1
             
             counter = counter + 1
             
@@ -230,6 +236,8 @@ class CDownLoader(threading.Thread):
             self.MainWindow.bkgndloadertask.kill()
             self.MainWindow.bkgndloadertask.join(10) #timeout after 10 seconds        
             xbmc.shutdown() #shutdown the X-box
+        
+        self.running = False #disable downloading
         
         self.MainWindow.dlinfotekst.setVisible(0)        
         self.MainWindow.download_logo.setVisible(0)
@@ -249,15 +257,17 @@ class CDownLoader(threading.Thread):
             self.state = -1 #URL does not point to internet file.
             return
 
-        #Get the direct URL to the mediaitem given URL
+        #Get the direct URL to the mediaitem given URL      
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, entry)
         if result != 0:
             self.state = -1 #failed to download the file
             return        
-    
-        URL = urlopener.loc_url
 
+        URL = urlopener.loc_url
+  
+        #open the URL and get the direct URL
+    
         self.MainWindow.dlinfotekst.setLabel("Getting file from server.")
 
         try:
@@ -265,20 +275,27 @@ class CDownLoader(threading.Thread):
             socket_setdefaulttimeout(url_open_timeout)
 
             existSize=0
-            myUrlclass = myURLOpener()
+            #myUrlclass = myURLOpener()
             if os.path.exists(localfile):
                 file = open(localfile,"ab")
                 existSize = os.path.getsize(localfile)
                                
                 #If the file exists, then only download the remainder
-                myUrlclass.addheader("User-Agent","Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)")                            
-                myUrlclass.addheader("Range","bytes=%s-" % existSize)                             
+                #myUrlclass.addheader("User-Agent","Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)")                            
+                #myUrlclass.addheader("Range","bytes=%s-" % existSize)   
+                headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
+                            'Range' : 'bytes=%s-' % existSize}                          
 
-            else:
+            else: #file does not exist
                 #open the destination file
                 file = open(localfile, "wb")
+                headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
 
-            f = myUrlclass.open(URL)
+            #f = myUrlclass.open(URL)
+                      
+            req = urllib2.Request(URL, None, headers)
+            f = urllib2.urlopen(req)            
+            
             #If the file exists, but we already have the whole thing, don't download again
             size_string = f.headers['Content-Length']
             size = int(size_string) #The remaining bytes
@@ -321,13 +338,14 @@ class CDownLoader(threading.Thread):
                 f.close()
 
                 if (self.killed == True) or (self.running == False):
-                    self.state = -1 #failed to download the file
+                    self.state = -2 #failed to download the file
                 
             
         except IOError:
-#            dialog.close()
-            f.close()            
+            #f.close()     
+            socket_setdefaulttimeout(oldtimeout)       
             self.state = -1 #failed to download the file
+            return
 
         file.close()      
         socket_setdefaulttimeout(oldtimeout)

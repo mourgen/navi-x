@@ -17,7 +17,6 @@ import urllib2
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
-#import Image, ImageFile
 import shutil
 import zipfile
 import socket
@@ -64,7 +63,7 @@ def load_skin(window):
     window.addControl(window.urllbl)
 
     #Time + Date label at top-right position
-    window.dt = xbmcgui.ControlLabel(300,35,240,40, "", "font12")
+    window.dt = xbmcgui.ControlLabel(270,35,270,40, "", "font12")
     window.addControl(window.dt)      
 
     #Navi-X Version label at top-left position
@@ -98,11 +97,10 @@ def load_skin(window):
     window.addControl(window.list2)
     window.list2.setPageControlVisible(False)
 
-    #the text box above main list 2
+    #the small text box above main list 2
     window.list2tb = xbmcgui.ControlTextBox(270, 100, 420, 100)
-    #window.list2tb = xbmcgui.ControlTextBox(270,420, 420, 120)
     window.addControl(window.list2tb)
-    window.list2tb.setVisible(0)
+    window.list2tb.setVisible(0) 
 
     #set the large list as default
     window.list = window.list1
@@ -135,7 +133,7 @@ def load_skin(window):
     window.button_url.controlUp(window.button_downloads)
     window.button_downloads.controlUp(window.button_favorites)
     window.button_favorites.controlUp(window.button_home)
-    window.button_home.controlUp(window.list2tb)
+    #window.button_home.controlUp(window.list2tb)
     window.list2tb.controlUp(window.list)
 
     window.button_home.controlLeft(window.button_about)

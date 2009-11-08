@@ -40,34 +40,18 @@ class CURLLoader:
     ######################################################################
     def urlopen(self, URL, mediaitem=0):
         result = 0 #successful
-          
-        if URL[:4] == 'http':
-            if mediaitem.processor != '':
-                result = self.geturl_processor(mediaitem)
-            else:
-                pos = URL.rfind('http://') #find last 'http://' in the URL
-                loc_url = URL[pos:]
-                    
-                try:
-                    oldtimeout=socket_getdefaulttimeout()
-                    socket_setdefaulttimeout(url_open_timeout)
-
-                    self.f = urllib.urlopen(loc_url)
-                    self.loc_url=self.f.geturl()             
-                
-                except IOError:
-                    self.loc_url = "" #could not open URL
-                    socket_setdefaulttimeout(oldtimeout)            
-                    return -1 #fail
-
-                socket_setdefaulttimeout(oldtimeout)
-                
-                #post processing for youtube files
-                pos = URL.find('http://youtube.com') #find last 'http' in the URL
-                if pos != -1:
-                    result = self.geturl_youtube(self.loc_url)
+        
+        if mediaitem.processor != '':
+            result = self.geturl_processor(mediaitem) 
+        elif URL.find('http://youtube.com') != -1:
+            result = self.geturl_youtube(URL)
         else:
             self.loc_url = URL
+        
+        #special handling for apple movie trailers
+        #if mediaitem.GetType(field=1) == 'amt': 
+        if URL.find('http://movies.apple.com') != -1:
+            result = self.geturl_applemovie(self.loc_url)         
         
         return result
 
@@ -84,13 +68,14 @@ class CURLLoader:
         #Trace("voor "+self.loc_url)
 
         id=''
-        #pos = self.loc_url.find('&video_id=') #find last 'http' in the URL
-        #if pos != -1:
-        #    pos2 = self.loc_url.find('&',pos+1) #find last 'http' in the URL
-        #    id = self.loc_url[pos+10:pos2] #only the video ID
-        pos = self.loc_url.rfind('/')
-        pos2 = self.loc_url.rfind('.swf')
-        id = self.loc_url[pos+1:pos2] #only the video ID
+        #pos = self.loc_url.rfind('/')
+        #pos2 = self.loc_url.rfind('.swf')
+        #id = self.loc_url[pos+1:pos2] #only the video ID
+        
+        pos = URL.rfind('/')
+        pos2 = URL.rfind('.swf')
+        id = URL[pos+1:pos2] #only the video ID
+        
 
         #Trace(id)
                
@@ -187,4 +172,44 @@ class CURLLoader:
             
         return 0 #success
         
+        
+    ######################################################################
+    # Description: This class is used to retrieve the URL Apple movie trailer
+    #              webpage
+    #              
+    # Parameters : URL=source URL
+    # Return     : 0=successful, -1=fail
+    ######################################################################
+    def geturl_applemovie(self, URL):
+#        pos = URL.find("_h")
+#        if pos != -1:
+#            URL = URL[:pos] + "_h640w.mov"
+        
+#        #calculate unique hash URL
+#        sum_str = ''
+#        sum = 0
+#        #calculate hash of URL
+#        for i in range(len(URL)):
+#            sum = sum + (ord(URL[i]) * i)
+#        localfile = str(sum) + ".mov"
+        localfile = "test.mov"
 
+        SetInfoText("Downloading Video...")
+        
+        values = { 'User-Agent' : 'QuickTime/7.6 (qtver=7.6;cpu=IA32;os=Mac 10,5,7)'}
+        req = urllib2.Request(URL, None, values)
+        f = urllib2.urlopen(req)
+        
+        file = open(cacheDir + localfile, "wb")        
+        
+        data=f.read(100 * 1024)
+        while data != "":
+            file.write(data)
+            data=f.read(100 * 1024)
+            
+        file.close()
+        f.close()  
+        
+        self.loc_url = cacheDir + localfile
+
+        return 0 #success

@@ -108,6 +108,12 @@ class CPlayer(xbmc.Player):
             return -1
     
         self.pls.clear() #clear the playlist
+
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(URL, mediaitem)
+        if result != 0:
+            return -1    
+        URL = urlopener.loc_url
     
         ext = getFileExtension(URL)
         if ext == 'pls' or ext == 'm3u':
@@ -118,10 +124,10 @@ class CPlayer(xbmc.Player):
                 if result == False:
                     return -1
         else:
-            urlopener = CURLLoader()
-            result = urlopener.urlopen(URL, mediaitem)
-            if result != 0:
-                return -1
+#            urlopener = CURLLoader()
+#            result = urlopener.urlopen(URL, mediaitem)
+#            if result != 0:
+#                return -1
             self.pls.add(urlopener.loc_url)
 
         SetInfoText("Loading... ")

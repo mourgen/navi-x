@@ -21,6 +21,8 @@ import shutil
 import zipfile
 from settings import *
 from CFileLoader import *
+from CURLLoader import *
+
 from libs2 import *
 
 try: Emulating = xbmcgui.Emulating
@@ -42,6 +44,11 @@ class CInstaller(xbmcgui.Window):
             self.URL = URL
         else:
             self.URL = mediaitem.URL
+        
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(self.URL, mediaitem)
+        if result == 0:
+            self.URL = urlopener.loc_url
         
         SetInfoText("Downloading... ")
         
@@ -69,6 +76,12 @@ class CInstaller(xbmcgui.Window):
             self.URL = URL
         else:
             self.URL = mediaitem.URL
+        
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(self.URL, mediaitem)
+        if result == 0:
+            self.URL = urlopener.loc_url
+        
         
         #retrieve the type of plugin
         index=mediaitem.type.find(":")
@@ -106,6 +119,11 @@ class CInstaller(xbmcgui.Window):
             self.URL = URL
         else:
             self.URL = mediaitem.URL
+        
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(self.URL, mediaitem)
+        if result == 0:
+            self.URL = urlopener.loc_url
         
         SetInfoText("Downloading... ")
         
