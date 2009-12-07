@@ -80,7 +80,7 @@ else:
 
 ######################################################################
 Version='3' #program version
-SubVersion='0'
+SubVersion='0.1'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist

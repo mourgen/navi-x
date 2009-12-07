@@ -41,6 +41,7 @@
 # -v2.9.4 (2009/09/01)
 # -v3.0 RC  (2009/10/03)
 # -v3.0  (2009/11/08)
+# -v3.0.1  (2009/11/xx)
 #
 #@todo: youtube info.
 #@todo: only add content to history is name is not empty
@@ -208,7 +209,7 @@ class MainWindow(xbmcgui.Window):
                     self.ParsePlaylist(URL=home_URL_mirror) #mirror site
 
 #            xbmc.executebuiltin("xbmc.ActivateWindow(VideoOverlay)")
-                    
+                  
             #end of function
 
         ######################################################################

@@ -497,7 +497,7 @@ class CPlayList:
                                 tmp.type = 'audio'
                             else:
                                 tmp.type = 'video'
-                if (type == 'unknown') or (tmp.processor != ''):                                        
+                if (tmp.type == 'unknown') or (tmp.processor != ''):    
                 #else: #no enclosed URL and media content or the processor tag has been set, use the link
                     index = m.find('<link>')
                     if index != -1:
@@ -889,7 +889,7 @@ class CPlayList:
         #clear the list
         del self.list[:]
         dates = [] #contains the dates
-        
+                     
         #get the publication date and add it to the title.
         index = data.find('<records date')
         if index != -1:
@@ -905,7 +905,7 @@ class CPlayList:
             if index != -1:
                 #create a new entry
                 tmp = CMediaItem() #create new item
-                tmp.type = 'video:amt'
+                tmp.type = 'video'
                 tmp.player = self.player
                 tmp.processor = self.processor
             

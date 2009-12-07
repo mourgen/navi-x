@@ -47,10 +47,10 @@ class CURLLoader:
             result = self.geturl_youtube(URL)
         else:
             self.loc_url = URL
-        
+              
         #special handling for apple movie trailers
         #if mediaitem.GetType(field=1) == 'amt': 
-        if URL.find('http://movies.apple.com') != -1:
+        if self.loc_url.find('http://movies.apple.com') != -1:
             result = self.geturl_applemovie(self.loc_url)         
         
         return result
@@ -181,18 +181,22 @@ class CURLLoader:
     # Return     : 0=successful, -1=fail
     ######################################################################
     def geturl_applemovie(self, URL):
-#        pos = URL.find("_h")
-#        if pos != -1:
-#            URL = URL[:pos] + "_h640w.mov"
+
+#@todo: bad solution for apple movie trailers
+        if xbmc.getInfoLabel("System.BuildVersion")[:4] == '9.11':
+            self.loc_url = URL + "?|User-Agent=QuickTime%2F7.2+%28qtver%3D7.2%3Bos%3DWindows+NT+5.1Service+Pack+3%29"
+            return 0
+              
+        #for older XBMC versions we download the file before displaying
         
 #        #calculate unique hash URL
-#        sum_str = ''
-#        sum = 0
-#        #calculate hash of URL
-#        for i in range(len(URL)):
-#            sum = sum + (ord(URL[i]) * i)
-#        localfile = str(sum) + ".mov"
-        localfile = "test.mov"
+        sum_str = ''
+        sum = 0
+        #calculate hash of URL
+        for i in range(len(URL)):
+            sum = sum + (ord(URL[i]) * i)
+        localfile = str(sum) + ".mov"
+#        localfile = "test.mov"
 
         SetInfoText("Downloading Video...")
         

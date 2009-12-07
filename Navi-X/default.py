@@ -22,8 +22,8 @@ if RootDir[-1]==';': RootDir=RootDir[0:-1]
 if RootDir[-1]!='\\': RootDir=RootDir+'\\'
 
 version_default = '0.0.0'
-version_URL='http://www.navi-x.org/updates/version29.dat'
-update_URL='http://www.navi-x.org/updates/update29.zip'
+version_URL='http://www.navi-x.org/updates/version30.dat'
+update_URL='http://www.navi-x.org/updates/update30.zip'
 
 #############################################################################
 def onReadVersion():
