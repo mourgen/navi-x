@@ -29,8 +29,13 @@ except: Emulating = False
 ######################################################################
 # Description: Text viewer
 ######################################################################
-class CTextView(xbmcgui.Window):
-    def __init__(self):
+#class CTextView(xbmcgui.WindowDialog):
+class CTextView(xbmcgui.WindowXMLDialog): 
+    #def __init__(self):
+    def __init__(self,strXMLname, strFallbackPath):#, strDefaultName, forceFallback):
+        #pass
+    
+    #def onInit( self ):
         self.setCoordinateResolution(PAL_4x3)
     
         #user background image
@@ -40,34 +45,41 @@ class CTextView(xbmcgui.Window):
         #background overlay image (to darken the user background)       
         self.bg1 = xbmcgui.ControlImage(0,0,720,576, imageDir + "background_txt.png")
         self.addControl(self.bg1)
-
-        self.TextBox = xbmcgui.ControlTextBox(40, 50, 720-80, 460)
-        self.addControl(self.TextBox)
-        self.TextBox.setVisible(1)
-        
-        self.setFocus(self.TextBox)
         
         self.offset = 0
-       
+
+    def onInit( self ):
+        control=self.getControl(130)
+        control.setText(self.text) 
+        
+        control=self.getControl(132)
+        self.setFocus(control)
+ 
     def onAction(self, action):
-        if (action == ACTION_PREVIOUS_MENU) or (action == ACTION_PARENT_DIR) or (action == ACTION_MOVE_LEFT):
+        if (action == ACTION_PREVIOUS_MENU) or (action == ACTION_PARENT_DIR):# or (action == ACTION_MOVE_LEFT):
             self.close()
-        if (action == ACTION_MOVE_DOWN):
-            self.onScrollDown()
-        if (action == ACTION_MOVE_UP):
-            self.onScrollUp()
+        #if (action == ACTION_MOVE_DOWN):
+        #    self.onScrollDown()
+        #if (action == ACTION_MOVE_UP):
+        #    self.onScrollUp()
+
+    def onFocus( self, controlId ):
+        pass
+            
+    def onClick( self, controlId ):
+        pass
             
     def onControl(self, control):
-        self.setFocus(control)
+        #self.setFocus(control)
+        pass
            
-    def onScrollDown(self):
-        self.offset = self.offset + 100
-        self.TextBox.setText(self.text[self.offset:])
+#    def onScrollDown(self):
+#        control=self.getControl(130)
+#        control.onScrollDown()
         
-    def onScrollUp(self):
-        if self.offset > 0:
-            self.offset = self.offset - 100
-            self.TextBox.setText(self.text[self.offset:])              
+#    def onScrollUp(self):
+#        if self.offset > 0:
+#            self.offset = self.offset - 100           
 
     ######################################################################
     # Description: Reads the document and prepares the display. The
@@ -91,7 +103,7 @@ class CTextView(xbmcgui.Window):
         #first load the background image
         if (mediaitem.background != 'default'): #default BG image
             ext = getFileExtension(mediaitem.background)
-            loader.load(mediaitem.background, cacheDir + "backtextview." + ext, 8, proxy="ENABLED")
+            loader.load(mediaitem.background, imageCacheDir + "backtextview." + ext, 8, proxy="ENABLED")
             if loader.state == 0: #if this fails we still continue
                 self.bg.setImage(loader.localfile)
         
@@ -99,7 +111,7 @@ class CTextView(xbmcgui.Window):
             URL = mediaitem.URL
         
         #now load the text file
-        loader.load(URL, cacheDir + 'document.txt')
+        loader.load(URL, tempCacheDir + 'document.txt')
         if loader.state == 0:
             #open the local file
             try:            
@@ -115,7 +127,6 @@ class CTextView(xbmcgui.Window):
                     if (len(m) > 80) and (m.find(" ") == -1):
                         m = m[:80] + " " + m[80:]
                     self.text = self.text + m + "\n"
-                self.TextBox.setText(self.text)
                 
                 self.offset = 0
                 return 0 #success

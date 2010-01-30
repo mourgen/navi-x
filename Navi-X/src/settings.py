@@ -53,21 +53,30 @@ if RootDir[0] == '/':
     initDir = RootDir + "init/"
     myPlaylistsDir = RootDir + "My Playlists/"
     srcDir = RootDir + "src/"
+    #imageDir = RootDir + "images/"
+    imageDir = RootDir + "resources/skins/Default/media/"
+    cacheDir = RootDir + "cache/"
+    imageViewCacheDir = RootDir + "cache/mageview/"
+    imageCacheDir = RootDir + "cache/images/"
+    tempCacheDir = RootDir + "cache/temp/"    
     SEPARATOR = '/'
 else:
-    if RootDir[-1]!='\\': RootDir = RootDir+'\\'
+    if RootDir[-1] != '\\': RootDir = RootDir+'\\'
     myDownloadsDir = RootDir + "My Downloads\\"
     initDir = RootDir + "init\\"
     myPlaylistsDir = RootDir + "My Playlists\\"
     srcDir = RootDir + "src\\"
+    #imageDir = RootDir + "images\\"
+    imageDir = RootDir + "resources\\skins\\Default\\media\\"
+    cacheDir = RootDir + "cache\\"
+    imageViewCacheDir = RootDir + "cache\\imageview\\"
+    imageCacheDir = RootDir + "cache\\images\\"
+    tempCacheDir = RootDir + "cache\\temp\\"    
     SEPARATOR = '\\'
 
 import xbmc
 version = xbmc.getInfoLabel("System.BuildVersion")[:1]
 
-imageDir = RootDir + "images\\"
-cacheDir = RootDir + "cache\\"
-imageCacheDir = RootDir + "cache\\imageview\\"
 if version == '9':
     scriptDir = "special://home/scripts/"
     pluginDir = "special://home/plugins/"
@@ -80,7 +89,7 @@ else:
 
 ######################################################################
 Version='3' #program version
-SubVersion='0.1'
+SubVersion='1'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -92,8 +101,8 @@ plxVersion = '8'
 home_URL_old='http://www.navi-x.nl/playlists/home.plx'
 home_URL='http://www.navi-x.org/playlists/home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
-background_image = 'background.png'
-background_image1 = 'background1.png'
+background_image1 = 'background1.jpg'
+background_image2 = 'background2.png'
 
 url_open_timeout = 10 #10 seconds
 page_size = 200 #display maximum 100 entries on one page

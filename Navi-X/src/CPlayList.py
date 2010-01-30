@@ -311,6 +311,7 @@ class CPlayList:
         if loader.state != 0:
             return -2
         data = loader.data.split('<item')
+        #data = loader.data.split('<entry')
         
 ########################        
 #        loader.load(self.URL, cacheDir + 'feed.xml', proxy=proxy)
@@ -420,6 +421,7 @@ class CPlayList:
                                 value = m[index2+10:index3-3]
                             else:
                                 value = m[index2+1:index3]
+                            value = value.replace('\n'," '")                              
                             tmp.name = tmp.name + value
                                              
                 #get the description.
@@ -429,6 +431,7 @@ class CPlayList:
                     index2 = m.find('</content:encoded>')
                     if index2 != -1:
                         value = m[index1+17:index2]
+                        #value = value.replace('&#39;',"\'")   
                         tmp.description = value
                         index3 = tmp.description.find('<![CDATA[')
                         if index3 != -1:
@@ -437,6 +440,7 @@ class CPlayList:
                     index2 = m.find('</description>')
                     if index2 != -1:
                         value = m[index+13:index2]
+                        #value = value.replace('&#39;',"\'")   
                         tmp.description = value
                         index3 = tmp.description.find('<![CDATA[')
                         if index3 != -1:
@@ -535,7 +539,7 @@ class CPlayList:
             self.URL = mediaitem.URL
 
         loader = CFileLoader2()
-        loader.load(self.URL, cacheDir + 'feed.xml', proxy=proxy)
+        loader.load(self.URL, tempCacheDir + 'feed.xml', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -630,7 +634,7 @@ class CPlayList:
 #        Trace(self.URL)
         
         loader = CFileLoader2()
-        loader.load(self.URL, cacheDir + 'page.html', proxy=proxy)
+        loader.load(self.URL, tempCacheDir + 'page.html', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -749,7 +753,7 @@ class CPlayList:
         
         loader = CFileLoader2()
         
-        loader.load(self.URL, cacheDir + 'shoutcast.xml', proxy=proxy, retries=2)
+        loader.load(self.URL, tempCacheDir + 'shoutcast.xml', proxy=proxy, retries=2)
         if loader.state == 0:
             filename = loader.localfile
         
@@ -773,7 +777,7 @@ class CPlayList:
         self.version = plxVersion
         self.background = mediaitem.background
 #        self.logo = 'none'
-        self.logo = "images\shoutcast.jpg"
+        self.logo = imageDir + "shoutcast.png"
         self.title = 'Shoutcast' + ' - ' + mediaitem.name
         self.description = ''
         self.player = mediaitem.player
@@ -863,7 +867,7 @@ class CPlayList:
             self.URL = mediaitem.URL
         
         loader = CFileLoader2()
-        loader.load(self.URL, cacheDir + 'page.xml', proxy=proxy)
+        loader.load(self.URL, tempCacheDir + 'page.xml', proxy=proxy)
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -889,7 +893,14 @@ class CPlayList:
         #clear the list
         del self.list[:]
         dates = [] #contains the dates
-                     
+        
+        sortstring = mediaitem.GetType(field=1)
+        if sortstring != '':
+            sortorder = 'descending'
+        else:
+            sortorder = 'ascending'
+            sortstring = 'releasedate'
+                      
         #get the publication date and add it to the title.
         index = data.find('<records date')
         if index != -1:
@@ -916,16 +927,15 @@ class CPlayList:
 
                 #fill the release date
                 date = 0
-                index = m.find('<releasedate>')
+                index = m.find('<' + sortstring + '>')
                 if index != -1:
-                    index2 = m.find('</releasedate>')
+                    index2 = m.find('</' + sortstring + '>')
                     if index2 != -1:
-                        value = m[index+13:index2]
+                        value = m[index+len(sortstring)+2:index2]
                         if value != '':
                             date=int(value[2:4]) * 365
                             date = date + int(value[5:7]) * 31
                             date = date + int(value[8:])
-                        #tmp.name = tmp.name + "  - (Release Date: " + value + ")"
                         tmp.name = value + " - " + tmp.name
                 dates.append(date)
                     
@@ -946,14 +956,22 @@ class CPlayList:
                         if index3 != -1:
                             value = m[index3:index2]
                             tmp.URL = value
-                            
-                #fill the postdate
+                
+                #fill the date
                 index = m.find('<postdate>')
                 if index != -1:
                     index2 = m.find('</postdate>')
                     if index2 != -1:
-                            value = m[index+10:index2]
-                            tmp.date = value            
+                        value = m[index+10:index2]
+                        tmp.date = value 
+           
+                #fill the description
+                index = m.find('<description>')
+                if index != -1:
+                    index2 = m.find('</description>')
+                    if index2 != -1:
+                            value = m[index+13:index2]
+                            tmp.description = value 
                             
                 self.list.append(tmp)
 
@@ -961,8 +979,12 @@ class CPlayList:
         for i in range(len(dates)-1):
             oldest = i
             for n in range(i, len(dates)):
-                if dates[n] < dates[oldest]:
-                    oldest = n
+                if sortorder == 'ascending':
+                    if dates[n] < dates[oldest]:
+                        oldest = n
+                else:
+                    if dates[n] > dates[oldest]:
+                        oldest = n
             if oldest != i:
                 temp = dates[i]
                 dates[i] = dates[oldest]

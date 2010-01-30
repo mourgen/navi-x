@@ -106,36 +106,32 @@ class CPlayer(xbmc.Player):
         #check if the URL is empty or not
         if URL == '':
             return -1
-    
-        self.pls.clear() #clear the playlist
-
+        
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, mediaitem)
         if result != 0:
             return -1    
         URL = urlopener.loc_url
     
+        SetInfoText("Loading... ")
+
+        self.pls.clear() #clear the playlist
+    
         ext = getFileExtension(URL)
         if ext == 'pls' or ext == 'm3u':
             loader = CFileLoader2() #file loader
-            loader.load(URL, cacheDir + "playlist." + ext, retries=2)
+            loader.load(URL, tempCacheDir + "playlist." + ext, retries=2)
             if loader.state == 0: #success
                 result = self.pls.load(loader.localfile)
                 if result == False:
                     return -1
+                xbmc.Player.play(self, self.pls) #play the playlist
         else:
-#            urlopener = CURLLoader()
-#            result = urlopener.urlopen(URL, mediaitem)
-#            if result != 0:
-#                return -1
-            self.pls.add(urlopener.loc_url)
-
-        SetInfoText("Loading... ")
-
-        if mediaitem.playpath != '':
-            self.play_RTMP(mediaitem.URL, mediaitem.playpath, mediaitem.swfplayer, mediaitem.pageurl);
-        else:  
-            xbmc.Player.play(self, self.pls)
+            #self.pls.add(urlopener.loc_url)
+            if mediaitem.playpath != '':
+                self.play_RTMP(mediaitem.URL, mediaitem.playpath, mediaitem.swfplayer, mediaitem.pageurl);
+            else:  
+                xbmc.Player.play(self, urlopener.loc_url)
             
         return 0
 

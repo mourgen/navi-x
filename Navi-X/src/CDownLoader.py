@@ -74,6 +74,9 @@ class CDownLoader(threading.Thread):
     
     def download_stop(self):
         self.running = False
+        
+    def download_isrunning(self):
+        return self.running
              
     def kill(self):
         self.killed = True

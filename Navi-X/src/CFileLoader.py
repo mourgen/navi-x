@@ -139,7 +139,7 @@ class CFileLoader2:
                 else:
                     destfile = localfile + sum_str
             else:
-                destfile = cacheDir + sum_str  
+                destfile = tempCacheDir + sum_str  
 
             if (not((proxy == "ENABLED") and (os.path.exists(destfile) == True))):
                 oldtimeout=socket_getdefaulttimeout()

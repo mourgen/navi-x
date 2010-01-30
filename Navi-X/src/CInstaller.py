@@ -54,7 +54,7 @@ class CInstaller(xbmcgui.Window):
         
         #download the file.
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'script.zip')
+        loader.load(self.URL, tempCacheDir + 'script.zip')
         if loader.state != 0:
             return -2
         filename = loader.localfile
@@ -94,7 +94,7 @@ class CInstaller(xbmcgui.Window):
         
         #download the file.
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'plugin.zip', content_type='zip')
+        loader.load(self.URL, tempCacheDir + 'plugin.zip', content_type='zip')
         if loader.state != 0:
             if loader.state == -2:
                 dialog = xbmcgui.Dialog()
@@ -129,7 +129,7 @@ class CInstaller(xbmcgui.Window):
         
         #download the file.
         loader = CFileLoader()
-        loader.load(self.URL, cacheDir + 'skin.zip')
+        loader.load(self.URL, tempCacheDir + 'skin.zip')
         if loader.state != 0:
             return -2
         filename = loader.localfile

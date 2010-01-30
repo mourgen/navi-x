@@ -79,7 +79,12 @@ class CMediaItem:
             else: #invalid field
                 value == ''
         else:
-            value = self.type
+            if field == 0:
+                value = self.type
+            elif field == 1:
+                value = ''
+            else: #invalid field
+                value == ''
 
         return value
         

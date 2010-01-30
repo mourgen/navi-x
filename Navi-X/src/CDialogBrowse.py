@@ -44,16 +44,16 @@ class CDialogBrowse(xbmcgui.WindowDialog):
         self.title = xbmcgui.ControlLabel(130,210,155,40, 'Download location', "font14")
         self.addControl(self.title)
 
-        self.button_dest = xbmcgui.ControlButton(130,240,width-245,32, '' , RootDir + "images\\button-focus.png", RootDir + "images\\button-nofocus.png")
+        self.button_dest = xbmcgui.ControlButton(130,240,width-245,32, '' , imageDir + "button-focus.png", imageDir + "button-nofocus.png")
         self.addControl(self.button_dest)
 
-        self.button_browse = xbmcgui.ControlButton(130,290,145,32,'Browse', RootDir + "images\\button-focus.png", RootDir + "images\\button-nofocus.png")
+        self.button_browse = xbmcgui.ControlButton(130,290,145,32,'Browse', imageDir + "button-focus.png", imageDir + "button-nofocus.png")
         self.addControl(self.button_browse)
           
-        self.button_ok = xbmcgui.ControlButton(300,290,140,32,'OK', RootDir + "images\\button-focus.png", RootDir + "images\\button-nofocus.png")
+        self.button_ok = xbmcgui.ControlButton(300,290,140,32,'OK', imageDir + "button-focus.png", imageDir + "button-nofocus.png")
         self.addControl(self.button_ok)
         
-        self.button_cancel = xbmcgui.ControlButton(475,290,140,32,'Cancel', RootDir + "images\\button-focus.png", RootDir + "images\\button-nofocus.png")
+        self.button_cancel = xbmcgui.ControlButton(475,290,140,32,'Cancel', imageDir + "button-focus.png", imageDir + "button-nofocus.png")
         self.addControl(self.button_cancel)
         
         #button key behaviour

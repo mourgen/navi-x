@@ -15,11 +15,23 @@ import zipfile
 import shutil
 import sys
 
+# Script constants
+__scriptname__ = "Navi-X"
+__author__ = "rodejo16"
+__url__ = "http://www.navi-x.org/"
+__credits__ = "Rodejo16"
+__version__ = "3.1"
+
 sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
 
 RootDir = os.getcwd()
 if RootDir[-1]==';': RootDir=RootDir[0:-1]
-if RootDir[-1]!='\\': RootDir=RootDir+'\\'
+if RootDir[0] == '/':
+    if RootDir[-1] != '/': RootDir = RootDir+'/'
+    SEPARATOR = '/'    
+else:
+    if RootDir[-1] != '\\': RootDir=RootDir+'\\'
+    SEPARATOR = '\\'
 
 version_default = '0.0.0'
 version_URL='http://www.navi-x.org/updates/version30.dat'
@@ -59,9 +71,12 @@ def onReadNewVersion(URL):
 
 #############################################################################
 def onSaveVersion(version):
-    f=open(RootDir + 'version.dat', 'w')
-    f.write(version + '\n')
-    f.close()
+    try:
+        f=open(RootDir + 'version.dat', 'w')
+        f.write(version + '\n')
+        f.close()
+    except IOError:
+        pass
 
 ######################################################################
 def installUpdate(URL):
@@ -84,7 +99,6 @@ def installUpdate(URL):
     zfobj = zipfile.ZipFile(RootDir + "update.zip")
 
     for name in zfobj.namelist():
-#        Trace(name)
         index = name.rfind('/')
         if index != -1:
             #entry contains path
@@ -166,7 +180,8 @@ if (version != version_default) and (newversion != version_default) and \
 #Start Navi-X
 #############################################################################
 import navix
-win = navix.MainWindow()
+#win = navix.MainWindow()
+win = navix.MainWindow("skin.xml", os.getcwd())
 win.doModal()
 del win
 

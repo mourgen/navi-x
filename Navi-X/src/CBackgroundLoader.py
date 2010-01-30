@@ -82,7 +82,6 @@ class CBackgroundLoader(threading.Thread):
         thumb_update = False
                               
         while (self.MainWindow.state_busy == 0) and (index != index2):
-            #index = self.MainWindow.list.getSelectedPosition()
             index = self.MainWindow.getPlaylistPosition()
             if index != -1:
                 if playlist.size() > 0:
@@ -100,9 +99,8 @@ class CBackgroundLoader(threading.Thread):
                         elif m != 'previous': #URL to image located elsewhere
                             ext = getFileExtension(m)
 
-                            #loader = CFileLoader() #file loader
                             loader = CFileLoader2() #file loader
-                            loader.load(m, cacheDir + "thumb." + ext, timeout=2, proxy="ENABLED", content_type='image')
+                            loader.load(m, imageCacheDir + "thumb." + ext, timeout=2, proxy="ENABLED", content_type='image')
                             if loader.state == 0: #success
                                 #next line is fix, makes sure thumb is update.
                                 self.MainWindow.thumb_visible = True
