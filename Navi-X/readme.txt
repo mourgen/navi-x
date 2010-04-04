@@ -1,13 +1,10 @@
-Welcome to Navi-X v3.1
+Welcome to Navi-X v3.1.2
 
 Changelog:
--A complete new Navi-X skin based on XBMC Transparency skin;
-
--New URL loader to support the new Navi-X Instructional Processor Language, NIPL. (credits to Turner);
--Fixed overlapping text in twitter feeds;
--Improved text viewer. Added spinner controls for faster browsing;
--Added scrollbar on right side of the screen.
--Other minor fixes.
+-Fixed Youtube parser (next page select issue);
+-Added new media type 'window' that allows activation of XBMC windows while Navi-X
+is running in the background;
+-Minor fixes RSS parser;
 
 Don't forget to visit the Navi-xtreme website (http://navix.turner3d.net)
 
