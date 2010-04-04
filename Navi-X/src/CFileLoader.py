@@ -25,6 +25,7 @@ from libs2 import *
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
 
+#@todo: The use of CFileLoader2 over CFileLoader is preferred because it's more stable
 class CFileLoader:
     ######################################################################
     # Description: Downloads a file in case of URL and returns absolute

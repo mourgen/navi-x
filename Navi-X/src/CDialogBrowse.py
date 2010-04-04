@@ -9,6 +9,8 @@
 # CDialogBrowse:
 # This class is a non-standard dialog window which is used for downloading 
 # and file selection.
+#@todo: Use WindowXMLDialog instead of the WindowDialog for better customization
+#@todo: fix layout issues for non-XBOX platforms.
 #############################################################################
 
 from string import *

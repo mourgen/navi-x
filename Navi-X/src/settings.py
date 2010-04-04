@@ -21,6 +21,7 @@ ACTION_NEXT_ITEM       = 14
 ACTION_PREV_ITEM       = 15
 ACTION_XBUTTON	       = 18 #'X'
 ACTION_YBUTTON 	       = 34	#'Y'
+ACTION_MOUSEMOVE       = 90 # Mouse has moved
 ACTION_CONTEXT_MENU    = 117 # pops up the context menu
 ACTION_CONTEXT_MENU2   = 229 # pops up the context menu (remote control "title" button)
 
@@ -88,8 +89,9 @@ else:
 
 
 ######################################################################
-Version='3' #program version
-SubVersion='1'
+#program version: Combination of version and subversion
+Version='3' 
+SubVersion='1.2'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -103,6 +105,7 @@ home_URL='http://www.navi-x.org/playlists/home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
+searchhistory_file = 'search.dat'
 
 url_open_timeout = 10 #10 seconds
 page_size = 200 #display maximum 100 entries on one page

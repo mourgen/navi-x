@@ -8,6 +8,7 @@
 #
 # CBackgroundLoader:
 # This class loads playlists properties in a separate background task.
+# At this moment loading of the thumbnail images are handled by this task.
 #############################################################################
 
 from string import *
@@ -42,15 +43,11 @@ class CBackgroundLoader(threading.Thread):
         self.setDaemon(True) #make a deamon thread   
        
         self.killed = False
-       
-#        self.event = threading.Event()
-        
+          
         self.counter=0
         
     def run(self):
         while self.killed == False:
-            #self.event.wait()
-            #self.event.clear()
             time.sleep(0.2) #delay 1 second
 #            self.counter = self.counter + 1
 #            self.MainWindow.setInfoText(str(self.counter)) #loading text
@@ -60,7 +57,6 @@ class CBackgroundLoader(threading.Thread):
             
     def kill(self):
         self.killed = True
-#        self.event.set() #notify the thread
     
 #    def notify(self):
 #        self.event.set()
@@ -72,9 +68,6 @@ class CBackgroundLoader(threading.Thread):
     # Return     : -
     ######################################################################
     def UpdateThumb(self):  
-#        if self.MainWindow.state_busy != 0:
-#            return
- 
         playlist = self.MainWindow.pl_focus
         #index = self.MainWindow.list.getSelectedPosition()
         index = self.MainWindow.getPlaylistPosition()
@@ -115,7 +108,6 @@ class CBackgroundLoader(threading.Thread):
             index2 = self.MainWindow.getPlaylistPosition()
 
         if self.MainWindow.thumb_visible == True:
-#            self.MainWindow.user_logo.setVisible(0)
             if thumb_update == True:
                 self.MainWindow.user_thumb.setVisible(0)
                 self.MainWindow.user_thumb.setImage("")

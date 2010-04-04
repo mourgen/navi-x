@@ -8,7 +8,7 @@
 #
 # CPlaylist:
 # Playlist class. Supports loading of Navi-X PLX files, RSS2.0 files, 
-# flick feed files and html files.
+# Youtube, shoutcast and flick feed files.
 #############################################################################
 
 from string import *
@@ -407,6 +407,7 @@ class CPlayList:
                             index4 = m.find(':', index2, index3)
                             if index4 != -1:
                                 value = m[index2+1:index4-2]
+                                value = value.replace('\n',"") 
                                 tmp.name = value
 
                 #get the title.
@@ -706,35 +707,31 @@ class CPlayList:
                 self.list.append(tmp)                
 
         #check if there is a next page in the html. Get the last one in the page.
-        next_page_str = ''
-        for m in lines:
-            #index1 = m.find('class="pagerNotCurrent" >')
-            index1a = m.find('class="pagerNotCurrent')
-            index1b = m.find(';start=')
-            if (index1a != -1) or (index1b != -1):
-                next_page_str = m
-
-        if next_page_str != '': #next page found. Grab the URL
-            index2 = next_page_str.find("<a href=")
+        index1 = data.rfind('data-page')
+        if index1 != -1:
+            index2 = data.rfind('<a href=',0,index1)
             if index2 != -1:
-                index3 = next_page_str.find(next_page_str[index2+8:index2+9],index2+9)
+                index3 = data.find('"',index2,index1)
                 if index3 != -1:
-                    value = next_page_str[index2+9:index3]
-                    tmp = CMediaItem() #create new item
-                    tmp.type = 'html_youtube'
-                    tmp.name = str_nextpage
-                    tmp.player = self.player
-                    tmp.background = self.background
+                    index4 = data.find('"',index3+1,index1)
+                    if index4 != -1:
+                        value = data[index3+1:index4]
+#                        Message(value)
+                        tmp = CMediaItem() #create new item
+                        tmp.type = 'html_youtube'
+                        tmp.name = str_nextpage
+                        tmp.player = self.player
+                        tmp.background = self.background
                     
-                    #create the next page URL
-                    index4 = self.URL.find("?")
-                    url = self.URL[:index4]
-                    index5 = value.find("?")
-                    value = value[index5:]
-                    tmp.URL= url+ value
+                        #create the next page URL
+                        index4 = self.URL.find("?")
+                        url = self.URL[:index4]
+                        index5 = value.find("?")
+                        value = value[index5:]
+                        tmp.URL= url+ value
                     
-                    self.list.append(tmp)                
-
+                        self.list.append(tmp)                             
+        
         return 0
 
     ######################################################################

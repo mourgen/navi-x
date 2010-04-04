@@ -7,7 +7,7 @@
 #############################################################################
 #
 # CTextView:
-# Text viewer class.
+# Text viewer class. Displays a text in a new window.
 #############################################################################
 
 from string import *
@@ -58,10 +58,6 @@ class CTextView(xbmcgui.WindowXMLDialog):
     def onAction(self, action):
         if (action == ACTION_PREVIOUS_MENU) or (action == ACTION_PARENT_DIR):# or (action == ACTION_MOVE_LEFT):
             self.close()
-        #if (action == ACTION_MOVE_DOWN):
-        #    self.onScrollDown()
-        #if (action == ACTION_MOVE_UP):
-        #    self.onScrollUp()
 
     def onFocus( self, controlId ):
         pass
@@ -72,14 +68,6 @@ class CTextView(xbmcgui.WindowXMLDialog):
     def onControl(self, control):
         #self.setFocus(control)
         pass
-           
-#    def onScrollDown(self):
-#        control=self.getControl(130)
-#        control.onScrollDown()
-        
-#    def onScrollUp(self):
-#        if self.offset > 0:
-#            self.offset = self.offset - 100           
 
     ######################################################################
     # Description: Reads the document and prepares the display. The

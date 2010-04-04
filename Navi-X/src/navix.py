@@ -1,7 +1,7 @@
 #############################################################################
 #
 # Navi-X Playlist browser
-# v3.1 by rodejo (rodejo16@gmail.com)
+# v3.1.2 by rodejo (rodejo16@gmail.com)
 #
 # -v1.01  (2007/04/01) first release
 # -v1.2   (2007/05/10)
@@ -45,6 +45,8 @@
 # -v3.0.2  (2009/12/20)
 # -v3.1beta  (2009/12/30)
 # -v3.1     (2010/01/16)
+# -v3.1.1 (2010/02/07)
+# -v3.1.2 (2010/03/27)
 #
 #############################################################################
 
@@ -78,11 +80,6 @@ except: Emulating = False
 ######################################################################
 # Description: Main Window class
 ######################################################################
-#class MainWindow(xbmcgui.Window):
-#        def __init__(self):
-#            if Emulating: xbmcgui.Window.__init__(self)
-#            if not Emulating:
-#                self.setCoordinateResolution(PAL_4x3)
 class MainWindow(xbmcgui.WindowXML):       
         def __init__(self,strXMLname, strFallbackPath):#, strDefaultName, forceFallback):
         
@@ -98,9 +95,6 @@ class MainWindow(xbmcgui.WindowXML):
                 os.mkdir(tempCacheDir)                   
             if not os.path.exists(myDownloadsDir): 
                 os.mkdir(myDownloadsDir)
-
-            #load the screen widget elements from another file.
-#            load_skin(self)
 
             #Create playlist object contains the parsed playlist data. The self.list control displays
             #the content of this list
@@ -208,7 +202,7 @@ class MainWindow(xbmcgui.WindowXML):
             
             self.firsttime = True
         
-            load_skin1(self)       
+            load_skin(self)       
                                   
             #thumb update task
             self.bkgndloadertask = CBackgroundLoader(window=self)
@@ -236,12 +230,9 @@ class MainWindow(xbmcgui.WindowXML):
                 result = self.ParsePlaylist(URL=self.home)
                 if result != 0: #failed
                     self.ParsePlaylist(URL=home_URL_mirror) #mirror site              
-            
-            #control = self.getControl(self.list)
-            #control = self.getControl(112)
-            #self.setFocus(control)  
 
-
+            #end of function
+             
         ######################################################################
         # Description: Handles key events.
         # Parameters : action=user action
@@ -252,10 +243,11 @@ class MainWindow(xbmcgui.WindowXML):
             if not action.getId() == ACTION_SELECT_ITEM:
                 self.onAction1(action)
                   
+            #end of function
         
         def onAction1(self, action):
             self.state_action = 1                          
-                                    
+                    
             #always allow exit even if busy
 #            if (action == ACTION_SELECT_ITEM) and (self.getFocus() == self.button_about):
 #                self.setInfoText("Shutting Down Navi-X...") 
@@ -303,35 +295,15 @@ class MainWindow(xbmcgui.WindowXML):
                             self.bkgndloadertask.join(10) #timeout after 10 seconds.
                             self.downloader.kill()
                             self.downloader.join(10) #timeout after 10 seconds.
-                            self.close() #exit                    
-                    #home button
-#                    elif self.getFocus() == self.button_home:
-#                        self.pl_focus = self.playlist
-#                        self.ParsePlaylist(URL=self.home)
-#                    #favorite button
-#                    elif self.getFocus() == self.button_favorites:
-#                        self.onOpenFavorites()
-#                    #downloads button
-#                    elif self.getFocus() == self.button_downloads:
-#                        self.onOpenDownloads()
-#                    #URL button
-#                    elif self.getFocus() == self.button_url:
-#                        self.onSelectURL() 
-#                    elif self.getFocus() == self.button_about:
-#                        self.setInfoText("Shutting Down Navi-X...") 
-#                        self.onSaveSettings()
-#                        self.bkgndloadertask.kill()
-#                        self.bkgndloadertask.join(10) #timeout after 10 seconds.
-#                        self.downloader.kill()
-#                        self.downloader.join(10) #timeout after 10 seconds.
-#                        self.close() #exit
+                            self.close() #exit
                 elif (action == ACTION_PARENT_DIR) or (action == ACTION_PREVIOUS_MENU):
                     if self.state_busy == 0:        
                         if self.pl_focus == self.favoritelist:
                             self.onCloseFavorites()
                         elif (self.URL == downloads_queue) or (self.URL == downloads_complete) or (self.URL == parent_list):    
                             self.onCloseDownloads()
-                        elif self.getFocus() == self.list:
+                        #elif self.getFocus() == self.list:
+                        else:
                             #main list
                             if self.history_count > 0:
                                 previous = self.History[len(self.History)-1]
@@ -356,12 +328,11 @@ class MainWindow(xbmcgui.WindowXML):
                         self.setFocus(self.list3)
                 elif action == ACTION_MOVE_UP:
                     pos = self.list.getSelectedPosition()
-                    #if pos == 0:
-                    #    self.list.selectItem(self.list.size()-1)
-#                elif action == ACTION_MOVE_DOWN:
-#                    if self.descr_view == True:
-#                        return
-                     
+                elif action == ACTION_MOUSEMOVE:
+                    xpos = action.getAmount1()
+                    ypos = action.getAmount2()
+                    if (xpos < 20) and (ypos > 140):
+                        self.setFocus(self.list3)                       
                 elif self.ChkContextMenu(action) == True: #White
                     if self.URL == favorite_file:
                         self.selectBoxFavoriteList()
@@ -375,8 +346,7 @@ class MainWindow(xbmcgui.WindowXML):
                 #pos = self.list.getSelectedPosition()
                 pos = self.getPlaylistPosition()
                 self.listpos.setLabel(str(pos+1) + '/' + str(self.pl_focus.size()))
-                
-                  
+                        
             #end of function
              
         ######################################################################
@@ -393,7 +363,10 @@ class MainWindow(xbmcgui.WindowXML):
         # Return     : TBD
         ######################################################################
         def onClick( self, controlId ):
-            self.onAction1(ACTION_SELECT_ITEM)       
+            if controlId == BUTTON_LEFT:          
+                self.onAction1(ACTION_PREVIOUS_MENU)
+            else:
+                self.onAction1(ACTION_SELECT_ITEM)       
     
         ######################################################################
         # Description: Checks if one of the context menu keys is pressed.
@@ -520,7 +493,6 @@ class MainWindow(xbmcgui.WindowXML):
             #set the background image
 #always reload background image when loading playlist            
             m = self.playlist.background
-            #if m != self.background:
             if m == 'default': #default BG image
                 self.bg.setImage(imageDir + background_image1)
                 self.bg1.setImage(imageDir + background_image2)
@@ -681,7 +653,9 @@ class MainWindow(xbmcgui.WindowXML):
             elif type[0:6] == 'search':
                 type = 'search'               
             elif type == 'directory':
-                type = 'playlist'               
+                type = 'playlist'
+            elif type == 'window':
+                type = 'playlist'             
             elif mediaitem.type == 'skin':
                 type = 'script'                
     
@@ -874,9 +848,11 @@ class MainWindow(xbmcgui.WindowXML):
             elif (type[0:6] == 'search'):
                 self.AddHistoryItem()
                 self.PlaylistSearch(mediaitem, append)
+            elif type == 'window':
+                xbmc.executebuiltin("xbmc.ActivateWindow(" + mediaitem.URL + ")")                
 #            elif type == 'html':
 #                #at this moment we do nothing with HTML files
-                pass
+#                pass
             else:
                 dialog = xbmcgui.Dialog()
                 dialog.ok("Playlist format error", '"' + type + '"' + " is not a valid type.")
@@ -1756,7 +1732,38 @@ class MainWindow(xbmcgui.WindowXML):
                 self.ParsePlaylist(reload=False) #refresh        
             elif choice == 1: #Unlock Navi-X
                 self.verifyPassword()
-                self.ParsePlaylist(reload=False) #refresh                                
+                self.ParsePlaylist(reload=False) #refresh   
+
+        ######################################################################
+        # Description: Handles Clear recent history menu options.
+        # Parameters : -
+        # Return     : -
+        ######################################################################
+        def onClearHistory(self):
+            possibleChoices = ["Clear Browse History", \
+                                "Clear Image Cache", \
+                                "Clear Search History", \
+                                "Cancel"]
+            
+            dialog = xbmcgui.Dialog()
+            choice = dialog.select("Select", possibleChoices)
+
+            if choice == 0: #Clear Browse History 
+                self.history.clear()
+                self.history.save(RootDir + history_list)
+                self.ParsePlaylist(mediaitem=self.mediaitem)
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Message", "Cleared Browse History.")               
+            elif choice == 1: #Clear Image Cache
+                self.delFiles(imageCacheDir) #clear the temp cache first
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Message", "Cleared Image Cache.")    
+            elif choice == 2: #Clear Search History
+                del self.SearchHistory[:]
+                self.onSaveSearchHistory()
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Message", "Cleared Search History.")             
+                             
     
         ######################################################################
         # Description: Handles selection of the 'black' button in the main list.
@@ -1769,6 +1776,7 @@ class MainWindow(xbmcgui.WindowXML):
             possibleChoices = ["Download...", \
                                 "Play...", \
                                 "View...", \
+                                "Clear Recent History...", \
                                 "Parental Control...", \
                                 "Image Slideshow", \
                                 "Add Selected Item to Favorites", \
@@ -1776,8 +1784,6 @@ class MainWindow(xbmcgui.WindowXML):
                                 "Create Playlist Shortcut", \
                                 "Set Playlist as Home", \
                                 "View Playlist Source", \
-                                "Clear Browse History", \
-                                "Clear Image Cache", \
                                 "About Navi-X", \
                                 "Cancel"]
             dialog = xbmcgui.Dialog()
@@ -1789,13 +1795,15 @@ class MainWindow(xbmcgui.WindowXML):
                 self.onPlayUsing()
             elif choice == 2: #view...
                 self.onView()
-            elif choice == 3: #Block selected playlist
+            elif choice == 3: #Clear Recent History
+                self.onClearHistory()                
+            elif choice == 4: #Block selected playlist
                 self.onParentalControl()        
-            elif choice == 4: #Slideshow
+            elif choice == 5: #Slideshow
 
                 pos = self.getPlaylistPosition()            
                 self.viewImage(self.playlist, pos, 1) #slide show show
-            elif choice == 5: #Add selected file to Favorites
+            elif choice == 6: #Add selected file to Favorites
 
                 pos = self.getPlaylistPosition()
                 tmp = CMediaItem() #create new item
@@ -1813,7 +1821,7 @@ class MainWindow(xbmcgui.WindowXML):
                 tmp.player = self.playlist.list[pos].player
                 self.favoritelist.add(tmp)
                 self.favoritelist.save(RootDir + favorite_file)
-            elif choice == 6: #Add playlist to Favorites
+            elif choice == 7: #Add playlist to Favorites
                 tmp = CMediaItem() #create new item
                 tmp.type = self.mediaitem.type
                 keyboard = xbmc.Keyboard(self.playlist.title, 'Add to Favorites')
@@ -1829,26 +1837,16 @@ class MainWindow(xbmcgui.WindowXML):
                 tmp.background = self.mediaitem.background
                 self.favoritelist.add(tmp)
                 self.favoritelist.save(RootDir + favorite_file)
-            elif choice == 7: # Create playlist shortcut
+            elif choice == 8: # Create playlist shortcut
                 self.CreateShortCut()
-            elif choice == 8: #Set Playlist as Home
+            elif choice == 9: #Set Playlist as Home
                 if dialog.yesno("Message", "Overwrite current Home playlist?") == False:
                     return
                 self.home = self.URL
  #               self.onSaveSettings()
-            elif choice == 9: #View playlist source
-                self.OpenTextFile(RootDir + "source.plx")
-            elif choice == 10: #Clear Browse History
-                self.history.clear()
-                self.history.save(RootDir + history_list)
-                self.ParsePlaylist(mediaitem=self.mediaitem)
-                dialog = xbmcgui.Dialog()
-                dialog.ok("Message", "Cleared Browse History.")
-            elif choice == 11: #Clear Image Cache
-                self.delFiles(imageCacheDir) #clear the temp cache first
-                dialog = xbmcgui.Dialog()
-                dialog.ok("Message", "Cleared Image Cache.")                
-            elif choice == 12: #about Navi-X
+            elif choice == 10: #View playlist source
+                self.OpenTextFile(RootDir + "source.plx")      
+            elif choice == 11: #about Navi-X
                 self.OpenTextFile('readme.txt')
 
         ######################################################################
@@ -2033,8 +2031,10 @@ class MainWindow(xbmcgui.WindowXML):
                 self.descr_view = True
                 
                 self.setFocus(self.getControl(124))
-                
 
+            #end of function                
+
+#main window is created in default.py
 #win = MainWindow()
 #win.doModal()
 #del win

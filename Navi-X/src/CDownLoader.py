@@ -133,30 +133,23 @@ class CDownLoader(threading.Thread):
             if pos != -1:
                 ext='.avi'
             else:
-                #strip the file extension
-                pos = loc_url.rfind('.') #find last '.' in the string
-                if pos != -1:
-                    ext = loc_url[pos:] #the file extension
-                else:
+                #extract the file extension
+                url_stripped=re.sub('\?.*$', '', loc_url) # strip GET-method args
+                re_ext=re.compile('(\.\w+)$') # find extension
+                match=re_ext.search(url_stripped)
+                if match is None:
                     ext = ""
+                else:
+                    ext = match.group(1)
                
         #For the local file name we use the playlist item 'name' field.
         #But this string may contain invalid characters. Therefore
         #we strip these invalid characters. We also limit the file
         #name length to 42 which is the XBMC limit.
-        localfile = entry.name.replace('<',"")
-        localfile = localfile.replace('>',"")
-        localfile = localfile.replace('=',"")
-        localfile = localfile.replace('?',"")
-        localfile = localfile.replace(':',"")
-        localfile = localfile.replace(';',"")
-        localfile = localfile.replace('"',"")
-        localfile = localfile.replace('*',"")
-        localfile = localfile.replace('+',"")
-        localfile = localfile.replace(',',"")
-        localfile = localfile.replace('/',"")
-        localfile = localfile.replace('|',"")
-        localfile = localfile[:(42-len(ext))] #limit to 42 characters.
+
+        localfile = re.sub('[^\w\s-]', '', entry.name) # remove characters which are not a letter, digit, white-space, underscore, or dash
+        localfile = re.sub('\s+', ' ', localfile) # convert all instances of multiple spaces to single spaces
+        localfile = localfile[:(42-len(ext))] # limit to 42 characters.
         localfile = localfile + ext
                 
         browsewnd = CDialogBrowse(parent=self.MainWindow)
