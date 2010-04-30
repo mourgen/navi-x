@@ -62,7 +62,7 @@ class CInstaller(xbmcgui.Window):
         SetInfoText("Installing... ")
 
         result = self.unzip_file_into_dir(filename, scriptDir)   
-
+        
         return result
                 
     ######################################################################
@@ -105,7 +105,7 @@ class CInstaller(xbmcgui.Window):
         SetInfoText("Installing... ")
         
         result = self.unzip_file_into_dir(filename, pluginDir + subdir)    
-       
+                     
         return result
 
     ######################################################################

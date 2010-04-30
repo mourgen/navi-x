@@ -7,7 +7,7 @@
 #############################################################################
 #
 # CTextView:
-# Text viewer class. Displays a text in a new window.
+# Text viewer class. Displays a text file in a new window.
 #############################################################################
 
 from string import *
@@ -29,13 +29,9 @@ except: Emulating = False
 ######################################################################
 # Description: Text viewer
 ######################################################################
-#class CTextView(xbmcgui.WindowDialog):
 class CTextView(xbmcgui.WindowXMLDialog): 
-    #def __init__(self):
     def __init__(self,strXMLname, strFallbackPath):#, strDefaultName, forceFallback):
-        #pass
-    
-    #def onInit( self ):
+
         self.setCoordinateResolution(PAL_4x3)
     
         #user background image

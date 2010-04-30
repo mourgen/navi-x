@@ -135,7 +135,7 @@ def socket_setdefaulttimeout(url_open_timeout):
 # Return     : -
 ######################################################################
 def Trace(string):
-    f = open(RootDir + "trace.txt", "a")
+    f = open(RootDir + "trace.txt", "w")
     f.write(string + '\n')
     f.close()
 

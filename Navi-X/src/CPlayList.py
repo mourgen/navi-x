@@ -117,19 +117,6 @@ class CPlayList:
             return -2
         data = loader.data.splitlines()
         
-#        loader.load(self.URL, cacheDir + 'playlist.plx', proxy=proxy)
-#        if loader.state != 0:
-#            return -2
-#        filename = loader.localfile
-#        
-#        try:
-#            f = open(filename, 'r')
-#            data = f.read()
-#            data = data.splitlines()
-#            f.close()
-#        except IOError:
-#            return -2
-        
         #defaults
         self.version = '-1'
         self.background = mediaitem.background
@@ -288,8 +275,9 @@ class CPlayList:
         
         return 0 #successful
         
+
     ######################################################################
-    # Description: Loads a RSS2.0 feed xml file.
+    # Description: Loads a RSS webfeed.
     # Parameters : filename=URL or local file
     #              mediaitem=CMediaItem object to load    
     # Return     : 0=succes, 
@@ -312,21 +300,6 @@ class CPlayList:
             return -2
         data = loader.data.split('<item')
         #data = loader.data.split('<entry')
-        
-########################        
-#        loader.load(self.URL, cacheDir + 'feed.xml', proxy=proxy)
-#        if loader.state != 0:
-#            return -2
-#        filename = loader.localfile
-#        
-#        try:
-#            f = open(filename, 'r')
-#            data = f.read()
-#            data = data.split('<item')
-#            f.close()
-#        except IOError:
-#            return -2
-########################
         
         #defaults
         self.version = plxVersion
@@ -519,6 +492,221 @@ class CPlayList:
                             else:
                                 tmp.type = 'html'
                                         
+                if tmp.URL != '':
+                    self.list.append(tmp)
+                    counter = counter + 1
+                    
+        return 0
+
+    ######################################################################
+    # Description: Loads a atom webfeed.
+    # Parameters : filename=URL or local file
+    #              mediaitem=CMediaItem object to load    
+    # Return     : 0=succes, 
+    #              -1=invalid playlist version, 
+    #              -2=could not open playlist
+    ######################################################################
+    def load_atom_10(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
+        if filename != '':
+            self.URL = filename
+        else:
+            self.URL = mediaitem.URL
+
+        loader = CFileLoader2()
+        
+        loader.load(self.URL, proxy=proxy)
+        if loader.state != 0:
+            return -2
+        data = loader.data.split('<entry')
+        
+        #defaults
+        self.version = plxVersion
+        #use the current background image if mediaitem background is not set.
+        if mediaitem.background != 'default':
+            self.background = mediaitem.background
+        self.logo = 'none'
+        self.title = ''
+        self.description = ''
+        self.player = mediaitem.player
+        self.processor = mediaitem.processor
+        self.playmode = 'default'
+        self.start_index = 0
+        #clear the list
+        del self.list[:]
+        
+        #set the default type
+        index=mediaitem.type.find(":")
+        if index != -1:
+            type_default = mediaitem.type[index+1:]
+        else:
+            type_default = ''
+        
+        counter=0
+        #parse playlist entries 
+        for m in data:
+            if counter == 0:
+                #fill the title
+                index = m.find('<title>')
+                if index != -1:
+                    index2 = m.find('</title>')
+                    if index != -1:
+                        value = m[index+7:index2]
+                        self.title = value
+
+                index = m.find('<subtitle')
+                if index != -1:
+                    index2 = m.find('</subtitle>')
+                    if index2 != -1:
+                        value = m[index+13:index2]
+                        self.description = value
+                        index3 = self.description.find('<![CDATA[')
+                        if index3 != -1:
+                            self.description = self.description[9:-3]
+                
+                #fill the logo
+                index = m.find('<logo>')
+                if index != -1:
+                    index2 = m.find('</logo>')
+                    if index2 != -1:
+                        index3 = m.find('http', index, index2)
+                        if index3 != -1:
+                            index4 = m.find('</', index3, index2+2)
+                            if index4 != -1:
+                                value = m[index3:index4]
+                                self.logo = value
+
+                #fill the logo
+                index = m.find('<icon>')
+                if index != -1:
+                    index2 = m.find('</icon>')
+                    if index2 != -1:
+                        index3 = m.find('http', index, index2)
+                        if index3 != -1:
+                            index4 = m.find('</', index3, index2+2)
+                            if index4 != -1:
+                                value = m[index3:index4]
+                                self.logo = value
+ 
+                counter = counter + 1
+            else:
+                tmp = CMediaItem() #create new item
+                tmp.player = self.player
+                tmp.processor = self.processor
+
+                #get the publication date.
+                index = m.find('<published')
+                if index != -1:
+                    index2 = m.find('>', index)
+                    if index2 != -1:
+                        index3 = m.find('</published')
+                        if index3 != -1:
+                            index4 = m.find(':', index2, index3)
+                            if index4 != -1:
+                                value = m[index2+1:index4-3]
+                                value = value.replace('\n',"") 
+                                tmp.name = value
+                                
+                #get the publication date.
+                index = m.find('<updated')
+                if index != -1:
+                    index2 = m.find('>', index)
+                    if index2 != -1:
+                        index3 = m.find('</updated')
+                        if index3 != -1:
+                            index4 = m.find(':', index2, index3)
+                            if index4 != -1:
+                                value = m[index2+1:index4-3]
+                                value = value.replace('\n',"") 
+                                tmp.name = value                                
+                                
+                #get the title.
+                index = m.find('<title')
+                if index != -1:
+                    index2 = m.find('>', index)
+                    if index2 != -1:
+                        index3 = m.find('</title>')
+                        if index3 != -1:
+                            index4 = m.find('![CDATA[', index2, index3)
+                            if index4 != -1:
+                                value = m[index2+10:index3-3]
+                            else:
+                                value = m[index2+1:index3]
+                            value = value.replace('\n'," '")                              
+                            tmp.name = tmp.name + ' ' + value
+                                             
+                #get the description.
+                index = m.find('<summary')
+                if index != -1:
+                    index2 = m.find('>', index)
+                    if index2 != -1:
+                        index3 = m.find('</summary')
+                        if index3 != -1:
+                            value = m[index2+1:index3]
+                            value = value.replace('\n',"") 
+                            tmp.description = value
+
+                if tmp.description == '' and tmp.name != '':
+                    tmp.description = tmp.name
+
+                #get the thumb
+                index = m.find('<link type="image')
+                if index != -1:
+                    index2 = m.find('href=', index+16)
+                    if index2 != -1:
+                        index3 = m.find('"', index2+6)
+                        if index3 != -1:
+                            value = m[index2+6:index3]
+                            tmp.thumb = value
+
+                if tmp.thumb == 'default':
+                    #no thumb image found, therefore grab any jpg image in the item
+                    index = m.find('.jpg')
+                    if index != -1:
+                        index2 = m.rfind('http', 0, index)
+                        if index2 != -1:
+                            value = m[index2:index+4]
+                            tmp.thumb = value   
+
+                #get the enclosed content.
+                index = m.find('<link rel="enclosure')   
+                if index == -1:
+                    index = m.find('<link')   
+                if index != -1:
+                    index2 = m.find('href="',index) #get the URL attribute
+                    if index2 != -1:
+                        index3 = m.find('"', index2+6)
+                        if index3 != -1:
+                            value = m[index2+6:index3]
+                            tmp.URL = value
+                                          
+                    #get the media type
+                    if type_default != '':
+                        tmp.type = type_default
+
+                    if tmp.type == 'unknown':   
+                        index2 = m.find('type="',index) #get the type attribute
+                        if index2 != -1:
+                            index3 = m.find('"', index2+6)
+                            if index3 != -1:
+                                type = m[index2+6:index3]
+                                if type[0:11] == 'application':
+                                    tmp.type = 'download'
+                                elif type[0:5] == 'video':
+                                    tmp.type = 'video'
+                        
+                    if (tmp.type == 'unknown') and (tmp.URL != ''): #valid URL found
+                        #validate the type based on file extension
+                        ext_pos = tmp.URL.rfind('.') #find last '.' in the string
+                        if ext_pos != -1:
+                            ext = tmp.URL[ext_pos+1:]
+                            ext = ext.lower()
+                            if ext == 'jpg' or ext == 'gif' or ext == 'png':
+                                tmp.type = 'image'
+                            elif ext == 'mp3':
+                                tmp.type = 'audio'
+                            else:
+                                tmp.type = 'html'
+                                                       
                 if tmp.URL != '':
                     self.list.append(tmp)
                     counter = counter + 1

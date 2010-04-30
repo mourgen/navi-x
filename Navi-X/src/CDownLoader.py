@@ -32,13 +32,13 @@ except: Emulating = False
 ######################################################################
 # Description: See comments in class body
 ######################################################################
-class myURLOpener(urllib.FancyURLopener):
-    """Create sub-class in order to overide error 206.  This error means a
-       partial file is being sent,
-       which is ok in this case.  Do nothing with this error.
-    """
-    def http_error_206(self, url, fp, errcode, errmsg, headers, data=None):
-        pass
+#class myURLOpener(urllib.FancyURLopener):
+#    """Create sub-class in order to overide error 206.  This error means a
+#       partial file is being sent,
+#       which is ok in this case.  Do nothing with this error.
+#    """
+#    def http_error_206(self, url, fp, errcode, errmsg, headers, data=None):
+#        pass
 
 ######################################################################
 # Description: File downloader including progress bar. 
@@ -105,7 +105,7 @@ class CDownLoader(threading.Thread):
             self.state = -1 #URL does not point to internet file.
             return
         loc_url = urlopener.loc_url
-##########################
+
         #Now we try to open the URL. If it does not exist an error is
         #returned.
         try:
@@ -122,7 +122,6 @@ class CDownLoader(threading.Thread):
             socket.setdefaulttimeout(oldtimeout)
             self.state = -1 #failed to open URL
             return
-########################
             
         #special handing for some URL's
         pos = URL.find('http://youtube.com/v') #find last 'http' in the URL
@@ -190,34 +189,30 @@ class CDownLoader(threading.Thread):
 
     ######################################################################
     # Description: Downloads a URL to local disk
-    # Parameters : URL=source
+    # Parameters : shutdown = true if auto shutdown after download.
     # Return     : -
     ######################################################################
     def download_queue(self, shutdown = False):
         self.state = 0 #success
         
-        index = 0
         counter = 0
         size = self.playlist_src.size()
         
         self.MainWindow.download_logo.setVisible(1)
         self.MainWindow.dlinfotekst.setVisible(1)
         
-        while (self.state != -2) and (index < self.playlist_src.size()) and (self.killed == False) and (self.running == True):
+        while (self.state != -2) and (self.playlist_src.size() > 0) and (self.killed == False) and (self.running == True):
             header = str(counter+1) + " of " + str(size)
             self.download_file(self.playlist_src.list[0], shutdown, header) #download single file
 
             if self.state == -1:
                 dialog = xbmcgui.Dialog()
                 dialog.ok("Error", "Download failed.")
-
-#@todo: index can be removed            
+           
             if self.state != -2:
-                #When not Navi-X shutdown and not downloading stopped by user.
+                #Download file completed or the download failed, remove the file fro the queue.
                 self.playlist_src.remove(0)
                 self.playlist_src.save(RootDir + downloads_queue)
-            #else:
-            #    index = index + 1
             
             counter = counter + 1
             
@@ -240,10 +235,14 @@ class CDownLoader(threading.Thread):
 
     ######################################################################
     # Description: Downloads a URL to local disk
-    # Parameters : URL=source
+    # Parameters : entry =  mediaitem to download
+    #              shutdown = true is shutdown after download
+    #              header = header to display (1 of x)
     # Return     : -
     ######################################################################
     def download_file(self, entry, shutdown = False, header=""):
+#@todo: shutdown parameter can be removed
+
         self.state = 0 #success
         
         URL = entry.URL
@@ -264,21 +263,19 @@ class CDownLoader(threading.Thread):
   
         #open the URL and get the direct URL
     
-        self.MainWindow.dlinfotekst.setLabel("Getting file from server.")
+        self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Getting file from server.")
 
         try:
             oldtimeout=socket_getdefaulttimeout()
             socket_setdefaulttimeout(url_open_timeout)
 
             existSize=0
-            #myUrlclass = myURLOpener()
+
             if os.path.exists(localfile):
                 file = open(localfile,"ab")
                 existSize = os.path.getsize(localfile)
                                
-                #If the file exists, then only download the remainder
-                #myUrlclass.addheader("User-Agent","Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)")                            
-                #myUrlclass.addheader("Range","bytes=%s-" % existSize)   
+                #If the file exists, then only download the remainder 
                 headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
                             'Range' : 'bytes=%s-' % existSize}                          
 
@@ -286,8 +283,6 @@ class CDownLoader(threading.Thread):
                 #open the destination file
                 file = open(localfile, "wb")
                 headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
-
-            #f = myUrlclass.open(URL)
                       
             req = urllib2.Request(URL, None, headers)
             f = urllib2.urlopen(req)            
@@ -298,13 +293,10 @@ class CDownLoader(threading.Thread):
             
 #todo: size may be existsize if file is downloaded exactly 50%            
             if (size > 0) and (size != existSize):
-                if shutdown == True:
-                    string = "Downloading + Shutdown " + header
-                else:
-                    string = "Downloading " + header
-
-#                dialog = xbmcgui.DialogProgress()
-#                dialog.create(string, entry.name)
+#                if shutdown == True:
+#                    string = "Downloading + Shutdown " + header
+#                else:
+#                    string = "Downloading " + header
                 
                 bytes = existSize #bytes downloaded already
                 size = size + existSize
@@ -317,33 +309,25 @@ class CDownLoader(threading.Thread):
                         chunk = size-bytes #remainder
                     file.write(f.read(chunk))
                     bytes = bytes + chunk
-            
-#                    if(dialog.iscanceled()):
-#                        self.state = -2 #cancel download
-#                        break
-                
+                            
                     percent = 100 * bytes / size
                     done = float(bytes) / (1024 * 1024)
                     #line2 = '%.1f MB of %.1f MB copied.' % (done, size_MB)
-                    line2 = '%.1f MB - %d ' % (size_MB, percent) + '%'
-#                    dialog.update(percent, entry.name, line2)
+                    line2 = '(%s) %.1f MB - %d ' % (header, size_MB, percent) + '%'
                 
                     self.MainWindow.dlinfotekst.setLabel(line2)
                 
-#                dialog.close()
-                f.close()
+                f.close() #close the URL
 
                 if (self.killed == True) or (self.running == False):
                     self.state = -2 #failed to download the file
-                
-            
-        except IOError:
-            #f.close()     
+                        
+        except IOError:  
             socket_setdefaulttimeout(oldtimeout)       
             self.state = -1 #failed to download the file
             return
 
-        file.close()      
+        file.close() #close the destination file  
         socket_setdefaulttimeout(oldtimeout)
   
         #add the downloaded file to the download list

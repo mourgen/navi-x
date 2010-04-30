@@ -1,6 +1,6 @@
 #############################################################################
 #
-# Navi-X Playlist browser (additional library functions)
+# Navi-X Playlist browser (Navi-X constants and settings)
 # by rodejo (rodejo16@gmail.com)
 #############################################################################
 
@@ -91,7 +91,7 @@ else:
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='1.2'
+SubVersion='2'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
