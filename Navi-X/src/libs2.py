@@ -168,28 +168,50 @@ def get_system_platform():
     return platform
 
 ######################################################################
-# Description: Retrieve remote HTML.
-# Parameters : URL
+# Description: Retrieve remote information.
+# Parameters : URL, retrieval parameters
 # Return     : string containing the page contents.
 ######################################################################  
-def get_HTML(url,referer='',cookie=''):
-    headers = { 'User-Agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Referer': referer,
-                'Cookie': cookie}
+def getRemote(url,args={}):
+    rdefaults={
+    	'agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4',
+      'referer': '',
+      'cookie': '',
+      'method': 'get',
+      'action': 'read',
+      'postdata': ''
+    }
+    for ke in rdefaults:
+        try:
+            args[ke]
+        except KeyError:
+            args[ke]=rdefaults[ke]
+    try:
+        hdr={'User-Agent':args['agent'], 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Referer':args['referer'], 'Cookie':args['cookie']}
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
     try:
         oldtimeout=socket_getdefaulttimeout()
         socket_setdefaulttimeout(url_open_timeout)
-        req = urllib2.Request(url=url, headers=headers)
+        if args['method'] == 'get':
+            req=urllib2.Request(url=url, headers=hdr)
+        else:
+            req=urllib2.Request(url,args['postdata'],hdr)
         response = urllib2.urlopen(req)
-        link=response.read()
+
+        if args['action']=='read':
+            oret=response.read()
+        elif args['action']=='geturl':
+            oret=response.geturl()
+        elif args['action']=='headers':
+            oret=response.info()
         response.close()
     except IOError:         
-        link = ""
+        oret = ""
     
     socket_setdefaulttimeout(oldtimeout)
     
-    return link
+    return oret
      
 
 ######################################################################

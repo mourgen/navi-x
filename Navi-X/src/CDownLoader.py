@@ -263,41 +263,61 @@ class CDownLoader(threading.Thread):
   
         #open the URL and get the direct URL
     
-        self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Getting file from server.")
-
+        
         try:
-            oldtimeout=socket_getdefaulttimeout()
-            socket_setdefaulttimeout(url_open_timeout)
+#            oldtimeout=socket_getdefaulttimeout()
+#            socket_setdefaulttimeout(url_open_timeout)
 
             existSize=0
 
             if os.path.exists(localfile):
-                file = open(localfile,"ab")
+                #Append to the existing file. Because opening a file for append no longer works,
+                #we need to copy the existing file in a new file.
+                self.MainWindow.dlinfotekst.setLabel("Preparing append to file...")            
                 existSize = os.path.getsize(localfile)
-                               
+                
+                #Message("Exist size: " + str(existSize/1024))
+                
+                backupfile = localfile[0:-1] + '~'
+                os.rename(localfile, backupfile)
+                
+                file2 = open(backupfile, "rb")
+                file = open(localfile, "wb")
+                bytes= 0
+                while (bytes < existSize):
+                    chunk = 1024
+                    if (bytes + chunk) > existSize:
+                        chunk = existSize-bytes #remainder
+                    file.write(file2.read(chunk))
+                    bytes = bytes + chunk
+                
+                file2.close()
+                os.remove(backupfile)
+               
                 #If the file exists, then only download the remainder 
                 headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
                             'Range' : 'bytes=%s-' % existSize}                          
 
-            else: #file does not exist
-                #open the destination file
+            else: 
                 file = open(localfile, "wb")
+                #file does not exist            
                 headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
-                      
+            
+            #destination is already open            
+
+            self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Getting file from server.")  
+            
             req = urllib2.Request(URL, None, headers)
             f = urllib2.urlopen(req)            
-            
+                        
             #If the file exists, but we already have the whole thing, don't download again
             size_string = f.headers['Content-Length']
             size = int(size_string) #The remaining bytes
             
+            #Message("Remaining: " + str(size/1024))
+                        
 #todo: size may be existsize if file is downloaded exactly 50%            
             if (size > 0) and (size != existSize):
-#                if shutdown == True:
-#                    string = "Downloading + Shutdown " + header
-#                else:
-#                    string = "Downloading " + header
-                
                 bytes = existSize #bytes downloaded already
                 size = size + existSize
                 size_MB = float(size) / (1024 * 1024)
@@ -307,12 +327,12 @@ class CDownLoader(threading.Thread):
                     chunk = 100 * 1024
                     if (bytes + chunk) > size:
                         chunk = size-bytes #remainder
+                    #data = f.read(chunk)
                     file.write(f.read(chunk))
                     bytes = bytes + chunk
                             
                     percent = 100 * bytes / size
                     done = float(bytes) / (1024 * 1024)
-                    #line2 = '%.1f MB of %.1f MB copied.' % (done, size_MB)
                     line2 = '(%s) %.1f MB - %d ' % (header, size_MB, percent) + '%'
                 
                     self.MainWindow.dlinfotekst.setLabel(line2)
@@ -323,12 +343,12 @@ class CDownLoader(threading.Thread):
                     self.state = -2 #failed to download the file
                         
         except IOError:  
-            socket_setdefaulttimeout(oldtimeout)       
+#            socket_setdefaulttimeout(oldtimeout)       
             self.state = -1 #failed to download the file
             return
 
         file.close() #close the destination file  
-        socket_setdefaulttimeout(oldtimeout)
+#        socket_setdefaulttimeout(oldtimeout)
   
         #add the downloaded file to the download list
         if self.state == 0:

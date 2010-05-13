@@ -47,7 +47,7 @@
 # -v3.1     (2010/01/16)
 # -v3.1.1 (2010/02/07)
 # -v3.1.2 (2010/03/27)
-# -v3.2
+# -v3.2 (2010/04/01)
 #
 #############################################################################
 
@@ -145,8 +145,8 @@ class MainWindow(xbmcgui.WindowXML):
             if not os.path.exists(myPlaylistsDir + "My Playlists.plx"): 
                 shutil.copyfile(initDir+"My Playlists.plx", myPlaylistsDir+"My Playlists.plx")
             
-#            #Configure the info text control
-#            SetInfoText(window=self.infotekst)
+            #Set the socket timeout.
+            socket_setdefaulttimeout(url_open_timeout)
              
             #Next a number of class private variables
             self.home=home_URL
@@ -175,9 +175,7 @@ class MainWindow(xbmcgui.WindowXML):
             self.mediaitem_cutpaste = 0 # selected item for cut/paste
             self.page = 0 #selected page
             self.descr_view = False
-            
-            #self.loader = CFileLoader() #create file loader instance
-            
+                        
             #read the non volatile settings from the settings.dat file
             self.onReadSettings()
             
@@ -245,7 +243,7 @@ class MainWindow(xbmcgui.WindowXML):
             #select item is handled via other onClick().
             if not action.getId() == ACTION_SELECT_ITEM:
                 self.onAction1(action)
-                  
+            
             #end of function
 
         ######################################################################
@@ -512,7 +510,8 @@ class MainWindow(xbmcgui.WindowXML):
             elif m != 'previous': #URL to image located elsewhere
                 ext = getFileExtension(m)
                 loader = CFileLoader2() #file loader
-                loader.load(m, imageCacheDir + "background." + ext, timeout=2, proxy="ENABLED", content_type='image')
+                #loader.load(m, imageCacheDir + "background." + ext, timeout=2, proxy="ENABLED", content_type='image')
+                loader.load(m, imageCacheDir + "background." + ext, proxy="ENABLED", content_type='image')
                 if loader.state == 0:
                     self.bg.setImage(loader.localfile)
                     self.bg1.setImage(imageDir + background_image2)
@@ -1978,11 +1977,16 @@ class MainWindow(xbmcgui.WindowXML):
                 f=open(RootDir + 'settings.dat', 'r')
                 data = f.read()
                 data = data.split('\n')
-                if data[0] != '': self.home=data[0]
-                if data[1] != '': self.dwnlddir=data[1]
-                if data[2] != '': self.password=data[2]
-                if data[3] != '': self.hideblocked=data[3]
-                if data[4] != '': self.player_core=int(data[4])   
+                if data[0] != '': 
+                    self.home=data[0]
+                if data[1] != '': 
+                    self.dwnlddir=data[1]
+                if data[2] != '':
+                    self.password=data[2]
+                if data[3] != '': 
+                    self.hideblocked=data[3]
+                if data[4] != '': 
+                    self.player_core=int(data[4])
                 f.close()
             except IOError:
                 return
@@ -1994,11 +1998,12 @@ class MainWindow(xbmcgui.WindowXML):
         ######################################################################
         def onSaveSettings(self):
             f=open(RootDir + 'settings.dat', 'w')
-            f.write(self.home + '\n')
-            f.write(self.dwnlddir + '\n')
-            f.write(self.password + '\n')
-            f.write(self.hideblocked + '\n')
-            f.write(str(self.player_core) + '\n')
+            #note: the newlines in the string are removed using replace().
+            f.write(self.home.replace('\n',"")  + '\n')
+            f.write(self.dwnlddir.replace('\n',"") + '\n')
+            f.write(self.password.replace('\n',"") + '\n')
+            f.write(self.hideblocked.replace('\n',"") + '\n')
+            f.write(str(self.player_core).replace('\n',"") + '\n')
             f.close()
 
         ######################################################################

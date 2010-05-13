@@ -79,8 +79,8 @@ class CURLLoader:
         #Trace(id)
                
         try:
-            oldtimeout=socket_getdefaulttimeout()
-            socket_setdefaulttimeout(url_open_timeout)
+#            oldtimeout=socket_getdefaulttimeout()
+#            socket_setdefaulttimeout(url_open_timeout)
 
             #retrieve the timestamp based on the video ID
             #self.f = urllib.urlopen("http://www.youtube.com/api2_rest?method=youtube.videos.get_video_token&video_id=" + id)
@@ -105,7 +105,7 @@ class CURLLoader:
             self.loc_url = "" #could not open URL
             return -1 #fail
         
-        socket_setdefaulttimeout(oldtimeout)
+#        socket_setdefaulttimeout(oldtimeout)
        
         #Trace(self.loc_url)        
         
@@ -125,7 +125,7 @@ class CURLLoader:
     def geturl_processor(self, mediaitem):
         print "Processor: phase 1 - query\n URL: "+mediaitem.URL+"\n Processor: "+mediaitem.processor
         SetInfoText("Processor: getting filter...")
-        htmRaw=get_HTML(mediaitem.processor+'?url='+urllib.quote_plus(mediaitem.URL))
+        htmRaw=getRemote(mediaitem.processor+'?url='+urllib.quote_plus(mediaitem.URL))
         if htmRaw <= '':
             print "Processor error: nothing returned from learning phase";
             SetInfoText("")
@@ -141,6 +141,7 @@ class CURLLoader:
             verbose=0
             proc_args=''
             inst_prev=''
+            headers={}
             def_agent='Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4'
 
             ## initialize parameter dict
@@ -187,7 +188,7 @@ class CURLLoader:
                 if proc_args>'':
                     SetInfoText("Processor: phase "+str(phase)+" learn")
                     print "Processor: phase "+str(phase)+" learn"
-                    inst=get_HTML(mediaitem.processor+'?'+proc_args)
+                    inst=getRemote(mediaitem.processor+'?'+proc_args)
                     proc_args=''
                 elif phase1complete:
                     SetInfoText("")
@@ -263,35 +264,31 @@ class CURLLoader:
                             SetInfoText("")
                             return -1
                         scrape=scrape+1
-                        if v['s_method']=='get':
-                            # note: custom agent string currently not supported by get_HTML
-                            print "Processor GET: "+v['s_url']
-                            v['htmRaw']=get_HTML(v['s_url'],v['s_referer'],v['s_cookie'])
-                        elif v['s_method']=='post':
-                            print "Processor POST: "+v['s_url']
-                            headers={
-                            	'User-Agent' : v['s_agent'],
-                            	'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                            	'Referer': v['s_referer'],
-                            	'Cookie': v['s_cookie']
-                            }
-                            try:
-                                oldtimeout=socket_getdefaulttimeout()
-                                socket_setdefaulttimeout(url_open_timeout)
-                                req=urllib2.Request(v['s_url'],v['s_postdata'],headers)
-                                response=urllib2.urlopen(req)
-                                if v['s_action']=='read':
-                                    v['htmRaw']=response.read()
-                                elif v['s_action']=='geturl':
-                                    v['v1']=response.geturl()
-                                    if verbose>0:
-                                        print "Proc debug geturl: "+v['v1']
-                                response.close()
-                            except IOError:         
-                                print "Processor error: post failed"
-                                SetInfoText("")
-                                return -1
-                            socket_setdefaulttimeout(oldtimeout)
+                        scrape_args={
+                          'referer': v['s_referer'],
+                          'cookie': v['s_cookie'],
+                          'method': v['s_method'],
+                          'agent': v['s_agent'],
+                          'action': v['s_action']
+                        }
+                        print "Processor "+v['s_method'].upper()+"."+v['s_action']+": "+v['s_url']
+                        if verbose>0:
+                            print "Proc debug remote args:"
+                            print scrape_args
+                        remoteObj=getRemote(v['s_url'], scrape_args)
+                        
+                        if v['s_action']=='headers':
+                            headers=remoteObj
+                            str_out="Proc debug headers:"
+                            for ke in headers:
+                                str_out=str_out+"\n "+ke+": "+str(headers[ke])
+                                v[ke]=str(headers[ke])
+                            if verbose>0:
+                                print str_out
+                        elif v['s_action']=='geturl':
+                            v['v1']=remoteObj
+                        else:
+                            v['htmRaw']=remoteObj
 
                         if v['s_action']=='read' and v['regex']>'':
                             # get finished - run regex, populate v(alues) and rep(ort) if regex is defined
@@ -319,6 +316,15 @@ class CURLLoader:
                                     print 'Processor scrape: no match'
                                 rep['nomatch']=1
                                 v['nomatch']=1
+                        
+                        # reset scrape params to defaults
+                        v['s_method']='get'
+                        v['s_action']='read'
+                        v['s_agent']=def_agent
+                        v['s_referer']=''
+                        v['s_cookie']=''
+                        v['s_postargs']=''
+                        
 
                     elif line=='play':
                         if verbose==1:
@@ -580,7 +586,7 @@ class CURLLoader:
     
             print report
             SetInfoText("Processor: scraping...")
-            htm=get_HTML(URL,ref,cookie)
+            htm=getRemote(URL,{'referer':ref,'cookie':cookie})
             if htm == '':
                 print "Processor error: nothing returned from scrape"
                 SetInfoText("")
@@ -599,7 +605,7 @@ class CURLLoader:
                     report=report+"\n v"+str(i)+": "+val
                 print report
                 SetInfoText("Processor: processing...")
-                htmRaw2=get_HTML(tgt)
+                htmRaw2=getRemote(tgt)
                 if htmRaw2<='':
                     print "Processor error: could not retrieve data from process phase"
                     SetInfoText("")
@@ -625,6 +631,8 @@ class CURLLoader:
     
         self.loc_url = mediaitem.URL
 
+        SetInfoText("Processor complete - playing...")
+        time.sleep(.1)
         SetInfoText("")
         report="Processor final result:\n URL: "+self.loc_url
         if mediaitem.playpath>'':

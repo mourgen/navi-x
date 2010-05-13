@@ -845,6 +845,7 @@ class CPlayList:
         self.title = 'Youtube' + ' - ' + mediaitem.name
         self.description = ''
         self.player = mediaitem.player
+        self.processor = mediaitem.processor        
         self.playmode = 'default'
         str_nextpage = 'Next Page'
         
@@ -892,6 +893,7 @@ class CPlayList:
                 tmp.name = value
                 
                 tmp.player = self.player
+                tmp.processor = self.processor                
                 self.list.append(tmp)                
 
         #check if there is a next page in the html. Get the last one in the page.

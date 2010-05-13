@@ -83,7 +83,7 @@ class CTextView(xbmcgui.WindowXMLDialog):
             mediaitem=CMediaItem()
         
         #from here we use the mediaitem object
-        loader = CFileLoader()
+        loader = CFileLoader2()
         #first load the background image
         if (mediaitem.background != 'default'): #default BG image
             ext = getFileExtension(mediaitem.background)
