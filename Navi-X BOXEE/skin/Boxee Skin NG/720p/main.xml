@@ -441,6 +441,9 @@ def SelectItem(history, listcontrol, playlist=0, pos=0, append=True, iURL=''):
         
         if result != 0:
             mc.ShowDialogOk("Error", "Cannot open file.")
+        else:
+            #When app reloads after play it will resume at the last playlist viewed 
+            mc.GetApp().GetLocalConfig().SetValue("resume", "True")
 
     #mediaitem is other type: go through possibilites
 
@@ -503,20 +506,30 @@ def AddHistoryItem(mediaitem, history):   #history is a CPlayList - Keeping trac
     return
 ######################################################################################
 
+# if resume_string is "True", the app loads session history and resumes where it was.
+# else it loads the home_URL. resume_string is set to "True" in SelectItem() when a video or audio
+# is successfully played.
+
+resume_string = mc.GetApp().GetLocalConfig().GetValue("resume")
+
 ##myPlayer = CPlayer()             # Modified CPlayer can play MediaItem but not PlayList
 session_history = CPlayList()   # list of CMediaItem of any playlist type that user has clicked
                                 # used to go to previous item using the Back button
 current_playlist = CPlayList()
 listitems = mc.GetWindow(14000).GetList(112).GetItems()
 
-#resuming from history
-#mc.ShowDialogOk("Debug", "Resuming from history")
-#session_history.load_plx(RootDir + history_list)
-#ParsePlaylist(mediaitem=session_history.list[-1], playlist=current_playlist, listcontrol=listitems)
+if resume_string == "True":
+    #resuming from history
+    #mc.ShowDialogOk("Debug", "Resuming from history")
+    session_history.load_plx(RootDir + history_list)
+    ParsePlaylist(mediaitem=session_history.list[-1], playlist=current_playlist, listcontrol=listitems)
+else:
+    #Starting list is home_URL
+    session_history.clear()
+    SelectItem(session_history, listcontrol=listitems, playlist=current_playlist, iURL=home_URL)
 
-
-#Starting list is home_URL
-SelectItem(session_history, listcontrol=listitems, playlist=current_playlist, iURL=home_URL)
+# if user exits app and returns, the app will go back to home playlist (home_URL)
+mc.GetApp().GetLocalConfig().SetValue("resume", "False")
 
 ]]>
         </onload>
