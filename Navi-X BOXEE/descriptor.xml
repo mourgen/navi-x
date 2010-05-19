@@ -1,0 +1,17 @@
+<app>
+  <id>navi-x-boxee</id>
+  <name>Navi-X</name>
+  <version>0.90</version>
+  <description>Getting the Navi-X content on Boxee</description>
+  <thumb>http://website.navi-x.org/networks/icon.png</thumb>
+  <media>video</media>
+  <copyright>frank</copyright>
+  <email>frank@gmail.com</email>
+  <type>skin</type>
+  <startWindow>14000</startWindow>
+  <platform>all</platform>
+  <minversion>0.9.20</minversion>
+  <test-app>true</test-app>
+</app>
+
+
