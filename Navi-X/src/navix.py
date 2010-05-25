@@ -189,7 +189,7 @@ class MainWindow(xbmcgui.WindowXML):
             self.firsttime = False
             
             #xbmc.executebuiltin("xbmc.ActivateWindow(VideoOverlay)")
- 
+  
             #end of function
 
         ######################################################################
@@ -586,16 +586,21 @@ class MainWindow(xbmcgui.WindowXML):
                     label2=''
                     if m.date != '':
                         l=m.date.split('-')
-                        entry_date = datetime.date(int(l[0]), int(l[1]), int(l[2]))
-                        days_past = (today-entry_date).days
-                        if days_past <= 10:
-                            if days_past <= 0:
-                                label2 = 'NEW today'
-                            elif days_past == 1:
-                                label2 = 'NEW yesterday'
-                            else:
-                                label2 = 'NEW ('+ str(days_past) + ' days ago)'
-                    
+                        
+                        try:
+                            entry_date = datetime.date(int(l[0]), int(l[1]), int(l[2]))
+
+                            days_past = (today-entry_date).days
+                            if days_past <= 10:
+                                if days_past <= 0:
+                                    label2 = 'NEW today'
+                                elif days_past == 1:
+                                    label2 = 'NEW yesterday'
+                                else:
+                                    label2 = 'NEW ('+ str(days_past) + ' days ago)'
+                        except:
+                            print "ERROR: Playlist contains invalid date at entry:  %d" %(n+1)
+                            
                     if m.description != '':
                         label2 = label2 + ' >'
                       
