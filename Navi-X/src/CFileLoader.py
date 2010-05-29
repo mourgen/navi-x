@@ -187,7 +187,8 @@ class CFileLoader2:
                         self.state = 0 #success       
                   
                     except IOError:
-                        #socket_setdefaulttimeout(oldtimeout)            
+                        #socket_setdefaulttimeout(oldtimeout)  
+                        print "ERROR: CFileLoader2 IOError exception"          
                         self.state = -1 #failed
 
 #                   except urllib2.HTTPError:

@@ -48,7 +48,7 @@
 # -v3.1.1 (2010/02/07)
 # -v3.1.2 (2010/03/27)
 # -v3.2 (2010/04/01)
-#
+# -v3.3 (2010/05/29)
 #############################################################################
 
 from string import *
@@ -495,7 +495,7 @@ class MainWindow(xbmcgui.WindowXML):
                         
             #display the new URL on top of the screen
             if len(playlist.title) > 0:
-                title = playlist.title # + ' - (' + playlist.URL + ')'
+                title = playlist.title  + ' - (' + playlist.URL + ')'
             else:
                 title = playlist.URL
             self.urllbl.setLabel(title)
@@ -1719,7 +1719,7 @@ class MainWindow(xbmcgui.WindowXML):
             if (entry.thumb == "default") and (self.pl_focus.logo != "none"):
                 entry.thumb = self.pl_focus.logo
             
-            if entry.URL[:4] != 'http':
+            if (entry.URL[:4] != 'http') and (entry.URL[:3] != 'ftp'):
                 dialog = xbmcgui.Dialog()
                 dialog.ok("Error", "Cannot download file.")                    
                 self.state_busy = 0 #busy

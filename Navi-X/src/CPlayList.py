@@ -14,6 +14,9 @@
 from string import *
 import sys, os.path
 import urllib
+import ftplib
+import os
+import socket
 import re, random, string
 import xbmc, xbmcgui
 import re, os, time, datetime, traceback
@@ -1198,12 +1201,6 @@ class CPlayList:
         else:
             self.URL = mediaitem.URL
 
-        if self.URL[1] != ':':
-            self.URL = RootDir + self.URL
-
-        if not os.path.exists(self.URL):
-            return -2
-
         #defaults
         self.version = plxVersion
         self.background = mediaitem.background
@@ -1227,20 +1224,107 @@ class CPlayList:
         #clear the list
         del self.list[:]        
 
-        #parse directory (including subdirectory) entries 
-        try:        
-            for root, dirs, files in os.walk(self.URL , topdown=False):
-                for name in files:
-                    if name[-4:] == '.plx':
-                        tmp = CMediaItem() #create new item
-                        tmp.type = 'playlist'
-                        tmp.name = name[:-4]
-                        tmp.URL = os.path.join(root, name)
-                        self.list.append(tmp)                    
-        except IOError:
-            return -2
+        if self.URL[:3] != 'ftp':
+            #local directory
+            
+            if self.URL[1] != ':':
+                self.URL = RootDir + self.URL
 
+            if not os.path.exists(self.URL):
+                return -2
+            
+            #parse directory (including subdirectory) entries 
+            try:        
+                for root, dirs, files in os.walk(self.URL , topdown=False):
+                    for name in files:
+                        if name[-4:] == '.plx':
+                            tmp = CMediaItem() #create new item
+                            tmp.type = 'playlist'
+                            tmp.name = name[:-4]
+                            tmp.URL = os.path.join(root, name)
+                            self.list.append(tmp)                    
+            except IOError:
+                return -2
+        else:
+            #FTP directory  
+            if self.URL[-1] != '/':
+                self.URL = self.URL + '/'
+            urlparse = CURLParseFTP(self.URL)
+            
+            try:
+                self.f = ftplib.FTP()
+                self.f.connect(urlparse.host,urlparse.port)
+            except (socket.error, socket.gaierror), e:
+                print 'ERROR: cannot reach "%s"' % urlparse.host
+                return -2
+
+            print '*** Connected to host "%s"' % urlparse.host
+
+            try:
+                if urlparse.username != '':
+                    self.f.login(urlparse.username, urlparse.password)
+                else:
+                    self.f.login()
+            except ftplib.error_perm:
+                print 'ERROR: cannot login anonymously'
+                self.f.quit()
+                return -2
+
+            print '*** Logged in as "anonymous"'
+
+            try:
+                self.f.cwd(urlparse.path)
+            except ftplib.error_perm:
+                print 'ERROR: cannot CD to "%s"' % urlparse.path
+                self.f.quit()
+                return -2
+
+            print '*** Changed to "%s" folder' % urlparse.path            
+            
+            dir_LIST = []
+            try:
+                self.f.retrlines('LIST', dir_LIST.append)
+            except ftplib.error_perm:
+                print 'ERROR: cannot read directory' 
+
+            dir_NLST = []
+            try:
+                self.f.retrlines('NLST', dir_NLST.append)
+            except ftplib.error_perm:
+                print 'ERROR: cannot read directory'              
+            
+            for i in range(len(dir_NLST)):
+                tmp = CMediaItem() #create new item
+                tmp.name = dir_NLST[i]
+                if dir_LIST[i][0] == 'd':
+                    tmp.type = 'directory'
+                else:
+                    ext = getFileExtension(dir_NLST[i])
+                    ext = ext.lower()
+                    if ext == 'jpg' or ext == 'gif' or ext == 'png':
+                        tmp.type = 'image'
+                    elif ext == 'mp3':
+                        tmp.type = 'audio'
+                    elif ext == 'plx':
+                        tmp.type = 'playlist'
+                    elif ext == 'txt':
+                        tmp.type = 'text'
+                    else:
+                        tmp.type = 'video'
+                
+                tmp.URL = self.URL + dir_NLST[i]
+                self.list.append(tmp)                          
+            
         return 0
+
+#    def load_dir_callback1(self, string):
+#        tmp = CMediaItem() #create new item
+#        if string[0] == 'd':
+#            tmp.type = 'playlist'
+#        self.list.append(tmp)
+
+#    def load_dir_callback2(self, string):
+#        self.list[
 
     ######################################################################
     # Description: Saves a playlist .plx file to disk.

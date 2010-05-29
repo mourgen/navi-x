@@ -96,6 +96,62 @@ class CHistorytem:
         self.index = index
         self.mediaitem = mediaitem
 
+
+######################################################################
+# Description: parse FTP URL.
+# Parameters : URL, retrieval parameters
+# Return     : username, password, host, port, path, file
+######################################################################  
+class CURLParseFTP:
+    def __init__(self, URL):
+        #Parse URL according RFC 1738: ftp://user:password@host:port/path 
+        #There is no standard Python 2.4 funcion to split these URL's.
+        self.username=''
+        self.password=''        
+        self.port=21
+                
+        #check for username, password
+        index = URL.find('@')
+        if index != -1:
+            index2 = URL.find(':',6,index)
+            if index2 != -1:
+                self.username = URL[6:index2]
+                print 'user: ' + self.username
+                self.password = URL[index2+1:index]
+                print 'password: ' + self.password            
+            URL = URL[index+1:]
+        else:
+            URL = URL[6:]
+                
+        #check for host
+        index = URL.find('/')
+        if index != -1:
+            self.host = URL[:index]
+            self.path = URL[index:]
+        else:
+            self.host = URL
+            self.path = ''
+                
+        #retrieve the port
+        index = self.host.find(':')
+        if index != -1:
+            self.port = int(self.host[index+1:])
+            self.host = self.host[:index]
+            
+        print 'host: ' + self.host    
+        print 'port: ' + str(self.port)        
+    
+        #split path and file
+        index = self.path.rfind('/')
+        if index != -1:
+            self.file = self.path[index+1:]
+            self.path = self.path[:index]
+        else:
+            self.file = ''        
+        
+        print 'path: ' + self.path
+        print 'file: ' + self.file
+
 ######################################################################
 # Description: Get the file extension of a URL
 # Parameters : filename=local path + file name
@@ -174,12 +230,12 @@ def get_system_platform():
 ######################################################################  
 def getRemote(url,args={}):
     rdefaults={
-    	'agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4',
-      'referer': '',
-      'cookie': '',
-      'method': 'get',
-      'action': 'read',
-      'postdata': ''
+        'agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4',
+        'referer': '',
+        'cookie': '',
+        'method': 'get',
+        'action': 'read',
+        'postdata': ''
     }
     for ke in rdefaults:
         try:
@@ -213,7 +269,6 @@ def getRemote(url,args={}):
     
     return oret
      
-
 ######################################################################
 # Description: Controls the info text label on the left bottom side
 #              of the screen.
