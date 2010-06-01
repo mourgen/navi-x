@@ -45,18 +45,39 @@ class CURLLoader:
             result = self.geturl_processor(mediaitem) 
         elif URL.find('http://youtube.com') != -1:
             result = self.geturl_youtube(URL)
-        else:
-            self.loc_url = URL
+        else:        
+            #self.loc_url = URL
+            result = self.geturl_real(URL)
               
         #special handling for apple movie trailers
+        #@todo: the lines below are no longer needed. apple URLs are handled
+        #via a processor now.
         if (result == 0) and self.loc_url.find('http://movies.apple.com') != -1:
             result = self.geturl_applemovie(self.loc_url)         
         
         return result
 
     ######################################################################
-    # Description: This class is used to retrieve the URL of a FlyUpload
-    #              webpage
+    # Description: This class is used to retrieve the real URL of 
+    #              a media item. The XBMC player sometimes fails to handle
+    #              HTTP redirection. Therefore we do it here.           
+    # Parameters : URL=source URL
+    # Return     : 0=successful, -1=fail
+    ######################################################################
+    def geturl_real(self, URL):
+        try:
+            values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+            req = urllib2.Request(URL, None, values)
+            f = urllib2.urlopen(req)
+            self.loc_url=f.geturl()
+        except IOError:
+            return -1 #failed to open URL
+            
+        return 0
+
+    ######################################################################
+    # Description: This class is used to retrieve the URL of a Youtube
+    #              video
     #              
     # Parameters : URL=source URL
     # Return     : 0=successful, -1=fail
@@ -79,9 +100,6 @@ class CURLLoader:
         #Trace(id)
                
         try:
-#            oldtimeout=socket_getdefaulttimeout()
-#            socket_setdefaulttimeout(url_open_timeout)
-
             #retrieve the timestamp based on the video ID
             #self.f = urllib.urlopen("http://www.youtube.com/api2_rest?method=youtube.videos.get_video_token&video_id=" + id)
             self.f = urllib.urlopen("http://youtube.com/get_video_info?video_id=" + id)
@@ -104,9 +122,7 @@ class CURLLoader:
         except IOError:
             self.loc_url = "" #could not open URL
             return -1 #fail
-        
-#        socket_setdefaulttimeout(oldtimeout)
-       
+               
         #Trace(self.loc_url)        
         
         if self.loc_url != "":
@@ -648,7 +664,7 @@ class CURLLoader:
         
     ######################################################################
     # Description: This class is used to retrieve the URL Apple movie trailer
-    #              webpage
+    #              webpage (DEPRECATED)
     #              
     # Parameters : URL=source URL
     # Return     : 0=successful, -1=fail
