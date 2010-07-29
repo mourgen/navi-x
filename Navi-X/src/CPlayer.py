@@ -106,7 +106,7 @@ class CPlayer(xbmc.Player):
         #check if the URL is empty or not
         if URL == '':
             return -1
-                
+                                              
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, mediaitem)
         if result != 0:

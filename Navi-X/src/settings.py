@@ -91,7 +91,7 @@ else:
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='3.1'
+SubVersion='4.2'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -106,6 +106,7 @@ home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
 searchhistory_file = 'search.dat'
+nxserver_URL = 'http://navix.turner3d.net'
 
 url_open_timeout = 10 #10 seconds
 page_size = 200 #display maximum 100 entries on one page

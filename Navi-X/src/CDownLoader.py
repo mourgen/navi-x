@@ -116,7 +116,8 @@ class CDownLoader(threading.Thread):
         localfile = localfile[:(42-len(ext))] # limit to 42 characters.
         localfile = localfile + ext
                 
-        browsewnd = CDialogBrowse(parent=self.MainWindow)
+        #browsewnd = CDialogBrowse(parent=self.MainWindow)
+        browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
         browsewnd.SetFile(dir, localfile, 3)
         browsewnd.doModal()
 
@@ -281,6 +282,7 @@ class CDownLoader(threading.Thread):
             return
 
         #Continue with HTTP download
+        self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Retrieving file info...") 
 
         #Get the direct URL to the mediaitem given URL      
         urlopener = CURLLoader()
@@ -335,7 +337,7 @@ class CDownLoader(threading.Thread):
             
             #destination is already open            
 
-            self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Getting file from server.")  
+            self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Downloading file...")  
             
             req = urllib2.Request(URL, None, headers)
             f = urllib2.urlopen(req)            

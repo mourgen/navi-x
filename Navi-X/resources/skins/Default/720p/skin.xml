@@ -6,8 +6,8 @@
             <description>bg</description>
             <posx>0</posx>
             <posy>0</posy>
-            <width>720</width>
-            <height>576</height>
+            <width>1280</width>
+            <height>720</height>
             <!--texture>background1.jpg</texture-->
         </control>
                
@@ -15,52 +15,52 @@
             <description>bg1</description>
             <posx>0</posx>
             <posy>0</posy>
-            <width>720</width>
-            <height>576</height>
+            <width>1280</width>
+            <height>720</height>
             <texture>background2.png</texture>
         </control>
         
         <control type="image" id="104">
             <description>logo</description>
-            <posx>40</posx>
+            <posx>75</posx>
             <posy>5</posy>
-            <width>150</width>
-            <height>70</height>
+            <width>250</width>
+            <height>90</height>
             <texture>navi-x.png</texture>
         </control>        
         
         <control type="image" id="105">
             <description>thumb</description>
-            <posx>40</posx>
-            <posy>180</posy>
-            <width>205</width>
-            <height>280</height>
+            <posx>70</posx>
+            <posy>200</posy>
+            <width>360</width>
+            <height>390</height>
             <aspectratio>keep</aspectratio>
         </control>
 
         <control type="image" id="126">
             <description>rating</description>
-            <posx>80</posx>
-            <posy>460</posy>
-            <width>100</width>
+            <posx>150</posx>
+            <posy>580</posy>
+            <width>180</width>
             <height>32</height>
             <aspectratio>keep</aspectratio>
         </control>
         
         <control type="image" id="118">
             <description>download_logo</description>
-            <posx>260</posx>
-            <posy>495</posy>
-            <width>25</width>
+            <posx>450</posx>
+            <posy>620</posy>
+            <width>40</width>
             <height>25</height>
             <texture>icon_download.png</texture>
         </control>
 
         <control type="label" id="106">
             <description>urllbl</description>
-            <posx>65</posx>
-            <posy>127</posy>
-            <width>500</width>
+            <posx>110</posx>
+            <posy>160</posy>
+            <width>900</width>
             <height>40</height>
             <label></label>
             <textcolor>FFFFFFFF</textcolor>
@@ -69,9 +69,9 @@
         
         <control type="label" id="119">
             <description>dt</description>
-            <posx>270</posx>
+            <posx>450</posx>
             <posy>30</posy>
-            <width>270</width>
+            <width>450</width>
             <height>40</height>
             <label>label</label>
             <textcolor>FFFFFFFF</textcolor>
@@ -80,9 +80,9 @@
         
         <control type="label" id="107">
             <description>version</description>
-            <posx>560</posx>
-            <posy>40</posy>
-            <width>200</width>
+            <posx>1000</posx>
+            <posy>50</posy>
+            <width>350</width>
             <height>40</height>
             <label>version</label>
             <textcolor>FFFFFFFF</textcolor>
@@ -91,9 +91,9 @@
         
         <control type="label" id="108">
             <description>infotext</description>
-            <posx>60</posx>
-            <posy>500</posy>
-            <width>250</width>
+            <posx>100</posx>
+            <posy>620</posy>
+            <width>450</width>
             <height>30</height>
             <label>Loading...</label>
             <textcolor>FFFFFFFF</textcolor>
@@ -101,9 +101,9 @@
         
         <control type="label" id="109">
             <description>dlinfotext</description>
-            <posx>300</posx>
-            <posy>500</posy>
-            <width>300</width>
+            <posx>500</posx>
+            <posy>620</posy>
+            <width>500</width>
             <height>30</height>
             <!--label></label-->
             <textcolor>FFFFFFFF</textcolor>
@@ -111,9 +111,9 @@
         
         <control type="label" id="110">
             <description>loading</description>
-            <posx>270</posx>
-            <posy>160</posy>
-            <width>250</width>
+            <posx>460</posx>
+            <posy>200</posy>
+            <width>450</width>
             <height>30</height>
             <label>Please wait</label>
             <textcolor>FFFFFFFF</textcolor>
@@ -121,9 +121,9 @@
                 
         <control type="label" id="111">
             <description>listpos</description>
-            <posx>630</posx>
-            <posy>500</posy>
-            <width>250</width>
+            <posx>1120</posx>
+            <posy>620</posy>
+            <width>400</width>
             <height>30</height>
             <label>1 of 5</label>
             <textcolor>FFFFFFFF</textcolor>
@@ -132,10 +132,10 @@
     <control type="scrollbar" id="60">
         <description>Scroll Bar list 1</description>
         <visible>true</visible>
-        <posx>670</posx>
-        <posy>160</posy>
-        <width>10</width>
-        <height>320</height>
+        <posx>1190</posx>
+        <posy>200</posy>
+        <width>15</width>
+        <height>400</height>
         <onleft>50</onleft>
         <!--onright>71</onright-->
   
@@ -151,10 +151,10 @@
     <control type="scrollbar" id="61">
         <description>Scroll Bar list 2</description>
         <visible>true</visible>
-        <posx>670</posx>
-        <posy>250</posy>
-        <width>10</width>
-        <height>220</height>
+        <posx>1190</posx>
+        <posy>300</posy>
+        <width>15</width>
+        <height>300</height>
         <onleft>50</onleft>
         <!--onright>71</onright-->
   
@@ -169,10 +169,10 @@
 
     <control type="textbox" id="121">
         <description>Text box</description>
-		<posx>270</posx>
-		<posy>160</posy>
-		<width>400</width>
-		<height>70</height>
+		<posx>460</posx>
+		<posy>200</posy>
+		<width>700</width>
+		<height>100</height>
 		<font>font14</font>
         <align>justify</align>
         <autoscroll delay="3000" time="2000" repeat="10000">true</autoscroll>
@@ -182,10 +182,10 @@
     
     <control type="textbox" id="123">
         <description>Text box2</description>      
-        <posx>270</posx>
-        <posy>160</posy>
-        <width>400</width>
-        <height>300</height> 
+        <posx>460</posx>
+        <posy>200</posy>
+        <width>700</width>
+        <height>400</height> 
 		<font>font14</font>
         <align>justify</align>
         <onup>123</onup>
@@ -199,10 +199,10 @@
             <animation effect="slide" start="720" time="150">WindowOpen</animation>
 		    <animation effect="slide" end="720" time="150">WindowClose</animation>
             <description>list1</description>
-            <posx>260</posx>
-            <posy>160</posy>
-            <width>405</width>
-            <height>325</height>
+            <posx>460</posx>
+            <posy>200</posy>
+            <width>720</width>
+            <height>400</height>
             <onup>112</onup>
 			<ondown>112</ondown>            
             <pagecontrol>60</pagecontrol>
@@ -220,7 +220,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>350</width>
+				<width>700</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -230,9 +230,9 @@
 				<info>ListItem.Label</info>
 			</control>
 			<control type="label">
-				<posx>400</posx>
+				<posx>700</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>250</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -244,7 +244,7 @@
 		</itemlayout>
 		<focusedlayout height="32">          
 			<control type="image">
-				<width>405</width>
+				<width>720</width>
 				<height>32</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -260,7 +260,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>350</width>
+				<width>700</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -270,9 +270,9 @@
 				<info>ListItem.Label</info>
 			</control>
 			<control type="label">
-				<posx>400</posx>
+				<posx>700</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>250</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -286,10 +286,10 @@
 
         <control type="list" id="120">
             <description>list2</description>
-            <posx>260</posx>
-            <posy>250</posy>
-            <width>405</width>
-            <height>225</height>  
+            <posx>460</posx>
+            <posy>300</posy>
+            <width>720</width>
+            <height>300</height>  
             <onup>120</onup>
 			<ondown>120</ondown>            
             <pagecontrol>61</pagecontrol>
@@ -307,7 +307,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>350</width>
+				<width>700</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -317,9 +317,9 @@
 				<info>ListItem.Label</info>
 			</control>
 			<control type="label">
-				<posx>400</posx>
+				<posx>700</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>250</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -331,7 +331,7 @@
 		</itemlayout>
 		<focusedlayout height="32">          
 			<control type="image">
-				<width>405</width>
+				<width>720</width>
 				<height>32</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -347,7 +347,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>350</width>
+				<width>700</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -357,9 +357,9 @@
 				<info>ListItem.Label</info>
 			</control>
 			<control type="label">
-				<posx>400</posx>
+				<posx>700</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>250</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -373,11 +373,11 @@
 
         <control type="list" id="122">
             <description>list3</description>
-            <animation effect="slide" start="-200" time="150" condition="Control.HasFocus(122)">Conditional</animation>
-            <animation effect="slide" end="-200" time="150" condition="!Control.HasFocus(122)">Conditional</animation>             
+            <animation effect="slide" start="-350" time="150" condition="Control.HasFocus(122)">Conditional</animation>
+            <animation effect="slide" end="-350" time="150" condition="!Control.HasFocus(122)">Conditional</animation>             
             <posx>0</posx>
-            <posy>160</posy>
-            <width>200</width>
+            <posy>200</posy>
+            <width>350</width>
             <height>250</height>  
             <onup>122</onup>
             <ondown>122</ondown>          
@@ -385,7 +385,7 @@
 	    <scrolltime>200</scrolltime>
 		<itemlayout height="40">
 			<control type="image">
-				<width>200</width>
+				<width>350</width>
 				<height>40</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -413,7 +413,7 @@
 		</itemlayout>
 		<focusedlayout height="40">          
 			<control type="image">
-				<width>200</width>
+				<width>350</width>
 				<height>40</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -422,14 +422,14 @@
 			<control type="image">
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>40</width>
+				<width>70</width>
 				<height>40</height>
 				<info>ListItem.Icon</info>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>3</posy>
-				<width>200</width>
+				<width>450</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -443,11 +443,11 @@
 
         <control type="list" id="127">
             <description>list4</description>
-           <animation effect="slide" start="920" time="150" condition="Control.HasFocus(127)">Conditional</animation>
-            <animation effect="slide" end="920" time="150" condition="!Control.HasFocus(127)">Conditional</animation>              
-            <posx>520</posx>
-            <posy>160</posy>
-            <width>200</width>
+           <animation effect="slide" start="1630" time="150" condition="Control.HasFocus(127)">Conditional</animation>
+            <animation effect="slide" end="1630" time="150" condition="!Control.HasFocus(127)">Conditional</animation>              
+            <posx>930</posx>
+            <posy>200</posy>
+            <width>350</width>
             <height>250</height>  
             <onup>127</onup>
             <ondown>127</ondown>          
@@ -455,7 +455,7 @@
 	    <scrolltime>200</scrolltime>
 		<itemlayout height="40">
 			<control type="image">
-				<width>200</width>
+				<width>350</width>
 				<height>40</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -483,7 +483,7 @@
 		</itemlayout>
 		<focusedlayout height="40">          
 			<control type="image">
-				<width>200</width>
+				<width>350</width>
 				<height>40</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -492,14 +492,14 @@
 			<control type="image">
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>40</width>
+				<width>70</width>
 				<height>40</height>
 				<info>ListItem.Icon</info>
 			</control>
 			<control type="label">
 				<posx>40</posx>
 				<posy>3</posy>
-				<width>200</width>
+				<width>350</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -513,8 +513,8 @@
 
     <control type="spincontrol" id="124">
         <description>Next page button</description>
-		<posx>610</posx>
-		<posy>460</posy>
+		<posx>1100</posx>
+		<posy>580</posy>
 		<subtype>page</subtype>
 		<font>font12</font>
        	<textcolor>ffffffff</textcolor>
@@ -534,10 +534,10 @@
 
     <control type="button" id="125">
         <description>Left Button</description>
-        <posx>40</posx>
-        <posy>130</posy>
-        <width>16</width>
-        <height>16</height>
+        <posx>70</posx>
+        <posy>160</posy>
+        <width>24</width>
+        <height>24</height>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus>icon_left.png</texturenofocus>

@@ -2,7 +2,7 @@
 	<defaultcontrol>9000</defaultcontrol>
     <allowoverlays>false</allowoverlays>
 	<controls>
-    <control type="image" id="102">
+        <control type="image" id="102">
             <description>bg</description>
             <posx>0</posx>
             <posy>0</posy>
@@ -32,9 +32,18 @@
         <control type="image" id="105">
             <description>thumb</description>
             <posx>40</posx>
-            <posy>170</posy>
+            <posy>180</posy>
             <width>205</width>
-            <height>310</height>
+            <height>280</height>
+            <aspectratio>keep</aspectratio>
+        </control>
+
+        <control type="image" id="126">
+            <description>rating</description>
+            <posx>80</posx>
+            <posy>460</posy>
+            <width>100</width>
+            <height>32</height>
             <aspectratio>keep</aspectratio>
         </control>
         
@@ -71,7 +80,7 @@
         
         <control type="label" id="107">
             <description>version</description>
-            <posx>580</posx>
+            <posx>560</posx>
             <posy>40</posy>
             <width>200</width>
             <height>40</height>
@@ -94,9 +103,9 @@
             <description>dlinfotext</description>
             <posx>300</posx>
             <posy>500</posy>
-            <width>180</width>
+            <width>300</width>
             <height>30</height>
-            <label>label</label>
+            <!--label></label-->
             <textcolor>FFFFFFFF</textcolor>
         </control>
         
@@ -119,6 +128,72 @@
             <label>1 of 5</label>
             <textcolor>FFFFFFFF</textcolor>
         </control>
+
+    <control type="scrollbar" id="60">
+        <description>Scroll Bar list 1</description>
+        <visible>true</visible>
+        <posx>670</posx>
+        <posy>160</posy>
+        <width>10</width>
+        <height>320</height>
+        <onleft>50</onleft>
+        <!--onright>71</onright-->
+  
+        <texturesliderbackground>scrollbar_background1.png</texturesliderbackground>
+        <texturesliderbar>scrollbar_bar1.png</texturesliderbar>
+        <texturesliderbarfocus>scrollbar_bar_focus1.png</texturesliderbarfocus>
+        <textureslidernib>-</textureslidernib>
+        <textureslidernibfocus>-</textureslidernibfocus>
+        <orientation>vertical</orientation>
+        <visible>Control.IsVisible(112)</visible>
+    </control>
+    
+    <control type="scrollbar" id="61">
+        <description>Scroll Bar list 2</description>
+        <visible>true</visible>
+        <posx>670</posx>
+        <posy>250</posy>
+        <width>10</width>
+        <height>220</height>
+        <onleft>50</onleft>
+        <!--onright>71</onright-->
+  
+        <texturesliderbackground>scrollbar_background1.png</texturesliderbackground>
+        <texturesliderbar>scrollbar_bar1.png</texturesliderbar>
+        <texturesliderbarfocus>scrollbar_bar_focus1.png</texturesliderbarfocus>
+        <textureslidernib>-</textureslidernib>
+        <textureslidernibfocus>-</textureslidernibfocus>
+        <orientation>vertical</orientation>
+        <visible>Control.IsVisible(120)</visible>
+    </control>
+
+    <control type="textbox" id="121">
+        <description>Text box</description>
+		<posx>270</posx>
+		<posy>160</posy>
+		<width>400</width>
+		<height>70</height>
+		<font>font14</font>
+        <align>justify</align>
+        <autoscroll delay="3000" time="2000" repeat="10000">true</autoscroll>
+		<textcolor>FFFFFFFF</textcolor>
+        <visible>Control.IsVisible(120)</visible>
+	</control>
+    
+    <control type="textbox" id="123">
+        <description>Text box2</description>      
+        <posx>270</posx>
+        <posy>160</posy>
+        <width>400</width>
+        <height>300</height> 
+		<font>font14</font>
+        <align>justify</align>
+        <onup>123</onup>
+		<ondown>123</ondown>  
+        <pagecontrol>124</pagecontrol>
+        <!--autoscroll delay="3000" time="2000" repeat="10000">true</autoscroll-->
+		<textcolor>FFFFFFFF</textcolor>
+	</control>  
 
         <control type="list" id="112">
             <animation effect="slide" start="720" time="150">WindowOpen</animation>
@@ -145,7 +220,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>390</width>
+				<width>350</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -185,7 +260,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>390</width>
+				<width>350</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -207,7 +282,7 @@
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</focusedlayout>
-    </control>
+        </control>
 
         <control type="list" id="120">
             <description>list2</description>
@@ -232,7 +307,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>390</width>
+				<width>350</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -272,7 +347,7 @@
 			<control type="label">
 				<posx>40</posx>
 				<posy>0</posy>
-				<width>390</width>
+				<width>350</width>
 				<height>32</height>
 				<font>font14</font>
 				<aligny>center</aligny>
@@ -294,7 +369,7 @@
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</focusedlayout>
-    </control>
+        </control>
 
         <control type="list" id="122">
             <description>list3</description>
@@ -303,7 +378,7 @@
             <posx>0</posx>
             <posy>160</posy>
             <width>200</width>
-            <height>200</height>  
+            <height>250</height>  
             <onup>122</onup>
             <ondown>122</ondown>          
             <!--pagecontrol>2050</pagecontrol-->
@@ -366,72 +441,75 @@
 		</focusedlayout>
     </control>
 
-    <control type="scrollbar" id="60">
-        <description>Scroll Bar list 1</description>
-        <visible>true</visible>
-        <posx>670</posx>
-        <posy>160</posy>
-        <width>10</width>
-        <height>320</height>
-        <onleft>50</onleft>
-        <!--onright>71</onright-->
-  
-        <texturesliderbackground>scrollbar_background1.png</texturesliderbackground>
-        <texturesliderbar>scrollbar_bar1.png</texturesliderbar>
-        <texturesliderbarfocus>scrollbar_bar_focus1.png</texturesliderbarfocus>
-        <textureslidernib>-</textureslidernib>
-        <textureslidernibfocus>-</textureslidernibfocus>
-        <orientation>vertical</orientation>
-        <visible>Control.IsVisible(112)</visible>
+        <control type="list" id="127">
+            <description>list4</description>
+           <animation effect="slide" start="920" time="150" condition="Control.HasFocus(127)">Conditional</animation>
+            <animation effect="slide" end="920" time="150" condition="!Control.HasFocus(127)">Conditional</animation>              
+            <posx>520</posx>
+            <posy>160</posy>
+            <width>200</width>
+            <height>250</height>  
+            <onup>127</onup>
+            <ondown>127</ondown>          
+            <!--pagecontrol>2050</pagecontrol-->
+	    <scrolltime>200</scrolltime>
+		<itemlayout height="40">
+			<control type="image">
+				<width>200</width>
+				<height>40</height>
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>list-nofocus1.png</texture>
+			</control>        
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>32</width>
+				<height>32</height>
+                <info>ListItem.Icon</info>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>3</posy>
+				<width>2000</width>
+				<height>32</height>
+				<font>font14</font>
+				<aligny>center</aligny>
+                <selectedcolor>FFe2ff43</selectedcolor>
+                <textcolor>FFDDDDDD</textcolor>
+                <align>left</align>
+				<info>ListItem.Label</info>
+			</control>
+		</itemlayout>
+		<focusedlayout height="40">          
+			<control type="image">
+				<width>200</width>
+				<height>40</height>
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>list-focus2.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>40</width>
+				<height>40</height>
+				<info>ListItem.Icon</info>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>3</posy>
+				<width>200</width>
+				<height>32</height>
+				<font>font14</font>
+				<aligny>center</aligny>
+                <selectedcolor>FFe2ff43</selectedcolor>
+                <textcolor>FFDDDDDD</textcolor>
+                <align>left</align>
+				<info>ListItem.Label</info>
+			</control>
+		</focusedlayout>
     </control>
-    
-    <control type="scrollbar" id="61">
-        <description>Scroll Bar list 2</description>
-        <visible>true</visible>
-        <posx>670</posx>
-        <posy>250</posy>
-        <width>10</width>
-        <height>220</height>
-        <onleft>50</onleft>
-        <!--onright>71</onright-->
-  
-        <texturesliderbackground>scrollbar_background1.png</texturesliderbackground>
-        <texturesliderbar>scrollbar_bar1.png</texturesliderbar>
-        <texturesliderbarfocus>scrollbar_bar_focus1.png</texturesliderbarfocus>
-        <textureslidernib>-</textureslidernib>
-        <textureslidernibfocus>-</textureslidernibfocus>
-        <orientation>vertical</orientation>
-        <visible>Control.IsVisible(120)</visible>
-    </control>
-
-
-    <control type="textbox" id="121">
-        <description>Text box</description>
-		<posx>270</posx>
-		<posy>160</posy>
-		<width>400</width>
-		<height>70</height>
-		<font>font14</font>
-        <align>justify</align>
-        <autoscroll delay="3000" time="2000" repeat="10000">true</autoscroll>
-		<textcolor>FFFFFFFF</textcolor>
-        <visible>Control.IsVisible(120)</visible>
-	</control>
-    
-    <control type="textbox" id="123">
-        <description>Text box2</description>      
-        <posx>270</posx>
-        <posy>160</posy>
-        <width>400</width>
-        <height>300</height> 
-		<font>font14</font>
-        <align>justify</align>
-        <onup>123</onup>
-		<ondown>123</ondown>  
-        <pagecontrol>124</pagecontrol>
-        <!--autoscroll delay="3000" time="2000" repeat="10000">true</autoscroll-->
-		<textcolor>FFFFFFFF</textcolor>
-	</control>  
 
     <control type="spincontrol" id="124">
         <description>Next page button</description>
@@ -466,6 +544,21 @@
         <texturefocus>icon_left_focus1.png</texturefocus>
     </control>
 
+    <control type="button" id="128">
+        <description>dummy</description>
+        <posx>270</posx>
+        <posy>450</posy>
+        <width>100</width>
+        <height>32</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <label></label>
+        <ondown>124</ondown>
+		<onright>127</onright>
+        <texturenofocus></texturenofocus>
+        <texturefocus></texturefocus> 
+		<!--visible>Control.IsVisible(123)</visible-->              
+    </control>
      
     </controls>
 </window>

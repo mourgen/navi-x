@@ -1,7 +1,7 @@
 #############################################################################
 #
 # Navi-X Playlist browser
-# v3.3 by rodejo (rodejo16@gmail.com)
+# v3.4.1 by rodejo (rodejo16@gmail.com)
 #
 # -v1.01  (2007/04/01) first release
 # -v1.2   (2007/05/10)
@@ -49,6 +49,8 @@
 # -v3.1.2 (2010/03/27)
 # -v3.2 (2010/04/01)
 # -v3.3 (2010/05/31)
+# -v3.4 (2010/07/04)
+# -v3.4.1 (2010/07/23)
 #
 #############################################################################
 
@@ -75,6 +77,7 @@ from CTextView import *
 from CInstaller import *
 from skin import *
 from CBackgroundLoader import *
+from CServer import *
 
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
@@ -161,7 +164,6 @@ class MainWindow(xbmcgui.WindowXML):
             self.URL='http://'
             self.type=''
             #default player will be DVD player
-#            self.player_core=xbmc.PLAYER_CORE_AUTO #default
             self.player_core=xbmc.PLAYER_CORE_DVDPLAYER
             self.pl_focus = self.playlist
             self.downlshutdown = False # shutdown after download flag
@@ -188,9 +190,9 @@ class MainWindow(xbmcgui.WindowXML):
                 self.home = home_URL
 #@todo 
             self.firsttime = False
-            
+                        
             #xbmc.executebuiltin("xbmc.ActivateWindow(VideoOverlay)")
-  
+    
             #end of function
 
         ######################################################################
@@ -204,7 +206,11 @@ class MainWindow(xbmcgui.WindowXML):
             
             self.firsttime = True
         
-            load_skin(self)       
+            load_skin(self)
+            
+            if nxserver.is_user_logged_in() == True:
+                self.list3.getListItem(4).setLabel("Sign out")
+                self.version.setLabel('version: '+ Version + '.' + SubVersion + " (signed in)")
                                   
             #thumb update task
             self.bkgndloadertask = CBackgroundLoader(window=self)
@@ -258,7 +264,7 @@ class MainWindow(xbmcgui.WindowXML):
             #always allow Exit even if busy
             if (action == ACTION_SELECT_ITEM) and (self.getFocus() == self.list3):
                 pos = self.list3.getSelectedPosition()
-                if pos == 4:
+                if pos == 5:
                     self.setInfoText("Shutting Down Navi-X...") 
                     self.onSaveSettings()
                     self.bkgndloadertask.kill()
@@ -283,6 +289,7 @@ class MainWindow(xbmcgui.WindowXML):
                                 self.SelectItem(self.playlist, pos)
                     #button option
                     if self.getFocus() == self.list3:
+                        #Left side option menu
                         pos = self.list3.getSelectedPosition()
                         if pos == 0:
                             self.pl_focus = self.playlist
@@ -292,6 +299,7 @@ class MainWindow(xbmcgui.WindowXML):
                         elif pos == 2:
                             self.onOpenDownloads()                      
                         elif pos == 3:
+                            self.setFocus(self.list)
                             self.onSelectURL() 
 #                        elif pos == 4:
 #                            self.setInfoText("Shutting Down Navi-X...") 
@@ -301,6 +309,43 @@ class MainWindow(xbmcgui.WindowXML):
 #                            self.downloader.kill()
 #                            self.downloader.join(10) #timeout after 10 seconds.
 #                            self.close() #exit
+                        elif pos == 4: #sign in
+                            self.setFocus(self.list)
+                            if nxserver.is_user_logged_in() == False:           
+                                result = nxserver.login()
+                                if result == 0:
+                                    dialog = xbmcgui.Dialog()                            
+                                    dialog.ok(" Sign in", "Sign in Successful.")
+                                    self.list3.getListItem(4).setLabel("Sign out")
+                                    self.version.setLabel('version: '+ Version + '.' + SubVersion + " (signed in)")
+                                elif result == -1:
+                                    dialog = xbmcgui.Dialog()                            
+                                    dialog.ok(" Sign in", "Sign in failed.")
+                            else: #sign out
+                                #user already logged in
+                                dialog = xbmcgui.Dialog() 
+                                if dialog.yesno("Message", "Sign out?") == True:
+                                    nxserver.logout()
+                                    self.list3.getListItem(4).setLabel("Sign in")
+                                    dialog = xbmcgui.Dialog()                            
+                                    dialog.ok(" Sign out", "Sign out successful.")
+                                    self.version.setLabel('version: '+ Version + '.' + SubVersion)                              
+                    if self.getFocus() == self.list4:
+                        #Right side option menu
+                        pos = self.list4.getSelectedPosition()
+                        self.setFocus(self.list)
+                        if pos == 0:
+                            pos = self.list.getSelectedPosition()
+                            if self.pl_focus.list[pos].rating == 'disabled':
+                                dialog = xbmcgui.Dialog()                            
+                                dialog.ok(" Error", "Not supported.")                      
+                            elif self.pl_focus.URL.find(nxserver_URL) != -1:
+                                nxserver.rate_item(self.pl_focus.list[pos])
+                                self.UpdateRateingImage()
+                            else:
+                                dialog = xbmcgui.Dialog()                            
+                                dialog.ok(" Error", "Only Navi-Xtreme playlists can be rated.")                         
+
                 elif (action == ACTION_PARENT_DIR) or (action == ACTION_PREVIOUS_MENU):
                     if self.descr_view == True:
                         self.list3tb.setVisible(0)                    
@@ -319,11 +364,16 @@ class MainWindow(xbmcgui.WindowXML):
                             if result == 0: #success
                                 flush = self.History.pop()
                                 self.history_count = self.history_count - 1
+                        else:
+                            self.setFocus(self.list3)
                 elif action == ACTION_YBUTTON:
                     self.onPlayUsing()
                 elif action == ACTION_MOVE_RIGHT:
                     if self.getFocus() == self.list:
-                        self.onShowDescription()
+                        result = self.onShowDescription()
+                        if result != 0:
+                            #No description available
+                            self.setFocus(self.list4)
                     elif self.descr_view == False:
                             self.setFocus(self.list)
                 elif action == ACTION_MOVE_LEFT:
@@ -332,15 +382,20 @@ class MainWindow(xbmcgui.WindowXML):
                         self.list.setVisible(1)
                         self.setFocus(self.list)
                         self.descr_view = False
-                    else:
+                    #else:
+                    elif self.getFocus() == self.list:
                         self.setFocus(self.list3)
+                    else:
+                        self.setFocus(self.list)
                 elif action == ACTION_MOVE_UP:
                     pos = self.list.getSelectedPosition()
                 elif action == ACTION_MOUSEMOVE:
                     xpos = action.getAmount1()
                     ypos = action.getAmount2()
                     if (xpos < 20) and (ypos > 140):
-                        self.setFocus(self.list3)                       
+                        self.setFocus(self.list3)
+                    #elif (xpos > 500) and (ypos > 140):
+                    #    self.setFocus(self.list4)                    
                 elif self.ChkContextMenu(action) == True: #White
                     if self.URL == favorite_file:
                         self.selectBoxFavoriteList()
@@ -351,9 +406,17 @@ class MainWindow(xbmcgui.WindowXML):
                         self.selectBoxMainList()
                 
                 #update index number    
-                #pos = self.list.getSelectedPosition()
                 pos = self.getPlaylistPosition()
-                self.listpos.setLabel(str(pos+1) + '/' + str(self.pl_focus.size()))
+                if pos >= 0:
+                    self.listpos.setLabel(str(pos+1) + '/' + str(self.pl_focus.size()))
+                    
+                self.UpdateRateingImage()
+#                    rating = self.pl_focus.list[pos].rating
+#                    if rating != '':
+#                        self.rating.setImage("rating" + rating + '.png')
+#                        self.rating.setVisible(1)
+#                    else:
+#                        self.rating.setVisible(0)
                         
             #end of function
              
@@ -375,6 +438,23 @@ class MainWindow(xbmcgui.WindowXML):
                 self.onAction1(ACTION_PREVIOUS_MENU)
             else:
                 self.onAction1(ACTION_SELECT_ITEM)       
+
+        ######################################################################
+        # Description: Sets the rating image.
+        # Parameters : -
+        # Return     : -
+        ######################################################################        
+        def UpdateRateingImage(self):
+            pos = self.getPlaylistPosition()
+            
+            if pos >= 0:
+                rating = self.pl_focus.list[pos].rating
+                if rating != '':
+                    self.rating.setImage('rating' + rating + '.png')
+                    self.rating.setVisible(1)
+                else:
+                    self.rating.setVisible(0)
+                                
     
         ######################################################################
         # Description: Checks if one of the context menu keys is pressed.
@@ -1367,7 +1447,8 @@ class MainWindow(xbmcgui.WindowXML):
         # Return     : -
         ######################################################################
         def onSelectURL(self):
-            browsewnd = CDialogBrowse(parent=self)
+            #browsewnd = CDialogBrowse(parent=self)
+            browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
             browsewnd.SetFile('', self.URL, 1)
             browsewnd.doModal()
             
@@ -2077,29 +2158,34 @@ class MainWindow(xbmcgui.WindowXML):
         # Parameters : element = playlist element to display
         #                        0 = playlist description
         #                        1 = entry description
-        # Return     : -
+        # Return     : 0 on success, -1 on false
         ######################################################################                        
         def onShowDescription(self):  
             pos = self.getPlaylistPosition()
             if pos < 0: #invalid position
-                return
+                return -1
                 
             mediaitem = self.pl_focus.list[pos]
             description = mediaitem.description
              
-            if description != '':                            
-                description = re.sub("&lt;.*&gt;", "", description)              
-                description = re.sub("&#.*39;", "'", description)              
-                description = re.sub(r'<[^>]*?>', "", description)
+            if description == '':
+                return -1
+            
+            description = re.sub("&lt;.*&gt;", "", description)              
+            description = re.sub("&#.*39;", "'", description)              
+            description = re.sub(r'<[^>]*?>', "", description)
                 
-                self.list.setVisible(0)
+            self.list.setVisible(0)
                 
-                self.list3tb.setText(description)
-                self.list3tb.setVisible(1)
-                #self.setFocus(self.list3tb)
-                self.descr_view = True
+            self.list3tb.setText(description)
+            self.list3tb.setVisible(1)
+            self.setFocus(self.list3tb)
+            self.descr_view = True
                 
-                self.setFocus(self.getControl(124))
+            self.setFocus(self.getControl(128))
+            
+            #success
+            return 0
 
             #end of function                
 

@@ -21,6 +21,7 @@ import shutil
 import zipfile
 from settings import *
 from libs2 import *
+from CServer import *
 
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
@@ -32,7 +33,9 @@ class CFileLoader2:
     # Parameters : URL=source, localfile=destination
     # Return     : -
     ######################################################################
-    def load(self, URL, localfile='', timeout=0, proxy="CACHING", content_type= '', retries=0):
+    def load(self, URL, localfile='', timeout=0, proxy="CACHING", \
+             content_type= '', retries=0):
+        
         if (URL == ''):# or (localfile == ''):
             self.state = -1 #failed
             return
@@ -71,15 +74,21 @@ class CFileLoader2:
 #                        oldtimeout=socket_getdefaulttimeout()
 #                        socket_setdefaulttimeout(timeout)
             
-                        values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+                        cookies='platform=' + platform
+                        if URL.find(nxserver_URL) != -1:
+                            cookies = cookies + '; nxid=' + nxserver.user_id
+            
+                        values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
+                                   'Cookie' : cookies}
+                        
+                        #print values
+                                   
                         req = urllib2.Request(URL, None, values)
                         #req = urllib2.Request(URL)
                         f = urllib2.urlopen(req)
                 
                         headers = f.info()
-                        
-                        #Trace(str(headers))
-                        
+                                                
                         type = headers['Content-Type']
                     
                         if (content_type != '') and (type.find(content_type)  == -1):

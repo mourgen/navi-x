@@ -47,7 +47,8 @@ class CMediaItem:
                   playpath='', \
                   swfplayer='', \
                   pageurl='', \
-                  background='default'):
+                  background='default', \
+                  rating=''):
         self.type = type    #(required) type (playlist, image, video, audio, text)
         self.version = version #(optional) playlist version
         self.name = name    #(required) name as displayed in list view
@@ -63,6 +64,7 @@ class CMediaItem:
         self.swfplayer = swfplayer #(optional)
         self.pageurl = pageurl #(optional)
         self.background = background #(optional) background image
+        self.rating = rating #(optional) rating value
                
     ######################################################################
     # Description: Get mediaitem type.
@@ -247,8 +249,9 @@ def getRemote(url,args={}):
     except:
         print "Unexpected error:", sys.exc_info()[0]
     try:
-        oldtimeout=socket_getdefaulttimeout()
-        socket_setdefaulttimeout(url_open_timeout)
+#        oldtimeout=socket_getdefaulttimeout()
+#        socket_setdefaulttimeout(url_open_timeout)
+
         if args['method'] == 'get':
             req=urllib2.Request(url=url, headers=hdr)
         else:
@@ -265,10 +268,24 @@ def getRemote(url,args={}):
     except IOError:         
         oret = ""
     
-    socket_setdefaulttimeout(oldtimeout)
+#    socket_setdefaulttimeout(oldtimeout)
     
     return oret
-     
+
+#@todo: separate class py file for login handling
+######################################################################
+# Description: Login function for Navi-Xtreme login.
+# Parameters : username: user name
+#              password: user password
+# Return     : blowfish-encrypted string identifying the user for 
+#              saving locally, or an empty string if the login failed.
+######################################################################  
+#def nxLogin(username,password):
+#    return getRemote('http://navix.turner3d.net/login/',{
+#    	'method':'post',
+#    	'postdata':urllib.urlencode({'username':username,'password':password})
+#    })
+ 
 ######################################################################
 # Description: Controls the info text label on the left bottom side
 #              of the screen.

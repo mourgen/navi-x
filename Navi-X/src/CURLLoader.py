@@ -45,9 +45,10 @@ class CURLLoader:
             result = self.geturl_processor(mediaitem) 
         elif URL.find('http://youtube.com') != -1:
             result = self.geturl_youtube(URL)
-        else:        
-            #self.loc_url = URL
-            result = self.geturl_real(URL)
+        elif URL[:4] == 'http':
+            result = self.geturl_redirect(URL) 
+        else:
+            self.loc_url = URL
               
         #special handling for apple movie trailers
         #@todo: the lines below are no longer needed. apple URLs are handled
@@ -64,15 +65,16 @@ class CURLLoader:
     # Parameters : URL=source URL
     # Return     : 0=successful, -1=fail
     ######################################################################
-    def geturl_real(self, URL):
+    def geturl_redirect(self, URL):
         try:
             values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
             req = urllib2.Request(URL, None, values)
             f = urllib2.urlopen(req)
             self.loc_url=f.geturl()
         except IOError:
-            return -1 #failed to open URL
+            pass
             
+        #always return true    
         return 0
 
     ######################################################################
@@ -115,7 +117,7 @@ class CURLLoader:
                 #t = data[index1+3:index2]
                 t = data[index1+7:index2]
                 #t contains the timestamp now. Create the URL of the video file (high quality).
-                self.loc_url = "http://www.youtube.com/get_video.php?video_id=" + id + "&amp;t=" + t + "&amp;fmt=18"
+                self.loc_url = "http://www.youtube.com/get_video.php?video_id=" + id + "&amp;t=" + t + "&amp;fmt=16"
             else:
                 self.loc_url = ""
         
@@ -124,7 +126,7 @@ class CURLLoader:
             return -1 #fail
                
         #Trace(self.loc_url)        
-        
+                
         if self.loc_url != "":
             return 0 #success
         else:
@@ -170,7 +172,7 @@ class CURLLoader:
                 's_agent':def_agent,
                 's_referer':'',
                 's_cookie':'',
-                's_postargs':'',
+                's_postdata':'',
                 'url':'',
                 'swfplayer':'',
                 'playpath':'',
@@ -285,7 +287,8 @@ class CURLLoader:
                           'cookie': v['s_cookie'],
                           'method': v['s_method'],
                           'agent': v['s_agent'],
-                          'action': v['s_action']
+                          'action': v['s_action'],
+                          'postdata': v['s_postdata']
                         }
                         print "Processor "+v['s_method'].upper()+"."+v['s_action']+": "+v['s_url']
                         if verbose>0:
@@ -339,7 +342,7 @@ class CURLLoader:
                         v['s_agent']=def_agent
                         v['s_referer']=''
                         v['s_cookie']=''
-                        v['s_postargs']=''
+                        v['s_postdata']=''
                         
 
                     elif line=='play':

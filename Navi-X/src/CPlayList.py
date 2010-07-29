@@ -251,6 +251,8 @@ class CPlayList:
                         tmp.player=value 
                     elif key == 'background':
                         tmp.background=value
+                    elif key == 'rating':
+                        tmp.rating=value                        
                     elif key == 'processor':
                         tmp.processor=value
                     elif key == 'playpath':
@@ -896,7 +898,10 @@ class CPlayList:
                 tmp.name = value
                 
                 tmp.player = self.player
-                tmp.processor = self.processor                
+                if self.processor != '':
+                    tmp.processor = self.processor   
+                else: #hard coded processor
+                    tmp.processor = "http://navix.turner3d.net/proc/youtube"
                 self.list.append(tmp)                
 
         #check if there is a next page in the html. Get the last one in the page.
@@ -978,7 +983,8 @@ class CPlayList:
 
         if data.find('<stationlist>') != -1:
             #parse playlist entries
-            entries = data.split('</station>')            
+            #entries = data.split('<station name')   
+            entries = data.split('\n')  
             for m in entries:
                 tmp = CMediaItem() #create new item
                 tmp.type = 'audio'
@@ -1273,7 +1279,8 @@ class CPlayList:
             print '*** Logged in as "anonymous"'
 
             try:
-                self.f.cwd(urlparse.path)
+                if urlparse.path != '':
+                    self.f.cwd(urlparse.path)
             except ftplib.error_perm:
                 print 'ERROR: cannot CD to "%s"' % urlparse.path
                 self.f.quit()
@@ -1287,15 +1294,20 @@ class CPlayList:
             except ftplib.error_perm:
                 print 'ERROR: cannot read directory' 
 
+            #print dir_LIST
+
             dir_NLST = []
             try:
                 self.f.retrlines('NLST', dir_NLST.append)
             except ftplib.error_perm:
                 print 'ERROR: cannot read directory'              
-            
-            for i in range(len(dir_NLST)):
+                       
+            #print dir_NLST                       
+                       
+            for i in range(len(dir_LIST)):
                 tmp = CMediaItem() #create new item
                 tmp.name = dir_NLST[i]
+                                
                 if dir_LIST[i][0] == 'd':
                     tmp.type = 'directory'
                 else:

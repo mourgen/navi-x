@@ -30,6 +30,7 @@ IMAGE_BG = 102
 IMAGE_BG1 = 103
 IMAGE_LOGO = 104
 IMAGE_THUMB = 105
+IMAGE_RATING = 126
 LABEL_URLLBL = 106
 LABEL_VERSION = 107
 LABEL_INFOTEXT = 108
@@ -44,6 +45,8 @@ TEXT_BOX_LIST2 = 121
 LIST_LIST3 = 122
 TEXT_BOX_LIST3 = 123
 BUTTON_LEFT = 125
+LIST_LIST4 = 127
+BUTTON_RATE = 128
 
 ######################################################################
 # Description: creates internal variables for the widget controls
@@ -57,6 +60,7 @@ def load_skin(window):
     window.logo = window.getControl(IMAGE_LOGO)
     window.user_thumb = window.getControl(IMAGE_THUMB)
     window.download_logo = window.getControl(IMAGE_DLLOGO)
+    window.rating = window.getControl(IMAGE_RATING)    
     window.download_logo.setVisible(0)
                  
     #labels
@@ -79,7 +83,8 @@ def load_skin(window):
     window.list2 = window.getControl(LIST_LIST2)
     window.list2.setVisible(False)
     window.list3 = window.getControl(LIST_LIST3)
-    
+    window.list4 = window.getControl(LIST_LIST4)  
+  
     item = xbmcgui.ListItem("Home")   
     window.list3.addItem(item)
     item = xbmcgui.ListItem("Favorites")   
@@ -88,8 +93,13 @@ def load_skin(window):
     window.list3.addItem(item)
     item = xbmcgui.ListItem("Browse")   
     window.list3.addItem(item)
-    item = xbmcgui.ListItem("Exit")   
+    item = xbmcgui.ListItem("Sign in")   
+    window.list3.addItem(item)    
+    item = xbmcgui.ListItem("Exit") 
     window.list3.addItem(item)
+    
+    item = xbmcgui.ListItem("Rate It") 
+    window.list4.addItem(item)    
     
     #textbox
     window.list2tb = window.getControl(TEXT_BOX_LIST2)
