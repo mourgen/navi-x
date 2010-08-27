@@ -1,553 +1,21 @@
 <?xml version="1.0"?>
 <window type="window" id="14000">
-        <onload lang="python">
-            <![CDATA[
-import mc
-from string import *
-import sys, os.path
-import urllib
-import re, random, string
-##import xbmc, xbmcgui
-import re, os, time, datetime, traceback
-import shutil
-import zipfile
-import copy
-
-from libs2 import *
-from CURLLoader import *
-from CPlayList import *
-from CPlayer import *
-from settings import *
-
-
-        ######################################################################
-        # Description: Parse playlist file. Playlist file can be a:
-        #              -PLX file; Based on ParsePlaylist in navix.py
-        # Parameters : URL (optional) =URL of the playlist file.
-        #              mediaitem (optional)=Playlist mediaitem containing 
-        #              playlist info. Replaces URL parameter.
-        # Return     : 0 if success
-        ######################################################################
-def ParsePlaylist(URL='', mediaitem=CMediaItem(), playlist=CPlayList(), listcontrol=mc.ListItems(), reload=True):
-    mc.ShowDialogWait()
-
-    playlist.clear()
-    del listcontrol[:]
-
-    #load the playlist
-
-    #type = mediaitem.type
-    type = mediaitem.GetType()
-    ##mc.ShowDialogOk("Debug", "Parse mediaitem of type " + type)
-
-    if reload == True:
-        #load the playlist
-        if type == 'rss_flickr_daily':
-            result = playlist.load_rss_flickr_daily(URL, mediaitem)                
-        elif type[0:3] == 'rss':
-            result = playlist.load_rss_20(URL, mediaitem)
-        elif type[0:4] == 'atom':
-            result = playlist.load_atom_10(URL, mediaitem)
-        elif type == 'html_youtube':
-            result = playlist.load_html_youtube(URL, mediaitem)
-        elif type == 'xml_shoutcast':
-            result = playlist.load_xml_shoutcast(URL, mediaitem)
-        elif type == 'xml_applemovie':
-            result = playlist.load_xml_applemovie(URL, mediaitem)
-        elif type == 'directory':
-            result = playlist.load_dir(URL, mediaitem)
-        else: #assume playlist file
-            result = playlist.load_plx(URL, mediaitem)
-
-    #mc.ShowDialogOk("Error", "playlist.load result =" + str(result))
-
-    if result == -1: #error
-        mc.ShowDialogOk("Error", "This playlist requires a newer Navi-X version")
-    elif result == -2: #error
-        mc.ShowDialogOk("Error", "Cannot open file.")
-                
-    if result != 0: #failure
-        return -1
-
-    #succesful
-    ##mc.ShowDialogOk("Ok", "playlist loaded size ="+str(playlist.size()) )
-
-    #display the new URL on top of the screen
-    if len(playlist.title) > 0:
-        title = playlist.title # + ' - (' + playlist.URL + ')'
-    else:
-        title = playlist.URL
-
-    #remove the [COLOR] tags from the title as Boxee doesn't seem to support them
-    #todo: this still strips out >> and following from labels but it's better than nothing
-    reg1 = "(\[.*?\])"
-    title = re.sub(reg1, '', title)
-
-    label = mc.GetWindow(14000).GetLabel(106)
-    label.SetLabel(title)
-
-            #set the background image
-#always reload background image when loading playlist
-    m = playlist.background
-    if m == 'default': #default BG image
-        background = mc.GetWindow(14000).GetImage(10)
-        background.SetTexture(imageDir + background_image1)
-    else:
-        background = mc.GetWindow(14000).GetImage(10)
-        background.SetTexture(playlist.background)
-
-    today=datetime.date.today()
-    ## CPlayList -> mc.ListItems
-    for i in range(0, playlist.size()):
-        m = playlist.list[i]
-        if int(m.version) <= int(plxVersion):
-
-            icon = getPlEntryThumb(m, playlist)
-            
-            # set label2      
-            label2=''
-            if m.date != '':
-                l=m.date.split('-')
-                entry_date = datetime.date(int(l[0]), int(l[1]), int(l[2]))
-                days_past = (today-entry_date).days
-                if days_past <= 10:
-                    if days_past <= 0:
-                        label2 = 'NEW today'
-                    elif days_past == 1:
-                        label2 = 'NEW yesterday'
-                    else:
-                        label2 = 'NEW ('+ str(days_past) + ' days ago)'
-                    
-            if m.description != '':
-                label2 = label2 + ' >'
-
-            item = mc.ListItem()
-            ###item.SetLabel(unicode(m.name, "utf-8", "ignore" ))  # this would not work.???
-            label = str(m.name)
-            item.SetLabel(label)
-            item.SetPath(m.URL + " : " + m.processor )
-            item.SetProperty('label2', label2)
-            item.SetProperty('description', m.description)
-            item.SetThumbnail(m.thumb)
-            item.SetProperty('icon', icon)
-            ##mc.ShowDialogOk("item", "Label = " + item.GetLabel() + "Icon = " + item.GetIcon() + "Thumb = " + item.GetThumbnail() )
-            listcontrol.append(item)
-
-    mc.GetWindow(14000).GetList(112).SetItems(listcontrol)        #set displayed list
-
-    mc.HideDialogWait()
-    return 0
-##################################################################################3            
-
-        ######################################################################
-        # Description: Gets the playlist entry thumb image for different types
-        # Parameters : mediaitem: item for which to retrieve the thumb
-        # Return     : thumb image (local) file name
-        ######################################################################
-def getPlEntryThumb(mediaitem, playlist):
-    pl_focus = playlist        ### only one playlist used so it's always in focus            
-    type = mediaitem.GetType()       
-        
-    #some types are overruled.
-    if type[0:3] == 'rss':
-        type = 'rss'
-    elif type[0:4] == 'atom':
-        type = 'rss'
-    elif type[0:3] == 'xml':
-        type = 'playlist'
-    elif type == 'html_youtube':
-        type = 'playlist'
-    elif type[0:6] == 'search':
-        type = 'search'               
-    elif type == 'directory':
-        type = 'playlist'
-    elif type == 'window':
-        type = 'playlist'             
-    elif mediaitem.type == 'skin':
-        type = 'script'                
-    
-    #we now know the image type. Check the playlist specific icon is set
-    URL=''
-    if type == 'playlist':
-        if pl_focus.icon_playlist != 'default':
-            URL = pl_focus.icon_playlist
-    elif type == 'rss':
-        if pl_focus.icon_rss != 'default':
-            URL = pl_focus.icon_rss
-    elif type == 'script':
-        if pl_focus.icon_script != 'default':
-            URL = pl_focus.icon_script
-    elif type == 'plugin':
-        if pl_focus.icon_plugin != 'default':
-            URL = pl_focus.icon_plugin                    
-    elif type == 'video':
-        if pl_focus.icon_video != 'default':
-            URL = pl_focus.icon_video
-    elif type == 'audio':
-        if pl_focus.icon_audio != 'default':
-            URL = pl_focus.icon_audio
-    elif type == 'image':
-        if pl_focus.icon_image != 'default':
-            URL = pl_focus.icon_image
-    elif type == 'text':
-        if pl_focus.icon_text != 'default':
-            URL = pl_focus.icon_text
-    elif type == 'search':
-        if pl_focus.icon_search != 'default':
-            URL = pl_focus.icon_search
-    elif type == 'download':
-        if pl_focus.icon_download != 'default':
-            URL = pl_focus.icon_download
-
-    #if the icon attribute has been set then use this for the icon.
-    if mediaitem.icon != 'default':
-        URL = mediaitem.icon
-
-    if URL != '':
-        ext = getFileExtension(URL)
-        loader = CFileLoader2() #file loader
-        loader.load(URL, imageCacheDir + "icon." + ext, timeout=2, proxy="ENABLED", content_type='image')
-        if loader.state == 0:
-            return loader.localfile
-            
-    return imageDir+'icon_'+str(type)+'.png'
-
-#############################################################################################
-        ######################################################################
-        # Description: Handle selection of playlist search item (e.g. Youtube)
-        # Parameters : item=mediaitem
-        #              append(optional)=true is playlist must be added to 
-        #              history list;
-        # Return     : MediaItem to be parsed
-        ######################################################################
-def PlaylistSearch(item):
-    string = ''
-    
-    searchstring = mc.ShowDialogKeyboard("Search", "", False)
-    ##mc.ShowDialogOk("Debug", "Searchstring entered : " + searchstring)
-
-    if len(searchstring) == 0:
-        while len(searchstring) == 0:
-             searchstring = mc.ShowDialogKeyboard("Search", "", False)
-        else:
-           pass
-           
-
-    #get the search type:
-    index=item.type.find(":")
-    if index != -1:
-        search_type = item.type[index+1:]
-    else:
-        search_type = ''
-
-    #youtube search
-    if (item.type == 'search_youtube') or (search_type == 'html_youtube'):
-        fn = searchstring.replace(' ','+')
-        if item.URL != '':
-            URL = item.URL
-        else:
-            URL = 'http://www.youtube.com/results?search_query='
-        URL = URL + fn
-          
-##        #ask the end user how to sort
-##        possibleChoices = ["Relevance", "Date Added", "View Count", "Rating"]
-##        dialog = xbmcgui.Dialog()
-##        choice = dialog.select("Sort by", possibleChoices)
-
-        choice = 0                 ## no easy way to do a Select Dialog in Boxee API
-                                   ## youtube search always by Relevance
-
-        #validate the selected item
-        if choice == 1: #Date Added
-            URL = URL + '&search_sort=video_date_uploaded'
-        elif choice == 2: #View Count
-            URL = URL + '&search_sort=video_view_count'
-        elif choice == 3: #Rating
-            URL = URL + '&search_sort=video_avg_rating'
-       
-        mediaitem=CMediaItem()
-        mediaitem.URL = URL
-        mediaitem.type = 'html_youtube'
-        mediaitem.name = 'search results: ' + searchstring
-        mediaitem.player = item.player
-
-##        #create history item
-##        tmp = CHistorytem()
-
-##        tmp.index = self.getPlaylistPosition()
-##        tmp.mediaitem = self.mediaitem
-
-##        self.pl_focus = self.playlist
-##        result = self.ParsePlaylist(mediaitem=mediaitem)
-        
-##        if result == 0 and append == True: #successful
-##            self.History.append(tmp)
-##            self.history_count = self.history_count + 1
-
-        return mediaitem
-
-    elif (item.type == 'search_shoutcast') or (search_type == 'xml_shoutcast'):
-            fn=urllib.quote(searchstring)
-            URL = 'http://www.shoutcast.com/sbin/newxml.phtml?search='
-            URL = URL + fn
-
-            mediaitem=CMediaItem()
-            mediaitem.URL = URL
-            mediaitem.type = 'xml_shoutcast'
-            mediaitem.name = 'search results: ' + searchstring
-            mediaitem.player = item.player
-
-##            #create history item
-##            tmp = CHistorytem()
-
-##            tmp.index = self.getPlaylistPosition()
-##            tmp.mediaitem = self.mediaitem
-
-##            self.pl_focus = self.playlist
-##            result = self.ParsePlaylist(mediaitem=mediaitem)
-        
-##            if result == 0 and append == True: #successful
-##                self.History.append(tmp)
-##                self.history_count = self.history_count + 1
-
-            return mediaitem
-
-    ############ Haven't tested search_flickr yet
-
-    elif (item.type == 'search_flickr') or (search_type == 'html_flickr'):
-            fn = searchstring.replace(' ','+')
-            URL = 'http://www.flickr.com/search/?q='
-            URL = URL + fn
-
-            mediaitem=CMediaItem()
-            mediaitem.URL = URL
-            mediaitem.type = 'html_flickr'
-            mediaitem.name = 'search results: ' + searchstring
-            mediaitem.player = item.player
-
-##            #create history item
-##            tmp = CHistorytem()
-
-##            tmp.index = self.getPlaylistPosition()
-##            tmp.mediaitem = self.mediaitem
-
-##            self.pl_focus = self.playlist
-##            result = self.ParsePlaylist(mediaitem=mediaitem)
-        
-##            if result == 0 and append == True: #successful
-##                self.History.append(tmp)
-##                self.history_count = self.history_count + 1
-
-            return mediaitem
-
-    else: #generic search
-            fn = urllib.quote(searchstring)
-            URL = item.URL
-            URL = URL + fn
-               
-            mediaitem=CMediaItem()
-            mediaitem.URL = URL
-            if search_type != '':
-                mediaitem.type = search_type
-            else: #default
-                mediaitem.type = 'playlist'
-            
-            mediaitem.name = 'search results: ' + searchstring
-            mediaitem.player = item.player
-
-##            #create history item
-##            tmp = CHistorytem()
-
-##            tmp.index = self.getPlaylistPosition()
-##            tmp.mediaitem = self.mediaitem
-
-##            self.pl_focus = self.playlist
-##            result = self.ParsePlaylist(mediaitem=mediaitem)
-        
-##            if result == 0 and append == True: #successful
-##                self.History.append(tmp)
-##                self.history_count = self.history_count + 1
-
-            return mediaitem
-                    
-##################################################################################################
-        ######################################################################
-        # Description: Handles the selection of an item in the list.
-        # Parameters : playlist(optional)=the source playlist;
-        #              pos(optional)=media item position in the playlist;
-        #              append(optional)=true is playlist must be added to 
-        #              history list;
-        #              URL(optional)=link to media file;
-        # Return     : -
-        ######################################################################
-def SelectItem(history, listcontrol, playlist=0, pos=0, append=True, iURL=''):
-
-    if iURL != '':
-        mediaitem=CMediaItem()
-        mediaitem.URL = iURL
-        ext = getFileExtension(iURL)
-        if ext == 'plx':
-            mediaitem.type = 'playlist'
-        elif ext == 'xml' or ext == 'atom':
-            mediaitem.type = 'rss'        
-        elif ext == 'jpg' or ext == 'png' or ext == 'gif':
-            mediaitem.type = 'image'
-        elif ext == 'txt':
-            mediaitem.type == 'text'
-        elif ext == 'zip':
-            mediaitem.type == 'script'
-        else:
-            mediaitem.type = 'video' #same as audio
-    else:
-        if playlist.size() == 0:
-            #playlist is empty
-            return
-       
-        mediaitem = playlist.list[pos]
-    
-    #type = mediaitem.type
-    type = mediaitem.GetType()
-
-    #mediaitem is some type of playlist (non-search, non-media)
-    
-    if type == 'playlist' or type == 'favorite' or type[0:3] == 'rss' or \
-       type == 'rss_flickr_daily' or type == 'directory' or \
-       type == 'html_youtube' or type == 'xml_shoutcast' or \
-       type == 'xml_applemovie' or type == 'atom':
-        #add new URL to the history array
-
-        #exception case: Do not add Youtube pages to history list
-        if mediaitem.GetType() == 'html_youtube':
-            append = False
-                
-        result = ParsePlaylist(mediaitem=mediaitem, playlist=playlist, listcontrol=listcontrol)
-        ##mc.ShowDialogOk("Debug", "ParsePlaylist result = " + str(result))
-        
-        if result == 0 and append == True: #successful
-            AddHistoryItem(mediaitem, history)
-        elif result != 0:        ### ParsePlaylist failed + playlist cleared by ParsePlaylist
-            mc.HideDialogWait()
-            return -1      
-
-    #mediaitem is a audio or video to play
-
-    elif type == 'video' or type == 'audio':
-        mc.ShowDialogWait()
-        MyPlayer = CPlayer()
-
-        result = MyPlayer.play_URL(mediaitem.URL, mediaitem)
-                                                
-        mc.HideDialogWait()
-        
-        if result != 0:
-            mc.ShowDialogOk("Error", "Cannot open file.")
-        else:
-            #When app reloads after play it will resume at the last playlist viewed 
-            mc.GetApp().GetLocalConfig().SetValue("resume", "True")
-
-    #mediaitem is other type: go through possibilites
-
-    elif type == 'image':
-##        self.AddHistoryItem()
-##        self.viewImage(playlist, pos, 0, mediaitem.URL) #single file show
-        mc.ShowDialogOk("Error", "This item is not yet supported because it is a " + type)
-
-    elif type == 'text':
-##        self.AddHistoryItem()
-##        self.OpenTextFile(mediaitem=mediaitem)
-        mc.ShowDialogOk("Error", "This item is not yet supported because it is a " + type)
-
-    #elif (type[0:6] == 'script') or (type[0:6] == 'plugin') or (type == 'skin'):
-    elif (type == 'script') or (type == 'plugin') or (type == 'skin'):
-##        self.AddHistoryItem()
-##        self.InstallApp(mediaitem=mediaitem)
-        mc.ShowDialogOk("Error", "This item is not supported because it is a " + type)
-
-    elif type == 'download':
-##        self.AddHistoryItem()
-##        self.onDownload()
-        mc.ShowDialogOk("Error", "This item is not supported because it is a " + type)
-
-    elif (type[0:6] == 'search'):
-        mediaitem_search = PlaylistSearch(mediaitem)
-        result = ParsePlaylist(mediaitem=mediaitem_search, playlist=playlist, listcontrol=listcontrol)
-        if result == 0 and append == True: #successful
-            AddHistoryItem(mediaitem_search, history)
-        elif result != 0:               ### Search Failed + playlist cleared by ParsePlaylist
-            mc.HideDialogWait()
-            return -1 
-        
-    elif type == 'window':
-##        xbmc.executebuiltin("xbmc.ActivateWindow(" + mediaitem.URL + ")")
-        mc.ShowDialogOk("Error", "This item is not supported because it is a " + type)                
-
-    elif type == 'html':
-        mc.ShowDialogOk("Error", "This item is not yet supported because it is a " + type)
-
-    else:
-        mc.ShowDialogOk("Playlist format error", '"' + type + '"' + " is not a valid type.")
-        
-##    self.state_busy = 0
-
-    return 0
-
-######################################################################################3        
-        ######################################################################
-        # Description: Add item to history
-        # Parameters : -
-        # Return     : -
-        ######################################################################
-def AddHistoryItem(mediaitem, history):   #history is a CPlayList - Keeping track of session history
-                                          #only for Back button
-    item = copy.copy(mediaitem)
-    history.add(item)
-    history.save(RootDir + history_list)
-
-    return
-######################################################################################
-
-# if resume_string is "True", the app loads session history and resumes where it was.
-# else it loads the home_URL. resume_string is set to "True" in SelectItem() when a video or audio
-# is successfully played.
+	<defaultcontrol>112</defaultcontrol>
+    <allowoverlays>false</allowoverlays>
+    <onload lang="python">
+<![CDATA[
+from navixboxee import *
 
 resume_string = mc.GetApp().GetLocalConfig().GetValue("resume")
 
-##myPlayer = CPlayer()             # Modified CPlayer can play MediaItem but not PlayList
-session_history = CPlayList()   # list of CMediaItem of any playlist type that user has clicked
-                                # used to go to previous item using the Back button
-current_playlist = CPlayList()
-listitems = mc.GetWindow(14000).GetList(112).GetItems()
+if resume_string != "True":
+  # Load main Navi-x playlist
+  SelectItem(iURL=home_URL)
 
-if resume_string == "True":
-    #resuming from history
-    #mc.ShowDialogOk("Debug", "Resuming from history")
-    session_history.load_plx(RootDir + history_list)
-    ParsePlaylist(mediaitem=session_history.list[-1], playlist=current_playlist, listcontrol=listitems)
-else:
-    #Starting list is home_URL
-    session_history.clear()
-    SelectItem(session_history, listcontrol=listitems, playlist=current_playlist, iURL=home_URL)
-
-# if user exits app and returns, the app will go back to home playlist (home_URL)
 mc.GetApp().GetLocalConfig().SetValue("resume", "False")
-
 ]]>
-        </onload>
-	<defaultcontrol>112</defaultcontrol>
-    <allowoverlays>false</allowoverlays>
+    </onload>
 	<controls>
-
-
-
-        <control type="image" id="102">
-            <visible>true</visible>
-            <description>bg</description>
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>1280</width>
-            <height>720</height>
-            <texture>background1.jpg</texture>
-        </control>
         <control type="largeimage" id="10">
             <description>largeimage background</description>
             <posx>0</posx>
@@ -558,6 +26,7 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <colordiffuse>FFFFFFFF</colordiffuse>
             <fadetime>200</fadetime>
             <aspectratio>scale</aspectratio>
+            <info>Container(555).ListItem.Property(custom:bgimage)</info>
         </control>               
         <control type="image" id="103">
             <visible>True</visible>
@@ -600,6 +69,22 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <visible>false</visible>
         </control>
 
+        <control type="list" id="555">
+            <description>background image url</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>888</width>
+            <height>50</height>
+            <label></label>
+            <textcolor>FFFFFFFF</textcolor>
+            <font>font24</font>
+            <visible>false</visible>
+            <itemlayout height="32">
+            </itemlayout>            
+            <focusedlayout>
+            </focusedlayout>
+        </control>
+
         <control type="label" id="106">
             <description>urllbl</description>
             <posx>115</posx>
@@ -608,8 +93,8 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <height>50</height>
             <label></label>
             <textcolor>FFFFFFFF</textcolor>
-            <!--font>special13</font-->
             <font>font24</font>
+            <info>Container(555).ListItem.Property(custom:listtitle)</info>
         </control>
         
         <control type="label" id="119">
@@ -683,14 +168,11 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
 
         <control type="list" id="112">
             <content type="action">
-                <onclick lang="python"><![CDATA[
-focused = mc.GetWindow(14000).GetList(112).GetFocusedItem()   #focused position in mc.ListItems that was clicked
-if SelectItem(session_history, listcontrol=listitems, playlist=current_playlist, pos=focused) == 0:
-    pass
-else:
-    mc.ShowDialogOk("Error", "Something went wrong, going home.")
-    del session_history.list[:]
-    SelectItem(session_history, listcontrol=listitems, playlist=current_playlist, iURL=home_URL)    
+                <onclick lang="python">
+<![CDATA[
+list = mc.GetWindow(14000).GetList(112)
+focused = list.GetItem( list.GetFocusedItem() ) 
+SelectItem( listitem=focused )
 ]]>
                 </onclick>
             </content>
@@ -709,13 +191,14 @@ else:
             <!--onleft>122</onleft-->
             <!--onRight>61</onRight-->
             <visible>!Control.HasFocus(123)</visible>
-	    <scrolltime>200</scrolltime>		<itemlayout height="32">
+	    <scrolltime>200</scrolltime>
+		<itemlayout height="32">
 			<control type="image">
 				<posx>5</posx>
 				<posy>6</posy>
 				<width>30</width>
 				<height>30</height>
-                                <info>ListItem.Property(custom:icon)</info>
+        <info>ListItem.Property(custom:icon)</info>
 			</control>
 			<control type="label">
 				<posx>55</posx>
@@ -724,9 +207,9 @@ else:
 				<height>40</height>
 				<font>font20</font>
 				<aligny>center</aligny>
-                                <selectedcolor>FFe2ff43</selectedcolor>
-                                <textcolor>FFDDDDDD</textcolor>
-                                <align>left</align>
+        <selectedcolor>FFe2ff43</selectedcolor>
+        <textcolor>FFDDDDDD</textcolor>
+        <align>left</align>
 				<info>ListItem.Label</info>
 			</control>
 			<control type="label">
@@ -736,10 +219,10 @@ else:
 				<height>40</height>
 				<font>font20</font>
 				<aligny>center</aligny>
-                                <selectedcolor>FFe2ff43</selectedcolor>
+        <selectedcolor>FFe2ff43</selectedcolor>
 				<textcolor>FFDDDDDD</textcolor>
 				<align>right</align>
-                                <info>ListItem.Property(custom:label2)</info>
+        <info>ListItem.Property(custom:label2)</info>
 			</control>
 		</itemlayout>
 		<focusedlayout height="32">          
@@ -764,9 +247,9 @@ else:
 				<height>40</height>
 				<font>font20</font>
 				<aligny>center</aligny>
-                                <selectedcolor>FFe2ff43</selectedcolor>
-                                <textcolor>FFDDDDDD</textcolor>
-                                <align>left</align>
+        <selectedcolor>FFe2ff43</selectedcolor>
+        <textcolor>FFDDDDDD</textcolor>
+        <align>left</align>
 				<info>ListItem.Label</info>
 			</control>
 			<control type="label">
@@ -776,10 +259,10 @@ else:
 				<height>40</height>
 				<font>font20</font>
 				<aligny>center</aligny>
-                                <selectedcolor>FFe2ff43</selectedcolor>
+        <selectedcolor>FFe2ff43</selectedcolor>
 				<textcolor>FFDDDDDD</textcolor>
 				<align>right</align>
-                                <info>ListItem.Property(custom:label2)</info>
+        <info>ListItem.Property(custom:label2)</info>
 			</control>
 		</focusedlayout>
     </control>
@@ -848,6 +331,51 @@ else:
         <textureslidernib>-</textureslidernib>
         <textureslidernibfocus>-</textureslidernibfocus>
         <orientation>vertical</orientation>
+    </control>
+         
+<!--An extra textbox to view playlist items of type text-->
+<!--This textbox is identical in size and location to the item description textbox-->
+    <control type="textbox" id="130">
+        <description>Text Box for text playlist items</description>      
+        <posx>480</posx>
+        <posy>200</posy>
+        <width>690</width>
+        <height>375</height> 
+        <font>font20</font>
+        <align>justify</align>
+        <onleft>131</onleft>
+        <onright>131</onright>
+        <onup>131</onup>
+        <ondown>131</ondown>  
+        <pagecontrol>131</pagecontrol>
+        <visible>false</visible>
+        <!--autoscroll delay="3000" time="2000" repeat="10000">true</autoscroll-->
+        <textcolor>FFFFFFFF</textcolor>
+        <info>Container(555).ListItem.Property(custom:contenttext)</info>
+    </control> 
+
+    <control type="scrollbar" id="131">
+        <description>Scroll Bar Text Box</description>
+        <visible>Control.IsVisible(130)</visible>
+        <posx>1191</posx>
+        <posy>200</posy>
+        <width>17</width>
+        <height>400</height>
+        <onleft>SetVisible(112)</onleft>
+        <onleft>SetVisible(60)</onleft>
+        <onleft>SetHidden(130)</onleft>
+        <onleft>SetHidden(131)</onleft>
+        <onleft>SetFocus(112)</onleft>
+        <onright>131</onright>
+        <ondown>131</ondown>
+        <onup>131</onup>
+        <texturesliderbackground>scrollbar_background1.png</texturesliderbackground>
+        <texturesliderbar>scrollbar_bar1.png</texturesliderbar>
+
+        <texturesliderbarfocus>scrollbar_bar_focus1.png</texturesliderbarfocus>
+        <textureslidernib>-</textureslidernib>
+        <textureslidernibfocus>-</textureslidernibfocus>
+        <orientation>vertical</orientation>
     </control>         
 
     <control type="button" id="125">
@@ -862,15 +390,9 @@ else:
         <aligny>center</aligny>
         <texturenofocus>icon_left.png</texturenofocus>
         <texturefocus>icon_left_focus1.png</texturefocus>
-        <onclick lang="python"><![CDATA[
-#####   BACK Button
-if session_history.size() is 1:     # already at root playlist 
-    pass
-else:                                # go to previous playlist
-    del session_history.list[-1]    
-    previous_item = session_history.list[-1]     # previous_item is a CMediaItem
-    ParsePlaylist(mediaitem=previous_item, playlist=current_playlist, listcontrol=listitems)
-    session_history.save(RootDir + history_list)
+        <onclick lang="python">
+<![CDATA[
+mc.GetWindow(14000).PopState()
 ]]>
         </onclick>
     </control>
