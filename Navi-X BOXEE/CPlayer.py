@@ -14,7 +14,7 @@
 import mc
 from string import *
 import sys, os.path
-import urllib, urlparse
+import urllib
 import urllib2
 import re, random, string
 ##import xbmc, xbmcgui
@@ -56,15 +56,11 @@ class CPlayer(mc.Player):
             return -1
         
         orig_processor = mediaitem.processor   #remember to decide if we show a webpage or play the result of html processing      
-        ##mc.ShowDialogOk("Debug in play_URL start", "type = " + mediaitem.type + '\n' + "processor = " + mediaitem.processor) 
-
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, mediaitem)
-        ##mc.ShowDialogOk("result from urlopen", str(result))
         if result != 0:
             return -1    
         URL = urlopener.loc_url
-        ##mc.ShowDialogOk("loc_url", str(URL))
         
 #        SetInfoText("Loading... ")
 
@@ -81,8 +77,6 @@ class CPlayer(mc.Player):
 #                xbmc.Player.play(self, self.pls) #play the playlist
 #        else:
             #self.pls.add(urlopener.loc_url)
-
-        ##mc.ShowDialogOk("Debug in play_URL before play", "type = " + mediaitem.type + '\n' + "processor = " + orig_processor)
 
         if mediaitem.type == 'html':   #assume html processing returns video?
             if orig_processor == '':  #no actual html processing, just display the webpage using boxee browser
@@ -106,7 +100,6 @@ class CPlayer(mc.Player):
         if mediaitem.playpath != '':
             self.play_RTMP(mediaitem.URL, mediaitem.playpath, mediaitem.swfplayer, mediaitem.pageurl);
         else:  
-#            xbmc.Player.play(self, urlopener.loc_url)
              mc.Player().Play(listitem)
             
         return 0

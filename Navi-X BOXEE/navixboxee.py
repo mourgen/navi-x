@@ -70,7 +70,7 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
 
     #display the new URL on top of the screen
     if len(playlist.title) > 0:
-        title = playlist.title # + ' - (' + playlist.URL + ')'
+        title = playlist.title  + ' - (' + playlist.URL + ')'
     else:
         title = playlist.URL
 
@@ -106,15 +106,19 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
             label2=''
             if m.date != '':
                 l=m.date.split('-')
-                entry_date = datetime.date(int(l[0]), int(l[1]), int(l[2]))
-                days_past = (today-entry_date).days
-                if days_past <= 10:
-                    if days_past <= 0:
-                        label2 = 'NEW today'
-                    elif days_past == 1:
-                        label2 = 'NEW yesterday'
-                    else:
-                        label2 = 'NEW ('+ str(days_past) + ' days ago)'
+
+                try:
+                    entry_date = datetime.date(int(l[0]), int(l[1]), int(l[2]))
+                    days_past = (today-entry_date).days
+                    if days_past <= 10:
+                        if days_past <= 0:
+                            label2 = 'NEW today'
+                        elif days_past == 1:
+                            label2 = 'NEW yesterday'
+                        else:
+                            label2 = 'NEW ('+ str(days_past) + ' days ago)'
+                except:
+                    Pass
                     
             if m.description != '':
                 label2 = label2 + ' >'

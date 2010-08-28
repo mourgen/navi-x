@@ -21,6 +21,7 @@ import shutil
 import zipfile
 from settings import *
 from libs2 import *
+#from CServer import *
 
 ##try: Emulating = xbmcgui.Emulating
 ##except: Emulating = False
@@ -116,7 +117,9 @@ class CFileLoader2:
     # Parameters : URL=source, localfile=destination
     # Return     : -
     ######################################################################
-    def load(self, URL, localfile='', timeout=url_open_timeout, proxy="CACHING", content_type= '', retries=0):
+    def load(self, URL, localfile='', timeout=0, proxy="CACHING", \
+             content_type= '', retries=0):
+
         if (URL == ''):# or (localfile == ''):
             self.state = -1 #failed
             return
@@ -143,7 +146,8 @@ class CFileLoader2:
                 destfile = tempCacheDir + sum_str  
 
             if (not((proxy == "ENABLED") and (os.path.exists(destfile) == True))):
-                oldtimeout=socket_getdefaulttimeout()
+                if timeout != 0:
+                    #oldtimeout=socket_getdefaulttimeout()
                 socket_setdefaulttimeout(timeout)
                 self.state = -1 #failure
                 counter = 0
@@ -151,23 +155,30 @@ class CFileLoader2:
                 while (counter <= retries) and (self.state != 0):
                     counter = counter + 1 
                     try:
-                        oldtimeout=socket_getdefaulttimeout()
-                        socket_setdefaulttimeout(timeout)
+#                        oldtimeout=socket_getdefaulttimeout()
+#                        socket_setdefaulttimeout(timeout)
             
-                        values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+                        cookies='platform=' + platform
+#                        if URL.find(nxserver_URL) != -1:
+#                            cookies = cookies + '; nxid=' + nxserver.user_id
+
+                        values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
+                                   'Cookie' : cookies}
+
+                        #print values
+
                         req = urllib2.Request(URL, None, values)
                         #req = urllib2.Request(URL)
                         f = urllib2.urlopen(req)
                 
                         headers = f.info()
                         
-                        #Trace(str(headers))
-                        
                         type = headers['Content-Type']
                     
                         if (content_type != '') and (type.find(content_type)  == -1):
                             #unexpected type
-                            socket_setdefaulttimeout(oldtimeout)            
+                            if timeout != 0:
+                                socket_setdefaulttimeout(url_open_timeout)
                             self.state = -1 #failed
                             #return
                             break #do not try again                            
@@ -183,8 +194,13 @@ class CFileLoader2:
                         self.localfile = destfile
                         self.state = 0 #success       
                   
-                    except IOError:
-                        #socket_setdefaulttimeout(oldtimeout)            
+                    except IOError, e:
+                        if hasattr(e, 'reason'):
+                            print 'We failed to reach a server.'
+                            print 'Reason: ', e.reason
+                        elif hasattr(e, 'code'):
+                            print 'The server could not fulfill the request.'
+                            print 'Error code: ', e.code
                         self.state = -1 #failed
 
 #                   except urllib2.HTTPError:
@@ -198,8 +214,9 @@ class CFileLoader2:
 #
 #                       Trace("There is a problem with the URL: " + str(e.reason))
 #                       self.state = -1 #failed
+                if timeout != 0:
+                    socket_setdefaulttimeout(url_open_timeout)
 
-                socket_setdefaulttimeout(oldtimeout)                  
             else: #file is inside the cache
                 self.localfile = destfile
                 self.state = 0 #success

@@ -14,6 +14,9 @@
 from string import *
 import sys, os.path
 import urllib
+import ftplib
+import os
+import socket
 import re, random, string
 ##import xbmc, xbmcgui
 import re, os, time, datetime, traceback
@@ -248,6 +251,8 @@ class CPlayList:
                         tmp.player=value 
                     elif key == 'background':
                         tmp.background=value
+                    elif key == 'rating':
+                        tmp.rating=value
                     elif key == 'processor':
                         tmp.processor=value
                     elif key == 'playpath':
@@ -845,14 +850,15 @@ class CPlayList:
         self.title = 'Youtube' + ' - ' + mediaitem.name
         self.description = ''
         self.player = mediaitem.player
+        self.processor = mediaitem.processor
         self.playmode = 'default'
         str_nextpage = 'Next Page'
         
         #clear the list
-        del self.list[:]
+            del self.list[:]
 ##        if (mediaitem.URL != self.list[-1].URL) or (mediaitem.name != str_nextpage):
 ##            del self.list[:]
-##            self.start_index = 0            
+##            self.start_index = 0
 ##        else:
 ##            self.list.pop()
 ##            self.start_index = self.size()
@@ -893,6 +899,10 @@ class CPlayList:
                 tmp.name = value
                 
                 tmp.player = self.player
+                if self.processor != '':
+                    tmp.processor = self.processor
+                else: #hard coded processor
+                    tmp.processor = "http://navix.turner3d.net/proc/youtube"
                 self.list.append(tmp)                
 
         #check if there is a next page in the html. Get the last one in the page.
@@ -974,7 +984,8 @@ class CPlayList:
 
         if data.find('<stationlist>') != -1:
             #parse playlist entries
-            entries = data.split('</station>')            
+            #entries = data.split('<station name')
+            entries = data.split('\n')
             for m in entries:
                 tmp = CMediaItem() #create new item
                 tmp.type = 'audio'
@@ -1197,12 +1208,6 @@ class CPlayList:
         else:
             self.URL = mediaitem.URL
 
-        if self.URL[1] != ':':
-            self.URL = RootDir + self.URL
-
-        if not os.path.exists(self.URL):
-            return -2
-
         #defaults
         self.version = plxVersion
         self.background = mediaitem.background
@@ -1226,6 +1231,15 @@ class CPlayList:
         #clear the list
         del self.list[:]        
 
+        if self.URL[:3] != 'ftp':
+            #local directory
+
+            if self.URL[1] != ':':
+                self.URL = RootDir + self.URL
+
+            if not os.path.exists(self.URL):
+                return -2
+
         #parse directory (including subdirectory) entries 
         try:        
             for root, dirs, files in os.walk(self.URL , topdown=False):
@@ -1238,8 +1252,92 @@ class CPlayList:
                         self.list.append(tmp)                    
         except IOError:
             return -2
+        else:
+            #FTP directory
+            if self.URL[-1] != '/':
+                self.URL = self.URL + '/'
+            urlparse = CURLParseFTP(self.URL)
+
+            try:
+                self.f = ftplib.FTP()
+                self.f.connect(urlparse.host,urlparse.port)
+            except (socket.error, socket.gaierror), e:
+                print 'ERROR: cannot reach "%s"' % urlparse.host
+                return -2
+
+            print '*** Connected to host "%s"' % urlparse.host
+
+            try:
+                if urlparse.username != '':
+                    self.f.login(urlparse.username, urlparse.password)
+                else:
+                    self.f.login()
+            except ftplib.error_perm:
+                print 'ERROR: cannot login anonymously'
+                self.f.quit()
+                return -2
+
+            print '*** Logged in as "anonymous"'
+
+            try:
+                if urlparse.path != '':
+                    self.f.cwd(urlparse.path)
+            except ftplib.error_perm:
+                print 'ERROR: cannot CD to "%s"' % urlparse.path
+                self.f.quit()
+                return -2
+
+            print '*** Changed to "%s" folder' % urlparse.path
+
+            dir_LIST = []
+            try:
+                self.f.retrlines('LIST', dir_LIST.append)
+            except ftplib.error_perm:
+                print 'ERROR: cannot read directory'
+
+            #print dir_LIST
+
+            dir_NLST = []
+            try:
+                self.f.retrlines('NLST', dir_NLST.append)
+            except ftplib.error_perm:
+                print 'ERROR: cannot read directory'
+
+            #print dir_NLST
+
+            for i in range(len(dir_LIST)):
+                tmp = CMediaItem() #create new item
+                tmp.name = dir_NLST[i]
+
+                if dir_LIST[i][0] == 'd':
+                    tmp.type = 'directory'
+                else:
+                    ext = getFileExtension(dir_NLST[i])
+                    ext = ext.lower()
+                    if ext == 'jpg' or ext == 'gif' or ext == 'png':
+                        tmp.type = 'image'
+                    elif ext == 'mp3':
+                        tmp.type = 'audio'
+                    elif ext == 'plx':
+                        tmp.type = 'playlist'
+                    elif ext == 'txt':
+                        tmp.type = 'text'
+                    else:
+                        tmp.type = 'video'
+
+                tmp.URL = self.URL + dir_NLST[i]
+                self.list.append(tmp)
 
         return 0
+
+#    def load_dir_callback1(self, string):
+#        tmp = CMediaItem() #create new item
+#        if string[0] == 'd':
+#            tmp.type = 'playlist'
+#        self.list.append(tmp)
+
+#    def load_dir_callback2(self, string):
+#        self.list[
 
     ######################################################################
     # Description: Saves a playlist .plx file to disk.

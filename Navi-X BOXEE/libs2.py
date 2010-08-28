@@ -47,7 +47,8 @@ class CMediaItem:
                   playpath='', \
                   swfplayer='', \
                   pageurl='', \
-                  background='default'):
+                  background='default', \
+                  rating=''):
         self.type = type    #(required) type (playlist, image, video, audio, text)
         self.version = version #(optional) playlist version
         self.name = name    #(required) name as displayed in list view
@@ -63,6 +64,7 @@ class CMediaItem:
         self.swfplayer = swfplayer #(optional)
         self.pageurl = pageurl #(optional)
         self.background = background #(optional) background image
+        self.rating = rating #(optional) rating value
                
     ######################################################################
     # Description: Get mediaitem type.
@@ -95,6 +97,62 @@ class CHistorytem:
     def __init__(self, index=0, mediaitem=CMediaItem()):
         self.index = index
         self.mediaitem = mediaitem
+
+
+######################################################################
+# Description: parse FTP URL.
+# Parameters : URL, retrieval parameters
+# Return     : username, password, host, port, path, file
+######################################################################
+class CURLParseFTP:
+    def __init__(self, URL):
+        #Parse URL according RFC 1738: ftp://user:password@host:port/path
+        #There is no standard Python 2.4 funcion to split these URL's.
+        self.username=''
+        self.password=''
+        self.port=21
+
+        #check for username, password
+        index = URL.find('@')
+        if index != -1:
+            index2 = URL.find(':',6,index)
+            if index2 != -1:
+                self.username = URL[6:index2]
+                print 'user: ' + self.username
+                self.password = URL[index2+1:index]
+                print 'password: ' + self.password
+            URL = URL[index+1:]
+        else:
+            URL = URL[6:]
+
+        #check for host
+        index = URL.find('/')
+        if index != -1:
+            self.host = URL[:index]
+            self.path = URL[index:]
+        else:
+            self.host = URL
+            self.path = ''
+
+        #retrieve the port
+        index = self.host.find(':')
+        if index != -1:
+            self.port = int(self.host[index+1:])
+            self.host = self.host[:index]
+
+        print 'host: ' + self.host
+        print 'port: ' + str(self.port)
+
+        #split path and file
+        index = self.path.rfind('/')
+        if index != -1:
+            self.file = self.path[index+1:]
+            self.path = self.path[:index]
+        else:
+            self.file = ''
+
+        print 'path: ' + self.path
+        print 'file: ' + self.file
 
 ######################################################################
 # Description: Get the file extension of a URL
@@ -168,29 +226,65 @@ def Trace(string):
 ##    return platform
 
 ######################################################################
-# Description: Retrieve remote HTML.
-# Parameters : URL
+# Description: Retrieve remote information.
+# Parameters : URL, retrieval parameters
 # Return     : string containing the page contents.
 ######################################################################  
-def get_HTML(url,referer='',cookie=''):
-    headers = { 'User-Agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Referer': referer,
-                'Cookie': cookie}
+def getRemote(url,args={}):
+    rdefaults={
+        'agent' : 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4',
+        'referer': '',
+        'cookie': '',
+        'method': 'get',
+        'action': 'read',
+        'postdata': ''
+    }
+    for ke in rdefaults:
     try:
-        oldtimeout=socket_getdefaulttimeout()
-        socket_setdefaulttimeout(url_open_timeout)
-        req = urllib2.Request(url=url, headers=headers)
+            args[ke]
+        except KeyError:
+            args[ke]=rdefaults[ke]
+    try:
+        hdr={'User-Agent':args['agent'], 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Referer':args['referer'], 'Cookie':args['cookie']}
+    except:
+        print "Unexpected error:", sys.exc_info()[0]
+    try:
+#        oldtimeout=socket_getdefaulttimeout()
+#        socket_setdefaulttimeout(url_open_timeout)
+
+        if args['method'] == 'get':
+            req=urllib2.Request(url=url, headers=hdr)
+        else:
+            req=urllib2.Request(url,args['postdata'],hdr)
         response = urllib2.urlopen(req)
-        link=response.read()
+
+        if args['action']=='read':
+            oret=response.read()
+        elif args['action']=='geturl':
+            oret=response.geturl()
+        elif args['action']=='headers':
+            oret=response.info()
         response.close()
     except IOError:         
-        link = ""
+        oret = ""
     
-    socket_setdefaulttimeout(oldtimeout)
+#    socket_setdefaulttimeout(oldtimeout)
     
-    return link
+    return oret
      
+#@todo: separate class py file for login handling
+######################################################################
+# Description: Login function for Navi-Xtreme login.
+# Parameters : username: user name
+#              password: user password
+# Return     : blowfish-encrypted string identifying the user for
+#              saving locally, or an empty string if the login failed.
+######################################################################
+#def nxLogin(username,password):
+#    return getRemote('http://navix.turner3d.net/login/',{
+#    	'method':'post',
+#    	'postdata':urllib.urlencode({'username':username,'password':password})
+#    })
 
 ######################################################################
 # Description: Controls the info text label on the left bottom side
