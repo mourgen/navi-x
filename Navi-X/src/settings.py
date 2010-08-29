@@ -59,7 +59,7 @@ if RootDir[0] == '/':
     cacheDir = RootDir + "cache/"
     imageViewCacheDir = RootDir + "cache/mageview/"
     imageCacheDir = RootDir + "cache/images/"
-    tempCacheDir = RootDir + "cache/temp/"    
+    tempCacheDir = RootDir + "cache/temp/"
     SEPARATOR = '/'
 else:
     if RootDir[-1] != '\\': RootDir = RootDir+'\\'
@@ -72,7 +72,7 @@ else:
     cacheDir = RootDir + "cache\\"
     imageViewCacheDir = RootDir + "cache\\imageview\\"
     imageCacheDir = RootDir + "cache\\images\\"
-    tempCacheDir = RootDir + "cache\\temp\\"    
+    tempCacheDir = RootDir + "cache\\temp\\"  
     SEPARATOR = '\\'
 
 import xbmc
@@ -91,7 +91,7 @@ else:
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='4.2'
+SubVersion='4.3'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist

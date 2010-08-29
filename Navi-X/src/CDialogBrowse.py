@@ -154,15 +154,16 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
         #self.setFocus(control)
         pass
     
-    def SetFile(self, dir, filename, type):
+    def SetFile(self, dir, filename, type, heading=""):
         self.dir = dir
         self.filename = filename
         self.type = type
+        self.label = heading
 
-        if self.type == 3:
-            self.label = 'Browse Folder'
-        else:
-            self.label = 'Browse File'
+#        if self.type == 3:
+#            self.label = 'Enter Destination File:'
+#        else:
+#            self.label = 'Browse File:'
         
     def SetLabel(self, filename):
         control = self.getControl(BUTTON_PATH)

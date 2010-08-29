@@ -50,9 +50,7 @@ class CBackgroundLoader(threading.Thread):
         while self.killed == False:
             time.sleep(0.2) #delay 0,2 second
             self.UpdateThumb()
-            self.UpdateTime()
-            #Update the thumb image  
-            
+            self.UpdateTime()            
     def kill(self):
         self.killed = True
     
@@ -75,6 +73,10 @@ class CBackgroundLoader(threading.Thread):
             index = self.MainWindow.getPlaylistPosition()
             if index != -1:
                 if self.MainWindow.pl_focus.size() > 0:
+                    self.UpdateRateingImage(index)
+                    self.DisplayMediaSource(index) 
+                
+                    #now update the thumb
                     m = self.MainWindow.pl_focus.list[index].thumb
                       
                     if (m == 'default') or (m == ""): #no thumb image
@@ -122,5 +124,33 @@ class CBackgroundLoader(threading.Thread):
     def UpdateTime(self):
         today=datetime.date.today()
         self.MainWindow.dt.setLabel(time.strftime("%A, %d %B | %I:%M %p"))
-    
         
+        
+    ######################################################################
+    # Description: Sets the rating image.
+    # Parameters : -
+    # Return     : -
+    ######################################################################        
+    def UpdateRateingImage(self, pos):        
+        rating = self.MainWindow.pl_focus.list[pos].rating
+        if rating != '':
+            self.MainWindow.rating.setImage('rating' + rating + '.png')
+            self.MainWindow.rating.setVisible(1)
+        else:
+            self.MainWindow.rating.setVisible(0)
+    
+    ######################################################################
+    # Description: Display the media source for processor based entries.
+    # Parameters : -
+    # Return     : -
+    ######################################################################        
+    def DisplayMediaSource(self, pos):
+        str_url=self.MainWindow.pl_focus.list[pos].URL
+        str_server_report=""
+        if str_url != "" and self.MainWindow.pl_focus.list[pos].type != "playlist":
+            match=re_server.search(str_url)
+            if match:
+                str_server_report= match.group(1)
+                if self.MainWindow.pl_focus.list[pos].processor != "":
+                    str_server_report = str_server_report + "+"
+        SetInfoText(str_server_report)     

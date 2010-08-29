@@ -51,7 +51,10 @@
 # -v3.3 (2010/05/31)
 # -v3.4 (2010/07/04)
 # -v3.4.1 (2010/07/23)
+# -v3.4.2 (2010/07/27)
+# -v3.4.3 (2010/08/28)
 #
+#todo: Dharma XML update
 #############################################################################
 
 from string import *
@@ -188,9 +191,9 @@ class MainWindow(xbmcgui.WindowXML):
             #check if the home playlist points to the old website. If true then update the home URL.
             if self.home == home_URL_old:
                 self.home = home_URL
-#@todo 
+
             self.firsttime = False
-                        
+                                    
             #xbmc.executebuiltin("xbmc.ActivateWindow(VideoOverlay)")
     
             #end of function
@@ -333,7 +336,11 @@ class MainWindow(xbmcgui.WindowXML):
                     if self.getFocus() == self.list4:
                         #Right side option menu
                         pos = self.list4.getSelectedPosition()
-                        self.setFocus(self.list)
+                        if self.descr_view == True:
+                            #self.setFocus(self.list3tb)
+                            self.setFocus(self.getControl(128))
+                        else:
+                            self.setFocus(self.list)
                         if pos == 0:
                             pos = self.list.getSelectedPosition()
                             if self.pl_focus.list[pos].rating == 'disabled':
@@ -344,7 +351,15 @@ class MainWindow(xbmcgui.WindowXML):
                                 self.UpdateRateingImage()
                             else:
                                 dialog = xbmcgui.Dialog()                            
-                                dialog.ok(" Error", "Only Navi-Xtreme playlists can be rated.")                         
+                                dialog.ok(" Error", "Only Navi-Xtreme playlists can be rated.")
+                        elif pos == 1:
+                            if self.URL == favorite_file:
+                                self.selectBoxFavoriteList()
+                            elif  (self.URL == downloads_file) or (self.URL == downloads_queue) or \
+                                   (self.URL == downloads_complete) or (self.URL == parent_list):
+                                self.selectBoxDownloadsList()
+                            else:   
+                                self.selectBoxMainList()                            
 
                 elif (action == ACTION_PARENT_DIR) or (action == ACTION_PREVIOUS_MENU):
                     if self.descr_view == True:
@@ -382,7 +397,6 @@ class MainWindow(xbmcgui.WindowXML):
                         self.list.setVisible(1)
                         self.setFocus(self.list)
                         self.descr_view = False
-                    #else:
                     elif self.getFocus() == self.list:
                         self.setFocus(self.list3)
                     else:
@@ -410,13 +424,9 @@ class MainWindow(xbmcgui.WindowXML):
                 if pos >= 0:
                     self.listpos.setLabel(str(pos+1) + '/' + str(self.pl_focus.size()))
                     
-                self.UpdateRateingImage()
-#                    rating = self.pl_focus.list[pos].rating
-#                    if rating != '':
-#                        self.rating.setImage("rating" + rating + '.png')
-#                        self.rating.setVisible(1)
-#                    else:
-#                        self.rating.setVisible(0)
+                #self.UpdateRateingImage()
+
+                #self.DisplayMediaSource()
                         
             #end of function
              
@@ -454,7 +464,26 @@ class MainWindow(xbmcgui.WindowXML):
                     self.rating.setVisible(1)
                 else:
                     self.rating.setVisible(0)
-                                
+                    
+        ######################################################################
+        # Description: Display the media source for processor based entries.
+        # Parameters : -
+        # Return     : -
+        ######################################################################        
+        def DisplayMediaSource(self):
+            pos = self.getPlaylistPosition()
+
+            if pos >= 0:
+                #Display media source
+                str_url=self.pl_focus.list[pos].URL;
+                str_server_report=""
+                if str_url != "" and self.pl_focus.list[pos].type != "playlist":
+                    match=re_server.search(str_url)
+                    if match:
+                        str_server_report="Source: " + match.group(1)
+                        if self.pl_focus.list[pos].processor != "":
+                            str_server_report = str_server_report + "+"
+                SetInfoText(str_server_report)                                                  
     
         ######################################################################
         # Description: Checks if one of the context menu keys is pressed.
@@ -1251,7 +1280,10 @@ class MainWindow(xbmcgui.WindowXML):
                     return
 
                 installer = CInstaller()
-                result = installer.InstallScript(URL, mediaitem)
+                if attributes == 'navi-x':
+                    result = installer.InstallNaviX(URL, mediaitem)
+                else:    
+                    result = installer.InstallScript(URL, mediaitem)
 
             elif type == 'plugin':
                 if dialog.yesno("Message", "Install " + attributes + " Plugin?") == False:
@@ -1447,9 +1479,8 @@ class MainWindow(xbmcgui.WindowXML):
         # Return     : -
         ######################################################################
         def onSelectURL(self):
-            #browsewnd = CDialogBrowse(parent=self)
             browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
-            browsewnd.SetFile('', self.URL, 1)
+            browsewnd.SetFile('', self.URL, 1, "Browse File:")
             browsewnd.doModal()
             
             if browsewnd.state != 0:
@@ -1513,7 +1544,7 @@ class MainWindow(xbmcgui.WindowXML):
                                "Set Playlist as Home", \
                                "Cancel"]
             dialog = xbmcgui.Dialog()
-            choice = dialog.select("Select", possibleChoices)
+            choice = dialog.select("Options", possibleChoices)
 
             if self.favoritelist.size() == 0:
                 #playlist is empty
@@ -1659,7 +1690,7 @@ class MainWindow(xbmcgui.WindowXML):
                                    "Clear List", \
                                    "Cancel"]
                 dialog = xbmcgui.Dialog()
-                choice = dialog.select("Select", possibleChoices)
+                choice = dialog.select("Options", possibleChoices)
             
                 if self.downloadqueue.size() == 0:
                     #playlist is empty
@@ -1925,7 +1956,7 @@ class MainWindow(xbmcgui.WindowXML):
                                 "About Navi-X", \
                                 "Cancel"]
             dialog = xbmcgui.Dialog()
-            choice = dialog.select("Select", possibleChoices)
+            choice = dialog.select("Options", possibleChoices)
             
             if choice == 0: #Download
                 self.onDownload()

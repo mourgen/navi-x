@@ -99,7 +99,9 @@ def load_skin(window):
     window.list3.addItem(item)
     
     item = xbmcgui.ListItem("Rate It") 
-    window.list4.addItem(item)    
+    window.list4.addItem(item)   
+    item = xbmcgui.ListItem("More Options...") 
+    window.list4.addItem(item)   
     
     #textbox
     window.list2tb = window.getControl(TEXT_BOX_LIST2)

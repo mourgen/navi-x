@@ -16,7 +16,7 @@
         <description>label_title</description>
         <posx>130</posx>
         <posy>220</posy>
-        <width>200</width>
+        <width>300</width>
         <height>32</height>
         <label>Browse:</label>
         <textcolor>FFFFFFFF</textcolor>

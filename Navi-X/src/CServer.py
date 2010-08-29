@@ -176,3 +176,6 @@ class CServer:
 #Create server instance here and use it as a global variable for all other components that import server.py.
 global nxserver
 nxserver = CServer() 
+
+global re_server
+re_server = re.compile('^[^:]+://(?:www\.)?([^/]+)')

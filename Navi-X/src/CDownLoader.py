@@ -102,7 +102,7 @@ class CDownLoader(threading.Thread):
             self.state = -1 #URL does not point to internet file.
             return
 
-        ext = self.read_file_extension(entry)
+        ext, size = self.read_file_info(entry)
         if self.state != 0:
             return
                
@@ -116,9 +116,11 @@ class CDownLoader(threading.Thread):
         localfile = localfile[:(42-len(ext))] # limit to 42 characters.
         localfile = localfile + ext
                 
-        #browsewnd = CDialogBrowse(parent=self.MainWindow)
+        size_MB = float(size) / (1024 * 1024)
+        heading = "Download File: (Size = %.1f MB)" % size_MB
+        
         browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
-        browsewnd.SetFile(dir, localfile, 3)
+        browsewnd.SetFile(dir, localfile, 3, heading)
         browsewnd.doModal()
 
         if browsewnd.state != 0:
@@ -135,11 +137,11 @@ class CDownLoader(threading.Thread):
                 self.state = -2 #cancel download
 
     ######################################################################
-    # Description: Retrieve the file extenstion of a URL 
+    # Description: Retrieve the file extenstion and size of a URL 
     # Parameters : entry = mediaitem.
-    # Return     : the file extension
+    # Return     : the file extension and file size
     ######################################################################
-    def read_file_extension(self, entry):
+    def read_file_info(self, entry):
         self.state = 0 #success    
         ext=''
     
@@ -163,10 +165,12 @@ class CDownLoader(threading.Thread):
             #Now we try to open the URL. If it does not exist an error is
             #returned.
             try:
-                values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
-                req = urllib2.Request(loc_url, None, values)
+                headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+                req = urllib2.Request(loc_url, None, headers)
                 f = urllib2.urlopen(req)
                 loc_url=f.geturl()
+                size_string = f.headers['Content-Length']
+                size = int(size_string) #The remaining bytes
 
             except IOError:
                 self.state = -1 #failed to open URL
@@ -190,7 +194,7 @@ class CDownLoader(threading.Thread):
                     else:
                         ext = match.group(1)
 
-        return ext
+        return ext, size
         
     ######################################################################
     # Description: Downloads a URL to local disk
@@ -554,3 +558,7 @@ class CDownLoader(threading.Thread):
             self.f.abort()
         
         #end of function
+        
+        
+
+                

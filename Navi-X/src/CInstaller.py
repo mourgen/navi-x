@@ -140,6 +140,55 @@ class CInstaller(xbmcgui.Window):
 
         return result
 
+    ######################################################################
+    # Description: Handles Installation of a scripts ZIP file.
+    # Parameters : URL = URL of the file
+    #              mediaitem=CMediaItem object to load
+    # Return     : -
+    ######################################################################
+    def InstallNaviX(self, URL='', mediaitem=CMediaItem()):
+        if URL != '':
+            self.URL = URL
+        else:
+            self.URL = mediaitem.URL
+        
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(self.URL, mediaitem)
+        if result == 0:
+            self.URL = urlopener.loc_url
+        
+        SetInfoText("Downloading... ")
+        
+        #download the file.
+        loader = CFileLoader2()
+        loader.load(self.URL, tempCacheDir + 'script.zip')
+        if loader.state != 0:
+            return -2
+        filename = loader.localfile
+
+        SetInfoText("Installing... ")
+
+        #determine the install dir based on the current Navi-X directory (root)
+        if RootDir[0] == '/':
+            pos =   RootDir.rfind("/",0,-1)
+        else:
+            pos =   RootDir.rfind("\\",0,-1)
+            
+        if pos != -1:
+            InstallDir = RootDir[0:pos+1]
+
+            print "Installing Navi-X in: " + InstallDir
+
+            result = self.unzip_file_into_dir(filename, InstallDir)
+            
+            if result == 0: #remove pyo files (needed for XBMC Dharma)
+                self.delPYOFiles(RootDir+'src')
+            
+        else:
+            result = -1
+        
+        return result
+
 
     ######################################################################
     # Description: Unzip a file into a dir
@@ -166,7 +215,7 @@ class CInstaller(xbmcgui.Window):
                     #directory exists
                     if chk_confirmation == False:
                         dialog = xbmcgui.Dialog()
-                        if dialog.yesno("Installer", "Directory " + dir+name[:index] + " already exists, continue?") == False:
+                        if dialog.yesno("Installer", "Directory already exists, continue?") == False:
                             return -1
                 else:
                     #directory does not exist. Create it.
@@ -188,4 +237,21 @@ class CInstaller(xbmcgui.Window):
             chk_confirmation = True
         return 0 #succesful
 
-                
+    ######################################################################
+    # Description: Deletes all pyo files in a given folder and sub-folders.
+    #              Note that the sub-folders itself are not deleted.
+    # Parameters : folder=path to local folder
+    # Return     : -
+    ######################################################################
+    def delPYOFiles(self, folder):
+        try:        
+            for root, dirs, files in os.walk(folder , topdown=False):
+                for name in files:
+                    filename = os.path.join(root, name)
+                    if filename[-4:] == ".pyo":
+                        os.remove(filename)
+        except IOError:
+            return
+            
+            
+            

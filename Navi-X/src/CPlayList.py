@@ -434,7 +434,16 @@ class CPlayList:
                         if index3 != -1:
                             value = m[index2+5:index3]
                             tmp.thumb = value
-
+                            
+                if tmp.thumb == 'default':
+                    #no thumb image found, therefore grab any jpg image in the item
+                    index = m.find('.jpg')
+                    if index != -1:
+                        index2 = m.rfind('http', 0, index)
+                        if index2 != -1:
+                            value = m[index2:index+4]
+                            tmp.thumb = value                              
+                            
                 #get the enclosed content.
                 index = m.find('enclosure')
                 index1 = m.find ('<media:content')              
@@ -677,9 +686,9 @@ class CPlayList:
                 if index == -1:
                     index = m.find('<link')   
                 if index != -1:
-                    index2 = m.find('href="',index) #get the URL attribute
+                    index2 = m.find('href=',index) #get the URL attribute
                     if index2 != -1:
-                        index3 = m.find('"', index2+6)
+                        index3 = m.find(m[index2+5], index2+6)
                         if index3 != -1:
                             value = m[index2+6:index3]
                             tmp.URL = value

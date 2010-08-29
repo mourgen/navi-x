@@ -20,7 +20,7 @@ __scriptname__ = "Navi-X"
 __author__ = "rodejo16"
 __url__ = "http://www.navi-x.org/"
 __credits__ = "Rodejo16"
-__version__ = "3.1"
+__version__ = "3.4.3"
 
 sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
 
@@ -34,8 +34,8 @@ else:
     SEPARATOR = '\\'
 
 version_default = '0.0.0'
-version_URL='http://www.navi-x.org/updates/version30.dat'
-update_URL='http://www.navi-x.org/updates/update30.zip'
+version_URL='http://www.navi-x.org/updates/version34.dat'
+update_URL='http://www.navi-x.org/updates/update34.zip'
 
 #############################################################################
 def onReadVersion():
