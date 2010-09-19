@@ -16,26 +16,53 @@ thumb=http://navix.turner3d.net/images/logo.jpg
 URL=http://navix.turner3d.net/playlist/index.plx
 #
 type=playlist
+name=Browse History
+thumb=default
+#background=http://website.navi-x.org/networks/non/bg.jpg
+date=2009-10-03
+URL=history.plx
+#
+type=playlist
+name=Navi-X Networks Portal
+description=Email tikkiebreed1@live.com for Navi-X Networks questions and comments./description
+thumb=http://website.navi-x.org/networks/logo.png
+#URL=http://website.navi-x.org/networks/index.plx
+URL=http://www.box.net/rssdownload/438209877/index.plx
+#
+type=playlist
 name=Litspliff's Smoke Stop!
 description=Email dynatron@gmail.com for Litspliff's Smoke Stop! questions and comments./description
 thumb=http://www.navi-x.org/playlists/hankphone.jpg
 URL=http://www.dynatron.org/PLX/smokestop.plx
 #
 type=playlist
-name=Solocky Vision
-thumb=http://www.navi-x.org/playlists/sologo.jpg
-#description=Email longshot442@yahoo.com for questions and comments about Navi-Xtra Media Portal./description
-URL=http://solocky.so.funpic.de/SOLOCKY-VISION.plx
-#
-type=xml_applemovie
-name=Apple movie trailers
-thumb=http://tbn0.google.com/images?q=tbn:2ZWelN1RhQceVM:http://gizmodo.com/assets/resources/2007/10/3d_Apple_Logo_102.jpg
-URL=http://www.apple.com/trailers/home/xml/current.xml
+name=XBMCZone - Scripts and Plugins
+description=http://www.xbmczone.com. The Place for XBMC Media Center Scripts and Plugins./description
+thumb=http://www.xbmczone.com/navi-x/logo.png
+URL=http://www.xbmczone.com/navi-x/xbmczone.asp
 #
 type=directory
 name=My Playlists
 thumb=default
+#background=http://website.navi-x.org/networks/non/bg.jpg
 URL=My Playlists
+#
+type=window
+name=My Videos
+URL=video
+#
+type=window
+name=My Music
+URL=music
+#
+type=window
+name=My Pictures
+URL=pictures
+#
+type=window
+name=File Manager
+date=2010-04-09
+URL=filemanager
 #
 
 
