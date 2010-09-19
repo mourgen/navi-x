@@ -6,7 +6,7 @@ background=default
 #third line indicates the title
 title=Navi-X Home
 description=Navi-X website is down. This is the backup server at Google./description
-logo=http://www.navi-x.org/webcount/Navi-x.png
+logo=http://www.navi-x.org/playlists/logo.png
 #Next the playlist content
 #
 type=playlist
