@@ -10,17 +10,17 @@ logo=http://www.navi-x.org/webcount/Navi-x.png
 #Next the playlist content
 #
 type=playlist
-name=Navi-Xtreme Media Portal
-description=Email turner3d@gmail.com for questions and comments about Navi-Xtreme Media Portal./description
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/playlist/index.plx
-#
-type=playlist
 name=Browse History
 thumb=default
 #background=http://website.navi-x.org/networks/non/bg.jpg
 date=2009-10-03
 URL=history.plx
+#
+type=playlist
+name=Navi-Xtreme Media Portal
+description=Email turner3d@gmail.com for questions and comments about Navi-Xtreme Media Portal./description
+thumb=http://navix.turner3d.net/images/logo.jpg
+URL=http://navix.turner3d.net/playlist/index.plx
 #
 type=playlist
 name=Navi-X Networks Portal
