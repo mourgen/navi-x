@@ -48,7 +48,7 @@ class CBackgroundLoader(threading.Thread):
         
     def run(self):
         while self.killed == False:
-            time.sleep(0.2) #delay 0,2 second
+            time.sleep(0.3) #delay 0,3 second
             self.UpdateThumb()
             self.UpdateTime()            
     def kill(self):
@@ -73,6 +73,7 @@ class CBackgroundLoader(threading.Thread):
             index = self.MainWindow.getPlaylistPosition()
             if index != -1:
                 if self.MainWindow.pl_focus.size() > 0:
+              
                     self.UpdateRateingImage(index)
                     self.DisplayMediaSource(index) 
                 

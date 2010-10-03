@@ -40,11 +40,13 @@ class CURLLoader:
     ######################################################################
     def urlopen(self, URL, mediaitem=0):
         result = 0 #successful
-        
+               
         if mediaitem.processor != '':
             result = self.geturl_processor(mediaitem) 
-        elif URL.find('http://youtube.com') != -1:
-            result = self.geturl_youtube(URL)
+        elif URL.find('http://www.youtube.com') != -1:
+#            result = self.geturl_youtube(URL)
+            mediaitem.processor = "http://navix.turner3d.net/proc/youtube"
+            result = self.geturl_processor(mediaitem) 
         elif URL[:4] == 'http':
             result = self.geturl_redirect(URL) 
         else:
@@ -53,8 +55,8 @@ class CURLLoader:
         #special handling for apple movie trailers
         #@todo: the lines below are no longer needed. apple URLs are handled
         #via a processor now.
-        if (result == 0) and self.loc_url.find('http://movies.apple.com') != -1:
-            result = self.geturl_applemovie(self.loc_url)         
+#        if (result == 0) and self.loc_url.find('http://movies.apple.com') != -1:
+#            result = self.geturl_applemovie(self.loc_url)         
         
         return result
 
@@ -84,53 +86,48 @@ class CURLLoader:
     # Parameters : URL=source URL
     # Return     : 0=successful, -1=fail
     ######################################################################
-    def geturl_youtube(self, URL):
-        #retrieve the flv file URL
-        #URL parameter is not used.
-        #Trace("voor "+self.loc_url)
-
-        id=''
-        #pos = self.loc_url.rfind('/')
-        #pos2 = self.loc_url.rfind('.swf')
-        #id = self.loc_url[pos+1:pos2] #only the video ID
-        
-        pos = URL.rfind('/')
-        pos2 = URL.rfind('.swf')
-        id = URL[pos+1:pos2] #only the video ID
-        
-
-        #Trace(id)
-               
-        try:
-            #retrieve the timestamp based on the video ID
-            #self.f = urllib.urlopen("http://www.youtube.com/api2_rest?method=youtube.videos.get_video_token&video_id=" + id)
-            self.f = urllib.urlopen("http://youtube.com/get_video_info?video_id=" + id)
-            data=self.f.read()
-            
-
-            
-            #index1 = data.find('<t>')
-            #index2 = data.find('</t>')
-            index1 = data.find('&token=')
-            index2 = data.find('&thumbnail_url')
-            if (index1 != -1) and (index2 != -1):
-                #t = data[index1+3:index2]
-                t = data[index1+7:index2]
-                #t contains the timestamp now. Create the URL of the video file (high quality).
-                self.loc_url = "http://www.youtube.com/get_video.php?video_id=" + id + "&amp;t=" + t + "&amp;fmt=16"
-            else:
-                self.loc_url = ""
-        
-        except IOError:
-            self.loc_url = "" #could not open URL
-            return -1 #fail
-               
-        #Trace(self.loc_url)        
-                
-        if self.loc_url != "":
-            return 0 #success
-        else:
-            return -1 #failure
+#    def geturl_youtube(self, URL):
+#        #retrieve the flv file URL
+#        #URL parameter is not used.
+#        #Trace("voor "+self.loc_url)
+#
+#        id=''
+#        #pos = self.loc_url.rfind('/')
+#        #pos2 = self.loc_url.rfind('.swf')
+#        #id = self.loc_url[pos+1:pos2] #only the video ID
+#        
+#        pos = URL.rfind('/')
+#        pos2 = URL.rfind('.swf')
+#        id = URL[pos+1:pos2] #only the video ID       
+#               
+#        try:
+#            #retrieve the timestamp based on the video ID
+#            #self.f = urllib.urlopen("http://www.youtube.com/api2_rest?method=youtube.videos.get_video_token&video_id=" + id)
+#            self.f = urllib.urlopen("http://youtube.com/get_video_info?video_id=" + id)
+#            data=self.f.read()
+#                       
+#            #index1 = data.find('<t>')
+#            #index2 = data.find('</t>')
+#            index1 = data.find('&token=')
+#            index2 = data.find('&thumbnail_url')
+#            if (index1 != -1) and (index2 != -1):
+#                #t = data[index1+3:index2]
+#                t = data[index1+7:index2]
+#                #t contains the timestamp now. Create the URL of the video file (high quality).
+#                self.loc_url = "http://www.youtube.com/get_video.php?video_id=" + id + "&amp;t=" + t + "&amp;fmt=16"
+#            else:
+#                self.loc_url = ""
+#        
+#        except IOError:
+#            self.loc_url = "" #could not open URL
+#            return -1 #fail
+#               
+#        #Trace(self.loc_url)        
+#                
+#        if self.loc_url != "":
+#            return 0 #success
+#        else:
+#            return -1 #failure
     
 
     ######################################################################
@@ -672,38 +669,38 @@ class CURLLoader:
     # Parameters : URL=source URL
     # Return     : 0=successful, -1=fail
     ######################################################################
-    def geturl_applemovie(self, URL):
-
-        if xbmc.getInfoLabel("System.BuildVersion")[:4] != '9.04':
-            self.loc_url = URL + "?|User-Agent=QuickTime%2F7.2+%28qtver%3D7.2%3Bos%3DWindows+NT+5.1Service+Pack+3%29"
-            return 0
-              
-        #for older XBMC versions we download the file before playing
-        
-        #calculate unique hash URL
-        sum_str = ''
-        sum = 0
-        #calculate hash of URL
-        for i in range(len(URL)):
-            sum = sum + (ord(URL[i]) * i)
-        localfile = str(sum) + ".mov"
-
-        SetInfoText("Downloading Video...")
-        
-        values = { 'User-Agent' : 'QuickTime/7.6 (qtver=7.6;cpu=IA32;os=Mac 10,5,7)'}
-        req = urllib2.Request(URL, None, values)
-        f = urllib2.urlopen(req)
-        
-        file = open(tempCacheDir + localfile, "wb")        
-        
-        data=f.read(100 * 1024)
-        while data != "":
-            file.write(data)
-            data=f.read(100 * 1024)
-            
-        file.close()
-        f.close()  
-        
-        self.loc_url = tempCacheDir + localfile
-
-        return 0 #success
+#    def geturl_applemovie(self, URL):
+#
+#        if xbmc.getInfoLabel("System.BuildVersion")[:4] != '9.04':
+#            self.loc_url = URL + "?|User-Agent=QuickTime%2F7.2+%28qtver%3D7.2%3Bos%3DWindows+NT+5.1Service+Pack+3%29"
+#            return 0
+#              
+#        #for older XBMC versions we download the file before playing
+#        
+#        #calculate unique hash URL
+#        sum_str = ''
+#        sum = 0
+#        #calculate hash of URL
+#        for i in range(len(URL)):
+#            sum = sum + (ord(URL[i]) * i)
+#        localfile = str(sum) + ".mov"
+#
+#        SetInfoText("Downloading Video...")
+#        
+#        values = { 'User-Agent' : 'QuickTime/7.6 (qtver=7.6;cpu=IA32;os=Mac 10,5,7)'}
+#        req = urllib2.Request(URL, None, values)
+#        f = urllib2.urlopen(req)
+#        
+#        file = open(tempCacheDir + localfile, "wb")        
+#        
+#        data=f.read(100 * 1024)
+#        while data != "":
+#            file.write(data)
+#            data=f.read(100 * 1024)
+#            
+#        file.close()
+#        f.close()  
+#        
+#        self.loc_url = tempCacheDir + localfile
+#
+#        return 0 #success

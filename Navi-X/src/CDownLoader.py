@@ -57,11 +57,11 @@ class CDownLoader(threading.Thread):
        
         threading.Thread.__init__(self)    
 
-        self.setDaemon(True) #make a deamon thread   
+        self.setDaemon(True) #make a daemon thread   
         
         self.killed = False #not killed
         self.running = False #at startup downloader is not running
-        self.shutdown = False #shutdown after download
+        self.shutdown = False #shutdown after all files downloaded
 
     def run(self):
         while self.killed == False:
@@ -90,7 +90,9 @@ class CDownLoader(threading.Thread):
     ######################################################################
     # Description: Downloads a URL to local disk
     # Parameters : entry = media item
-    # Return     : -
+    # Return     : self.state (0=success, -1=failure, -2=cancel) 
+    #              self.dir (the new selected download dir)
+    #              self.localfile (the destination path+file)
     ######################################################################
     def browse(self, entry, dir=myDownloadsDir):
         self.state = 0 #success
@@ -109,7 +111,7 @@ class CDownLoader(threading.Thread):
         #For the local file name we use the playlist item 'name' field.
         #But this string may contain invalid characters. Therefore
         #we strip these invalid characters. We also limit the file
-        #name length to 42 which is the XBMC limit.
+        #name length to 42 which is the XBMC XBOX limit.
 
         localfile = re.sub('[^\w\s-]', '', entry.name) # remove characters which are not a letter, digit, white-space, underscore, or dash
         localfile = re.sub('\s+', ' ', localfile) # convert all instances of multiple spaces to single spaces
@@ -136,20 +138,21 @@ class CDownLoader(threading.Thread):
             if dialog.yesno("Message", "The destination file already exists, continue?") == False:
                 self.state = -2 #cancel download
 
+        #end of function.        
+        
     ######################################################################
     # Description: Retrieve the file extenstion and size of a URL 
     # Parameters : entry = mediaitem.
-    # Return     : the file extension and file size
+    # Return     : the file extension (ext) and file size (size)
     ######################################################################
     def read_file_info(self, entry):
         self.state = 0 #success    
-        ext=''
+        ext='' #no extension
     
-        URL=entry.URL
+        URL = entry.URL
     
         if URL[:3] == 'ftp':
-            #Retrieve the extenstion using lib2 function
-#@todo: include the dot in the returned file extension
+            #FTP
             ext = getFileExtension(URL)
             if ext != '':
                 ext = '.' + ext
@@ -173,22 +176,23 @@ class CDownLoader(threading.Thread):
                 size = int(size_string) #The remaining bytes
 
             except IOError:
-                self.state = -1 #failed to open URL
+                self.state = -1 #failed to open the HTTP URL
                 return
             
             #special handing for some URL's
-            pos = URL.find('http://youtube.com/v') #find last 'http' in the URL
+            pos = URL.find('http://www.youtube.com') #find last 'http' in the URL
             if pos != -1:
                 ext='.mp4'
             else:
+#todo: deprecated            
                 pos = URL.find("flyupload.com")
                 if pos != -1:
                     ext='.avi'
                 else:
                     #extract the file extension
-                    url_stripped=re.sub('\?.*$', '', loc_url) # strip GET-method args
-                    re_ext=re.compile('(\.\w+)$') # find extension
-                    match=re_ext.search(url_stripped)
+                    url_stripped = re.sub('\?.*$', '', loc_url) # strip GET-method args
+                    re_ext = re.compile('(\.\w+)$') # find extension
+                    match = re_ext.search(url_stripped)
                     if match is None:
                         ext = ""
                     else:
@@ -211,6 +215,7 @@ class CDownLoader(threading.Thread):
         tmp.URL = entry.URL
         tmp.DLloc = entry.DLloc
         tmp.player = entry.player
+        tmp.processor = entry.processor
         tmp.background = entry.background
         self.playlist_src.add(tmp)
         self.playlist_src.save(RootDir + downloads_queue)
@@ -224,26 +229,27 @@ class CDownLoader(threading.Thread):
         self.state = 0 #success
         
         counter = 0
-        size = self.playlist_src.size()
         
         self.MainWindow.download_logo.setVisible(1)
         self.MainWindow.dlinfotekst.setVisible(1)
         
         while (self.state != -2) and (self.playlist_src.size() > 0) and (self.killed == False) and (self.running == True):
-            header = str(counter+1) + " of " + str(size)
-            self.download_file(self.playlist_src.list[0], shutdown, header) #download single file
+            header = str(counter+1) + " of " + str(self.playlist_src.size()+counter)
+            self.download_file(self.playlist_src.list[0], header) #download single file
 
-            if self.state == -1:
-                dialog = xbmcgui.Dialog()
-                dialog.ok("Error", "Download failed.")
-           
-            if self.state != -2:
-                #Download file completed or the download failed, remove the file fro the queue.
+            if self.state == 0:
+                #Download file completed successfully
                 self.playlist_src.remove(0)
                 self.playlist_src.save(RootDir + downloads_queue)
-            
-            counter = counter + 1
-            
+                counter = counter + 1
+            elif self.state == -1:     
+                #Downlaod failed
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("Error", "Download failed. Retry?") == False:
+                    self.playlist_src.remove(0)
+                    self.playlist_src.save(RootDir + downloads_queue)
+                    counter = counter + 1
+                                            
             #Display the updated Queue playlist
             if (self.MainWindow.pl_focus == self.MainWindow.downloadqueue) or \
                (self.MainWindow.pl_focus == self.MainWindow.downloadslist):
@@ -254,7 +260,7 @@ class CDownLoader(threading.Thread):
             self.MainWindow.delFiles(cacheDir) #clear the cache first        
             self.MainWindow.bkgndloadertask.kill()
             self.MainWindow.bkgndloadertask.join(10) #timeout after 10 seconds        
-            xbmc.shutdown() #shutdown the X-box
+            xbmc.shutdown() #shutdown XBMC
         
         self.running = False #disable downloading
         
@@ -264,13 +270,10 @@ class CDownLoader(threading.Thread):
     ######################################################################
     # Description: Downloads a URL to local disk
     # Parameters : entry =  mediaitem to download
-    #              shutdown = true is shutdown after download
     #              header = header to display (1 of x)
     # Return     : -
     ######################################################################
-    def download_file(self, entry, shutdown = False, header=""):
-#@todo: shutdown parameter can be removed
-
+    def download_file(self, entry, header=""):
         self.state = 0 #success
         
         URL = entry.URL
@@ -278,7 +281,7 @@ class CDownLoader(threading.Thread):
         
         #download of FTP file is handled in a separte function
         if URL[:3] == 'ftp':
-            self.download_fileFTP(entry, shutdown, header)
+            self.download_fileFTP(entry, header)
             return
         
         if URL[:4] != 'http':
@@ -296,15 +299,12 @@ class CDownLoader(threading.Thread):
             return        
 
         URL = urlopener.loc_url
-  
-        #open the URL and get the direct URL
-    
-        
+              
         try:
 #            oldtimeout=socket_getdefaulttimeout()
 #            socket_setdefaulttimeout(url_open_timeout)
 
-            existSize=0
+            existSize=0 #existing size = 0 Bytes
 
             if os.path.exists(localfile):
                 #Append to the existing file. Because opening a file for append no longer works,
@@ -312,7 +312,7 @@ class CDownLoader(threading.Thread):
                 self.MainWindow.dlinfotekst.setLabel("Preparing append to file...")            
                 existSize = os.path.getsize(localfile)
                 
-                #Message("Exist size: " + str(existSize/1024))
+                #Message("Exist size: " + str(existSize))
                 
                 backupfile = localfile[0:-1] + '~'
                 os.rename(localfile, backupfile)
@@ -321,13 +321,17 @@ class CDownLoader(threading.Thread):
                 file = open(localfile, "wb")
                 bytes= 0
                 while (bytes < existSize):
-                    chunk = 1024
+                    chunk = 100 * 1024
                     if (bytes + chunk) > existSize:
                         chunk = existSize-bytes #remainder
                     file.write(file2.read(chunk))
                     bytes = bytes + chunk
-                
-                file2.close()
+
+                    percent = 100 * bytes / existSize
+                    line2 = '(%s) - %d ' % (header, percent) + '%' + ' Append...' 
+                    self.MainWindow.dlinfotekst.setLabel(line2)
+            
+                file2.close()                
                 os.remove(backupfile)
                
                 #If the file exists, then only download the remainder 
@@ -335,8 +339,8 @@ class CDownLoader(threading.Thread):
                             'Range' : 'bytes=%s-' % existSize}                          
 
             else: 
-                file = open(localfile, "wb")
-                #file does not exist            
+                #file does not exist 
+                file = open(localfile, "wb")           
                 headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
             
             #destination is already open            
@@ -350,17 +354,19 @@ class CDownLoader(threading.Thread):
             size_string = f.headers['Content-Length']
             size = int(size_string) #The remaining bytes
             
-            #Message("Remaining: " + str(size/1024))
+            #Message("Remaining: " + str(size))
                         
 #todo: size may be existsize if file is downloaded exactly 50%            
             if (size > 0) and (size != existSize):
                 bytes = existSize #bytes downloaded already
-                size = size + existSize
-                size_MB = float(size) / (1024 * 1024)
+                size = size + existSize #total size
+                #Message("Total: " + str(size))
+                
+                size_MB = float(size) / (1024 * 1024) #total size MB
 
                 #download in chunks of 100kBytes
                 while (bytes < size) and (self.killed == False) and (self.running == True):
-                    chunk = 100 * 1024
+                    chunk = 100 * 1024 #100kBytes chunks
                     if (bytes + chunk) > size:
                         chunk = size-bytes #remainder
                     #data = f.read(chunk)
@@ -369,8 +375,7 @@ class CDownLoader(threading.Thread):
                             
                     percent = 100 * bytes / size
                     done = float(bytes) / (1024 * 1024)
-                    line2 = '(%s) %.1f MB - %d ' % (header, size_MB, percent) + '%'
-                
+                    line2 = '(%s) %.1f MB - %d ' % (header, size_MB, percent) + '%'           
                     self.MainWindow.dlinfotekst.setLabel(line2)
                 
                 f.close() #close the URL
@@ -380,6 +385,7 @@ class CDownLoader(threading.Thread):
                         
         except IOError:  
 #            socket_setdefaulttimeout(oldtimeout)       
+            file.close() #close the destination file 
             self.state = -1 #failed to download the file
             return
 
@@ -407,7 +413,7 @@ class CDownLoader(threading.Thread):
     #              header = header to display (1 of x)
     # Return     : -
     ######################################################################            
-    def download_fileFTP(self, entry, shutdown = False, header=""):
+    def download_fileFTP(self, entry, header=""):
         self.state = 0 #success
 
         URL = entry.URL

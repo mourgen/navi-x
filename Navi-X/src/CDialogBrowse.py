@@ -50,40 +50,7 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
       
         control=self.getControl(BUTTON_OK)
         self.setFocus(control) 
-      
-        #width=parent.getWidth()
-      
-        #background image
-        #self.bg = xbmcgui.ControlImage(100,200,width-200,160, imageDir + "dialog-panel.png")
-        #self.addControl(self.bg)
-
-        #self.title = xbmcgui.ControlLabel(130,210,155,40, 'Download location', "font14")
-        #self.addControl(self.title)
-
-        #self.button_dest = xbmcgui.ControlButton(130,240,width-245,32, '' , imageDir + "button-focus.png", imageDir + "button-nofocus.png")
-        #self.addControl(self.button_dest)
-
-        #self.button_browse = xbmcgui.ControlButton(130,290,145,32,'Browse', imageDir + "button-focus.png", imageDir + "button-nofocus.png")
-        #self.addControl(self.button_browse)
-          
-        #self.button_ok = xbmcgui.ControlButton(300,290,140,32,'OK', imageDir + "button-focus.png", imageDir + "button-nofocus.png")
-        #self.addControl(self.button_ok)
-        
-        #self.button_cancel = xbmcgui.ControlButton(475,290,140,32,'Cancel', imageDir + "button-focus.png", imageDir + "button-nofocus.png")
-        #self.addControl(self.button_cancel)
-        
-        #button key behaviour
-        #self.button_ok.controlUp(self.button_dest)       
-        #self.button_ok.controlRight(self.button_cancel) 
-        #self.button_ok.controlLeft(self.button_browse) 
-        #self.button_dest.controlDown(self.button_ok)       
-        #self.button_browse.controlRight(self.button_ok)
-        #self.button_browse.controlUp(self.button_dest)
-        #self.button_cancel.controlLeft(self.button_ok)
-        #self.button_cancel.controlUp(self.button_dest)       
-        
-        #self.setFocus(self.button_ok)
-        
+             
     def onAction(self, action):
         #select item is handled via other onClick().
         if not action.getId() == ACTION_SELECT_ITEM:
@@ -111,7 +78,7 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
                 
                 if (keyboard.isConfirmed() == True):
                     fn = keyboard.getText()
-                    pos = fn.rfind('\\') #find last '\' in the string
+                    pos = fn.rfind(SEPARATOR) #find last '\' in the string
                     if pos != -1:
                         self.dir = fn[:pos+1]
                         filename = fn[pos+1:]
@@ -128,12 +95,12 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
                 fn = dialog.browse(self.type,'Xbox Media Center', 'files', '', False, False)
                 if fn:
                     if self.type == 3:
-                        if fn[-1] != '\\':
-                            fn = fn + '\\'
+                        if fn[-1] != SEPARATOR:
+                            fn = fn + SEPARATOR
                             
                         self.dir = fn
                     else:
-                        pos = fn.rfind('\\') #find last '\' in the string
+                        pos = fn.rfind(SEPARATOR) #find last '\' in the string
                         if pos != -1:
                             self.dir = fn[:pos+1]
                             filename = fn[pos+1:]
@@ -151,7 +118,6 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
             self.onAction1(ACTION_SELECT_ITEM)   
        
     def onControl(self, control):
-        #self.setFocus(control)
         pass
     
     def SetFile(self, dir, filename, type, heading=""):
@@ -159,11 +125,6 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
         self.filename = filename
         self.type = type
         self.label = heading
-
-#        if self.type == 3:
-#            self.label = 'Enter Destination File:'
-#        else:
-#            self.label = 'Browse File:'
         
     def SetLabel(self, filename):
         control = self.getControl(BUTTON_PATH)

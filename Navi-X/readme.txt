@@ -1,12 +1,10 @@
-Welcome to Navi-X v3.4.3
+Welcome to Navi-X v3.5
 
 Changelog:
--Youtube fix.
--Display the media source of a selected mediaitem.
--Display download file size in Browse window.
--Use video as background image when video is still playing.
--Updated the installer to support XBMC Dharma.
--Small Updates to the 720p XML file.
+-Youtube update. Fixed searching option. Added selection of next page.
+-File download improvements. Added retry option after download fails.
+-Continue downloading at start-up if download queue is not empty.
+-A number of UI improvements.
 
 This version has been tested on:
 -XBMC XBOX T3CH r30442(XBOX)

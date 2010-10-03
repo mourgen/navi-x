@@ -157,7 +157,7 @@ class CURLParseFTP:
 ######################################################################
 # Description: Get the file extension of a URL
 # Parameters : filename=local path + file name
-# Return     : -
+# Return     : the file extension Excluding the dot
 ######################################################################
 def getFileExtension(filename):
     ext_pos = filename.rfind('.') #find last '.' in the string

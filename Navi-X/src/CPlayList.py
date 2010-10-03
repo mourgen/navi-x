@@ -509,7 +509,10 @@ class CPlayList:
                 if tmp.URL != '':
                     self.list.append(tmp)
                     counter = counter + 1
-                    
+        
+        #Post rocessing in case of Youtube playlist URL.   
+        self.load_youtube_postprocessor(filename, mediaitem, proxy) 
+        
         return 0
 
     ######################################################################
@@ -724,6 +727,9 @@ class CPlayList:
                 if tmp.URL != '':
                     self.list.append(tmp)
                     counter = counter + 1
+
+        #Post rocessing in case of Youtube playlist URL.   
+        self.load_youtube_postprocessor(filename, mediaitem, proxy) 
                     
         return 0
 
@@ -821,125 +827,172 @@ class CPlayList:
         return 0
 
     ######################################################################
-    # Description: Loads html elements from the Youtube website
+    # Description: Youtube post processor.
     # Parameters : filename=URL or local file
     #              mediaitem=CMediaItem object to load    
     # Return     : 0=succes, 
     #              -1=invalid playlist version, 
     #              -2=could not open playlist
     ######################################################################
-    def load_html_youtube(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
-        if filename != '':
-            self.URL = filename
-        else:
-            self.URL = mediaitem.URL
-        
-#        Trace(self.URL)
-        
-        loader = CFileLoader2()
-        loader.load(self.URL, tempCacheDir + 'page.html', proxy=proxy)
-        if loader.state != 0:
-            return -2
-        filename = loader.localfile
-        
-        try:
-            f = open(filename, 'r')
-            data = f.read()
-            #entries = data.split('<div class="video-entry">')
-            entries = data.split('<div class="video-entry')
-            lines = data.split('\n')
-            f.close()
-        except IOError:
-            return -2
-        
-        #defaults
-        self.version = plxVersion
-        self.background = mediaitem.background
-        self.logo = 'none'
-        self.title = 'Youtube' + ' - ' + mediaitem.name
-        self.description = ''
-        self.player = mediaitem.player
-        self.processor = mediaitem.processor        
-        self.playmode = 'default'
-        str_nextpage = 'Next Page'
-        
-        #clear the list
-        if (mediaitem.URL != self.list[-1].URL) or (mediaitem.name != str_nextpage):
-            del self.list[:]
-            self.start_index = 0            
-        else:
-            self.list.pop()
-            self.start_index = self.size()
-        
-        #parse playlist entries 
-        for m in entries:
-            index1= m.find('class="vtitle marT5"')
-            if index1 == -1:
-                index1= m.find('class="video-long-title"')
-            if index1 == -1:
-                index1= m.find('class="vlshortTitle"')
-            if index1 == -1:
-                index1= m.find('class="vSnippetTitle"')
-            if index1 == -1:
-                index1= m.find('class="title"') #playlist
-            if index1 != -1:
-                tmp = CMediaItem() #create new item
-                tmp.type = 'video'
- 
-                index2 = m.find('</div>', index1)
-                index3 = m.find('watch?v=', index1, index2)
-                index4 = m.find('"', index3, index2)
-                index7 = m.find('&', index3, index4) #playlist
-                if index7 != -1: #just for playlist
-                    index4 = index7
-                value = m[index3+8:index4]
-                tmp.URL = 'http://youtube.com/v/' + value + '.swf'
-                tmp.thumb = 'http://img.youtube.com/vi/' + value + '/default.jpg'
-
-                #now get the title
-                index5 = m.find('">', index4+1, index2)
-                index6 = m.find('</a>', index5, index2)
-                value = m[index5+2:index6]
-                value = value.replace('<b>',"")
-                value = value.replace('</b>',"")
-                value = value.replace('&quot;',"")
-                value = value.replace('&#39;',"\'")
-                tmp.name = value
+    def load_youtube_postprocessor(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):  
+        #is this the Youtube API?
+        if mediaitem.URL.find("http://gdata.youtube.com") != -1:
+            maxresults = 0
+            index = mediaitem.URL.find("max-results")
+            if index != -1:
+                index2 =  mediaitem.URL.find("&", index)
+                if index2 != -1:
+                    maxresults = int(mediaitem.URL[index+12:index2])
+                else:
+                    maxresults = int(mediaitem.URL[index+12:])
+                    
+            if len(self.list) < maxresults:
+                # no next page
+                return 
                 
-                tmp.player = self.player
-                if self.processor != '':
-                    tmp.processor = self.processor   
-                else: #hard coded processor
-                    tmp.processor = "http://navix.turner3d.net/proc/youtube"
-                self.list.append(tmp)                
-
-        #check if there is a next page in the html. Get the last one in the page.
-        index1 = data.rfind('data-page')
-        if index1 != -1:
-            index2 = data.rfind('<a href=',0,index1)
-            if index2 != -1:
-                index3 = data.find('"',index2,index1)
-                if index3 != -1:
-                    index4 = data.find('"',index3+1,index1)
-                    if index4 != -1:
-                        value = data[index3+1:index4]
+            startindex = 1
+            URL = mediaitem.URL
+            index = mediaitem.URL.find("start-index")
+            if index != -1:
+                index2 =  mediaitem.URL.find("&", index+1)
+                if index2 != -1:
+                    startindex = int(mediaitem.URL[index+12:index2])
+                    URL = mediaitem.URL[:index-1] + mediaitem.URL[index2:]
+                else:
+                    startindex = int(mediaitem.URL[index+12:])
+                    URL = mediaitem.URL[:index-1]
+                    
+            if self.list[len(self.list)-1].name == 'Next Page':    
+                startindex = startindex + len(self.list) -1
+            else:
+                startindex = startindex + len(self.list)
+                       
+            tmp = CMediaItem() #create new item
+            tmp.type = mediaitem.type
+            tmp.name = 'Next Page'
+            tmp.icon = imageDir + 'icon_right.png'
+            tmp.player = mediaitem.player
+            tmp.background = mediaitem.background
+            tmp.processor = mediaitem.processor
+            
+            tmp.URL = URL + "&start-index=%d" % startindex
+            
+            self.list.append(tmp) 
+        return
+    
+    
+#    def load_html_youtube2(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
+#        if filename != '':
+#            self.URL = filename
+#        else:
+#            self.URL = mediaitem.URL
+#        
+#        Trace(self.URL)
+#        
+#        loader = CFileLoader2()
+#        loader.load(self.URL, tempCacheDir + 'page.html', proxy=proxy)
+#        if loader.state != 0:
+#            return -2
+#        filename = loader.localfile
+#        
+#        try:
+#            f = open(filename, 'r')
+#            data = f.read()
+#            #entries = data.split('<div class="video-entry">')
+#            entries = data.split('<div class="video-entry')
+#            lines = data.split('\n')
+#            f.close()
+#        except IOError:
+#            return -2
+#        
+#        #defaults
+#        self.version = plxVersion
+#        self.background = mediaitem.background
+#        self.logo = 'none'
+#        self.title = 'Youtube' + ' - ' + mediaitem.name
+#        self.description = ''
+#        self.player = mediaitem.player
+#        self.processor = mediaitem.processor        
+#        self.playmode = 'default'
+#        str_nextpage = 'Next Page'
+#        
+#        #clear the list
+#        if (mediaitem.URL != self.list[-1].URL) or (mediaitem.name != str_nextpage):
+#            del self.list[:]
+#            self.start_index = 0            
+#        else:
+#            self.list.pop()
+#            self.start_index = self.size()
+#        
+#        #parse playlist entries 
+#        for m in entries:
+#            index1= m.find('class="vtitle marT5"')
+#            if index1 == -1:
+#                index1= m.find('class="video-long-title"')
+#            if index1 == -1:
+#                index1= m.find('class="vlshortTitle"')
+#            if index1 == -1:
+#                index1= m.find('class="vSnippetTitle"')
+#            if index1 == -1:
+#                index1= m.find('class="title"') #playlist
+#            if index1 != -1:
+#                tmp = CMediaItem() #create new item
+#                tmp.type = 'video'
+# 
+#                index2 = m.find('</div>', index1)
+#                index3 = m.find('watch?v=', index1, index2)
+#                index4 = m.find('"', index3, index2)
+#                index7 = m.find('&', index3, index4) #playlist
+#                if index7 != -1: #just for playlist
+#                    index4 = index7
+#                value = m[index3+8:index4]
+#                tmp.URL = 'http://youtube.com/v/' + value + '.swf'
+#                tmp.thumb = 'http://img.youtube.com/vi/' + value + '/default.jpg'
+#
+#                #now get the title
+#                index5 = m.find('">', index4+1, index2)
+#                index6 = m.find('</a>', index5, index2)
+#                value = m[index5+2:index6]
+#                value = value.replace('<b>',"")
+#                value = value.replace('</b>',"")
+#                value = value.replace('&quot;',"")
+#                value = value.replace('&#39;',"\'")
+#                tmp.name = value
+#                
+#                tmp.player = self.player
+#                if self.processor != '':
+#                    tmp.processor = self.processor   
+#                else: #hard coded processor
+#                    tmp.processor = "http://navix.turner3d.net/proc/youtube"
+#                self.list.append(tmp)                
+#
+#        #check if there is a next page in the html. Get the last one in the page.
+#        index1 = data.rfind('data-page')
+#        if index1 != -1:
+#            index2 = data.rfind('<a href=',0,index1)
+#            if index2 != -1:
+#                index3 = data.find('"',index2,index1)
+#                if index3 != -1:
+#                    index4 = data.find('"',index3+1,index1)
+#                    if index4 != -1:
+#                        value = data[index3+1:index4]
 #                        Message(value)
-                        tmp = CMediaItem() #create new item
-                        tmp.type = 'html_youtube'
-                        tmp.name = str_nextpage
-                        tmp.player = self.player
-                        tmp.background = self.background
-                    
-                        #create the next page URL
-                        index4 = self.URL.find("?")
-                        url = self.URL[:index4]
-                        index5 = value.find("?")
-                        value = value[index5:]
-                        tmp.URL= url+ value
-                    
-                        self.list.append(tmp)                             
-        
-        return 0
+#                        tmp = CMediaItem() #create new item
+#                        tmp.type = 'html_youtube'
+#                        tmp.name = str_nextpage
+#                        tmp.player = self.player
+#                        tmp.background = self.background
+#                    
+#                        #create the next page URL
+#                        index4 = self.URL.find("?")
+#                        url = self.URL[:index4]
+#                        index5 = value.find("?")
+#                        value = value[index5:]
+#                        tmp.URL= url+ value
+#                    
+#                        self.list.append(tmp)                             
+#        
+#        return 0
 
     ######################################################################
     # Description: Loads shoutcast XML file.

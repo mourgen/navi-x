@@ -53,6 +53,7 @@
 # -v3.4.1 (2010/07/23)
 # -v3.4.2 (2010/07/27)
 # -v3.4.3 (2010/08/28)
+# -v3.5 (2010/10/03)
 #
 #todo: Dharma XML update
 #############################################################################
@@ -242,6 +243,18 @@ class MainWindow(xbmcgui.WindowXML):
                 if result != 0: #failed
                     self.ParsePlaylist(URL=home_URL_mirror) #mirror site              
 
+            if result != 0:
+                #failed to load page startup page from both main and backup server
+                dialog = xbmcgui.Dialog()
+                dialog.ok("Error", "Please check your internet connection!")
+                return 
+                
+            #check the download queue    
+            if self.downloadqueue.size() > 0:
+                dialog = xbmcgui.Dialog()
+                if dialog.yesno("Message", "Download queue not empty. Start download now?") == True:
+                    self.downloader.download_start() 
+                
             #end of function
              
         ######################################################################
@@ -268,6 +281,7 @@ class MainWindow(xbmcgui.WindowXML):
             if (action == ACTION_SELECT_ITEM) and (self.getFocus() == self.list3):
                 pos = self.list3.getSelectedPosition()
                 if pos == 5:
+                    self.state_busy = 1
                     self.setInfoText("Shutting Down Navi-X...") 
                     self.onSaveSettings()
                     self.bkgndloadertask.kill()
@@ -560,8 +574,8 @@ class MainWindow(xbmcgui.WindowXML):
                     result = playlist.load_rss_20(URL, mediaitem, proxy)
                 elif type[0:4] == 'atom':
                     result = playlist.load_atom_10(URL, mediaitem, proxy)
-                elif type == 'html_youtube':
-                    result = playlist.load_html_youtube(URL, mediaitem, proxy)
+#                elif type == 'html_youtube':
+#                    result = playlist.load_html_youtube(URL, mediaitem, proxy)
                 elif type == 'xml_shoutcast':
                     result = playlist.load_xml_shoutcast(URL, mediaitem, proxy)
                 elif type == 'xml_applemovie':
@@ -776,8 +790,8 @@ class MainWindow(xbmcgui.WindowXML):
                 type = 'rss'
             elif type[0:3] == 'xml':
                 type = 'playlist'
-            elif type == 'html_youtube':
-                type = 'playlist'
+#            elif type == 'html_youtube':
+#                type = 'playlist'
             elif type[0:6] == 'search':
                 type = 'search'               
             elif type == 'directory':
@@ -914,8 +928,8 @@ class MainWindow(xbmcgui.WindowXML):
                 tmp.mediaitem = self.mediaitem
 
                 #exception case: Do not add Youtube pages to history list
-                if self.mediaitem.GetType() == 'html_youtube':
-                    append = False
+#                if self.mediaitem.GetType() == 'html_youtube':
+#                    append = False
                         
                 self.pl_focus = self.playlist #switch back to main list
                 result = self.ParsePlaylist(mediaitem=mediaitem)
@@ -1365,27 +1379,26 @@ class MainWindow(xbmcgui.WindowXML):
                 if item.URL != '':
                     URL = item.URL
                 else:
-                    URL = 'http://www.youtube.com/results?search_query='
+                    URL = 'http://gdata.youtube.com/feeds/base/videos?max-results=50&alt=rss&q='
                 URL = URL + fn
                   
                 #ask the end user how to sort
-                possibleChoices = ["Relevance", "Date Added", "View Count", "Rating"]
+                possibleChoices = ["Relevance", "Published", "View Count"]
                 dialog = xbmcgui.Dialog()
                 choice = dialog.select("Sort by", possibleChoices)
 
                 #validate the selected item
-                if choice == 1: #Date Added
-                    URL = URL + '&search_sort=video_date_uploaded'
+                if choice == 1: #Published
+                    URL = URL + '&orderby=published'
                 elif choice == 2: #View Count
-                    URL = URL + '&search_sort=video_view_count'
-                elif choice == 3: #Rating
-                    URL = URL + '&search_sort=video_avg_rating'
+                    URL = URL + '&orderby=viewCount'
                
                 mediaitem=CMediaItem()
                 mediaitem.URL = URL
-                mediaitem.type = 'html_youtube'
+                mediaitem.type = 'rss:video'
                 mediaitem.name = 'search results: ' + searchstring
                 mediaitem.player = item.player
+                mediaitem.processor = item.processor                
 
                 #create history item
                 tmp = CHistorytem()
@@ -1409,6 +1422,7 @@ class MainWindow(xbmcgui.WindowXML):
                     mediaitem.type = 'xml_shoutcast'
                     mediaitem.name = 'search results: ' + searchstring
                     mediaitem.player = item.player
+                    mediaitem.processor = item.processor
 
                     #create history item
                     tmp = CHistorytem()
@@ -1432,6 +1446,7 @@ class MainWindow(xbmcgui.WindowXML):
                     mediaitem.type = 'html_flickr'
                     mediaitem.name = 'search results: ' + searchstring
                     mediaitem.player = item.player
+                    mediaitem.processor = item.processor
 
                     #create history item
                     tmp = CHistorytem()
@@ -1459,6 +1474,7 @@ class MainWindow(xbmcgui.WindowXML):
                     
                     mediaitem.name = 'search results: ' + searchstring
                     mediaitem.player = item.player
+                    mediaitem.processor = item.processor
 
                     #create history item
                     tmp = CHistorytem()
@@ -1727,6 +1743,14 @@ class MainWindow(xbmcgui.WindowXML):
                         dialog.ok("Error", "Nothing to paste.")
                   
                 elif choice == 5: #Remove
+                    pos = self.getPlaylistPosition()                  
+                    mediaitem = self.downloadqueue.list[pos]
+                    if os.path.exists(mediaitem.DLloc):
+                        if dialog.yesno("Message", "Delete file from disk?", mediaitem.DLloc) == True:
+                            try:        
+                                os.remove(mediaitem.DLloc)
+                            except IOError:
+                                pass
 
                     pos = self.getPlaylistPosition()
                     self.downloadqueue.remove(pos)
