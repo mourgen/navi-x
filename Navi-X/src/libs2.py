@@ -272,19 +272,38 @@ def getRemote(url,args={}):
     
     return oret
 
-#@todo: separate class py file for login handling
+ 
 ######################################################################
-# Description: Login function for Navi-Xtreme login.
-# Parameters : username: user name
-#              password: user password
-# Return     : blowfish-encrypted string identifying the user for 
-#              saving locally, or an empty string if the login failed.
-######################################################################  
-#def nxLogin(username,password):
-#    return getRemote('http://navix.turner3d.net/login/',{
-#    	'method':'post',
-#    	'postdata':urllib.urlencode({'username':username,'password':password})
-#    })
+# Description: Creates an addon.xml file (needed for Dharma)
+# Parameters : name: shortcut name
+#            : path: short pathname in the scripts folder
+# Return     : -
+######################################################################
+def CreateAddonXML(name, path):
+    sum = 0
+    #calculate hash of name
+    for i in range(len(name)):
+        sum = sum + (ord(name[i]) * i)
+    sum_str = str(sum)
+
+    try:
+        f=open(initDir + 'addon.xml', 'r')
+        data = f.read()
+        data = data.splitlines()
+        f.close()
+        
+        f=open(path + 'addon.xml', 'w')
+        for m in data:
+            line = m
+            if m.find("name=") != -1:
+                line = line + '"' + name + '"'
+            elif m.find("id=") != -1:
+                line = line + '"scrip.navi-x' + sum_str + '"' 
+            f.write(line + '\n')
+        f.close()     
+    except IOError:
+        pass
+
  
 ######################################################################
 # Description: Controls the info text label on the left bottom side

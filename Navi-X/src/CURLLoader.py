@@ -73,9 +73,10 @@ class CURLLoader:
             req = urllib2.Request(URL, None, values)
             f = urllib2.urlopen(req)
             self.loc_url=f.geturl()
+            f.close()            
         except IOError:
             pass
-            
+        
         #always return true    
         return 0
 

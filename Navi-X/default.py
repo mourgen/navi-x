@@ -34,8 +34,8 @@ else:
     SEPARATOR = '\\'
 
 version_default = '0.0.0'
-version_URL='http://www.navi-x.org/updates/version34.dat'
-update_URL='http://www.navi-x.org/updates/update34.zip'
+version_URL='http://www.navi-x.org/updates/version3x.dat'
+update_URL='http://www.navi-x.org/updates/update3x.zip'
 
 #############################################################################
 def onReadVersion():

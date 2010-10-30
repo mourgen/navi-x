@@ -54,6 +54,7 @@
 # -v3.4.2 (2010/07/27)
 # -v3.4.3 (2010/08/28)
 # -v3.5 (2010/10/03)
+# -v3.5.1 (2010/10/xx)
 #
 #todo: Dharma XML update
 #############################################################################
@@ -226,7 +227,7 @@ class MainWindow(xbmcgui.WindowXML):
 
             #Configure the info text control
             SetInfoText(window=self.infotekst)
-
+            
             #check if there is a startup playlist
             result=-1
             if os.path.exists(RootDir + "startup.plx"):               
@@ -241,8 +242,12 @@ class MainWindow(xbmcgui.WindowXML):
                 #there is no startup playlist, load the Navi-X home page
                 result = self.ParsePlaylist(URL=self.home)
                 if result != 0: #failed
-                    self.ParsePlaylist(URL=home_URL_mirror) #mirror site              
-
+                    result = self.ParsePlaylist(URL=home_URL_mirror) #mirror site
+                else:
+                    #make sure Navi-X icon is updated always
+                    loader = CFileLoader2() #file loader
+                    loader.load(navixlogo, imageCacheDir + "thumb.png", proxy="CACHING", content_type='image')                
+                        
             if result != 0:
                 #failed to load page startup page from both main and backup server
                 dialog = xbmcgui.Dialog()
@@ -1862,12 +1867,13 @@ class MainWindow(xbmcgui.WindowXML):
                 self.state_busy = 0 #busy
                 return
 
-            possibleChoices = ["Download", "Download + Shutdown", "Cancel"]
+            possibleChoices = ["Download", "Download + Shutdown", "Download Speed Test", "Cancel"]
             dialog = xbmcgui.Dialog()
             choice = dialog.select("Download...", possibleChoices)
                        
             if (choice != -1) and (choice < 2):
-                self.downlshutdown = False #Reset flag
+                if choice == 0:
+                    self.downlshutdown = False #Reset flag
                 if choice == 1:
                     self.downlshutdown = True #Set flag
                    
@@ -1892,7 +1898,13 @@ class MainWindow(xbmcgui.WindowXML):
                 elif self.downloader.state == -1:
                     dialog = xbmcgui.Dialog()
                     dialog.ok("Error", "Cannot locate file.")
-                    
+            
+            if (choice != -1) and (choice == 2): #download speed test
+                result = self.downloader.DownLoadSpeedTest(entry)
+                if result != 0:
+                    dialog = xbmcgui.Dialog()
+                    dialog.ok("Error", "Download Speed Test Failed.")
+        
             self.state_busy = 0 #not busy            
 
         ######################################################################
@@ -2073,21 +2085,30 @@ class MainWindow(xbmcgui.WindowXML):
             if not os.path.exists(directory): 
                 os.mkdir(directory)
           
+            #create the shortcut thumb
             if mediaitem.thumb != 'default':
                 loader = CFileLoader2()
-                loader.load(mediaitem.thumb, directory + SEPARATOR + 'default.tbn', proxy='DISABLED')           
+                loader.load(mediaitem.thumb, directory + SEPARATOR + 'default.tbn', proxy='DISABLED')
             elif playlist.logo != 'none':
                 loader = CFileLoader2()
                 loader.load(playlist.logo, directory + SEPARATOR + 'default.tbn', proxy='DISABLED') 
             else:
                 shutil.copyfile(imageDir + 'shortcut.png' , directory + SEPARATOR + 'default.tbn')            
             
+            #create the thumb icon for XBMC Dharma (icon.png)
+            shutil.copyfile(directory + SEPARATOR + 'default.tbn', directory + SEPARATOR + "icon.png")
+            
+            #copy the boot script
             shutil.copyfile(initDir+"default.py", directory + SEPARATOR + "default.py")
             
+            #For Dharma we need to create a addon.xml file. Do this in a separate function
+            CreateAddonXML(mediaitem.name, directory + SEPARATOR)
+            
+            #create the boot playlist.
             playlist.save(directory + SEPARATOR + "startup.plx", pos, pos+1)
             
             dialog = xbmcgui.Dialog()
-            dialog.ok("Message", "Created new shortcut in script folder.")
+            dialog.ok("Message", "New shortcut created. Please restart XBMC.")
             
 
         ######################################################################

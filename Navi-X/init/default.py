@@ -24,15 +24,22 @@ else:
 import xbmc
 version = xbmc.getInfoLabel("System.BuildVersion")[:1]
 
-if version == '9':
+#version = xbmc.getInfoLabel("System.BuildVersion")[:1]
+if xbmc.getInfoLabel("System.BuildVersion")[:2] == '10':
+    scriptDir = "special://home/addons/"
+    pluginDir = "special://home/addons/"
+    skinDir = "special://home/skin/"
+    NaviXDir = scriptDir + "Navi-X/"  
+elif xbmc.getInfoLabel("System.BuildVersion")[:1] == '9':
     scriptDir = "special://home/scripts/"
     pluginDir = "special://home/plugins/"
-    NaviXDir = scriptDir + "Navi-X/"
+    skinDir = "special://home/skin/"   
+    NaviXDir = scriptDir + "Navi-X/"   
 else: 
     scriptDir = "Q:\\scripts\\"
     pluginDir = "Q:\\plugins\\"
     skinDir = "Q:\\skin\\"
-    NaviXDir = scriptDir + "Navi-X\\"
+    NaviXDir = scriptDir + "Navi-X\\"    
 
 #############################################################################
 def Trace(string):

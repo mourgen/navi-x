@@ -30,6 +30,7 @@ class CFileLoader2:
     ######################################################################
     # Description: Downloads a file in case of URL and returns absolute
     #              path to the local file.
+#@todo: Fill parameters    
     # Parameters : URL=source, localfile=destination
     # Return     : -
     ######################################################################

@@ -93,7 +93,6 @@ class CBackgroundLoader(threading.Thread):
 #todo:use the HTTP header image content type to determine the file extension
                             ext = getFileExtension(m)
                             loader = CFileLoader2() #file loader
-                            #loader.load(m, imageCacheDir + "thumb." + ext, timeout=2, proxy="ENABLED", content_type='image')
                             loader.load(m, imageCacheDir + "thumb." + ext, proxy="ENABLED", content_type='image')
                             if loader.state == 0: #success
                                 #next line is fix, makes sure thumb is update.

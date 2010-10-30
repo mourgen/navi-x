@@ -1,10 +1,10 @@
-Welcome to Navi-X v3.5
+Welcome to Navi-X v3.5.1
 
 Changelog:
--Youtube update. Fixed searching option. Added selection of next page.
--File download improvements. Added retry option after download fails.
--Continue downloading at start-up if download queue is not empty.
--A number of UI improvements.
+-Fixed creating of shortcut in XBMC Dharma
+-NEW: Download Speed Test. New option in the Download menu to test the 
+download/stream speed of the current selected media item.
+-NEW: Download speed indication during download.
 
 This version has been tested on:
 -XBMC XBOX T3CH r30442(XBOX)

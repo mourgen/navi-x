@@ -76,9 +76,12 @@ else:
     SEPARATOR = '\\'
 
 import xbmc
-version = xbmc.getInfoLabel("System.BuildVersion")[:1]
-
-if version == '9':
+#version = xbmc.getInfoLabel("System.BuildVersion")[:1]
+if xbmc.getInfoLabel("System.BuildVersion")[:2] == '10':
+    scriptDir = "special://home/addons/"
+    pluginDir = "special://home/addons/"
+    skinDir = "special://home/skin/"
+elif xbmc.getInfoLabel("System.BuildVersion")[:1] == '9':
     scriptDir = "special://home/scripts/"
     pluginDir = "special://home/plugins/"
     skinDir = "special://home/skin/"
@@ -91,7 +94,7 @@ else:
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='5'
+SubVersion='5.1'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -107,6 +110,7 @@ background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
 searchhistory_file = 'search.dat'
 nxserver_URL = 'http://navix.turner3d.net'
+navixlogo = 'http://www.navi-x.org/playlists/logo.png'
 
 url_open_timeout = 10 #10 seconds
 page_size = 200 #display maximum 100 entries on one page

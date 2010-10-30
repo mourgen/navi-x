@@ -23,6 +23,7 @@ import threading
 import ftplib
 import os
 import socket
+import time
 from settings import *
 from CPlayList import *
 from CDialogBrowse import *
@@ -173,7 +174,7 @@ class CDownLoader(threading.Thread):
                 f = urllib2.urlopen(req)
                 loc_url=f.geturl()
                 size_string = f.headers['Content-Length']
-                size = int(size_string) #The remaining bytes
+                size = int(size_string)
 
             except IOError:
                 self.state = -1 #failed to open the HTTP URL
@@ -364,7 +365,14 @@ class CDownLoader(threading.Thread):
                 
                 size_MB = float(size) / (1024 * 1024) #total size MB
 
-                #download in chunks of 100kBytes
+                #DL-speed calculation
+                starttime = time.time()
+                startsize = bytes
+                deltatime = 0
+                deltasize = 0
+                dlspeed = 0
+
+                #download in chunks of 100kBytes                
                 while (bytes < size) and (self.killed == False) and (self.running == True):
                     chunk = 100 * 1024 #100kBytes chunks
                     if (bytes + chunk) > size:
@@ -375,17 +383,25 @@ class CDownLoader(threading.Thread):
                             
                     percent = 100 * bytes / size
                     done = float(bytes) / (1024 * 1024)
-                    line2 = '(%s) %.1f MB - %d ' % (header, size_MB, percent) + '%'           
+                    
+                    deltatime = time.time() - starttime
+                    if deltatime >=5: #update every 5 seconds
+                        #calculate the download speed                        
+                        deltasize = bytes - startsize
+                        dlspeed = (deltasize / 1024) / deltatime                        
+                        starttime = time.time()
+                        startsize = bytes
+                    
+                    line2 = '(%s) %.1f MB - %d%% - %dkB/s' % (header, size_MB, percent, dlspeed)
                     self.MainWindow.dlinfotekst.setLabel(line2)
                 
                 f.close() #close the URL
+                file.close() #close the destination file                 
 
                 if (self.killed == True) or (self.running == False):
                     self.state = -2 #failed to download the file
                         
-        except IOError:  
-#            socket_setdefaulttimeout(oldtimeout)       
-            file.close() #close the destination file 
+        except IOError:        
             self.state = -1 #failed to download the file
             return
 
@@ -565,6 +581,77 @@ class CDownLoader(threading.Thread):
         
         #end of function
         
+    ######################################################################
+    # Description: Download Speed test
+    # Parameters : entry =  mediaitem to test download speed
+    # Return     : 0 on success, -1 on failure
+    ######################################################################       
+    def DownLoadSpeedTest(self, entry):
+        #Get the direct URL to the mediaitem given URL      
+        urlopener = CURLLoader()
+        result = urlopener.urlopen(entry.URL, entry)
+        if result != 0:
+            return -1       
+
+        URL = urlopener.loc_url
+
+        dialog = xbmcgui.DialogProgress()
+        dialog.create("Download Speed Test", entry.name)        
+        dialog.update(0, entry.name)
+    
+        try:
+            bytes= 0
+            chunk = 100 * 1024
+            
+            headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+            req = urllib2.Request(URL, None, headers)
+            f = urllib2.urlopen(req)      
+            
+            size_string = f.headers['Content-Length']
+            size = int(size_string)     
+            
+            file = open(tempCacheDir + "dltest", "wb")
+            starttime = time.time()
+            deltatime = 0
+            updatetime = 0
         
+            while deltatime < 10: #10 seconds
+                if(dialog.iscanceled()):
+                    break
+            
+                if (bytes >= size): # got the complete file
+                    break;
+            
+                file.write(f.read(chunk))
+                bytes = bytes + chunk
+            
+                deltatime = time.time() - starttime
+                if (deltatime - updatetime) >= 1.0:
+                    dialog.update(deltatime*10, entry.name)
+                    #dialog.update(deltatime*10, str(deltatime-updatetime))
+                    updatetime = deltatime
+
+            f.close()
+            file.close()                
+            os.remove(tempCacheDir + "dltest")
+                
+        except IOError:
+            pass
+  
+        dialog.close()        
+        
+        if deltatime < 3:
+            return -1 # failed because we need at least 3 seconds to have an accurate measurement
+        
+        if (deltatime < 10) and (bytes < size):
+            return 0 #abort
+        
+        #calculate the download speed
+        dlspeed = (bytes / 1024) / deltatime
+        
+        dialog = xbmcgui.Dialog()
+        dialog.ok("Message", "Download speed: %d kBytes/s." % dlspeed)
+        
+        return 0
 
                 
