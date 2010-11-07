@@ -26,8 +26,7 @@ type=playlist
 name=Navi-X Networks Portal
 description=Email tikkiebreed1@live.com for Navi-X Networks questions and comments./description
 thumb=http://website.navi-x.org/networks/logo.png
-#URL=http://website.navi-x.org/networks/index.plx
-URL=http://www.box.net/rssdownload/438209877/index.plx
+URL=http://website.navi-x.org/networks/index.plx
 #
 type=playlist
 name=Litspliff's Smoke Stop!
