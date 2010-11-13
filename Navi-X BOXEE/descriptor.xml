@@ -1,8 +1,8 @@
 <app>
   <id>org.navi-x.navi-x</id>
   <name>Navi-X</name>
-  <version>1.0</version>
-  <description>Navi-X v1.0. Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
+  <version>1.1</version>
+  <description>Navi-X v1.1. Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
   <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
   <media>video</media>
   <copyright>rodejo16</copyright>
