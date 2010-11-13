@@ -91,7 +91,7 @@ else:
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='4.2'
+SubVersion='2'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -101,7 +101,8 @@ parent_list='blacklist.plx'
 history_list='history.plx'
 plxVersion = '8'
 home_URL_old='http://www.navi-x.nl/playlists/home.plx'
-home_URL='http://www.navi-x.org/playlists/med_port.plx'   #Appropriate starting point for Navi-X on Boxee
+home_URL='http://www.navi-x.org/playlists/homeboxee.plx'   #Appropriate starting point for Navi-X on Boxee
+#home_URL='homeboxee.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
