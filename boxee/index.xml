@@ -1,0 +1,19 @@
+<apps>
+   <app>
+      <id>org.navi-x.navi-x</id>
+      <name>Navi-X v1.1</name>
+      <version>1.1</version>
+      <description>Navi-X v1.1. Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
+      <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
+      <repository>http://www.navi-x.org/boxee</repository>
+      <media>video</media>
+      <author>rodejo16</author>
+      <copyright>rodejo16</copyright>
+      <email>rodejo16@gmail.com</email>
+      <type>skin</type>
+      <startWindow>14000</startWindow>
+      <platform>all</platform>
+      <minversion>0.9.20</minversion>
+   </app>
+</apps>
+
