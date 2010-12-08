@@ -1,9 +1,9 @@
 <apps>
    <app>
-      <id>org.navi-x.navi-x</id>
-      <name>Navi-X v1.1</name>
-      <version>1.1</version>
-      <description>Navi-X v1.1. Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
+      <id>com.navi-x.googlecode.com</id>
+      <name>Navi-X v1.1.0</name>
+      <version>1.1.0</version>
+      <description>Navi-X v1.1.0 Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
       <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
       <repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
       <media>video</media>
