@@ -2,22 +2,6 @@
    <app>
       <id>com.navi-x.googlecode.com</id>
       <name>Navi-X</name>
-      <version>1.1.0</version>
-      <description>Navi-X v1.1.0. Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
-      <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
-      <repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
-      <media>video</media>
-      <author>rodejo16</author>
-      <copyright>rodejo16</copyright>
-      <email>rodejo16@gmail.com</email>
-      <type>skin</type>
-      <startWindow>14000</startWindow>
-      <platform>all</platform>
-      <minversion>0.9.20</minversion>
-   </app>
-   <app>
-      <id>com.navi-x.googlecode.com</id>
-      <name>Navi-X</name>
       <version>1.2</version>
       <description>Navi-X v1.2 Beta. Access Navi-X content from Boxee. See www.navi-x.org for more details.</description>
       <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
