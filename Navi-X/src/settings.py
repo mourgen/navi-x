@@ -60,6 +60,8 @@ if RootDir[0] == '/':
     imageViewCacheDir = RootDir + "cache/mageview/"
     imageCacheDir = RootDir + "cache/images/"
     tempCacheDir = RootDir + "cache/temp/"
+    nookieCacheDir = RootDir + "cache/nookies/"
+    procCacheDir = RootDir + "cache/proc/"
     SEPARATOR = '/'
 else:
     if RootDir[-1] != '\\': RootDir = RootDir+'\\'
@@ -72,7 +74,9 @@ else:
     cacheDir = RootDir + "cache\\"
     imageViewCacheDir = RootDir + "cache\\imageview\\"
     imageCacheDir = RootDir + "cache\\images\\"
-    tempCacheDir = RootDir + "cache\\temp\\"  
+    tempCacheDir = RootDir + "cache\\temp\\"
+    nookieCacheDir = RootDir + "cache\\nookies\\"
+    procCacheDir = RootDir + "cache\\proc\\"
     SEPARATOR = '\\'
 
 import xbmc
@@ -91,10 +95,12 @@ else:
     skinDir = "Q:\\skin\\"
 
 
+useLibrtmp=os.path.exists(xbmc.translatePath('special://xbmc/system/players/dvdplayer/librtmp.dll'))
+
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='5.1'
+SubVersion='5.4'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -112,7 +118,7 @@ searchhistory_file = 'search.dat'
 nxserver_URL = 'http://navix.turner3d.net'
 navixlogo = 'http://www.navi-x.org/playlists/logo.png'
 
-url_open_timeout = 10 #10 seconds
-page_size = 200 #display maximum 100 entries on one page
+url_open_timeout = 30 #30 seconds
+page_size = 200 #display maximum 200 entries on one page
 history_size = 50 #maximum of entries in the history list
 

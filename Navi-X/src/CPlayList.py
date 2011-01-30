@@ -734,6 +734,98 @@ class CPlayList:
         return 0
 
     ######################################################################
+    # Description: Loads a OPML file.
+    # Parameters : filename=URL or local file
+    #              mediaitem=CMediaItem object to load    
+    # Return     : 0=succes, 
+    #              -1=invalid playlist version, 
+    #              -2=could not open playlist
+    ######################################################################
+    def load_opml_10(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
+        if filename != '':
+            self.URL = filename
+        else:
+            self.URL = mediaitem.URL
+
+        loader = CFileLoader2()
+        loader.load(self.URL, tempCacheDir + 'feed.xml', proxy=proxy)
+        if loader.state != 0:
+            return -2
+        filename = loader.localfile
+        
+        try:
+            f = open(filename, 'r')
+            data = f.read()
+            #data = data.split('<outline')
+            f.close()
+        except IOError:
+            return -2
+        
+        #defaults
+        self.version = plxVersion
+        self.background = mediaitem.background
+        self.logo = 'none'
+        self.title = ''
+        self.description = ''
+        self.player = mediaitem.player
+        self.playmode = 'default'
+        self.start_index = 0
+        #clear the list
+        del self.list[:]
+        
+        #first process the header
+        index = data.find('<title>')
+        if index != -1:
+            index2 = data.find('</title>')
+            if index2 != -1:
+                value = data[index+7:index2]
+                self.title = value    
+        
+        #now process the elements
+        data = data.split('<outline')
+            
+        counter=0
+        #parse playlist entries 
+        for m in data:
+            tmp = CMediaItem() #create new item
+            #fill the title
+            index = m.find('text=')
+            if index != -1:
+                index2 = m.find('"', index+6)
+                if index2 != -1:
+                    value = m[index+6:index2]
+
+                    tmp.name = value                
+            
+            index = m.find('URL=')
+            if index != -1:
+                index2 = m.find('"', index+5)
+                if index2 != -1:
+                    value = m[index+5:index2]
+
+                    tmp.URL= value             
+            
+            index = m.find('type=')
+            if index != -1:
+                index2 = m.find('"', index+6)
+                if index2 != -1:
+                    value = m[index+6:index2]
+
+                    #tmp.name = tmp.name + " " + value
+
+                    if value == "link":
+                        tmp.type = 'opml'
+                    elif value == 'audio':                    
+                        tmp.type = 'audio'
+                    else:                    
+                        tmp.type = 'video'
+        
+            if tmp.name != "":
+                self.list.append(tmp)
+                                  
+        return 0
+
+    ######################################################################
     # Description: Loads a Flickr Daily feed xml file.
     # Parameters : filename=URL or local file
     #              mediaitem=CMediaItem object to load    
@@ -878,121 +970,7 @@ class CPlayList:
             tmp.URL = URL + "&start-index=%d" % startindex
             
             self.list.append(tmp) 
-        return
-    
-    
-#    def load_html_youtube2(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
-#        if filename != '':
-#            self.URL = filename
-#        else:
-#            self.URL = mediaitem.URL
-#        
-#        Trace(self.URL)
-#        
-#        loader = CFileLoader2()
-#        loader.load(self.URL, tempCacheDir + 'page.html', proxy=proxy)
-#        if loader.state != 0:
-#            return -2
-#        filename = loader.localfile
-#        
-#        try:
-#            f = open(filename, 'r')
-#            data = f.read()
-#            #entries = data.split('<div class="video-entry">')
-#            entries = data.split('<div class="video-entry')
-#            lines = data.split('\n')
-#            f.close()
-#        except IOError:
-#            return -2
-#        
-#        #defaults
-#        self.version = plxVersion
-#        self.background = mediaitem.background
-#        self.logo = 'none'
-#        self.title = 'Youtube' + ' - ' + mediaitem.name
-#        self.description = ''
-#        self.player = mediaitem.player
-#        self.processor = mediaitem.processor        
-#        self.playmode = 'default'
-#        str_nextpage = 'Next Page'
-#        
-#        #clear the list
-#        if (mediaitem.URL != self.list[-1].URL) or (mediaitem.name != str_nextpage):
-#            del self.list[:]
-#            self.start_index = 0            
-#        else:
-#            self.list.pop()
-#            self.start_index = self.size()
-#        
-#        #parse playlist entries 
-#        for m in entries:
-#            index1= m.find('class="vtitle marT5"')
-#            if index1 == -1:
-#                index1= m.find('class="video-long-title"')
-#            if index1 == -1:
-#                index1= m.find('class="vlshortTitle"')
-#            if index1 == -1:
-#                index1= m.find('class="vSnippetTitle"')
-#            if index1 == -1:
-#                index1= m.find('class="title"') #playlist
-#            if index1 != -1:
-#                tmp = CMediaItem() #create new item
-#                tmp.type = 'video'
-# 
-#                index2 = m.find('</div>', index1)
-#                index3 = m.find('watch?v=', index1, index2)
-#                index4 = m.find('"', index3, index2)
-#                index7 = m.find('&', index3, index4) #playlist
-#                if index7 != -1: #just for playlist
-#                    index4 = index7
-#                value = m[index3+8:index4]
-#                tmp.URL = 'http://youtube.com/v/' + value + '.swf'
-#                tmp.thumb = 'http://img.youtube.com/vi/' + value + '/default.jpg'
-#
-#                #now get the title
-#                index5 = m.find('">', index4+1, index2)
-#                index6 = m.find('</a>', index5, index2)
-#                value = m[index5+2:index6]
-#                value = value.replace('<b>',"")
-#                value = value.replace('</b>',"")
-#                value = value.replace('&quot;',"")
-#                value = value.replace('&#39;',"\'")
-#                tmp.name = value
-#                
-#                tmp.player = self.player
-#                if self.processor != '':
-#                    tmp.processor = self.processor   
-#                else: #hard coded processor
-#                    tmp.processor = "http://navix.turner3d.net/proc/youtube"
-#                self.list.append(tmp)                
-#
-#        #check if there is a next page in the html. Get the last one in the page.
-#        index1 = data.rfind('data-page')
-#        if index1 != -1:
-#            index2 = data.rfind('<a href=',0,index1)
-#            if index2 != -1:
-#                index3 = data.find('"',index2,index1)
-#                if index3 != -1:
-#                    index4 = data.find('"',index3+1,index1)
-#                    if index4 != -1:
-#                        value = data[index3+1:index4]
-#                        Message(value)
-#                        tmp = CMediaItem() #create new item
-#                        tmp.type = 'html_youtube'
-#                        tmp.name = str_nextpage
-#                        tmp.player = self.player
-#                        tmp.background = self.background
-#                    
-#                        #create the next page URL
-#                        index4 = self.URL.find("?")
-#                        url = self.URL[:index4]
-#                        index5 = value.find("?")
-#                        value = value[index5:]
-#                        tmp.URL= url+ value
-#                    
-#                        self.list.append(tmp)                             
-#        
-#        return 0
+        return  
 
     ######################################################################
     # Description: Loads shoutcast XML file.
@@ -1019,9 +997,6 @@ class CPlayList:
                 data = f.read()
                 f.close()
                   
-                if data.find('<?xml version="1.0"') == -1:
-                    return -2 #failed
-                    
             except IOError:
                 return -2 #failed
         else:
@@ -1043,69 +1018,42 @@ class CPlayList:
         #clear the list
         del self.list[:]
 
-        if data.find('<stationlist>') != -1:
+        if True:
             #parse playlist entries
             #entries = data.split('<station name')   
-            entries = data.split('\n')  
+            entries = data.split('"genre"')  
             for m in entries:
                 tmp = CMediaItem() #create new item
                 tmp.type = 'audio'
                 tmp.player = self.player
 
-                index1 = m.find('station name=')
+                index1 = m.find('"name"')
                 if index1 != -1: #valid entry
-                    index2= m.find('"', index1+14)
-                    tmp.name = m[index1+14:index2]
+                    index2= m.find('"', index1+8)
+                    tmp.name = m[index1+8:index2]
                 
-                index1 = m.find('br=')
+                index1 = m.find('"br"')
                 if index1 != -1:
-                    index2= m.find('"', index1+4)
-                    bitrate = m[index1+4:index2]
+                    index2= m.find(',', index1+5)
+                    bitrate = m[index1+5:index2]
                     tmp.name = tmp.name + " (" + bitrate + "kbps) "
                     tmp.URL = ''
 
-                index1 = m.find('ct=')
-                if index1 != -1:
-                    index2= m.find('"', index1+4)
-                    np = m[index1+4:index2]
-                    tmp.name = tmp.name + "- Now Playing: " + np
-                    tmp.URL = ''
-
-                index1 = m.find('br=')
-                if index1 != -1:
-                    index2= m.find('"', index1+4)
-                    bitrate = m[index1+4:index2]
-                    tmp.name = tmp.name + " (" + bitrate + "kbps) "
-                    tmp.URL = ''
-   
-                index1 = m.find('genre=')
-                if index1 != -1: #valid entry
-                    index2= m.find('"', index1+7)
-                    genre = m[index1+7:index2]
-                    tmp.name = tmp.name + '[' + genre + ']'
-
-                index1 = m.find('id=')
-                if index1 != -1:
-                    index2= m.find('"', index1+4)
-                    id = m[index1+4:index2]
-                    tmp.URL = "http://www.shoutcast.com/sbin/shoutcast-playlist.pls?rn=" + id + "&file=filename.pls"
-
-                    self.list.append(tmp)
-                
-        else: #<genrelist>
-            #parse playlist entries
-            entries = data.split('</genre>')
-            for m in entries:
-                tmp = CMediaItem() #create new item
-                tmp.type='xml_shoutcast'
-                tmp.player = self.player
-                
-                index1 = m.find('name=')
+                index1 = m.find('"ct"')
                 if index1 != -1:
                     index2= m.find('"', index1+6)
-                    genre = m[index1+6:index2]
-                    tmp.name = genre
-                    tmp.URL = "http://www.shoutcast.com/sbin/newxml.phtml?genre=" + genre
+                    np = m[index1+6:index2]
+                    tmp.name = tmp.name + "- Now Playing: " + np
+                    
+                tmp.URL = ''
+
+                index1 = m.find('"id"')
+                if index1 != -1:
+                    index2= m.find('"', index1+6)
+                    id = m[index1+6:index2]
+                    tmp.URL = "http://www.shoutcast.com/sbin/shoutcast-playlist.pls?rn=" + id + "&file=filename.pls"
+                    tmp.URL = "http://yp.shoutcast.com/sbin/tunein-station.pls?id=" + id + "&file=filename.pls"
+                
                     self.list.append(tmp)
                 
         return 0
@@ -1292,6 +1240,13 @@ class CPlayList:
         #clear the list
         del self.list[:]        
 
+        #set the default type
+        index=mediaitem.type.find(":")
+        if index != -1:
+            type_default = mediaitem.type[index+1:]
+        else:
+            type_default = ''
+
         if self.URL[:3] != 'ftp':
             #local directory
             
@@ -1334,11 +1289,11 @@ class CPlayList:
                 else:
                     self.f.login()
             except ftplib.error_perm:
-                print 'ERROR: cannot login anonymously'
+                print 'ERROR: cannot login'
                 self.f.quit()
                 return -2
 
-            print '*** Logged in as "anonymous"'
+            print '*** Logged in ***'
 
             try:
                 if urlparse.path != '':
@@ -1356,37 +1311,47 @@ class CPlayList:
             except ftplib.error_perm:
                 print 'ERROR: cannot read directory' 
 
-            #print dir_LIST
+#            print dir_LIST
 
-            dir_NLST = []
-            try:
-                self.f.retrlines('NLST', dir_NLST.append)
-            except ftplib.error_perm:
-                print 'ERROR: cannot read directory'              
+#            dir_NLST = []
+#            try:
+#                self.f.retrlines('NLST', dir_NLST.append)
+#            except ftplib.error_perm:
+#                print 'ERROR: cannot read directory'              
                        
-            #print dir_NLST                       
+#            print dir_NLST                       
                        
             for i in range(len(dir_LIST)):
                 tmp = CMediaItem() #create new item
-                tmp.name = dir_NLST[i]
+                #tmp.name = dir_NLST[i]
+                tmp.name = dir_LIST[i][49:]
                                 
                 if dir_LIST[i][0] == 'd':
                     tmp.type = 'directory'
+                    if type_default != '':
+                        tmp.type = tmp.type + ":" + type_default
+                elif type_default != '':
+                    tmp.type = type_default
                 else:
-                    ext = getFileExtension(dir_NLST[i])
+                    #ext = getFileExtension(dir_NLST[i])
+                    ext = getFileExtension(dir_LIST[i])
                     ext = ext.lower()
                     if ext == 'jpg' or ext == 'gif' or ext == 'png':
                         tmp.type = 'image'
-                    elif ext == 'mp3':
+                    elif ext == 'mp3' or ext == 'wav':
                         tmp.type = 'audio'
                     elif ext == 'plx':
                         tmp.type = 'playlist'
                     elif ext == 'txt':
                         tmp.type = 'text'
-                    else:
+                    elif ext == 'avi' or ext == 'mp4' or ext == 'm4v' or ext == 'mkv' or \
+                         ext == 'flv' or ext == 'mov' or ext == '3gp':
                         tmp.type = 'video'
+                    else:
+                        tmp.type = 'download'
                 
-                tmp.URL = self.URL + dir_NLST[i]
+                #tmp.URL = self.URL + dir_NLST[i]
+                tmp.URL = self.URL + dir_LIST[i][49:]
                 self.list.append(tmp)                          
             
         return 0

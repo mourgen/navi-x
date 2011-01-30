@@ -70,7 +70,7 @@ class CPlayer(xbmc.Player):
             index = first
             urlopener = CURLLoader()
             self.stopped=False
-            while index <= last and self.stopped == False and self.pls.size() < 100:               
+            while (index <= last) and (self.stopped == False) and (self.pls.size() < 10):               
                 type = playlist.list[index].type
                 if type == 'video' or type == 'audio':
                     URL = playlist.list[index].URL
@@ -81,15 +81,16 @@ class CPlayer(xbmc.Player):
 
                         name = playlist.list[index].name
                         
-                        if version == '9':  
-                            listitem = xbmcgui.ListItem(name)
-                            listitem.setInfo('video', {'Title': name})
-                            self.pls.add(url=loc_url, listitem=listitem)                      
-                        else:
-                            self.pls.add(loc_url, name)
+                        #if (xbmc.getInfoLabel("System.BuildVersion")[:1] == '9') or \
+                        #   (xbmc.getInfoLabel("System.BuildVersion")[:2] == '10'):                        
+                        listitem = xbmcgui.ListItem(name)
+                        listitem.setInfo('video', {'Title': name})
+                        self.pls.add(url=loc_url, listitem=listitem)                      
+                        #else:
+                        #    self.pls.add(loc_url, name)
                         
                         if self.pls.size() == 1:
-                            #start playing                        
+                            #start playing, continue loading                      
                             xbmc.Player.play(self, self.pls)
                 index = index + 1
             
@@ -113,11 +114,15 @@ class CPlayer(xbmc.Player):
             return -1    
         URL = urlopener.loc_url
         
-        SetInfoText("Loading... ")
+        SetInfoText("Loading...... ", setlock=True)
 
         self.pls.clear() #clear the playlist
-    
+                
         ext = getFileExtension(URL)
+#todo ashx  
+        if ext == 'ashx':
+            ext = 'm3u'
+               
         if ext == 'pls' or ext == 'm3u':
             loader = CFileLoader2() #file loader
             loader.load(URL, tempCacheDir + "playlist." + ext, retries=2)
@@ -125,16 +130,28 @@ class CPlayer(xbmc.Player):
                 result = self.pls.load(loader.localfile)
                 if result == False:
                     return -1
-                xbmc.Player.play(self, self.pls) #play the playlist
+                    
+                #xbmc.Player.play(self, self.pls) #play the playlist
+                self.play_media(loader.localfile)
         else:
             #self.pls.add(urlopener.loc_url)
             if mediaitem.playpath != '':
                 self.play_RTMP(mediaitem.URL, mediaitem.playpath, mediaitem.swfplayer, mediaitem.pageurl);
-            else:  
-                xbmc.Player.play(self, urlopener.loc_url)
+            else: 
+                self.play_media(URL)
             
         return 0
 
+    ######################################################################
+    ######################################################################  
+    def play_media(self, URL):
+        if xbmc.getInfoLabel("System.BuildVersion")[:2] == '10':
+            #XBMC Dharma
+            cmd = 'xbmc.PlayMedia(%s)' % URL
+            xbmc.executebuiltin(cmd)
+        else:
+            xbmc.Player.play(self, URL)
+            
     ######################################################################
     ###################################################################### 
     def play_RTMP(self, URL, playpath, swfplayer, pageurl):

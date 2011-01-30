@@ -1,18 +1,16 @@
-Welcome to Navi-X v3.5.1
+Welcome to Navi-X v3.5.4
 
 Changelog:
--Fixed creating of shortcut in XBMC Dharma
--NEW: Download Speed Test. New option in the Download menu to test the 
-download/stream speed of the current selected media item.
--NEW: Download speed indication during download.
+-New processor features to access more content (thanks to Turner3D);
+-Download Apple movie trailers support;
+-Set background properties (see Background context menu);
+-Minor bug fixes.
 
 This version has been tested on:
 -XBMC XBOX T3CH r30442(XBOX)
 -XBMC 9.11 (Windows XP)
 -XBMC 9.11 (Linux Ubuntu)
--XBMC Dharma r33240 (Windows XP) 
-
-Don't forget to visit the Navi-xtreme website (http://navix.turner3d.net)
+-XBMC Dharma (Windows XP) 
 
 ##########################
 

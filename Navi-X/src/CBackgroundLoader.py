@@ -66,43 +66,42 @@ class CBackgroundLoader(threading.Thread):
     def UpdateThumb(self):  
         #playlist = self.MainWindow.pl_focus
         index = self.MainWindow.getPlaylistPosition()
-        index2 = -1 #this value never will be reached
+        index2 = -2 #this value never will be reached
         thumb_update = False
                               
         while (self.MainWindow.state_busy == 0) and (index != index2):
             index = self.MainWindow.getPlaylistPosition()
-            if index != -1:
-                if self.MainWindow.pl_focus.size() > 0:
-              
-                    self.UpdateRateingImage(index)
-                    self.DisplayMediaSource(index) 
+            if (index != -1) and (self.MainWindow.pl_focus.size() > 0):
+                self.UpdateRateingImage(index)
+                self.DisplayMediaSource(index) 
                 
-                    #now update the thumb
-                    m = self.MainWindow.pl_focus.list[index].thumb
+                #now update the thumb
+                m = self.MainWindow.pl_focus.list[index].thumb
                       
-                    if (m == 'default') or (m == ""): #no thumb image
-                        m = self.MainWindow.pl_focus.logo #use the logo instead
-                        if m != self.MainWindow.userthumb:
-                            self.MainWindow.user_thumb.setVisible(0)
-            
+                if (m == 'default') or (m == ""): #no thumb image
+                    m = self.MainWindow.pl_focus.logo #use the logo instead
                     if m != self.MainWindow.userthumb:
-                        #diffent thumb image
-                        if (m == 'default') or (m == ""): #no image
-                            self.MainWindow.thumb_visible = False
-                        elif m != 'previous': #URL to image located elsewhere
+                        self.MainWindow.user_thumb.setVisible(0)
+            
+                if m != self.MainWindow.userthumb:
+                    #diffent thumb image
+                    if (m == 'default') or (m == ""): #no image
+                        self.MainWindow.thumb_visible = False
+                    elif m != 'previous': #URL to image located elsewhere
 #todo:use the HTTP header image content type to determine the file extension
-                            ext = getFileExtension(m)
-                            loader = CFileLoader2() #file loader
-                            loader.load(m, imageCacheDir + "thumb." + ext, proxy="ENABLED", content_type='image')
-                            if loader.state == 0: #success
-                                #next line is fix, makes sure thumb is update.
-                                self.MainWindow.thumb_visible = True
-                                thumb_update = True
-                            else:
-                                self.MainWindow.thumb_visible = False
-                        self.MainWindow.userthumb = m
-                else: #the list is empty
-                    self.MainWindow.thumb_visible = False
+                        ext = getFileExtension(m)
+                        if (ext != 'jpg') and (ext != 'png') and (ext != 'gif'):
+                            ext = ''
+                        loader = CFileLoader2() #file loader
+                        loader.load(m, imageCacheDir + "thumb." + ext, proxy="ENABLED", content_type='image')
+                        if loader.state == 0: #success
+                            self.MainWindow.thumb_visible = True
+                            thumb_update = True
+                        else:
+                            self.MainWindow.thumb_visible = False
+                    self.MainWindow.userthumb = m
+            else: #the list is empty
+                self.MainWindow.thumb_visible = False                    
                 
             index2 = self.MainWindow.getPlaylistPosition()
 

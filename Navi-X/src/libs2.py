@@ -184,8 +184,8 @@ def socket_getdefaulttimeout():
 # Return     : -
 ######################################################################
 def socket_setdefaulttimeout(url_open_timeout):
-    if platform == "xbox":
-        socket.setdefaulttimeout(url_open_timeout)
+#    if platform == "xbox":
+    socket.setdefaulttimeout(url_open_timeout)
         
 ######################################################################
 # Description: Trace function for debugging
@@ -237,42 +237,179 @@ def getRemote(url,args={}):
         'cookie': '',
         'method': 'get',
         'action': 'read',
-        'postdata': ''
+        'postdata': '',
+        'headers': {}
     }
+
     for ke in rdefaults:
         try:
             args[ke]
         except KeyError:
             args[ke]=rdefaults[ke]
+
+    if url.find(nxserver_URL) != -1:
+        from CServer import nxserver
+        if args['cookie']>'':
+            args['cookie']=args['cookie']+'; '
+        args['cookie']=args['cookie']+'; nxid='+nxserver.user_id
+
     try:
         hdr={'User-Agent':args['agent'], 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Referer':args['referer'], 'Cookie':args['cookie']}
     except:
         print "Unexpected error:", sys.exc_info()[0]
-    try:
-#        oldtimeout=socket_getdefaulttimeout()
-#        socket_setdefaulttimeout(url_open_timeout)
 
+    for ke in args['headers']:
+        try:
+            hdr[ke]=args['headers'][ke]
+        except:
+            print "Unexpected error:", sys.exc_info()[0]
+
+    try:
         if args['method'] == 'get':
             req=urllib2.Request(url=url, headers=hdr)
         else:
-            req=urllib2.Request(url,args['postdata'],hdr)
-        response = urllib2.urlopen(req)
+            req=urllib2.Request(url, args['postdata'], hdr)
 
-        if args['action']=='read':
-            oret=response.read()
-        elif args['action']=='geturl':
-            oret=response.geturl()
-        elif args['action']=='headers':
-            oret=response.info()
+        cookieprocessor=urllib2.HTTPCookieProcessor()
+        opener=urllib2.build_opener(cookieprocessor)
+        urllib2.install_opener(opener)
+        response=urllib2.urlopen(req)
+
+        cookies={}
+        for c in cookieprocessor.cookiejar:
+            cookies[c.name]=c.value
+
+        oret={
+      	    'headers':response.info(),
+      	    'geturl':response.geturl(),
+      	    'cookies':cookies
+        }
+        if args['action'] == 'read':
+            oret['content']=response.read()
+        
+        rkeys=['content','geturl']
+        for rkey in rkeys:
+            try:
+                oret[rkey]
+            except KeyError:
+                oret[rkey]=''
+        rkeys=['cookies','headers']
+        for rkey in rkeys:
+            try:
+                oret[rkey]
+            except KeyError:
+                oret[rkey]={}
+
         response.close()
     except IOError:         
-        oret = ""
-    
-#    socket_setdefaulttimeout(oldtimeout)
-    
+        oret = {
+            'content': str(sys.exc_info()[0]),
+      	    'headers':'',
+      	    'geturl':'',
+      	    'cookies':''
+        }
+    except ValueError:
+        print "*** Value Error *** "+str(sys.exc_info()[0])
+        oret = {
+            'content': str(sys.exc_info()[0]),
+      	    'headers':'',
+      	    'geturl':'',
+      	    'cookies':''
+        }
+
     return oret
 
- 
+######################################################################
+# Description: Retrieve NIPL cookies, or "nookies" for specific
+#              processor URL. Also handles expiration
+# Parameters : URL
+# Return     : dictionary containing values of non-expired nookies
+######################################################################  
+def NookiesRead(url):
+    pfilename=ProcessorLocalFilename(url)
+    if pfilename=='':
+        return {}
+    nookiefile=nookieCacheDir+pfilename
+    if not os.path.exists(nookiefile):
+        return {}
+    try:
+        f=open(nookiefile, 'r')
+    except IOError:
+        return {}
+
+    re_parse=re.compile('^(\d+):([^=]+)=(.*)$');
+    now=time.time()
+    oret={};
+    for line in f:
+        if line=='':
+            continue
+        match=re_parse.search(line)
+        exp=match.group(1)
+        #key='nookie.'+match.group(2)
+        key=match.group(2)
+        val=match.group(3)
+        f_exp=float(exp)
+        if f_exp>0 and f_exp<now:
+            continue
+        oret[key]={'value':val,'expires':exp}
+    f.close()
+    return oret
+
+######################################################################
+# Description: Store nookie for specific processor URL
+# Parameters : URL, name, value, expires
+# Notes      : expiration format: 0, [n](m|h|d)
+#                 0: never, 5m: 5 minutes, 1h: 1 hour, 2d: 2 days
+# Return     : -
+######################################################################  
+def NookieSet(url, name, value, expires):
+    pfilename=ProcessorLocalFilename(url)
+    if pfilename=='':
+        return
+    nookiefile=nookieCacheDir+pfilename
+
+    nookies=NookiesRead(url)
+
+    # set expiration timestamp
+    if expires=='0':
+        int_expires=0
+    else:
+        now=int(time.time())
+        re_exp=re.compile('^(\d+)([mhd])$');
+        match=re_exp.search(expires)
+        mult={'m':60, 'h':3600, 'd':86400}
+        int_expires=now + int(match.group(1)) * mult[match.group(2)]
+
+    # set specified nookie
+    nookies[name]={'value':value,'expires':str(int_expires)}
+
+    # compile all non-empty nookies into output string
+    str_out=''
+    for ke in nookies:
+        if nookies[ke]['value']=='':
+            continue
+        str_out=str_out+nookies[ke]['expires']+':'+ke+'='+nookies[ke]['value']+"\n"
+    if str_out>'':
+        f=open(nookiefile, 'w')
+        f.write(str_out)    
+        f.close()
+    else:
+        os.remove(nookiefile)
+    
+######################################################################
+# Description: Generate unique filename based on processor URL
+# Parameters : URL
+# Return     : string containing local filename
+######################################################################  
+def ProcessorLocalFilename(url):
+    re_procname=re.compile('([^/]+)$')
+    match=re_procname.search(url)
+    if match is None:
+        return ''
+
+    fn_raw="%X"%(reduce(lambda x,y:x+y, map(ord, url))) + "~" + match.group(1)
+    return fn_raw[:42]
+
 ######################################################################
 # Description: Creates an addon.xml file (needed for Dharma)
 # Parameters : name: shortcut name
@@ -311,22 +448,27 @@ def CreateAddonXML(name, path):
 # Parameters : folder=path to local folder
 # Return     : -
 ######################################################################
-def SetInfoText(text='', window=0):
+def SetInfoText(text='', window=0, setlock=False):
     global win
+    global locked
     
     if window != 0:
         win=window
+        locked = False
         
+    if text == '':
+        locked = False
+     
     if text != '':
-        win.setLabel(text)
-        win.setVisible(1)
+        if locked == False:
+            win.setLabel(text)
+            win.setVisible(1)
     else:
         win.setVisible(0)
+        
+    if setlock == True:
+        locked = True
 
         
 #retrieve the platform.
 platform = get_system_platform()
-
-        
-
-

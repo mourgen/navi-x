@@ -20,7 +20,7 @@ __scriptname__ = "Navi-X"
 __author__ = "rodejo16"
 __url__ = "http://www.navi-x.org/"
 __credits__ = "Rodejo16"
-__version__ = "3.5"
+__version__ = "3.5.4"
 
 sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
 

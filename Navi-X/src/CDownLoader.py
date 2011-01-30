@@ -149,7 +149,8 @@ class CDownLoader(threading.Thread):
     def read_file_info(self, entry):
         self.state = 0 #success    
         ext='' #no extension
-    
+        size = 0
+        
         URL = entry.URL
     
         if URL[:3] == 'ftp':
@@ -172,10 +173,10 @@ class CDownLoader(threading.Thread):
                 headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
                 req = urllib2.Request(loc_url, None, headers)
                 f = urllib2.urlopen(req)
-                loc_url=f.geturl()
+                #loc_url=f.geturl()
                 size_string = f.headers['Content-Length']
                 size = int(size_string)
-
+                f.close()
             except IOError:
                 self.state = -1 #failed to open the HTTP URL
                 return
@@ -189,13 +190,16 @@ class CDownLoader(threading.Thread):
                 pos = URL.find("flyupload.com")
                 if pos != -1:
                     ext='.avi'
-                else:
+                else:                             
                     #extract the file extension
                     url_stripped = re.sub('\?.*$', '', loc_url) # strip GET-method args
                     re_ext = re.compile('(\.\w+)$') # find extension
                     match = re_ext.search(url_stripped)
                     if match is None:
-                        ext = ""
+                        #ext = ""
+                        ext = getFileExtension(loc_url)
+                        if ext != '':
+                            ext = '.' + ext
                     else:
                         ext = match.group(1)
 
@@ -300,7 +304,15 @@ class CDownLoader(threading.Thread):
             return        
 
         URL = urlopener.loc_url
-              
+        
+        #rembember the user agent set the processor
+        index = URL.find('|User-Agent=')
+        if index != -1:
+            useragent = URL[index+12:]
+            URL = URL[:index]
+        else:
+            useragent = 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'
+      
         try:
 #            oldtimeout=socket_getdefaulttimeout()
 #            socket_setdefaulttimeout(url_open_timeout)
@@ -334,15 +346,15 @@ class CDownLoader(threading.Thread):
             
                 file2.close()                
                 os.remove(backupfile)
-               
+                                   
                 #If the file exists, then only download the remainder 
-                headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
+                headers = { 'User-Agent' : useragent,
                             'Range' : 'bytes=%s-' % existSize}                          
 
             else: 
                 #file does not exist 
                 file = open(localfile, "wb")           
-                headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+                headers = { 'User-Agent' : useragent}
             
             #destination is already open            
 
@@ -595,6 +607,11 @@ class CDownLoader(threading.Thread):
 
         URL = urlopener.loc_url
 
+        if URL[:3] == 'ftp':
+            dialog = xbmcgui.Dialog()
+            dialog.ok("Message", "FTP download speed test not supported.")
+            return 0
+
         dialog = xbmcgui.DialogProgress()
         dialog.create("Download Speed Test", entry.name)        
         dialog.update(0, entry.name)
@@ -603,7 +620,16 @@ class CDownLoader(threading.Thread):
             bytes= 0
             chunk = 100 * 1024
             
-            headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+            #rembember the user agent set the processor
+            index = URL.find('|User-Agent=')
+            if index != -1:
+                useragent = URL[index+12:]
+                URL = URL[:index]
+            else:
+                useragent = 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'
+            
+            #headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+            headers = { 'User-Agent' : useragent}
             req = urllib2.Request(URL, None, headers)
             f = urllib2.urlopen(req)      
             

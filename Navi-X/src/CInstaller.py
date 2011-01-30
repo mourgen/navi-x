@@ -50,7 +50,7 @@ class CInstaller(xbmcgui.Window):
         if result == 0:
             self.URL = urlopener.loc_url
         
-        SetInfoText("Downloading... ")
+        SetInfoText("Downloading... ", setlock=True)
         
         #download the file.
         loader = CFileLoader2()
@@ -59,7 +59,7 @@ class CInstaller(xbmcgui.Window):
             return -2
         filename = loader.localfile
 
-        SetInfoText("Installing... ")
+        SetInfoText("Installing... ", setlock=True)
 
         result = self.unzip_file_into_dir(filename, scriptDir)   
         
@@ -90,7 +90,7 @@ class CInstaller(xbmcgui.Window):
         else:
             subdir = ''
         
-        SetInfoText("Downloading... ")
+        SetInfoText("Downloading... ", setlock=True)
         
         #download the file.
         loader = CFileLoader2()
@@ -102,7 +102,7 @@ class CInstaller(xbmcgui.Window):
             return -2
         filename = loader.localfile
         
-        SetInfoText("Installing... ")
+        SetInfoText("Installing... ", setlock=True)
         
         result = self.unzip_file_into_dir(filename, pluginDir + subdir)    
                      
@@ -125,7 +125,7 @@ class CInstaller(xbmcgui.Window):
         if result == 0:
             self.URL = urlopener.loc_url
         
-        SetInfoText("Downloading... ")
+        SetInfoText("Downloading... ", setlock=True)
         
         #download the file.
         loader = CFileLoader2()
@@ -134,7 +134,7 @@ class CInstaller(xbmcgui.Window):
             return -2
         filename = loader.localfile
 
-        SetInfoText("Installing... ")
+        SetInfoText("Installing... ", setlock=True)
 
         result = self.unzip_file_into_dir(filename, skinDir)   
 
@@ -157,7 +157,7 @@ class CInstaller(xbmcgui.Window):
         if result == 0:
             self.URL = urlopener.loc_url
         
-        SetInfoText("Downloading... ")
+        SetInfoText("Downloading... ", setlock=True)
         
         #download the file.
         loader = CFileLoader2()
@@ -166,7 +166,7 @@ class CInstaller(xbmcgui.Window):
             return -2
         filename = loader.localfile
 
-        SetInfoText("Installing... ")
+        SetInfoText("Installing... ", setlock=True)
 
         #determine the install dir based on the current Navi-X directory (root)
         if RootDir[0] == '/':

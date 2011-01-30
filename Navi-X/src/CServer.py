@@ -77,7 +77,7 @@ class CServer:
         return getRemote('http://navix.turner3d.net/login/',{
             'method':'post',
             'postdata':urllib.urlencode({'username':username,'password':password})
-        })
+        })['content']
 
     ######################################################################
     # Description: -
@@ -135,7 +135,7 @@ class CServer:
             'method':'post',
             'postdata':urllib.urlencode({'url':mediaitem.URL,'rating':rating}),
             'cookie':'nxid='+nxserver.user_id
-        })
+        })['content']
 
         dialog = xbmcgui.Dialog()                            
         p=re.compile('^\d$')
