@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
-- <app id="com.navi-x.googlecode.com" version="1.2">
-  <signature>bQOet/YDcvQuV2WDWncJW/XYlRBopoUmnIL/4g67+HcwliPnRHHiUdEaHaI3esNB 0XjZp/5Zy6IKlIvWDmd472j3ZFnZ2VVyfiGPOIQNKFlp1CLZEy9YCDnxbg/bDBed mTTY/kgxn5gQyu0+QmWJyxBclut41VF1vJu/e9DY9qYZGGYTp9p0zX7M7I8z+3jk bgerBRkzrBiHImR8fyvw1D4menI4U6c9qRGrnBj6fgBpvbJpGGOrlod3ltTIOfeN ieh0LmP8vhn6HhlRf1ZWiRXNNVxh80uD+qAWyCYyXvcXvIaOCOmacvDjsgd4Fh1s KVFniAgVEH35WT5rPttbrQ==</signature> 
-  <authority>dev.iRoNBiLL</authority> 
-  </app>
+<?xml version="1.0" encoding="UTF-8" ?>
+<app id="com.navi-x.googlecode.com" version="1.2">
+<signature>Zb8fmrLQGM4TxRFVC81mnkrl2xp/fnX1vo3kd7HGNKyJezJMsPqDTIaZbr4+oyvB
+6tMFUDml6LvJayUdgNDJhvx3jW0v/hocdjPPE0oYsG5X3iR2i6rgEZMrRSA5mEGB
+UCLrL1EBNXIR8jYJw3Gd9KYoxL1Z+bcP8fJlQPNCA4MMfBlhwPClLmF5RSDLvLDm
+hEHfjtvW6W47kPq8/Ok4U59VBKDsMJhmxas4eZawAcUFpMoth7TmtcNfHSGEtlVj
+M7K7/UAhDNaahpAwa/St2FGLuEj2PXMAf4DGUiOgH0oK4G1m9i9yi1fIB4AX7dUI
+ULIHq9krJtlCK3QlARjmrg==</signature>
+<authority>dev.iRoNBiLL</authority>
+</app>
