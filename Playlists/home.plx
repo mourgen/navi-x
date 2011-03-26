@@ -2,48 +2,35 @@
 version=1
 #Second line indicates background image.
 background=default
-#background=http://www.navi-x.org/playlists/newyear.jpg
+#background=http://www.bing.com/fd/hpk2/TorahBright_EN-AU2463769088.jpg
 #third line indicates the title
 title=Navi-X Home
-description=Navi-X website is down. This is the backup server at Google./description
+#description=Navi-X 3.4.3 Released. Navi-X is auto updated to support XBMC Dharma users./description
 logo=http://www.navi-x.org/playlists/logo.png
+#logo=http://www.navi-x.org/playlists/newyear2011.jpg
 #Next the playlist content
+#
+type=playlist
+name=Navi-X Media Portal
+thumb=default
+#URL=http://www.navi-x.org/playlists/med_port.plx
+URL=http://navix.turner3d.net/playlist/50242/navi-xtreme_nxportal_home.plx
 #
 type=playlist
 name=Browse History
 thumb=default
-#background=http://website.navi-x.org/networks/non/bg.jpg
 date=2009-10-03
 URL=history.plx
 #
 type=playlist
-name=Navi-Xtreme Media Portal
-description=Email turner3d@gmail.com for questions and comments about Navi-Xtreme Media Portal./description
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/playlist/index.plx
-#
-type=playlist
-name=Navi-X Networks Portal
-description=Email tikkiebreed1@live.com for Navi-X Networks questions and comments./description
-thumb=http://website.navi-x.org/networks/logo.png
-URL=http://website.navi-x.org/networks/index.plx
-#
-type=playlist
-name=Litspliff's Smoke Stop!
-description=Email dynatron@gmail.com for Litspliff's Smoke Stop! questions and comments./description
-thumb=http://www.navi-x.org/playlists/hankphone.jpg
-URL=http://www.dynatron.org/PLX/smokestop.plx
-#
-type=playlist
-name=XBMCZone - Scripts and Plugins
-description=http://www.xbmczone.com. The Place for XBMC Media Center Scripts and Plugins./description
-thumb=http://www.xbmczone.com/navi-x/logo.png
-URL=http://www.xbmczone.com/navi-x/xbmczone.asp
+name=My Favorites
+thumb=default
+date=2010-11-20
+URL=favorites.plx
 #
 type=directory
-name=My Playlists
+name=My Playlists (local disk)
 thumb=default
-#background=http://website.navi-x.org/networks/non/bg.jpg
 URL=My Playlists
 #
 type=window
@@ -63,5 +50,17 @@ name=File Manager
 date=2010-04-09
 URL=filemanager
 #
-
-
+type=playlist
+name=Navi-X updates (Script Navi-X 3.5.4)
+thumb=default
+icon=http://website.navi-x.org/networks/icon.png
+date=2011-01-30
+URL=http://www.navi-x.org/playlists/scripts/scripts.plx
+#
+type=playlist
+name=About Navi-X
+icon=http://website.navi-x.org/networks/icon.png
+thumb=default
+date=2010-10-30
+URL=http://www.navi-x.org/playlists/about.plx
+#
