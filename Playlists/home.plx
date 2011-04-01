@@ -13,6 +13,7 @@ logo=http://www.navi-x.org/playlists/logo.png
 type=playlist
 name=Navi-X Media Portal
 thumb=default
+view=thumbnails
 #URL=http://www.navi-x.org/playlists/med_port.plx
 URL=http://navix.turner3d.net/playlist/50242/navi-xtreme_nxportal_home.plx
 #
