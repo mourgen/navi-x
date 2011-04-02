@@ -11,8 +11,9 @@ logo=http://www.navi-x.org/playlists/logo.png
 #Next the playlist content
 #
 type=playlist
-name=Navi-X Media Portal
-thumb=default
+name=Navi-Xtreme Media Portal
+description=Visit http://navix.turner3d.net. Email turner3d@gmail.com for questions and comments./description
+thumb=http://navix.turner3d.net/images/logo.jpg
 view=thumbnails
 #URL=http://www.navi-x.org/playlists/med_port.plx
 URL=http://navix.turner3d.net/playlist/50242/navi-xtreme_nxportal_home.plx
@@ -52,10 +53,10 @@ date=2010-04-09
 URL=filemanager
 #
 type=playlist
-name=Navi-X updates (Script Navi-X 3.5.4)
+name=Navi-X updates (Script Navi-X 3.6)
 thumb=default
 icon=http://website.navi-x.org/networks/icon.png
-date=2011-01-30
+date=2011-04-02
 URL=http://www.navi-x.org/playlists/scripts/scripts.plx
 #
 type=playlist
