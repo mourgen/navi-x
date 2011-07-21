@@ -4,9 +4,9 @@
 		<name>Navi-x Beta</name>
 		<version>4.11</version>
 		<description>Browse media with Navi-x Browser</description>
-		<thumb>http://boxee.navi-x.net/apps/beta.png</thumb>
+		<thumb>http://navi-x.googlecode.com/svn/trunk/Beta/boxee/apps/beta.png</thumb>
 		<repositoryid>navix</repositoryid>
-		<repository>http://boxee.navi-x.net</repository>
+		<repository>http://navi-x.googlecode.com/svn/trunk/Beta/boxee</repository>
 		<media>video</media>
 		<copyright>rodejo16</copyright>
 		<email>rodejo16@gmail.com</email>
