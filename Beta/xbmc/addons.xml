@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon 	id="net.navix.repository"
+		version="1.0"
+		name="Navi-X Repository"
+		provider-name="bartsidee">
+
+	<extension point="xbmc.addon.repository" name="Navi-X Repository">
+		<info compressed="false">http://xbmc.navi-x.net/addons.xml</info>
+		<checksum>http://xbmc.navi-x.net/addons.xml.md5</checksum>
+		<datadir zip="true">http://xbmc.navi-x.net</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Install Navi-x Repository on your computer</summary>
+		<description>This repository allows you to install the most recent version of Navi-X</description>
+		<disclaimer></disclaimer>
+		<platform>all</platform>
+	</extension>
+</addon>
+</addons>

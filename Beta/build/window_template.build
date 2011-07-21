@@ -1,0 +1,26 @@
+from default import *
+from xbmcgui import WindowXML
+
+class skin(WindowXML):
+    def __init__(self, *args, **kwargs):
+        WindowXML.__init__(self, *args)
+
+    def onInit(self):
+        pass
+
+    def onAction(self, action):
+        controlID = self.getFocusId()
+        if action.getId() in ( mc.ACTION_PARENT_DIR, mc.ACTION_PREVIOUS_MENU ):
+            self.close()
+#|onaction|
+            pass
+
+
+    def onClick(self, controlID):
+#|onclick|
+            pass
+
+    def onFocus(self, controlID):
+            pass
+
+    

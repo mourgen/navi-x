@@ -1,0 +1,39 @@
+##########################################################################
+###### Navi-X Repository ##################
+##########################################################################
+
+Navi-X is an Open Source media browser script for XBMC and Boxee. 
+It allows users to browse PLX playlists, RSS feeds and Atom feeds on the internet. 
+The Navi-X browser can play video and audio files, display photos and shows text files. 
+The Navi-X browser is like a web browser but instead of HTML it uses Navi-X playlists files called PLX files. 
+PLX playlist contain video/audio/feed entries and can link to other PLX files as well.
+
+The Navi-X browser allows people to browse their own personal playlists without having to know how to develop a XBMC/Boxee app. PLX Playlist are simple text files and can be edited with any text editor like notepad.
+
+The Navi-X browser website can be found at 
+http://www.navi-x.org
+
+The Navi-X BOXEE repository can be found at 
+http://navi-x.googlecode.com/svn/trunk/boxee
+
+The Navi-X XBMC repository can be found at 
+IN DEVELOPMENT
+
+
+////////////////////////////////////////////////////////////////////////////////////
+
+Copyright (c) 2010, rodejo16, turner3, ironbill
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
