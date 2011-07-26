@@ -20,9 +20,6 @@ class Navi_VARS:
         self.tempDir  = xbmc.translatePath('special://temp')
         self.appid  = os.path.basename(self.rootDir)
 
-        #Load scrapers.json
-        self.sources = json_loads(path=os.path.join(self.dataDir, 'settings', 'sources.json'))
-
         #Load settings options
         self.options = json_loads(path=os.path.join(self.dataDir, 'settings', 'options.json'))
 
@@ -49,7 +46,7 @@ class Navi_VARS:
                 settings = ''
         else:
             settings = json_loads(path=os.path.join(self.dataDir, 'settings', 'settings.json'))
-            
+
         if settings != {} and settings != '':
             self._settings = settings.keys()
             for item in self._settings:
@@ -63,8 +60,18 @@ class Navi_VARS:
         for id, value in languages.items():
             self.local[id] = value.encode('utf-8')
         
-        if self.url_download_location == 'default':
+        if self.url_download_location == 'not set' and not self.embedded:
             self.url_download_location = os.path.join(self.dataDir, 'download')
+
+        #Load scrapers.json
+        Log(self, 'NAVI-X: Loading sources from %s' % SOURCES)
+        source_json = urlopen(self, SOURCES, {'action':'read'})['content']
+        self.sources = json_loads( string=source_json )
+        try:
+            self.sources['scrapers']
+        except:
+            Log(self, 'NAVI-X: Failed fetching external sources - loading default')
+            self.sources = json_loads(path=os.path.join(self.dataDir, 'settings', 'sources.json'))
 
         self.getOS()
         self.compile()
@@ -97,7 +104,8 @@ class Navi_VARS:
             'item_name':re.compile('(\[.*?\])'),
             'plx_name':re.compile('name=(.*?)\\n'),
             'js_name':re.compile('name\:\"(.*?)\"'),
-            'js_id':re.compile('\'(.*?)\'\:\{')
+            'js_id':re.compile('\'(.*?)\'\:\{'),
+            'del_html_tags':re.compile(r'<.*?>')
             }
             
     ### Load defaults

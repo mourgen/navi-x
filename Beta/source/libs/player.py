@@ -39,6 +39,7 @@ class Navi_PLAYER(mc.Player):
         http = mc.Http()
         if not http.Get(item.path):
             badUrl = True
+            self.app.gui.ShowDialogNotification(app.local['50'])
         if not badUrl:
             self._play(item, mc.ListItem.MEDIA_UNKNOWN, mime="text/html")
 
@@ -64,13 +65,13 @@ class Navi_PLAYER(mc.Player):
         listItem = gui.createList([])
         listItem = listItem._createItem(data, listtype)
 
-
+        self.app.gui.HideDialog('dialog-info')
         self.Play(listItem)
 
         if int(item.seek) != 0:
             #while (self.GetLastPlayerEvent() != self.EVENT_STARTED):
             #    xbmc.sleep(1000)
-            xbmc.sleep(8000)
+            xbmc.sleep(4000)
             self.SeekTime(item.seek)
 
         if item.subtitle != '':
@@ -78,7 +79,7 @@ class Navi_PLAYER(mc.Player):
                 xbmc.sleep(1000)
             xbmc.Player().setSubtitles(str(item.subtitle))
 
-        if item.type in ['video']:
+        if item.type in ['video'] and self.app.bookmark:
             self.eventStart()
 
     #Event monitor

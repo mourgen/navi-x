@@ -20,16 +20,16 @@
 					<posx>50</posx>
 					<posy>45</posy>
 					<height>450</height>
-					<width>335</width>
+					<width>310</width>
 					<texture>colours/darkgrey_transparant.png</texture>	
-					<aspctratio>stretch</aspctratio>
+					<aspectratio>stretch</aspectratio>
 				</control>
 				<control type="largeimage" id="101">
 					<description>Thumb Window</description>
-					<posx>60</posx>
+					<posx>50</posx>
 					<posy>54</posy>
 					<height>432</height>
-					<width>315</width>
+					<width>310</width>
 					<texture>$INFO[Container(90).ListItem.property(custom:item.thumb)]</texture>	
 					<aspectratio>keep</aspectratio>
 				</control>	
@@ -129,7 +129,7 @@ app.dialog_info._exec(focus)
 					<width>2</width>
 					<height>240</height>	
 					<texture>colours/medgrey.png</texture>	
-					<aspctratio>stretch</aspctratio>
+					<aspectratio>stretch</aspectratio>
 				</control>				
 				<control type="image">
 					<visible>!StringCompare(Container(90).ListItem.property(custom:unstable),)</visible>
@@ -139,7 +139,7 @@ app.dialog_info._exec(focus)
 					<width>72</width>
 					<height>56</height>	
 					<texture>icons/unstable.png</texture>	
-					<aspctratio>stretch</aspctratio>
+					<aspectratio>stretch</aspectratio>
 				</control>
 				<control type="image">
 					<visible>!StringCompare(Container(90).ListItem.property(custom:lowquality),)</visible>
@@ -149,7 +149,7 @@ app.dialog_info._exec(focus)
 					<width>72</width>
 					<height>56</height>	
 					<texture>icons/lowquality.png</texture>	
-					<aspctratio>stretch</aspctratio>
+					<aspectratio>stretch</aspectratio>
 				</control>	
 				<control type="image">
 					<visible>!StringCompare(Container(90).ListItem.property(custom:timelimit),)</visible>
@@ -159,7 +159,7 @@ app.dialog_info._exec(focus)
 					<width>72</width>
 					<height>56</height>	
 					<texture>icons/timelimit.png</texture>	
-					<aspctratio>stretch</aspctratio>
+					<aspectratio>stretch</aspectratio>
 				</control>	
 				
 				<control type="image">
@@ -170,7 +170,7 @@ app.dialog_info._exec(focus)
 					<width>72</width>
 					<height>56</height>	
 					<texture>icons/subtitle.png</texture>	
-					<aspctratio>stretch</aspctratio>
+					<aspectratio>stretch</aspectratio>
 				</control>				
 
 				

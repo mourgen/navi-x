@@ -13,6 +13,7 @@
 	"10"	:	"Start hier met zoeken...",
 	"11"	:	"Instellingen voor zoeken opgeslagen",
 	"12"	:	"Geen zoekresultaten gevonden",
+	"13"	:	"Xtreme",
 	
 	"20"	:	"Geef pincode",
 	"21"	:	"Gebruikersnaam",
@@ -70,6 +71,7 @@
 	"84"	:	"Url timeout",
 	"85"	:	"Download map",
 	"86"	:	"Player",
+	"87"	: 	"Bookmark",
 	
 	"90"	:	"Item succesvol toegevoegd",
 	"91"	:	"Item succesvol verwijderd",

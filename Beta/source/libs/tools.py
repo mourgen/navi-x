@@ -8,6 +8,7 @@ import time
 import datetime
 import traceback
 import mimetypes
+import tempfile
 
 try: import json
 except: import simplejson as json
@@ -206,7 +207,7 @@ def getFileExtension(path):
 
     ext = [dict[source] for source in dict.keys() if source in path]
     if len(ext) > 0:
-        ext = ext[0]
+        ext = ext[0][:3]
     else:
         url_stripped = re.sub('\?.*$', '', path) # strip GET-method args
         re_ext = re.compile('(\.\w+)$') # find extension
@@ -216,13 +217,13 @@ def getFileExtension(path):
             if ext_pos != -1:
                 ext_pos2 = path.rfind('?', ext_pos) #find last '.' in the string
                 if ext_pos2 != -1:
-                    ext = path[ext_pos+1:ext_pos2]
+                    ext = path[ext_pos+1:ext_pos2][:3]
                 else:
-                    ext = path[ext_pos+1:]
+                    ext = path[ext_pos+1:][:3]
             else:
                 ext = ''
             if ext != '':
-                ext = '.' + ext
+                ext = '.' + ext[:3]
             else:
                 ext = None
         else:
@@ -277,3 +278,10 @@ def get_free_space(app, folder):
             return os.statvfs(folder).f_bfree
         except:
             return 0
+
+def can_create_file(folder_path):
+    try:
+        tempfile.TemporaryFile(dir=folder_path)
+        return True
+    except OSError:
+        return False

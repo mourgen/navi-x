@@ -52,7 +52,7 @@ class Navi_API:
             'html':self.app.player.playContent,
             'video':self.app.player.playContent,
             'audio':self.app.player.playContent,
-            'image':'',
+            'image':self._IMAGE,
             'script':'',
             'text':self._TXT,
             'download':self._DOWNLOAD,
@@ -75,12 +75,13 @@ class Navi_API:
 
         bool, data = self.checkCache(item.path)
         if bool: return data
-        
-        if ':' in item.type:
-            item.type = item.type.split(':')[0]
-            
+    
         try:
-            data = self.action[item.type](item)
+            if ':' in item.type:
+                item.type, type = item.type.split(':')
+                data = self.action[item.type.lower()](item, type)
+            else:
+                data = self.action[item.type.lower()](item)
         except:
             data = {}
             Log(self.app, traceback.format_exc() )
@@ -217,7 +218,13 @@ class Navi_API:
                     'postdata':urllib.urlencode({
                         'URL':'','action':'item_save','background': '','description': '','list_id':self.favorite_id,'list_pos':'top',
                         'name':'Navi-X Favorite Readme','player':'','playpath':'','plugin_type':'music','processor':'','text_local':1,
-                        'this_list_id':'','thumb':'','txt':'Your favorites will be automaticly added to special subdirectry online.',
+                        'this_list_id':'','thumb':'',
+                        'txt':  'Thank you for using Navi-X.\n\n'+ \
+                                'The favorite section has been adapted since the previous Navi-X version. All your favorites are now stored online at http://navix.turner3d.net.  As long as you are logged in you can add items to your favorites from the menu.\n\n' + \
+                                'When you are logged out you see the top 24h of all users instead of your personal favorites.\n'+ \
+                                'Any items added will be by default stored as private and will not be visible by other users!\n\n'+ \
+                                'You can also import and manage your favorites online using the playlist editor. See also http://navix.turner3d.net. \n\n'+ \
+                                'Have fun using Navi-X!',
                         'type':'text','rndval':int(time.time())
                     }),
                     'cookie':self.cookie
@@ -335,7 +342,7 @@ class Navi_API:
             datalist = data
         else:
             #phase 1 retreive processor data
-            rawdata = urlopen(self.app, str(url), {'cookie':'version='+str(self.app.navi_version)+'.'+str(self.app.navi_sub_version)+'; platform='+self.app.options['navi_platform'], 'action':'read'})
+            rawdata = urlopen(self.app, str(url), {'cookie':'version='+VERSION+'.'+str(self.app.navi_sub_version)+'; platform='+self.app.options['navi_platform'], 'action':'read'})
             htmRaw = rawdata['content']
             htmRaw = re.sub('(?m)\r[#].+|\n[#].+|^\s+|\s+$', '\r\n', htmRaw)    #remove comments and tabs
             htmRaw = re.sub('[\r\n]+', '\n', htmRaw)                            #remove empty lines
@@ -361,7 +368,7 @@ class Navi_API:
         if len(results) > 0:
             vars = ["".join(['v', str(i+1),'=', urllib.quote_plus(value), '&']) for i, value in enumerate(results)]
             url = "".join([item.processor, '?', "&".join(vars) ])
-            rawdata = urlopen(self.app, str(url), {'cookie':'version='+str(self.app.navi_version)+'.'+str(self.app.navi_sub_version)+'; platform='+self.app.os})
+            rawdata = urlopen(self.app, str(url), {'cookie':'version='+VERSION+'.'+str(self.app.navi_sub_version)+'; platform='+self.app.os})
             try: path = rawdata['content'].readline()
             except: path = ''
             rawdata['content'].close()
@@ -455,11 +462,11 @@ class Navi_API:
         return playlistdata
 
     ### Fetch rss playlist type   - type=rss
-    def _RSS(self, item):
+    def _RSS(self, item, dtype=''):
         if 'rss://' in item.path:
             item.path = item.path.replace('rss:', 'http:')
         rawdata = urlopen(self.app, item.path)
-        try: rss = BeautifulStoneSoup(rawdata['content'], convertEntities="xml", smartQuotesTo="xml")
+        try: rss = BeautifulStoneSoup(rawdata['content'], convertEntities=BeautifulStoneSoup.XHTML_ENTITIES, smartQuotesTo="xml")
         except:
             Log(self.app, traceback.format_exc() )
             return {}
@@ -479,6 +486,7 @@ class Navi_API:
         
         for rss_item in rss_items:
             data_item = {}
+            type = ''
             try:    data_item['name'] = rss_item.find('title').string
             except: pass
             try:    data_item['name'] = rss_item.find('media:title').string
@@ -487,38 +495,51 @@ class Navi_API:
             except: pass
             try:    data_item['thumb'] = rss_item.find('media:thumbnail')['url']
             except: pass
-            try:    data_item['description'] = rss_item.find('description').string
+            try:    data_item['description'] = self.app.regex['del_html_tags'].sub('', rss_item.find('description').string).replace('&#39;','\'')
             except: pass
-            try:    data_item['description'] = rss_item.find('media:description').string
+            try:    data_item['description'] = self.app.regex['del_html_tags'].sub('', rss_item.find('media:description').string).replace('&#39;','\'')
             except: pass
             try:    data_item['URL'] = rss_item.find('link').string
             except: pass
             try:    data_item['URL'] = rss_item.find('media:content')['url']
             except: pass
+            try:    data_item['URL'] = rss_item.find('enclosure')['url']
+            except: pass
             try:    type = rss_item.find('media:content')['type']
-            except: type = False
+            except: pass
+            try:    type = rss_item.find('enclosure')['type']
+            except: pass
             
-            if type:
+            if not dtype:
                 data_item['type'] = False
-                if 'audio' in type: data_item['type'] = 'audio'
-                elif 'video' in type: data_item['type'] = 'video'
-                elif 'image' in type: data_item['type'] = 'image'
+                if 'audio' in type:         data_item['type'] = 'audio'
+                elif 'video' in type:       data_item['type'] = 'video'
+                elif 'image' in type:       data_item['type'] = 'image'
                 elif 'application' in type: data_item['type'] = 'download'
+                else:                       data_item['type'] = 'html'
             else:
-                data_item['type'] = 'html'
+                data_item['type'] = dtype
                 #playlistdata['view'] =  'detail'
-            if data_item['URL']:
+            if data_item.has_key('URL'):
                 data_items.append(data_item)
 
         playlistdata['items'] = data_items
         return playlistdata
 
-    ### Fetch txt playlist type  - type=txt
+    ### Fetch txt info type  - type=txt
     def _TXT(self, item):
-        self.app.gui.ShowDialog('dialog-textinfo')
+        self.app.gui.ShowDialog('dialog-text')
         rawdata = urlopen(self.app, item.path, {'action':'read'})['content']
         listItems = createList([{'label':item.name, 'description':rawdata}])
         listItems._set(GUI(window=15160, listid=90))
+        return {}
+
+    ### Fetch imaget type  - type=txt
+    def _IMAGE(self, item):
+        self.app.gui.ShowDialog('dialog-image')
+        listItems = createList([{'label':item.name, 'thumb':item.path}])
+        listItems._set(GUI(window=15210, listid=90))
+        self.app.gui.ShowDialogNotification('Image: %s' % checkUTF8(item.name))
         return {}
 
     ### Fetch atom playlist type  - type=atom
@@ -802,13 +823,14 @@ class Navi_API:
         infodata['processor'] = ''
         infopath = os.path.join(path, '%s.plx' % filename)
 
+        #freespace
         freespace = get_free_space(self.app, path)
 
-        self.download.urlgrab(url, filename=filepath, text=filename, infodata=infodata, infopath=infopath)
+        self.download.urlgrab(url, filepath)
         Log(self.app, "NAVI-X: Init Download thread...")
         Log(self.app, "NAVI-X: Download info - %s, %s" % (filepath, url))
         try:
-            self.download.start(freespace)
+            self.download.start(infodata, infopath, freespace, filename)
         except:
             Log(self.app, traceback.format_exc() )
         Log(self.app, "NAVI-X: Download Thread started")

@@ -31,7 +31,7 @@ from PyDbLite import Base
 ###                    if in cache  ->   no   ->   Download online source
 ###                         |                      (plx, rss, json etc)
 ###                        yes                               |
-###                         |                    Convert to simple object data
+###                         |                    Convert to simple dict data
 ###                    Load from cache               (cacheble as json)
 ###                         |                                |
 ###          Load playlist instance from lib        <-
@@ -85,6 +85,7 @@ class Navi_APP(Navi_VARS):
     def parseData(self, selected):
         self.items = [
             self.get_favorite(),
+            self.playlist(self, 'navix'),
             self.playlist(self, 'movie'),
             self.playlist(self, 'tv'),
             self.playlist(self, 'audio'),
@@ -95,6 +96,7 @@ class Navi_APP(Navi_VARS):
             
         self.list = [
             {'label':self.local['3'], 'handle':self, 'active':IsEqual(0, selected), 'action':'topmenu'},
+            {'label':self.local['13'],'handle':self, 'active':IsEqual(4, selected), 'action':'topmenu'},
             {'label':self.local['4'], 'handle':self, 'active':IsEqual(1, selected), 'action':'topmenu'},
             {'label':self.local['5'], 'handle':self, 'active':IsEqual(2, selected), 'action':'topmenu'},
             {'label':self.local['6'], 'handle':self, 'active':IsEqual(3, selected), 'action':'topmenu'},

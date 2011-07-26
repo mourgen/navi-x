@@ -25,13 +25,24 @@
 				<control type="label">
 					<posx>60</posx>
 					<posy>40</posy>
-					<width>840</width>
+					<width>400</width>
 					<height>30</height>
 					<font>font24b</font>
 					<aligny>center</aligny>					
 					<align>left</align>
 					<label>NAVI-X SETTINGS</label>
 					<textcolor>ff000000</textcolor>					
+				</control>
+				<control type="label" id="80">
+					<posx>700</posx>
+					<posy>475</posy>
+					<width>200</width>
+					<height>30</height>
+					<font>font14</font>
+					<aligny>center</aligny>					
+					<align>left</align>
+					<label></label>
+					<textcolor>ff3b3b3b</textcolor>					
 				</control>
 				<control type="list" id="90">
 					<description>Main List</description>
@@ -54,7 +65,7 @@
 							<posx>0</posx>
 							<posy>0</posy>				
 							<texture>colours/lightgrey.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="label">
 							<posx>15</posx>
@@ -76,7 +87,7 @@
 							<posx>0</posx>
 							<posy>0</posy>					
 							<texture>colours/grey_transparant.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="image">
 							<visible>!StringCompare(ListItem.property(custom:active),)</visible>
@@ -85,7 +96,7 @@
 							<posx>0</posx>
 							<posy>0</posy>				
 							<texture>colours/lightgrey.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="label">
 							<posx>15</posx>
@@ -142,7 +153,7 @@ app.settings._exec(focus)
 							<posx>0</posx>
 							<posy>0</posy>					
 							<texture>colours/medgrey.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="label">
 							<posx>15</posx>

@@ -155,7 +155,7 @@ class NIPL:
                         else: self.__functions__[function[0]](line)
                         continue
 
-                operator = [key for key in operators if key in line]
+                operator = [key for key in operators if line.startswith(key, 0, 7)]
                 if len(operator) > 0:
                     line = line.replace(operator[0], '')
                     if line[:1] == " ": line = line[1:]

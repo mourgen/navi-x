@@ -13,6 +13,7 @@
 	"10"	:	"Click to start search...",
 	"11"	:	"Search options saved",
 	"12"	:	"No search results found",
+	"13"	:	"Xtreme",
 	
 	"20"	:	"Enter Pincode",
 	"21"	:	"User name",
@@ -70,6 +71,7 @@
 	"84"	:	"Url timeout",
 	"85"	:	"Download folder",
 	"86"	:	"Player",
+	"87"	: 	"Bookmark",
 	
 	"90"	:	"Item added successful",
 	"91"	:	"Item deleted successful",

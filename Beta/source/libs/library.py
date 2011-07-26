@@ -66,7 +66,7 @@ class Navi_PLAYLIST:
             for raw_item in raw_items:
                 try: 
                     item = self.itemContainer(app, raw_item)
-                    if item.platform == '' or item.platform == app.platform:
+                    if (item.platform == '' or item.platform == app.platform) and item.type:
                         self.items.append(item)
                 except: pass
 
@@ -192,7 +192,11 @@ class Navi_ITEM:
             if data['rating'][:2] != '-1': self.rating = 'rating/rating' + data['rating'][:1] + '.png'
             del data['rating']
         if not 'icon' in data:
-            self.icon = '%sicons/%s.png' % (app.mediaDir, str(data['type']))
+            if ':' in data['type']:
+                icon, type = data['type'].split(':')
+            else:
+                icon = data['type']
+            self.icon = '%sicons/%s.png' % (app.mediaDir, str(icon))
 
         for key in data.keys():
             vars(self)[key] = data[key]
@@ -238,9 +242,9 @@ class Navi_ITEM:
 
     def _list(self, app):
         content = ['html_youtube', 'html', 'video', 'audio', 'image', 'text', 'list_note']
-        if self.restricted:
-            if ipCheck(app, self):
-                return
+        #if self.restricted:
+        #    if ipCheck(app, self):
+        #        return
  
         if self.type not in content:
             if self.block:
@@ -279,7 +283,7 @@ class Navi_ITEM:
             Log(app, 'NAVI-X: Loaded playlist - ' + self.path)
             playlist._list(app)
             
-        elif self.type == 'text':
+        elif self.type == 'text' or self.type == 'image':
             app.api.loads(self, cache=0)
         elif self.type == 'list_note':
             pass
@@ -543,14 +547,14 @@ class Navi_DIALOG_INFO:
             self.list.append( {'label':self.app.local['37'], 'action':'block', 'item.name':name, 'item.thumb':thumb, 'item.description':description} )
 
             #Check if item has been played before
-            if self.item.name in history:
+            if self.item.name in history and self.app.bookmark:
                 index = history.index(self.item.name)
                 resume = self.app.playback_history[index].values()[0]
                 self.list.insert(1 , {'label':'%s %s' % (self.app.local['38'], GetInHMS(resume)) , 'action':'play', 'item.name':name, 'item.thumb':thumb, 'item.description':description} )
                 self.item.seek = resume
 
             #Add download option
-            if self.item.type in ['video']:
+            if self.item.type in ['video'] and self.app.url_download_location != 'not set':
                 self.list.append( {'label':self.app.local['39'], 'action':'download', 'item.name':name, 'item.thumb':thumb, 'item.description':description} )
 
         for i in self.list:
@@ -764,6 +768,8 @@ class Navi_SETTINGS:
         self.refresh()
 
     def refresh(self):
+        gui = GUI(window=self.app.gui.windows['dialog-settings'], listid=90)
+        gui.SetLabel(80, 'Version: %s' % VERSION)
         self.list = [
                 {'label':'[B]%s:[/B]' % self.app.local['60'], 'action':'main', 'active':IsEqual(0, self.focus)},
                 {'label':'[B]%s:[/B]' % self.app.local['61'], 'action':'playback', 'active':IsEqual(1, self.focus)},
@@ -771,7 +777,7 @@ class Navi_SETTINGS:
                 {'label':'[B]%s:[/B]' % self.app.local['63'], 'action':'advanced', 'active':IsEqual(3, self.focus)}
         ]
         listItems = createList(self.list)
-        listItems._set(GUI(window=self.app.gui.windows['dialog-settings'], listid=90))
+        listItems._set(gui)
         self.sub()
 
 
@@ -790,10 +796,12 @@ class Navi_SETTINGS:
             ],
             #playback
             [
+                {'label':'%s: %s' % (self.app.local['87'], self.app.bookmark), 'action':'bookmark'},
                 {'label':'[COLOR FF222222][I]%s[/I][/COLOR]' % self.app.local['75'], 'action':'none'},
                 {'label':'%s 1: %s' % (self.app.local['71'], self.app.playback_sub_lang_1), 'action':'playback_sub_lang_1'},
                 {'label':'%s 2: %s' % (self.app.local['71'], self.app.playback_sub_lang_2), 'action':'playback_sub_lang_2'},
-                {'label':'%s 2: %s' % (self.app.local['71'], self.app.playback_sub_lang_3), 'action':'playback_sub_lang_3'}
+                {'label':'%s 2: %s' % (self.app.local['71'], self.app.playback_sub_lang_3), 'action':'playback_sub_lang_3'},
+
             ],
             #playlist
             [
@@ -828,7 +836,7 @@ class Navi_SETTINGS:
     def _execsub(self, selected):
         self.id = selected
         id = self.sublist[self.focus][selected]['action']
-        if id in ['language','debug','playback_sub_lang_1','playback_sub_lang_2','playback_sub_lang_3','player', 'plx_default_view', 'plx_default_player']:
+        if id in ['language','debug','playback_sub_lang_1','playback_sub_lang_2','playback_sub_lang_3','player', 'plx_default_view', 'plx_default_player', 'bookmark']:
             if 'playback_sub_lang' in id:
                 id = 'playback_sub_lang'
             data = self.app.options[id]

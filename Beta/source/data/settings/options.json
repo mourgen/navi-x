@@ -64,6 +64,7 @@
 	"plx_default_player":["mplayer", "dvdplayer"],
 	"plx_default_view":["thumbnails", "list", "default", "detail"],
 	"debug":[true, false],
+	"bookmark":[true, false],
 	"search": {
 		"genre"		:	["All"],
         "source"    :   ["All"],

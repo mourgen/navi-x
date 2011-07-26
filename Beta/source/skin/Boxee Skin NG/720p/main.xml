@@ -148,7 +148,7 @@
 							<posx>-100</posx>
 							<posy>0</posy>				
 							<texture diffuse="fade.png">colours/darkgrey.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="label">
 							<posx>0</posx>
@@ -162,24 +162,24 @@
 							<textcolor>FFc9c9c9</textcolor>					
 						</control>
 					</itemlayout>
-					<focusedlayout width="200" height="50">				
+					<focusedlayout width="200" height="50">		
 						<control type="image">
-							<visible>!StringCompare(ListItem.property(custom:active),)</visible>
+							<visible>!StringCompare(ListItem.property(custom:active),)+!Control.HasFocus(60)</visible>
 							<width>200</width>
 							<height>43</height>
 							<posx>-100</posx>
-							<posy>0</posy>					
+							<posy>0</posy>				
 							<texture diffuse="fade.png">colours/darkgrey.png</texture>
-							<aspctratio>stretch</aspctratio>
-						</control>
+							<aspectratio>stretch</aspectratio>
+						</control>					
 						<control type="image">
-							<visible>StringCompare(ListItem.property(custom:active),)+ ControlGroup(1001).HasFocus</visible>
+							<visible>ControlGroup(1001).HasFocus</visible>
 							<width>200</width>
 							<height>44</height>
 							<posx>-100</posx>
 							<posy>0</posy>					
 							<texture diffuse="fade.png">colours/lightgrey.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="image">
 							<visible>!StringCompare(ListItem.property(custom:active),)+ ControlGroup(1001).HasFocus</visible>
@@ -188,7 +188,7 @@
 							<posx>-100</posx>
 							<posy>42</posy>					
 							<texture diffuse="fade.png">colours/white.png</texture>
-							<aspctratio>stretch</aspctratio>
+							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="label">
 							<posx>0</posx>
@@ -451,7 +451,7 @@ app.playlist_info.show(focus)
 								<width>900</width>
 								<height>50</height>
 								<texture>colours/medgrey.png</texture>
-								<aspctratio>stretch</aspctratio>
+								<aspectratio>stretch</aspectratio>
 							</control>
 							<control type="largeimage">
 								<posx>0</posx>
@@ -511,7 +511,7 @@ app.action(selected=list, listid=71)
 						<height>200</height>
 						<width>960</width>
 						<texture>colours/black_transparant.png</texture>	
-						<aspctratio>stretch</aspctratio>
+						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="list" id="72">
 						<description>Main List - Movie</description>
@@ -573,7 +573,7 @@ app.playlist_info.show(focus)
 								<width>600</width>
 								<height>50</height>
 								<texture>colours/medgrey.png</texture>
-								<aspctratio>stretch</aspctratio>
+								<aspectratio>stretch</aspectratio>
 							</control>
 							<control type="largeimage">
 								<posx>0</posx>
@@ -624,7 +624,7 @@ app.action(selected=list, listid=72)
 						<height>380</height>
 						<width>280</width>
 						<texture>colours/black.png</texture>
-						<aspctratio>stretch</aspctratio>						
+						<aspectratio>stretch</aspectratio>						
 					</control>	
 					<control type="largeimage">
 						<description>Thumb Window</description>
@@ -780,7 +780,7 @@ if len(search) > 2:
 									<width>900</width>
 									<height>50</height>
 									<texture>colours/medgrey.png</texture>
-									<aspctratio>stretch</aspctratio>
+									<aspectratio>stretch</aspectratio>
 								</control>
 								<control type="largeimage">
 									<posx>0</posx>
@@ -1014,7 +1014,7 @@ app.playlist_info._exec(focus)
 			<height>2</height>
 			<width>275</width>
 			<texture></texture>	
-			<aspctratio>stretch</aspctratio>
+			<aspectratio>stretch</aspectratio>
 		</control>
 		<control type="label" id="4005">
 			<posx>0</posx>

@@ -57,7 +57,7 @@
 	{"type":"playlist", "tag":"video", "name":"Novamov", "URL":"http://76.77.191.9/cgi-bin/Scrapers/novamov", "thumb":"http://www.novamov.com/images/logo_novamov.jpg"},
 	{"type":"playlist", "tag":"video", "name":"StageVu", "URL":"http://76.77.191.9/cgi-bin/Scrapers/svsearch", "thumb":"http://stagevu.com/img/white/newtitle.png"},
 	{"type":"playlist", "tag":"video", "name":"Videofriender", "URL":"http://76.77.191.9/cgi-bin/Scrapers/vfsearch", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif"},
-	{"type":"playlist", "tag":"video", "name":"Megavideo Premium Login", "URL":"http://navix.turner3d.net/scrape/mvloginset/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png"},
+	{"type":"playlist", "tag":"movies", "name":"Megavideo Premium Login", "URL":"http://navix.turner3d.net/scrape/mvloginset/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png"},
 	
 	{"type":"json", "tag":"tv", "name":"CNN Podcasts", "URL":"http://pipes.yahoo.com/pipes/pipe.run?_id=0d637dc84d04d475648640c142814f2e&_render=json", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_cnn.png"}, 
 	{"type":"json", "tag":"audio", "name":"Earth-Touch Podcasts", "URL":"http://pipes.yahoo.com/pipes/pipe.run?_id=4db360f21187e4ddeacbc4f24e58fad8&_render=json", "thumb":"http://a4.mzstatic.com/us/r30/Podcasts/94/0b/fe/ps.ztgjdkow.170x170-75.jpg"}, 
@@ -78,12 +78,12 @@
 	{"type":"playlist", "tag":"other", "name":"Websites", "URL":"http://navi-x-playlists-for-websites.googlecode.com/svn/trunk/index.plx", "thumb":"icons/icon_browser.png"},
 	{"type":"playlist", "tag":"other", "name":"Help and Support", "URL":"http://website.navi-x.org/-networks/Media_Center_Section_&_Help_and_Support/Help_and_Support/index.plx", "thumb":"icons/icon_help.png"},
 	
-	{"type":"playlist", "tag":"other", "name":"Popular 24 hours", "URL":"http://navix.turner3d.net/playlist/day.plx", "thumb":"icons/icon_24h.png"},
-	{"type":"playlist", "tag":"other", "name":"Popular 7 days", "URL":"http://navix.turner3d.net/playlist/week.plx", "thumb":"icons/icon_week.png"},
-	{"type":"playlist", "tag":"other", "name":"Popular Newest", "URL":"http://navix.turner3d.net/playlist/update.plx", "thumb":"icons/icon_recent.png"},
-	{"type":"playlist", "tag":"other", "name":"Newest", "URL":"http://navix.turner3d.net/playlist/new.plx", "thumb":"icons/icon_new.png"},
-	{"type":"playlist", "tag":"other", "name":"My Playlists", "URL":"http://navix.turner3d.net/playlist/mine.plx", "thumb":"icons/icon_playlist.png"},
-	{"type":"playlist", "tag":"other", "name":"UserBase", "URL":"http://navix.turner3d.net/playlist/50274/user_lists.plx", "thumb":"icons/icon_playlist.png"}
+	{"type":"playlist", "tag":"navix", "name":"Popular 24 hours", "URL":"http://navix.turner3d.net/playlist/day.plx", "thumb":"icons/icon_24h.png"},
+	{"type":"playlist", "tag":"navix", "name":"Popular 7 days", "URL":"http://navix.turner3d.net/playlist/week.plx", "thumb":"icons/icon_week.png"},
+	{"type":"playlist", "tag":"navix", "name":"Popular Newest", "URL":"http://navix.turner3d.net/playlist/update.plx", "thumb":"icons/icon_recent.png"},
+	{"type":"playlist", "tag":"navix", "name":"Newest", "URL":"http://navix.turner3d.net/playlist/new.plx", "thumb":"icons/icon_new.png"},
+	{"type":"playlist", "tag":"navix", "name":"My Playlists", "URL":"http://navix.turner3d.net/playlist/mine.plx", "thumb":"icons/icon_playlist.png"},
+	{"type":"playlist", "tag":"navix", "name":"UserBase", "URL":"http://navix.turner3d.net/playlist/50274/user_lists.plx", "thumb":"icons/icon_playlist.png"}
 	],
 "search" : 
   [ 

@@ -295,7 +295,7 @@ class BuildApp:
             self.log.debug("Temporary build directory matching appid exists: %s, deleting." % (os.path.join(self.build_dir, appid)))
             shutil.rmtree(os.path.join(self.build_dir, appid))
         shutil.copytree(path, os.path.join(self.build_dir, appid))
-        zip = zipfile.ZipFile(self.build_dir + "/" + appid + "-" + version + ".zip", "w")
+        zip = zipfile.ZipFile(self.build_dir + "/" + appid + "-" + version + ".zip", "w", zipfile.ZIP_DEFLATED)
         for root, dirs, files in os.walk(self.build_dir + "/" + appid):
             if "git" not in root and "svn" not in root and "CVS" not in root and "tests" not in root:
                 for file in files:
