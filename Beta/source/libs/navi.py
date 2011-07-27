@@ -167,12 +167,12 @@ class Navi_APP(Navi_VARS):
             
             #Execute Search
             if kwargs.get('query',False):
-                obj = self.get(6)
+                obj = self.get(7)
                 obj.start(kwargs['query'])
 
             #Save Search option configuration
             elif kwargs.get('search_save',False):
-                obj = self.get(6)
+                obj = self.get(7)
                 obj.dialog.save()
 
                 gui.ShowDialogNotification(self.local['11'])

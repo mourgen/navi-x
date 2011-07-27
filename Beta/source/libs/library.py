@@ -415,12 +415,12 @@ class SEARCH_DIALOG_OPTIONS:
         self.gui.SetButton(id, string)
 
     def show(self):
-        self.search.app.gui.ShowDialog('search-options')
+        self.search.app.gui.ShowDialog('dialog-search-options')
         self.gui = GUI(window=15150)
         self.update()
 
     def hide(self):
-        self.search.app.gui.HideDialog('search-options')
+        self.search.app.gui.HideDialog('dialog-search-options')
 
     def update(self):
         genre = self.options['genre'][self.focus['genre']]
@@ -464,7 +464,7 @@ class SEARCH_DIALOG_HISTORY:
         self.search.app.search_history = self.history
 
     def show(self):
-        self.search.app.gui.ShowDialog('search-history')
+        self.search.app.gui.ShowDialog('dialog-search-history')
         historylist = [{'label':item} for item in self.history]
         listItems = createList(historylist)
         listItems._set( GUI(window=15140, listid=90) )
@@ -476,7 +476,7 @@ class SEARCH_DIALOG_HISTORY:
         self.search.start(self.get(focus))
 
     def hide(self):
-        self.search.app.gui.HideDialog('search-history')
+        self.search.app.gui.HideDialog('dialog-search-history')
 
 
 
