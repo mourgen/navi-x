@@ -187,7 +187,7 @@ class Navi_APP(Navi_VARS):
                 gui.SetLabel(20043, self.local['10'])
                 gui.list.SetFocusedItem(action_id)
                 gui.ClearLists(self.options['navi_main_lists'])
-                gui.SetFocus(2000)
+                gui.SetFocus(2004)
                 
         elif action == 'settings':
             self.parseData(action_id)

@@ -61,7 +61,7 @@
 					<height>5</height>
 					<width>10</width>
 					<texture>arrowdown.png</texture>	
-					<visible>Container(70).HasNext + Container(71).HasNext | Container(72).HasNext</visible>
+					<visible>Container(70).HasNext | Container(71).HasNext | Container(72).HasNext | Container(75).HasNext</visible>
 					<animation effect="zoom" time="500" center="auto" start="180" end="100" tween="cubic" easing="out">WindowOpen</animation>
 					<animation effect="fade" time="500" start="0" end="100">WindowOpen</animation>
 				</control>
@@ -72,21 +72,10 @@
 					<height>5</height>
 					<width>10</width>
 					<texture>arrowup.png</texture>	
-					<visible>Container(75).HasPrevious</visible>
+					<visible>Container(75).HasPrevious + ControlGroup(2004).HasFocus</visible>
 					<animation effect="zoom" time="500" center="auto" start="180" end="100" tween="cubic" easing="out">WindowOpen</animation>
 					<animation effect="fade" time="500" start="0" end="100">WindowOpen</animation>
 				</control>		
-				<control type="image">
-					<description>Arrow down</description>
-					<posx>130</posx>
-					<posy>680</posy>
-					<height>5</height>
-					<width>10</width>
-					<texture>arrowdown.png</texture>	
-					<visible>Container(75).HasNext</visible>
-					<animation effect="zoom" time="500" center="auto" start="180" end="100" tween="cubic" easing="out">WindowOpen</animation>
-					<animation effect="fade" time="500" start="0" end="100">WindowOpen</animation>
-				</control>
 			</control>
 		</control>
 		
@@ -136,7 +125,11 @@
 					<width>1200</width>
 					<height>50</height>						
 					<onup>-</onup>
-					<ondown>2000</ondown>
+					<ondown lang="python">
+<![CDATA[
+app.gui.FocusMain()
+]]>
+					</ondown>
 					<orientation>horizontal</orientation>
 					<scrolltime>200</scrolltime>
 					<offsetx>240</offsetx>
@@ -231,7 +224,7 @@ app.action(selected=list, listid=60)
 						<visible>StringCompare(Container(70).ListItem.property(custom:view),thumbnails)</visible>	
 						<posx>950</posx>
 						<posy>470</posy>
-						<width>100</width>
+						<width>120</width>
 						<height>30</height>	
 						<font>font16b</font>
 						<aligny>center</aligny>					
@@ -243,7 +236,7 @@ app.action(selected=list, listid=60)
 						<visible>StringCompare(Container(71).ListItem.property(custom:view),default) | StringCompare(Container(71).ListItem.property(custom:view),list)</visible>	
 						<posx>950</posx>
 						<posy>470</posy>
-						<width>100</width>
+						<width>120</width>
 						<height>30</height>	
 						<font>font16b</font>
 						<aligny>center</aligny>					
@@ -255,7 +248,7 @@ app.action(selected=list, listid=60)
 						<visible>StringCompare(Container(72).ListItem.property(custom:view),detail)</visible>	
 						<posx>950</posx>
 						<posy>470</posy>
-						<width>100</width>
+						<width>120</width>
 						<height>30</height>	
 						<font>font16b</font>
 						<aligny>center</aligny>					
@@ -267,7 +260,7 @@ app.action(selected=list, listid=60)
 						<visible>StringCompare(Container(75).ListItem.property(custom:view),search)</visible>	
 						<posx>950</posx>
 						<posy>470</posy>
-						<width>100</width>
+						<width>120</width>
 						<height>30</height>	
 						<font>font16b</font>
 						<aligny>center</aligny>					
@@ -287,7 +280,7 @@ app.action(selected=list, listid=60)
 						<height>500</height>						
 						<onup>1001</onup>
 						<ondown></ondown>
-						<onleft>1001</onleft>
+						<onleft>31</onleft>
 						<onright lang="python">
 <![CDATA[
 focus = mc.GetWindow(15000).GetList(70).GetFocusedItem()
@@ -295,7 +288,7 @@ app.playlist_info.show(focus)
 ]]>
 						</onright>	      
 						<orientation>vertical</orientation>
-						<pagecontrol>25</pagecontrol>
+						<pagecontrol>31</pagecontrol>
 						<scrolltime>200</scrolltime>
 						<preloaditems>2</preloaditems>
 						<itemlayout width="210" height="200">
@@ -399,7 +392,7 @@ app.action(selected=list, listid=70)
 						<height>500</height>						
 						<onup>1001</onup>
 						<ondown></ondown>
-						<onleft>1001</onleft>
+						<onleft>32</onleft>
 						<onright lang="python">
 <![CDATA[
 focus = mc.GetWindow(15000).GetList(71).GetFocusedItem()
@@ -407,7 +400,7 @@ app.playlist_info.show(focus)
 ]]>
 						</onright>	     
 						<orientation>vertical</orientation>
-						<pagecontrol>25</pagecontrol>
+						<pagecontrol>32</pagecontrol>
 						<scrolltime>200</scrolltime>
 						<preloaditems>2</preloaditems>
 						<itemlayout width="900" height="50">
@@ -483,7 +476,7 @@ app.playlist_info.show(focus)
 								<aligny>center</aligny>					
 								<align>left</align>
 								<info>ListItem.Label</info>
-								<textcolor>FF1d1d1d</textcolor>					
+								<textcolor>FF080808</textcolor>					
 							</control>
 						</focusedlayout>
 						<content type="url" url="">
@@ -521,7 +514,7 @@ app.action(selected=list, listid=71)
 						<height>250</height>						
 						<onup>1001</onup>
 						<ondown></ondown>
-						<onleft>1001</onleft>
+						<onleft>33</onleft>
 						<onright lang="python">
 <![CDATA[
 focus = mc.GetWindow(15000).GetList(72).GetFocusedItem()
@@ -529,7 +522,7 @@ app.playlist_info.show(focus)
 ]]>
 						</onright>	  
 						<orientation>vertical</orientation>
-						<pagecontrol>25</pagecontrol>
+						<pagecontrol>33</pagecontrol>
 						<scrolltime>200</scrolltime>
 						<preloaditems>2</preloaditems>
 						<itemlayout width="600" height="50">
@@ -605,7 +598,7 @@ app.playlist_info.show(focus)
 								<aligny>center</aligny>					
 								<align>left</align>
 								<info>ListItem.Label</info>
-								<textcolor>FF1d1d1d</textcolor>					
+								<textcolor>FF080808</textcolor>					
 							</control>
 						</focusedlayout>
 						<content type="url" url="">
@@ -733,10 +726,10 @@ if len(search) > 2:
 							<height>380</height>						
 							<onup>20041</onup>
 							<ondown></ondown>
-							<onleft>-</onleft>
+							<onleft>34</onleft>
 							<onright>3000</onright>	      
 							<orientation>vertical</orientation>
-							<pagecontrol>25</pagecontrol>
+							<pagecontrol>34</pagecontrol>
 							<scrolltime>200</scrolltime>
 						
 							<itemlayout width="900" height="50">
@@ -812,7 +805,7 @@ if len(search) > 2:
 									<aligny>center</aligny>					
 									<align>left</align>
 									<info>ListItem.Label</info>
-									<textcolor>FF1d1d1d</textcolor>					
+									<textcolor>FF080808</textcolor>					
 								</control>
 							</focusedlayout>
 							<content type="url" url="">
@@ -829,8 +822,66 @@ app.action(selected=list, listid=75)
 										
 				</control>	
 				
-
-
+				<control type="scrollbar" id="31">
+						<visible>Control.IsVisible(2001)</visible>
+						<description>Scroll Bar Text Box</description>
+						<posx>-74</posx>
+						<posy>65</posy>
+						<width>19</width>
+						<height>380</height> 
+						<onleft>1001</onleft>
+						<onright>2001</onright>
+						<onup>30</onup>
+						<ondown>30</ondown> 
+						<textureslidernib>nib.png</textureslidernib>
+						<textureslidernibfocus>nib_focus.png</textureslidernibfocus>
+						<orientation>vertical</orientation>
+				</control> 
+				<control type="scrollbar" id="32">
+						<visible>Control.IsVisible(2002)</visible>
+						<description>Scroll Bar Text Box</description>
+						<posx>-74</posx>
+						<posy>65</posy>
+						<width>19</width>
+						<height>380</height> 
+						<onleft>1001</onleft>
+						<onright>2002</onright>
+						<onup>30</onup>
+						<ondown>30</ondown> 
+						<textureslidernib>nib.png</textureslidernib>
+						<textureslidernibfocus>nib_focus.png</textureslidernibfocus>
+						<orientation>vertical</orientation>
+				</control> 
+				<control type="scrollbar" id="33">
+						<visible>Control.IsVisible(2003)</visible>
+						<description>Scroll Bar Text Box</description>
+						<posx>-74</posx>
+						<posy>65</posy>
+						<width>19</width>
+						<height>380</height> 
+						<onleft>1001</onleft>
+						<onright>2003</onright>
+						<onup>30</onup>
+						<ondown>30</ondown> 
+						<textureslidernib>nib.png</textureslidernib>
+						<textureslidernibfocus>nib_focus.png</textureslidernibfocus>
+						<orientation>vertical</orientation>
+				</control> 
+				<control type="scrollbar" id="34">
+						<visible>Control.IsVisible(2004)</visible>
+						<description>Scroll Bar Text Box</description>
+						<posx>-74</posx>
+						<posy>65</posy>
+						<width>19</width>
+						<height>290</height> 
+						<onleft>1001</onleft>
+						<onright>2004</onright>
+						<onup>30</onup>
+						<ondown>30</ondown> 
+						<texturesliderbar>colours/grey_transparant.png</texturesliderbar>
+						<texturesliderbarfocus>colours/lightgrey.png</texturesliderbarfocus>
+						<orientation>vertical</orientation>
+				</control> 
 				
 		</control>	
 

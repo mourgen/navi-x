@@ -65,9 +65,9 @@ class Navi_VARS:
 
         #Load scrapers.json
         Log(self, 'NAVI-X: Loading sources from %s' % SOURCES)
-        source_json = urlopen(self, SOURCES, {'action':'read'})['content']
-        self.sources = json_loads( string=source_json )
         try:
+            source_json = urlopen(self, SOURCES, {'action':'read'})['content']
+            self.sources = json_loads( string=source_json )
             self.sources['scrapers']
         except:
             Log(self, 'NAVI-X: Failed fetching external sources - loading default')

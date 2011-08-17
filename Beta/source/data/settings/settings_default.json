@@ -2,7 +2,7 @@
    "cache_url_clear": 60480, 
    "cache_url_time": 3600, 
    "debug": true, 
-   "bookmark": true, 
+   "bookmark": false, 
    "language": "EN_us", 
    "navi_cookie": "", 
    "navi_favorite": "", 

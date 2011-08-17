@@ -19,7 +19,7 @@ class GUI:
         
         if kwarg.get('window',False):   self.window = mc.GetWindow(kwarg['window'])
         if kwarg.get('listid',False):   self.list = self.window.GetList(kwarg['listid'])
-        if kwarg.get('window',False):   self.focus = self.window.GetControl(2000).SetFocus
+        if kwarg.get('window',False):   self.focus = self.FocusMain
         
     def SetVisible(self, id, bool):
         control = self.window.GetControl(id)
@@ -86,6 +86,12 @@ class GUI:
     def ShowDialogOk(self, *args):
         args = (str(r) for r in args)
         return mc.ShowDialogOk(*args)
+
+    def FocusMain(self):
+        if self.window.GetControl(2001).IsVisible(): self.window.GetControl(2001).SetFocus()
+        if self.window.GetControl(2002).IsVisible(): self.window.GetControl(2002).SetFocus()
+        if self.window.GetControl(2003).IsVisible(): self.window.GetControl(2003).SetFocus()
+        if self.window.GetControl(2004).IsVisible(): self.window.GetControl(2004).SetFocus()
 
 ### Create list from object and sets to gui
 class createList:

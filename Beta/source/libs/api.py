@@ -70,12 +70,15 @@ class Navi_API:
 
     ### process api load request
     def loads(self, item, **kwargs):
+        #check if item is blocked
         bool, data = self.checkBlock(item)
         if bool: return data
 
+        #check if item exist in cache
         bool, data = self.checkCache(item.path)
         if bool: return data
-    
+
+        #Load Item
         try:
             if ':' in item.type:
                 item.type, type = item.type.split(':')
@@ -90,6 +93,7 @@ class Navi_API:
             data['URL'] = getattr(item, 'path', '')
             data['type'] = getattr(item, 'type', '')
 
+            #Save to cache
             period = kwargs.get('cache', self.app.cache_url_time)
             if period > 0:
                 self.saveCache(item, data, period)

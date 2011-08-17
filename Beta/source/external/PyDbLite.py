@@ -67,6 +67,7 @@ import bisect
 import mc
 import binascii
 import bz2
+import thread
 
 # compatibility with Python 2.3
 try:
@@ -234,6 +235,9 @@ class Base:
         except: return False, self
 
     def commit(self):
+        thread.start_new_thread(self._commit, ())
+
+    def _commit(self):
         """Write the database to a file"""
         tupple = (self.fields,self.next_id,self.records,self.indices)
         data = cPickle.dumps(tupple, self.protocol)

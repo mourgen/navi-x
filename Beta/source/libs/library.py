@@ -681,7 +681,7 @@ class Navi_PLAYLIST_INFO:
         self.menu.list.SetFocusedItem(self.selected)
 
     def hide(self):
-        self.app.gui.SetFocus(2000)
+        self.app.gui.FocusMain()
         self.gui.list.SetFocusedItem(self.focus)
 
     def _exec(self, selected):

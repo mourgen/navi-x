@@ -27,9 +27,9 @@ class Navi_DIALOG_SUBTITLE:
     def show(self, item):
         self.item = item
         self.gui.ShowDialog('dialog-subtitle')
-        self.set_allparam()
+        self.set_allparam(self.item.name)
 
-    def set_allparam(self):
+    def set_allparam(self, name):
         self.stack          = False
         self.stackSecond    = ""
         self.autoDownload   = False
@@ -41,7 +41,7 @@ class Navi_DIALOG_SUBTITLE:
         self.season         = ''                                 # Season
         self.episode        = ''                                 # Episode
         self.tvshow         = ''                                 # Show
-        self.title          = unicodedata.normalize('NFKD', unicode(unicode(self.item.name))).encode('ascii','ignore')# Title
+        self.title          = unicodedata.normalize('NFKD', unicode(unicode(name))).encode('ascii','ignore')# Title
 
         if self.tvshow == "":
             if str(self.year) == "":
@@ -181,6 +181,12 @@ class Navi_DIALOG_SUBTITLE:
                 self.gui.SetLabel(STATUS_LABEL, msg )
             else:
                 self.gui.SetLabel(STATUS_LABEL,  self.app.local['112'] )
+                xbmc.sleep(1000)
+                self.app.gui.HideDialog('dialog-wait')
+		search = self.app.gui.ShowDialogKeyboard('Manual Search - No Results Found', self.title, False)
+                self.app.gui.ShowDialog('dialog-wait')
+                if search:
+                    self.set_allparam(search)
                 
             self.gui.SetFocus( SUBTITLES_LIST )
             self.gui.SetFocusedItem( SUBTITLES_LIST, 0 )
