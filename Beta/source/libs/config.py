@@ -31,6 +31,7 @@ class Navi_VARS:
 
         #Check if embedded
         if IsBoxee():
+            import mc
             try:    self.embedded = mc.IsEmbedded()
             except: self.embedded = False
         else:

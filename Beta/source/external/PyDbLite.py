@@ -67,7 +67,7 @@ import bisect
 import mc
 import binascii
 import bz2
-import thread
+import threading
 
 # compatibility with Python 2.3
 try:
@@ -235,7 +235,8 @@ class Base:
         except: return False, self
 
     def commit(self):
-        thread.start_new_thread(self._commit, ())
+        t = threading.Thread(name='Database', target=self._commit, args=())
+        t.start()
 
     def _commit(self):
         """Write the database to a file"""

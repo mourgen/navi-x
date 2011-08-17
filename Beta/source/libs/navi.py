@@ -12,6 +12,7 @@ from download import *
 
 #Module specific Imports
 from PyDbLite import Base
+import time
 
 ######
 ### NAVI-X MAIN APP
@@ -146,6 +147,8 @@ class Navi_APP(Navi_VARS):
             obj = handle.get(action_id)
             obj._list(self)
 
+            self.gui.window.GetControl(kwargs['listid']).SetFocus()
+
         #Actions related to the top menu
         elif action == 'topmenu':
             gui.ClearStateStack(False)
@@ -199,6 +202,9 @@ class Navi_APP(Navi_VARS):
             gui = GUI(window=self.gui.windows['dialog-options'], listid=kwargs['listid'])
             listitems = gui.list.GetItems()
             obj = listitems[selected].GetProperty('obj')
+            refresh = listitems[selected].GetProperty('refresh')
             vars(self)[obj].save(selected)
+            if refresh:
+                self.settings.refresh()
 
         self.gui.HideDialog('dialog-wait')

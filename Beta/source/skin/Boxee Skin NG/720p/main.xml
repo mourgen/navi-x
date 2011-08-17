@@ -469,14 +469,14 @@ app.playlist_info.show(focus)
 							</control>
 							<control type="label">
 								<posx>70</posx>
-								<posy>15</posy>
+								<posy>13</posy>
 								<width>650</width>
-								<height>20</height>
-								<font>font18b</font>
+								<height>22</height>
+								<font>font22b</font>
 								<aligny>center</aligny>					
 								<align>left</align>
 								<info>ListItem.Label</info>
-								<textcolor>FF080808</textcolor>					
+								<textcolor>FF000000</textcolor>					
 							</control>
 						</focusedlayout>
 						<content type="url" url="">
@@ -591,14 +591,14 @@ app.playlist_info.show(focus)
 							</control>
 							<control type="label">
 								<posx>70</posx>
-								<posy>15</posy>
+								<posy>13</posy>
 								<width>350</width>
-								<height>20</height>
-								<font>font18b</font>
+								<height>22</height>
+								<font>font22b</font>
 								<aligny>center</aligny>					
 								<align>left</align>
 								<info>ListItem.Label</info>
-								<textcolor>FF080808</textcolor>					
+								<textcolor>FF000000</textcolor>					
 							</control>
 						</focusedlayout>
 						<content type="url" url="">
@@ -798,14 +798,14 @@ if len(search) > 2:
 								</control>
 								<control type="label">
 									<posx>70</posx>
-									<posy>15</posy>
+									<posy>13</posy>
 									<width>650</width>
-									<height>20</height>
-									<font>font18b</font>
+									<height>22</height>
+									<font>font22b</font>
 									<aligny>center</aligny>					
 									<align>left</align>
 									<info>ListItem.Label</info>
-									<textcolor>FF080808</textcolor>					
+									<textcolor>FF00000</textcolor>					
 								</control>
 							</focusedlayout>
 							<content type="url" url="">

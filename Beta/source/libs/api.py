@@ -794,6 +794,14 @@ class Navi_API:
             self.app.gui.ShowDialogNotification(self.app.local['97'])
             return
 
+        if self.app.embedded:
+            tmp_path = os.path.join(self.app.tempDir, 'download')
+            if os.path.islink(tmp_path):
+                os.chmod(tmp_path, stat.S_IWUSR)
+                os.remove(tmp_path)
+            os.symlink(path, os.path.join(self.app.tempDir, 'download') )
+            path = tmp_path
+
         try:
             dump = os.path.join(path, 'empty')
             file = open(dump, 'w')
@@ -802,14 +810,8 @@ class Navi_API:
             os.remove(dump)
             basedir = path
         except:
-            if self.app.embedded:
-                tmp_path = os.path.join(self.app.tempDir, 'download')
-                os.symlink(path, os.path.join(self.app.tempDir, 'download') )
-                self._DOWNLOAD(item, tmp_path)
-                return
-            else:
-                self.app.gui.ShowDialogNotification(self.app.local['96'])
-                return
+            self.app.gui.ShowDialogNotification(self.app.local['96'])
+            return
 
         filename = slugify(item.name)
 

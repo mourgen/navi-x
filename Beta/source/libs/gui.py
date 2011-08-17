@@ -97,7 +97,8 @@ class GUI:
 class createList:
     def __init__(self, items):
         self.listItems = mc.ListItems()
-        if len(items) > 0: self._createItems(items)
+        if getattr(items, '__iter__', False):
+            self._createItems(items)
 
     def _createItems(self, items):
         for item in items:

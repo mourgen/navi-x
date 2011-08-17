@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <window type="dialog" id="15200">
 	<allowoverlay>yes</allowoverlay>
-	<defaultcontrol>90</defaultcontrol>	
+	<defaultcontrol>100</defaultcontrol>	
 	<controls>
 		<control type="image">
 			<description>Background - settings</description>
@@ -33,7 +33,7 @@
 					<info>Container(90).ListItem.property(custom:id)</info>
 					<textcolor>ffFFFFFF</textcolor>					
 				</control>
-				<control type="list" id="90">
+				<control type="list" id="100">
 					<description>Main List</description>
 					<posx>60</posx>
 					<posy>100</posy>
@@ -102,8 +102,8 @@
 					<content type="url" url="">
 						<onclick lang="python">
 <![CDATA[
-selected = mc.GetWindow(15200).GetList(90).GetFocusedItem()
-app.action(action='options', focus=selected, listid=90)
+selected = mc.GetWindow(15200).GetList(100).GetFocusedItem()
+app.action(action='options', focus=selected, listid=100)
 ]]>
 						</onclick>
 					</content>					

@@ -99,6 +99,7 @@ class Navi_PLAYLIST:
         app.playlist_info.set(self, GUI(window=15000, listid=self.__view__[self.view.lower()]))
 
 
+
     #Sort playlist, key = name|date
     def _sort(self, app, key, reverse):
         navi_server = False
@@ -692,7 +693,7 @@ class Navi_PLAYLIST_INFO:
 
             self.app.gui.ShowDialog('dialog-options')
             listItems = createList(list)
-            listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=90))
+            listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
         else:
             self.action[self.id]()
             self.menu.list.SetFocusedItem(selected)
@@ -734,7 +735,7 @@ class Navi_PLAYLIST_INFO:
 
         self.app.gui.ShowDialog('dialog-options')
         listItems = createList(list)
-        listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=90))
+        listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
 
     def add_favorite(self):
         self.app.api.saveFavorite(self.playlist)
@@ -765,18 +766,22 @@ class Navi_SETTINGS:
 
     def show(self):
         self.app.gui.ShowDialog('dialog-settings')
-        self.refresh()
+        try:
+            self.refresh()
+        except:
+            self.app.loadDefaults()
+            self.refresh()
 
     def refresh(self):
         gui = GUI(window=self.app.gui.windows['dialog-settings'], listid=90)
         gui.SetLabel(80, 'Version: %s' % VERSION)
-        self.list = [
+        list = [
                 {'label':'[B]%s:[/B]' % self.app.local['60'], 'action':'main', 'active':IsEqual(0, self.focus)},
                 {'label':'[B]%s:[/B]' % self.app.local['61'], 'action':'playback', 'active':IsEqual(1, self.focus)},
                 {'label':'[B]%s:[/B]' % self.app.local['62'], 'action':'playlist', 'active':IsEqual(2, self.focus)},
                 {'label':'[B]%s:[/B]' % self.app.local['63'], 'action':'advanced', 'active':IsEqual(3, self.focus)}
         ]
-        listItems = createList(self.list)
+        listItems = createList(list)
         listItems._set(gui)
         self.sub()
 
@@ -839,19 +844,21 @@ class Navi_SETTINGS:
         if id in ['language','debug','playback_sub_lang_1','playback_sub_lang_2','playback_sub_lang_3','player', 'plx_default_view', 'plx_default_player', 'bookmark']:
             if 'playback_sub_lang' in id:
                 id = 'playback_sub_lang'
+
             data = self.app.options[id]
-            list = [{'label': item, 'id':id, 'obj':'settings'} for item in data ]
+            list = ({'label': item, 'id':id, 'obj':'settings', 'refresh':True} for item in data )
             
             self.app.gui.ShowDialog('dialog-options')
             listItems = createList(list)
-            listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=90))
-        
+            listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
+            
         elif id in ['url_useragent']:
             var = self.app.gui.ShowDialogKeyboard('Settings - %s' % id, str(vars(self.app)[id]), False)
             if var != '':
                 vars(self.app)[id] = var
                 self.app.save()
                 Log(self.app, 'NAVI-X: Changed value \'%s\' to \'%s\'' % ( id, str(vars(self.app)[id] ) ) )
+                self.refresh()
 
         elif id in ['cache_url_time', 'plx_lines_max', 'url_max_bandwidth', 'url_open_timeout', 'navi_pincode']:
             var = self.app.gui.ShowDialogNumeric(0, 'Settings - %s' % id, str(vars(self.app)[id]))
@@ -859,6 +866,7 @@ class Navi_SETTINGS:
                 vars(self.app)[id] = int(var)
                 self.app.save()
                 Log(self.app, 'NAVI-X: Changed value \'%s\' to \'%s\'' % ( id, str(vars(self.app)[id] ) ) )
+                self.refresh()
 
         elif id in ['plx_default_background', 'url_download_location']:
             if id in ['plx_default_background']:
@@ -871,10 +879,11 @@ class Navi_SETTINGS:
                 vars(self.app)[id] = var
                 self.app.save()
                 Log(self.app, 'NAVI-X: Changed value \'%s\' to \'%s\'' % ( id, str(vars(self.app)[id] ) ) )
+                self.refresh()
         
         else:
             getattr(self, id)()
-        self.refresh()
+            self.refresh()
 
     def login(self):
         self.app.api.login()
