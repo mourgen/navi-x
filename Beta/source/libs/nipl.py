@@ -2,8 +2,8 @@ from default import *
 from tools import *
 
 #Module specific Imports
-import time
 import traceback
+import urllib
 
 from urllib import quote_plus
 
@@ -94,39 +94,33 @@ class NIPL:
     ### NOOKIE FUNCTIONS
     # Functions for data retreival from navi db
     def getNookie(self):
-        url = "".join(['nookie', self.__item__.processor, '?url=', quote_plus(self.__item__.path)])
-        record = self.__app__.cache(id = url)
-        if len(record) > 0:
-            expiresAt = int(record[0]['time']) + int(record[0]['period'])
-            if time.time() < expiresAt:
-                self.nookies = pickle.loads(record[0]['data'])
+        id = "".join(['nookie', self.__item__.processor, '?url=', quote_plus(self.__item__.path)])
+
+        if self.nookie_expires == '0':
+            period = 16070400
+        elif len(self.nookie_expires) < 4:
+            try:
+                if 'h' in self.nookie_expires: period = int(self.nookie_expires.replace('h', '').replace(' ',''))*3600
+                elif 'd' in self.nookie_expires: period = int(self.nookie_expires.replace('d', '').replace(' ',''))*3600*24
+                elif 'm' in self.nookie_expires: period = int(self.nookie_expires.replace('m', '').replace(' ',''))*60
+                else: period = 86400
+            except: period = 86400
+        else:
+            period = 86400
+        
+        data = self.__app__.storage.get(id, age = period, persistent = True)
+        if data:
+            self.nookies = data
 
     def saveNookie(self):
         if len(self.nookies) > 0:
-            url = "".join(['nookie', self.__item__.processor, '?url=', quote_plus(self.__item__.path)])
-            records = self.__app__.cache(id = url)
-            if self.nookie_expires == '0': period = 16070400
-            elif len(self.nookie_expires) < 4:
-                try:
-                    if 'h' in self.nookie_expires: period = int(self.nookie_expires.replace('h', '').replace(' ',''))*3600
-                    elif 'd' in self.nookie_expires: period = int(self.nookie_expires.replace('d', '').replace(' ',''))*3600*24
-                    elif 'm' in self.nookie_expires: period = int(self.nookie_expires.replace('m', '').replace(' ',''))*60
-                    else: period = 86400
-                except: period = 86400
-            else: period = 86400
-            if len(records) > 0:
-                self.__app__.cache.delete(records)
-            self.__app__.cache.insert(url, time.time(), period, pickle.dumps(self.nookies, pickle.HIGHEST_PROTOCOL))
-            self.__app__.cache.commit()
+            id = "".join(['nookie', self.__item__.processor, '?url=', quote_plus(self.__item__.path)])
+            self.__app__.storage.set(id, self.nookies, persistent = True)
 
     def saveCache(self):
         if self.cacheable > 1:
-            url = "".join([__item__.processor, '?url=', quote_plus(__item__.path)])
-            records = self.__app__.cache(id = url)
-            if len(records) > 0:
-                self.app.cache.delete(records)
-            self.app.cache.insert(url, time.time(), 86400, pickle.dumps(self.__cache__, pickle.HIGHEST_PROTOCOL))
-            self.app.cache.commit()
+            id = "".join([__item__.processor, '?url=', quote_plus(__item__.path)])
+            self.__app__.storage.set(id, self.__cache__)
 
     ### MAIN INTERPRETER FUNCTION
     ### Main Process functions, iterates the NIPL script
@@ -345,6 +339,7 @@ class NIPL:
     def unescape(self, line):
         line = line.replace(' ','')
         var2 = self.getValue(line)
+        var2 = urllib.unquote_plus(var2)
         self.setValue(var=line, value=var2)
 
     ### OPERATOR FUNCTIONS

@@ -5,7 +5,7 @@ import sys
 CWD             = os.getcwd().replace(";","")
 ROOT            = CWD
 PLATFORM        = "boxee"
-VERSION         = '4.14 beta'
+VERSION         = '4.16 beta'
 SOURCES         = 'http://navi-x.googlecode.com/svn/trunk/Beta/source/data/settings/sources.json'
 WINDOWS_ID      = {
                         'main':15000, 'dialog-wait':15100, 'dialog-splash':15110, 'dialog-info':15120, 'dialog-search-history':15140,

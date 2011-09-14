@@ -4,6 +4,7 @@ from gui import *
 
 #Module specific Imports
 from urllib import quote_plus
+import random
 
 ######
 ### LIBRARY
@@ -30,6 +31,7 @@ class Navi_PLAYLIST:
         self.playmode = str(app.plx_default_playmode)
         self.view = str(app.plx_default_view)
         self.sort = 'Default'
+        self.id   = str(random.randint(0, 100))
         #
         if isinstance(data, str):
             self.parseSource(app, data)
@@ -84,20 +86,19 @@ class Navi_PLAYLIST:
 
     #Output playlist to gui
     def _list(self, app):
-        list = []
-        total = self.count()
-        append = list.append
+        list   = []
+        total  = self.count()
         for i in xrange(total):
-            item = self.get(i)
+            item     = self.get(i)
             totalstr = "".join(['ITEM: ', str(i+1), '-', str(total)])
-            data = item.parseList(handle=self, total=totalstr, background=self.background, view=self.view)
-            append(data)
+            data     = item.parseList(playlist=self, total=totalstr, background=self.background, view=self.view)
+            list.append(data)
+        app.parking[self.id] = self
 
         listItems = createList(list)
         for id in app.options['navi_main_lists']:
-            listItems._set(GUI(window=15000, listid=id))
+            listItems.set(GUI(window=15000, listid=id))
         app.playlist_info.set(self, GUI(window=15000, listid=self.__view__[self.view.lower()]))
-
 
 
     #Sort playlist, key = name|date
@@ -222,11 +223,11 @@ class Navi_ITEM:
                 'total':kwargs.get('total', 0),
                 'path':kwargs.get('path', self.path),
             }
-        if kwargs.get('handle', False):
-            list['handle'] = kwargs['handle']
-            list['playlist.thumb'] = kwargs['handle'].logo
-            list['playlist.label'] = kwargs['handle'].name
-            list['playlist.description'] = kwargs['handle'].description
+        if kwargs.get('playlist', False):
+            list['playlist.id']    = kwargs['playlist'].id
+            list['playlist.thumb'] = kwargs['playlist'].logo
+            list['playlist.label'] = kwargs['playlist'].name
+            list['playlist.description'] = kwargs['playlist'].description
         return list
 
     def parseRAW(self):
@@ -243,10 +244,6 @@ class Navi_ITEM:
 
     def _list(self, app):
         content = ['html_youtube', 'html', 'video', 'audio', 'image', 'text', 'list_note']
-        #if self.restricted:
-        #    if ipCheck(app, self):
-        #        return
- 
         if self.type not in content:
             if self.block:
                 app.gui.HideDialog('dialog-wait')
@@ -281,7 +278,6 @@ class Navi_ITEM:
                 app.gui.SetLabel(20043, app.local['10'])
 
             app.gui.ClearLists(app.options['navi_main_lists'])
-            Log(app, 'NAVI-X: Loaded playlist - ' + self.path)
             playlist._list(app)
             
         elif self.type == 'text' or self.type == 'image':
@@ -468,7 +464,7 @@ class SEARCH_DIALOG_HISTORY:
         self.search.app.gui.ShowDialog('dialog-search-history')
         historylist = [{'label':item} for item in self.history]
         listItems = createList(historylist)
-        listItems._set( GUI(window=15140, listid=90) )
+        listItems.set( GUI(window=15140, listid=90) )
 
     def get(self, n):
 	return self.history[n]
@@ -562,7 +558,7 @@ class Navi_DIALOG_INFO:
             for t in tags:
                 i[t] = 'True'
         listItems = createList(self.list)
-        listItems._set(GUI(window=15120, listid=90))
+        listItems.set(GUI(window=15120, listid=90))
 
     def hide(self):
         self.app.gui.HideDialog('dialog-info')
@@ -582,7 +578,7 @@ class Navi_DIALOG_INFO:
 
         self.app.gui.ShowDialog('dialog-options')
         listItems = createList(list)
-        listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=90))
+        listItems.set(GUI(window=self.app.gui.windows['dialog-options'], listid=90))
 
     def save(self, selected):
         self.app.gui.HideDialog('dialog-options')
@@ -674,7 +670,7 @@ class Navi_PLAYLIST_INFO:
             self.list.append( {'label':'[B]%s[/B] ' % self.app.local['45'], 'action':'block'} )
 
         listItems = createList(self.list)
-        listItems._set(self.menu)
+        listItems.set(self.menu)
 
     def show(self, focus):
         self.focus = focus
@@ -693,7 +689,7 @@ class Navi_PLAYLIST_INFO:
 
             self.app.gui.ShowDialog('dialog-options')
             listItems = createList(list)
-            listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
+            listItems.set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
         else:
             self.action[self.id]()
             self.menu.list.SetFocusedItem(selected)
@@ -735,7 +731,7 @@ class Navi_PLAYLIST_INFO:
 
         self.app.gui.ShowDialog('dialog-options')
         listItems = createList(list)
-        listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
+        listItems.set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
 
     def add_favorite(self):
         self.app.api.saveFavorite(self.playlist)
@@ -782,7 +778,7 @@ class Navi_SETTINGS:
                 {'label':'[B]%s:[/B]' % self.app.local['63'], 'action':'advanced', 'active':IsEqual(3, self.focus)}
         ]
         listItems = createList(list)
-        listItems._set(gui)
+        listItems.set(gui)
         self.sub()
 
 
@@ -831,7 +827,7 @@ class Navi_SETTINGS:
             self.sublist[2].append({'label':'%s: %s' % (self.app.local['86'], self.app.plx_default_player), 'action':'plx_default_player'})
 
         listItems = createList(self.sublist[self.focus])
-        listItems._set(GUI(window=self.app.gui.windows['dialog-settings'], listid=91))
+        listItems.set(GUI(window=self.app.gui.windows['dialog-settings'], listid=91))
 
     def _exec(self, selected):
         self.focus = selected
@@ -850,7 +846,7 @@ class Navi_SETTINGS:
             
             self.app.gui.ShowDialog('dialog-options')
             listItems = createList(list)
-            listItems._set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
+            listItems.set(GUI(window=self.app.gui.windows['dialog-options'], listid=100))
             
         elif id in ['url_useragent']:
             var = self.app.gui.ShowDialogKeyboard('Settings - %s' % id, str(vars(self.app)[id]), False)
@@ -915,8 +911,7 @@ class Navi_SETTINGS:
         pass
 
     def reset_cache(self):
-        for i in [r['__id__'] for r in self.app.cache]:
-            del self.app.cache[i]
-        self.app.cache.commit()
+        self.app.storage.empty(persistent = True)
+        self.app.storage.empty()
         self.gui.ShowDialogNotification(self.app.local['55'])
         Log(self.app, 'NAVI-X: Cache is reset')

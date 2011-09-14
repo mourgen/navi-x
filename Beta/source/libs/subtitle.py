@@ -208,7 +208,7 @@ class Navi_DIALOG_SUBTITLE:
                 itemCount += 1
 
             list = createList(sub_list)
-            list._set(GUI(window=15170, listid=SUBTITLES_LIST))
+            list.set(GUI(window=15170, listid=SUBTITLES_LIST))
 
             self.gui.SetLabel( STATUS_LABEL, '%i %s '"' %s '"'' % (len ( self.subtitles_list ), self.app.local['113'], self.file_name,) )
             self.gui.SetFocus( SUBTITLES_LIST )

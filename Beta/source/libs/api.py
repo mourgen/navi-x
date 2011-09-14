@@ -70,15 +70,15 @@ class Navi_API:
 
     ### process api load request
     def loads(self, item, **kwargs):
-        #check if item is blocked
-        bool, data = self.checkBlock(item)
-        if bool: return data
+        cache = kwargs.get('cache', self.app.cache_url_time)
 
         #check if item exist in cache
-        bool, data = self.checkCache(item.path)
-        if bool: return data
+        data = self.app.storage.get(item.path, age = cache)
+        if data:
+            return data
 
         #Load Item
+        data = {}
         try:
             if ':' in item.type:
                 item.type, type = item.type.split(':')
@@ -86,17 +86,15 @@ class Navi_API:
             else:
                 data = self.action[item.type.lower()](item)
         except:
-            data = {}
             Log(self.app, traceback.format_exc() )
 
-        if data:
-            data['URL'] = getattr(item, 'path', '')
-            data['type'] = getattr(item, 'type', '')
+        data['URL']  = getattr(item, 'path', '')
+        data['type'] = getattr(item, 'type', '')
 
-            #Save to cache
-            period = kwargs.get('cache', self.app.cache_url_time)
-            if period > 0:
-                self.saveCache(item, data, period)
+        #Save to cache
+        if cache > 0:
+            self.app.storage.set(item.path, data)
+
         return data
 
     ######
@@ -305,35 +303,6 @@ class Navi_API:
             self.app.gui.ShowDialogOk(self.app.local['3'], 'Error: %s' % result)
 
 
-
-    ######
-    ### Navi api general functions
-    ######
-
-    ### check if iem is blocked
-    def checkBlock(self, item):
-        if item.path in self.app.playback_blocklist:
-            self.app.gui.ShowDialogNotification(self.app.local['90'])
-            return True, {}
-        else: return False, {}
-  
-    ### check if item can be called from cache
-    def checkCache(self, path):
-        record = self.app.cache(id = path)
-        if len(record) > 0:
-            expiresAt = int(record[0]['time']) + int(record[0]['period'])
-            if time.time() < expiresAt:
-                return True, pickle.loads(record[0]['data'])
-        return False, {}
-
-    ### Save item to cache
-    def saveCache(self, item, data, period):
-        records = self.app.cache(id = item.path)
-        if len(records) > 0:
-            self.app.cache.delete(records)
-        self.app.cache.insert(item.path, time.time(), period, pickle.dumps(data, pickle.HIGHEST_PROTOCOL))
-        self.app.cache.commit()
-
     ######
     ### Navi internal processing
     ######
@@ -341,8 +310,8 @@ class Navi_API:
     def _PROCESSOR(self, item):
         url = "".join([item.processor, '?url=', urllib.quote_plus(item.path), '&phase=0'])
         Log(self.app, 'NAVI-X: Get Processor - ' + url)
-        bool, data = self.checkCache(url)
-        if bool:
+        data = self.app.storage.get(url)
+        if data:
             datalist = data
         else:
             #phase 1 retreive processor data
@@ -535,14 +504,14 @@ class Navi_API:
         self.app.gui.ShowDialog('dialog-text')
         rawdata = urlopen(self.app, item.path, {'action':'read'})['content']
         listItems = createList([{'label':item.name, 'description':rawdata}])
-        listItems._set(GUI(window=15160, listid=90))
+        listItems.set(GUI(window=15160, listid=90))
         return {}
 
     ### Fetch imaget type  - type=txt
     def _IMAGE(self, item):
         self.app.gui.ShowDialog('dialog-image')
         listItems = createList([{'label':item.name, 'thumb':item.path}])
-        listItems._set(GUI(window=15210, listid=90))
+        listItems.set(GUI(window=15210, listid=90))
         self.app.gui.ShowDialogNotification('Image: %s' % checkUTF8(item.name))
         return {}
 

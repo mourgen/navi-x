@@ -18,7 +18,8 @@ class Navi_VARS:
         self.rootDir  = ROOT
         self.dataDir  = os.path.join(self.rootDir, "data")
         self.tempDir  = xbmc.translatePath('special://temp')
-        self.appid  = os.path.basename(self.rootDir)
+        self.appid    = os.path.basename(self.rootDir)
+        self.parking  = {}
 
         #Load settings options
         self.options = json_loads(path=os.path.join(self.dataDir, 'settings', 'options.json'))

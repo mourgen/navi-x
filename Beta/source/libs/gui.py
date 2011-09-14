@@ -97,51 +97,25 @@ class GUI:
 class createList:
     def __init__(self, items):
         self.listItems = mc.ListItems()
+
         if getattr(items, '__iter__', False):
-            self._createItems(items)
+            for item in items:
+                self.listItems.append(self.create(item))
 
-    def _createItems(self, items):
-        for item in items:
-            listItem = self._createItem(item)
-            self.listItems.append(listItem)
+    def create(self, item):
+        listitem = mc.ListItem(mc.ListItem.MEDIA_UNKNOWN)
+        action   = {
+            'label'       :   listitem.SetLabel,
+            'path'        :   listitem.SetPath,
+            'thumb'       :   listitem.SetThumbnail,
+            'SetContentType': listitem.SetContentType,
+        }
 
-    def _createItem(self, dict, type=mc.ListItem.MEDIA_UNKNOWN):
-        listItem = mc.ListItem(type)
-        try:
-            listItem.SetLabel(checkUTF8(dict['label']))
-            del dict['label']
-        except: pass
-        try:
-            listItem.SetPath(str(dict['path']))
-            del dict['path']
-        except: pass
-        try:
-            listItem.SetProperty('label2', checkUTF8(dict['label2']))
-            del dict['label']
-        except: pass
-        try:
-            listItem.SetProperty('description', checkUTF8(dict['description']))
-            del dict['label']
-        except: pass
-        try:
-            listItem.SetProperty('handle', pickle.dumps(dict['handle'], pickle.HIGHEST_PROTOCOL))
-            del dict['handle']
-        except: pass
-        try:
-            listItem.SetThumbnail(str(dict['thumb']))
-            del dict['thumb']
-        except: pass
-        try:
-            listItem.SetContentType(str(dict['SetContentType']))
-            del dict['SetContentType']
-        except: pass
-        #
-        if not isinstance(dict, str):
-            for key in dict.keys():
-                try: listItem.SetProperty(str(key), dict[key])
-                except: pass
-        return listItem
+        for key, value in item.items():
+            try:    action[key](checkUTF8(value))
+            except: listitem.SetProperty(key, checkUTF8(value))
+        return listitem
 
-    def _set(self, gui):
+    def set(self, gui):
         gui.list.SetItems(self.listItems)
         if gui.id == gui.windows['main']: gui.focus()

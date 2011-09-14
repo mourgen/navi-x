@@ -10,10 +10,6 @@ from nipl import *
 from subtitle import *
 from download import *
 
-#Module specific Imports
-from PyDbLite import Base
-import time
-
 ######
 ### NAVI-X MAIN APP
 ######
@@ -43,19 +39,16 @@ import time
 class Navi_APP(Navi_VARS):
     def __init__(self):
         Navi_VARS.__init__(self)
-
         Log(self, 'NAVI-X: Initialising...')
-        self.gui = GUI(window = 15000)
 
-        #Create/open cache db
-        self.cache = Base(os.path.join( self.dataDir, 'db', 'cache.pdl' ))
-        self.cache.create('id', 'time', 'period', 'data', mode = 'open')
+        self.gui = GUI(window = 15000)
+        self.storage = storage(self)
 
         #Initiate navi modules
         self.playlist = Navi_PLAYLIST
-        self.player = Navi_PLAYER(self)
-        self.api = Navi_API(self)
-        self.search = Navi_SEARCH(self)
+        self.player   = Navi_PLAYER(self)
+        self.api      = Navi_API(self)
+        self.search   = Navi_SEARCH(self)
         self.settings = Navi_SETTINGS(self)
         self.playlist_info = Navi_PLAYLIST_INFO(self)
         
@@ -69,9 +62,6 @@ class Navi_APP(Navi_VARS):
         else:
             self.gui.SetLabel(20011, self.local['2'])
 
-        #Clean cache from database that has expired
-        cleanCache(self)
-
         #Set top menu to gui
         self.parseData(selected = 0)
         self._list()
@@ -80,7 +70,7 @@ class Navi_APP(Navi_VARS):
         startpage = self.get(0)
         startpage._list(self)
 
-        Log(self, 'NAVI-X: Initialising... Compleet')
+        Log(self, 'NAVI-X: Initialising... Compleet ')
         self.gui.HideDialog('dialog-wait')
 
     def parseData(self, selected):
@@ -114,7 +104,7 @@ class Navi_APP(Navi_VARS):
 
     def _list(self):
         listItems = createList(self.list)
-        listItems._set(GUI(window=15000, listid=60))
+        listItems.set(GUI(window=15000, listid=60))
 
     def get_favorite(self):
         if self.api.is_user_logged_in():
@@ -130,9 +120,9 @@ class Navi_APP(Navi_VARS):
     def action(self, **kwargs):
         self.gui.ShowDialog('dialog-wait')
         if kwargs.get('selected',-1) != -1:
-            gui = GUI(window=15000, listid=kwargs['listid'])
+            gui       = GUI(window=15000, listid=kwargs['listid'])
             listitems = gui.list.GetItems()
-            action = listitems[kwargs['selected']].GetProperty('action')
+            action    = listitems[kwargs['selected']].GetProperty('action')
             action_id = kwargs['selected']
 
         if kwargs.get('action', None):
@@ -140,10 +130,10 @@ class Navi_APP(Navi_VARS):
 
         #Actions to go down the list
         if action == 'down':
-            handle_id = gui.list.GetFocusedItem()
-            listItems = gui.list.GetItems()
-            handle = pickle.loads(listItems[handle_id].GetProperty('handle'))
-
+            focus_id    = gui.list.GetFocusedItem()
+            listItems   = gui.list.GetItems()
+            playlist_id = listItems[focus_id].GetProperty('playlist.id')
+            handle      = self.parking[playlist_id]
             obj = handle.get(action_id)
             obj._list(self)
 

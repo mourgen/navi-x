@@ -9,6 +9,9 @@ import datetime
 import traceback
 import mimetypes
 import tempfile
+import bz2
+import binascii
+import stat
 
 try: import json
 except: import simplejson as json
@@ -17,6 +20,11 @@ except: import StringIO
 
 from operator import itemgetter, attrgetter
 
+try:    from hashlib import md5
+except: from md5 import md5
+
+try:    import cPickle as pickle
+except: import pickle
 
 ### prints info to log if mode in debug
 def Log(app, string):
@@ -103,7 +111,7 @@ def urlopen(app, url, args={}):
 
 ### Check if string is UTF-8 encoded
 def checkUTF8(string):
-    try: return string.encode('utf-8')
+    try:    return string.encode('utf-8')
     except: return str(string)
 
 ### get warning tags from item to output to INFO DIALOG
@@ -184,15 +192,6 @@ def all(iterable):
         if not element:
             return False
     return True
-
-### Clear db from old items
-def cleanCache(app):
-    try:
-        records = [ r for r in app.cache if r['time'] < time.time() - r['period'] ]
-        if len(records) > 0:
-            app.cache.delete(records)
-            app.cache.commit()
-    except: pass
 
 
 ### converts url string to path string
@@ -284,4 +283,128 @@ def can_create_file(folder_path):
         tempfile.TemporaryFile(dir=folder_path)
         return True
     except OSError:
+        return False
+
+
+class storage:
+    """
+    Saves data to disk or persistant storage
+    """
+
+    def __init__(self, app, eol = 86400):
+        self.app        = app
+        self.path       = self.construct()
+        self.eol        = eol
+        self.clean()
+
+    def construct(self):
+        """sets cache dir in temp folder"""
+        id     = self.app.appid
+        prefix = "cache_"
+        tmp    = self.app.tempDir
+        path   = os.path.join(tmp, prefix + id)
+        if not os.path.exists(path):
+            os.makedirs(path)
+        return path
+
+    def clean(self):
+        """removes only data that has been expired (EOL)"""
+        expire = time.time() - self.eol
+        for item in os.listdir(self.path):
+            pointer = os.path.join(self.path, item)
+            if os.path.isfile(pointer):
+                timestamp = os.path.getmtime(pointer)
+                if timestamp <= expire:
+                    os.chmod(pointer, stat.S_IWUSR)
+                    os.remove(pointer)
+
+    def empty(self, **kwargs):
+        """
+        removes all data from cache
+        # persistent - boolean, if true empties all persistent data (optional)
+        """
+        for root, dirs, files in os.walk(self.path, topdown=False):
+            for name in files:
+                filename = os.path.join(root, name)
+                os.chmod(filename, stat.S_IWUSR)
+                os.remove(filename)
+            for name in dirs:
+                os.rmdir(os.path.join(root, name))
+
+        if kwargs.get('persistent', False):
+            mc.GetApp().GetLocalConfig().ResetAll()
+
+
+    def md5(self, string):
+        """returns md5 hash of string"""
+        return md5(string).hexdigest()
+
+    def get(self, id, **kwargs):
+        """
+        Gets data from storage
+        # id         - string, unique string to identify data
+        # age        - int,    if set checks if data is not older then age in seconds (optional)
+        # persistent - boolean, if true it saves the data persistent                  (optional)
+        """
+        if kwargs.get('age'):
+            age = kwargs['age']
+        else:
+            age = 0
+
+        if kwargs.get('persistent', False):
+            pointer = self.md5(id)
+            expire  = time.time() - age
+
+            try:
+                raw       = bz2.decompress(binascii.unhexlify(mc.GetApp().GetLocalConfig().GetValue(pointer)))
+                timestamp = float(mc.GetApp().GetLocalConfig().GetValue(pointer+"_timestamp"))
+                if timestamp >= expire or age == 0:
+                    return pickle.loads(raw)
+            except:
+                print traceback.format_exc()
+        else:
+            pointer = os.path.join( self.path, self.md5(id) )
+            expire  = time.time() - age
+
+            if os.path.isfile(pointer):
+                timestamp = os.path.getmtime(pointer)
+                if timestamp >= expire or age == 0:
+                    try:
+                        fp = open( pointer)
+                        data = pickle.load(fp)
+                        fp.close()
+                        return data
+                    except:
+                        print traceback.format_exc()
+
+        return False
+
+    def set(self, id, data, **kwargs):
+        """
+        Saves data to storage
+        # id   - string,   unique string to identify data
+        # data - any type, data to cache (string, int, list, dict)
+        # persistent - boolean, if true it saves the data persistent    (optional)
+        """
+
+        if kwargs.get('persistent', False):
+            pointer = self.md5(id)
+            try:
+                raw = pickle.dumps(data)
+                mc.GetApp().GetLocalConfig().SetValue(pointer, binascii.hexlify(bz2.compress(raw)))
+                mc.GetApp().GetLocalConfig().SetValue(pointer+"_timestamp", str(time.time()))
+                return True
+            except:
+                print traceback.format_exc()
+
+        else:
+            pointer = os.path.join( self.path, self.md5(id) )
+            try:
+                fp = open( pointer, "wb" )
+                pickle.dump(data, fp)
+                fp.close()
+                return True
+            except:
+                print traceback.format_exc()
+
         return False
