@@ -102,8 +102,8 @@ class createList:
             for item in items:
                 self.listItems.append(self.create(item))
 
-    def create(self, item):
-        listitem = mc.ListItem(mc.ListItem.MEDIA_UNKNOWN)
+    def create(self, item, type = mc.ListItem.MEDIA_UNKNOWN):
+        listitem = mc.ListItem(type)
         action   = {
             'label'       :   listitem.SetLabel,
             'path'        :   listitem.SetPath,

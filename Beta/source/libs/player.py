@@ -63,7 +63,7 @@ class Navi_PLAYER(mc.Player):
         if mime: data['SetContentType'] = mime
 
         listItem = gui.createList([])
-        listItem = listItem._createItem(data, listtype)
+        listItem = listItem.create(data, listtype)
 
         self.app.gui.HideDialog('dialog-info')
         self.Play(listItem)

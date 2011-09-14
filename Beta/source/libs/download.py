@@ -82,6 +82,9 @@ class Navi_DOWNLOAD:
             if((i/10)%1 == 0):
                 self.update_gui(bytes_so_far, total_size)
 
+        response.close()
+        result.close()
+
         #Create info file as json
         json_dumps(self.infodata, self.infopath)
 
