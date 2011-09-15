@@ -744,6 +744,15 @@ class Navi_API:
     ### Get all items in download dir and parse info
     def _DOWNLOADDIR(self, item):
         path = self.app.url_download_location
+
+        if self.app.embedded:
+            tmp_path = os.path.join(self.app.tempDir, 'download')
+            if os.path.islink(tmp_path):
+                os.chmod(tmp_path, stat.S_IWUSR)
+                os.remove(tmp_path)
+            os.symlink(path, os.path.join(self.app.tempDir, 'download') )
+            path = tmp_path
+
         files = [file for file in os.listdir(path) if os.path.isfile(os.path.join(path, file)) and os.path.splitext(file)[1] == '.plx']
         data = {}
         data['name'] = 'Downloads'

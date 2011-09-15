@@ -712,7 +712,7 @@ if len(search) > 2:
 						<align>left</align>
 						<aligny>center</aligny>
 						<font>font28b</font>
-						<textcolor>ff94f4f4f</textcolor>
+						<textcolor>ff000000</textcolor>
 					</control>
 					<control type="group" id="20044">
 						<visible>StringCompare(Container(75).ListItem.property(custom:view),search)</visible>	
