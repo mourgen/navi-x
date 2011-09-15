@@ -805,7 +805,7 @@ if len(search) > 2:
 									<aligny>center</aligny>					
 									<align>left</align>
 									<info>ListItem.Label</info>
-									<textcolor>FF00000</textcolor>					
+									<textcolor>FF000000</textcolor>					
 								</control>
 							</focusedlayout>
 							<content type="url" url="">
@@ -871,15 +871,15 @@ app.action(selected=list, listid=75)
 						<visible>Control.IsVisible(2004)</visible>
 						<description>Scroll Bar Text Box</description>
 						<posx>-74</posx>
-						<posy>65</posy>
+						<posy>165</posy>
 						<width>19</width>
 						<height>290</height> 
 						<onleft>1001</onleft>
-						<onright>2004</onright>
+						<onright>20044</onright>
 						<onup>30</onup>
 						<ondown>30</ondown> 
-						<texturesliderbar>colours/grey_transparant.png</texturesliderbar>
-						<texturesliderbarfocus>colours/lightgrey.png</texturesliderbarfocus>
+						<textureslidernib>nib.png</textureslidernib>
+						<textureslidernibfocus>nib_focus.png</textureslidernibfocus>
 						<orientation>vertical</orientation>
 				</control> 
 				
@@ -1070,7 +1070,7 @@ app.playlist_info._exec(focus)
 		<control type="label" id="4005">
 			<posx>0</posx>
 			<posy>0</posy>
-			<width>275</width>
+			<width>325</width>
 			<height>20</height>
 			<font>font18b</font>
 			<aligny>center</aligny>					
@@ -1089,28 +1089,6 @@ app.playlist_info._exec(focus)
 			<label></label>
 			<textcolor>ff7b807b</textcolor>					
 		</control>		
-		<control type="label" id="4003">
-			<posx>0</posx>
-			<posy>45</posy>
-			<width>150</width>
-			<height>20</height>
-			<font>font16b</font>
-			<aligny>center</aligny>					
-			<align>left</align>
-			<label></label>
-			<textcolor>ff7b807b</textcolor>					
-		</control>
-		<control type="label" id="4004">
-			<posx>150</posx>
-			<posy>45</posy>
-			<width>150</width>
-			<height>20</height>
-			<font>font16b</font>
-			<aligny>center</aligny>					
-			<align>left</align>
-			<label></label>
-			<textcolor>ff7b807b</textcolor>					
-		</control>
 
 	</control>
 	</controls>

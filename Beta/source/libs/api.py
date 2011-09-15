@@ -771,14 +771,8 @@ class Navi_API:
             os.symlink(path, os.path.join(self.app.tempDir, 'download') )
             path = tmp_path
 
-        try:
-            dump = os.path.join(path, 'empty')
-            file = open(dump, 'w')
-            file.write('empty')
-            file.close()
-            os.remove(dump)
-            basedir = path
-        except:
+        
+        if not os.access(path, os.W_OK):
             self.app.gui.ShowDialogNotification(self.app.local['96'])
             return
 
@@ -790,7 +784,7 @@ class Navi_API:
         url = item.path
         ext = getFileExtension(url)
     
-        filepath = os.path.join(basedir, "".join([filename, ext]))
+        filepath = os.path.join(path, "".join([filename, ext]))
 
         #write info
         infodata = item.parseRAW()
@@ -798,14 +792,10 @@ class Navi_API:
         infodata['processor'] = ''
         infopath = os.path.join(path, '%s.plx' % filename)
 
-        #freespace
-        freespace = get_free_space(self.app, path)
-
-        self.download.urlgrab(url, filepath)
         Log(self.app, "NAVI-X: Init Download thread...")
         Log(self.app, "NAVI-X: Download info - %s, %s" % (filepath, url))
         try:
-            self.download.start(infodata, infopath, freespace, filename)
+            self.download.start(url, filepath, infodata, infopath, item.name)
         except:
             Log(self.app, traceback.format_exc() )
         Log(self.app, "NAVI-X: Download Thread started")

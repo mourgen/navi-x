@@ -16,7 +16,7 @@ import random
 class Navi_PLAYLIST:
     def __init__(self, app, data):
         self.items = []
-        self.__view__ = {'default':71, 'list':71, 'thumbnails':70, 'detail':72, 'search':75}
+        self.__view__ = app.options['navi_main_lists']
         #
         self.version = '0'
         self.background = str(app.plx_default_background)
@@ -96,9 +96,11 @@ class Navi_PLAYLIST:
         app.parking[self.id] = self
 
         listItems = createList(list)
-        for id in app.options['navi_main_lists']:
+        for id in unique(self.__view__.itervalues()):
             listItems.set(GUI(window=15000, listid=id))
+            
         app.playlist_info.set(self, GUI(window=15000, listid=self.__view__[self.view.lower()]))
+        app.gui.SetFocus(self.__view__[self.view])
 
 
     #Sort playlist, key = name|date
@@ -277,7 +279,7 @@ class Navi_ITEM:
                 app.gui.SetVisible(2004, True)
                 app.gui.SetLabel(20043, app.local['10'])
 
-            app.gui.ClearLists(app.options['navi_main_lists'])
+            app.gui.ClearLists(unique(app.options['navi_main_lists'].itervalues()))
             playlist._list(app)
             
         elif self.type == 'text' or self.type == 'image':

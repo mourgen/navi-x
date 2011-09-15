@@ -54,12 +54,13 @@
 		  "oldest", 
 		  "newest"
 	 ], 
-	"navi_main_lists": [
-      70, 
-      71, 
-      72, 
-      75
-   ], 
+	"navi_main_lists": {
+		  "thumbnails":70,
+		  "list"      :71,
+		  "default"   :71,
+		  "detail"    :72,
+		  "search"    :75
+    }, 
 	"language":["EN_us", "NL_nl"],
 	"plx_default_player":["mplayer", "dvdplayer"],
 	"plx_default_view":["thumbnails", "list", "default", "detail"],

@@ -40,8 +40,8 @@ class Navi_APP(Navi_VARS):
     def __init__(self):
         Navi_VARS.__init__(self)
         Log(self, 'NAVI-X: Initialising...')
-
-        self.gui = GUI(window = 15000)
+        
+        self.gui     = GUI(window = 15000)
         self.storage = storage(self)
 
         #Initiate navi modules
@@ -87,11 +87,11 @@ class Navi_APP(Navi_VARS):
             
         self.list = [
             {'label':self.local['3'], 'handle':self, 'active':IsEqual(0, selected), 'action':'topmenu'},
-            {'label':self.local['13'],'handle':self, 'active':IsEqual(4, selected), 'action':'topmenu'},
-            {'label':self.local['4'], 'handle':self, 'active':IsEqual(1, selected), 'action':'topmenu'},
-            {'label':self.local['5'], 'handle':self, 'active':IsEqual(2, selected), 'action':'topmenu'},
-            {'label':self.local['6'], 'handle':self, 'active':IsEqual(3, selected), 'action':'topmenu'},
-            {'label':self.local['7'], 'handle':self, 'active':IsEqual(4, selected), 'action':'topmenu'},
+            {'label':self.local['13'],'handle':self, 'active':IsEqual(1, selected), 'action':'topmenu'},
+            {'label':self.local['4'], 'handle':self, 'active':IsEqual(2, selected), 'action':'topmenu'},
+            {'label':self.local['5'], 'handle':self, 'active':IsEqual(3, selected), 'action':'topmenu'},
+            {'label':self.local['6'], 'handle':self, 'active':IsEqual(4, selected), 'action':'topmenu'},
+            {'label':self.local['7'], 'handle':self, 'active':IsEqual(5, selected), 'action':'topmenu'},
             {'label':self.local['8'], 'handle':self, 'active':'', 'action':'settings'},
             {'label':self.local['9'], 'handle':self, 'active':IsEqual(6, selected), 'action':'search'}
         ]
@@ -137,8 +137,6 @@ class Navi_APP(Navi_VARS):
             obj = handle.get(action_id)
             obj._list(self)
 
-            self.gui.window.GetControl(kwargs['listid']).SetFocus()
-
         #Actions related to the top menu
         elif action == 'topmenu':
             gui.ClearStateStack(False)
@@ -148,7 +146,7 @@ class Navi_APP(Navi_VARS):
             self.parseData(action_id)
             self._list()
             gui.list.SetFocusedItem(action_id)
-            gui.ClearLists(self.options['navi_main_lists'])
+            gui.ClearLists(self.options['navi_main_lists'].itervalues())
 
             obj = self.get(action_id)
             obj._list(self)
@@ -179,7 +177,7 @@ class Navi_APP(Navi_VARS):
                 gui.SetVisible(2004, True)
                 gui.SetLabel(20043, self.local['10'])
                 gui.list.SetFocusedItem(action_id)
-                gui.ClearLists(self.options['navi_main_lists'])
+                gui.ClearLists(self.options['navi_main_lists'].itervalues())
                 gui.SetFocus(2004)
                 
         elif action == 'settings':

@@ -113,7 +113,9 @@ class createList:
 
         for key, value in item.items():
             try:    action[key](checkUTF8(value))
-            except: listitem.SetProperty(key, checkUTF8(value))
+            except:
+                try:    listitem.SetProperty(str(key), checkUTF8(value))
+                except: pass
         return listitem
 
     def set(self, gui):

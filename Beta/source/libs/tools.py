@@ -125,6 +125,14 @@ def checkStreamTags(app, item):
         tags.append('subtitle')
     return tags
 
+### return unique values from list
+def unique(inlist):
+    uniques = []
+    for item in inlist:
+        if item not in uniques:
+            uniques.append(item)
+    return uniques
+
 ### Get sublist from list of dicts based on keys
 def select_sublist(list_of_dicts, **kwargs):
     return [dict(d) for d in list_of_dicts
@@ -280,7 +288,8 @@ def get_free_space(app, folder):
 
 def can_create_file(folder_path):
     try:
-        tempfile.TemporaryFile(dir=folder_path)
+        f = tempfile.TemporaryFile(dir=folder_path)
+        f.close()
         return True
     except OSError:
         return False
