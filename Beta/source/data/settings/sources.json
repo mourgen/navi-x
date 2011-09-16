@@ -87,21 +87,21 @@
 	],
 "search" : 
   [ 
-	{"type":"playlist", "name":"66 Stage", "URL":"http://navix.turner3d.net/scrape/66stage/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_66stage.png", "genre":"all"}, 
-	{"type":"playlist", "name":"CNN Videos", "URL":"http://navix.turner3d.net/scrape/cnn/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_cnn.png", "genre":"all"}, 
-    {"type":"playlist", "name":"Divx Stage", "URL":"http://navix.turner3d.net/scrape/divxstage/?s=", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png", "genre":"all"},
-	{"type":"playlist", "name":"eBaum's World videos", "URL":"http://navix.turner3d.net/scrape/ebaumsworld/search/", "thumb":"http://media.ebaumsworld.com/img/headerlogo.png", "genre":"all"}, 
-    {"type":"playlist", "name":"Game Trailers", "URL":"http://navix.turner3d.net/scrape/gametrailers/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif", "genre":"all"},  
-    {"type":"playlist", "name":"G4TV", "URL":"http://navix.turner3d.net/scrape/g4tv/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png", "genre":"all"}, 
-    {"type":"playlist", "name":"Librivox Audio Books", "URL":"http://navix.turner3d.net/scrape/librivox/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_librivox.png", "genre":"all"}, 
-    {"type":"playlist", "name":"MTV Artists", "URL":"http://navix.turner3d.net/scrape/mtv_music/artistsearch/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg", "genre":"all"}, 
-    {"type":"playlist", "name":"PokerTube", "URL":"http://navix.turner3d.net/scrape/pokertube/freetext/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif", "genre":"all"}, 
-    {"type":"playlist", "name":"VidIcs", "URL":"http://navix.turner3d.net/scrape/vidics/list/?s=", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_vidics.png", "genre":"all"}, 
-	{"type":"playlist", "name":"Novamov", "URL":"http://76.77.191.9/cgi-bin/Scrapers/novamov?q=search/", "thumb":"http://www.novamov.com/images/logo_novamov.jpg", "genre":"all"},
-	{"type":"playlist", "name":"StageVu", "URL":"http://76.77.191.9/cgi-bin/Scrapers/svsearch?q=basic/", "thumb":"http://stagevu.com/img/white/newtitle.png", "genre":"all"},
-	{"type":"playlist", "name":"Videofriender", "URL":"http://76.77.191.9/cgi-bin/Scrapers/vfsearch?q=search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif", "genre":"all"},
-	{"type":"json", "name":"Navi Xtreme", "URL":"http://navix.turner3d.net/search_api?q=", "genre":"all", "extended":true},
-	{"type":"playlist", "name":"Sesame Street", "URL":"http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/SesameStreet.pl?q=search/", "thumb":"http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Sesame_Street_logosvg.png", "genre":"all"}
+	{"type":"playlist", "name":"66 Stage", "URL":"http://navix.turner3d.net/scrape/66stage/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_66stage.png", "genre":"video"}, 
+	{"type":"playlist", "name":"CNN Videos", "URL":"http://navix.turner3d.net/scrape/cnn/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_cnn.png", "genre":"news"}, 
+    {"type":"playlist", "name":"Divx Stage", "URL":"http://navix.turner3d.net/scrape/divxstage/?s=", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png", "genre":"video"},
+	{"type":"playlist", "name":"eBaum's World videos", "URL":"http://navix.turner3d.net/scrape/ebaumsworld/search/", "thumb":"http://media.ebaumsworld.com/img/headerlogo.png", "genre":"video"}, 
+    {"type":"playlist", "name":"Game Trailers", "URL":"http://navix.turner3d.net/scrape/gametrailers/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif", "genre":"games"},  
+    {"type":"playlist", "name":"G4TV", "URL":"http://navix.turner3d.net/scrape/g4tv/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png", "genre":"games"}, 
+    {"type":"playlist", "name":"Librivox Audio Books", "URL":"http://navix.turner3d.net/scrape/librivox/search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_librivox.png", "genre":"audio"}, 
+    {"type":"playlist", "name":"MTV Artists", "URL":"http://navix.turner3d.net/scrape/mtv_music/artistsearch/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg", "genre":"audio"}, 
+    {"type":"playlist", "name":"PokerTube", "URL":"http://navix.turner3d.net/scrape/pokertube/freetext/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif", "genre":"video"}, 
+    {"type":"playlist", "name":"VidIcs", "URL":"http://navix.turner3d.net/scrape/vidics/list/?s=", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_vidics.png", "genre":"tv"}, 
+	{"type":"playlist", "name":"Novamov", "URL":"http://76.77.191.9/cgi-bin/Scrapers/novamov?q=search/", "thumb":"http://www.novamov.com/images/logo_novamov.jpg", "genre":"video"},
+	{"type":"playlist", "name":"StageVu", "URL":"http://76.77.191.9/cgi-bin/Scrapers/svsearch?q=basic/", "thumb":"http://stagevu.com/img/white/newtitle.png", "genre":"video"},
+	{"type":"playlist", "name":"Videofriender", "URL":"http://76.77.191.9/cgi-bin/Scrapers/vfsearch?q=search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif", "genre":"video"},
+	{"type":"json", "name":"Navi Xtreme", "URL":"http://navix.turner3d.net/search_api?q=", "genre":"navi", "extended":true},
+	{"type":"playlist", "name":"Sesame Street", "URL":"http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/SesameStreet.pl?q=search/", "thumb":"http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Sesame_Street_logosvg.png", "genre":"tv"}
 ], 
 "version" : 1} 
 

@@ -371,19 +371,21 @@ class SEARCH_DIALOG_OPTIONS:
         
         self.options = self.app.options['search']
 
-        try: self.defaults = {'genre':self.search.app.search_setting_genre, 'source':self.search.app.search_setting_source, 'phrase':self.search.app.search_setting_phrase, 'type':self.search.app.search_setting_type, 'mode':self.search.app.search_setting_mode, 'adult':self.search.app.search_setting_adult}
+        try:    self.defaults = {'genre':self.search.app.search_setting_genre, 'source':self.search.app.search_setting_source, 'phrase':self.search.app.search_setting_phrase, 'type':self.search.app.search_setting_type, 'mode':self.search.app.search_setting_mode, 'adult':self.search.app.search_setting_adult}
         except: self.defaults = {'genre':'All', 'source':'All', 'phrase':True, 'type':'All', 'mode':'All', 'adult':False}
 
         self.focus = {}
         self.id = {"genre":90, "source":91, "phrase":92, "type":93, "mode":94, "adult":95}
 
-        for source in self.search.sources:
+        #self.options['genre'] = [genre.lower() for genre in self.options['genre']]
+        self.sources = self.search.sources
+        for source in  self.sources:
             self.options['source'].append(source['name'])
-            if source['genre'] not in (genre.lower() for genre in self.options['genre']):
-                self.options['genre'].append("".join([source['name'][:1].capitalize(), source['name'][1:]]))
+            self.options['genre'].append( "".join([source['genre'][:1].capitalize(), source['genre'][1:]]) )
+        self.options['genre'] = unique(self.options['genre'])
 
         for option in self.options:
-            try: focus = self.options[option].index(self.defaults[option])
+            try:    focus = self.options[option].index(self.defaults[option])
             except: focus = 0
             self.focus[option] = focus
 
@@ -395,7 +397,7 @@ class SEARCH_DIALOG_OPTIONS:
         else: index = 0
         self.options[stringid][index]
         self.focus[stringid] = index
-        self.update()
+        self.update(stringid)
 
     def previous(self, stringid):
         size = len(self.options[stringid]) - 1
@@ -405,7 +407,7 @@ class SEARCH_DIALOG_OPTIONS:
         else: index = size
         self.options[stringid][index]
         self.focus[stringid] = index
-        self.update()
+        self.update(stringid)
 
     def set(self, stringid, index):
         id = self.id[stringid]
@@ -421,21 +423,32 @@ class SEARCH_DIALOG_OPTIONS:
     def hide(self):
         self.search.app.gui.HideDialog('dialog-search-options')
 
-    def update(self):
-        genre = self.options['genre'][self.focus['genre']]
+    def update(self, stringid=None):
+        if stringid == 'genre':
+            for option in self.options:
+                if option != 'genre':
+                    self.focus[option] = 0
 
-        if genre == 'All': sources = self.search.sources
-        else: sources = select_sublist(self.search.sources, genre=genre)
+            genre = self.options['genre'][self.focus['genre']]
+            if genre == 'All':
+                self.sources = self.search.sources
+            else:
+                self.sources = select_sublist(self.search.sources, genre=genre.lower())
 
-        source_focus = self.options['source'][self.focus['source']]
-        if source_focus == 'All': extended = True
-        else: extended = [source.get('extended', False) for source in sources if source['name'] == source_focus][0]
+            self.options['source'] = ['All']
+            for source in self.sources:
+                self.options['source'].append(source['name'])
+
+        extended = [source.get('extended', 0) for source in self.sources]
+        if not True in extended:
+            extended = False
 
         optiondict = ['phrase','type','mode','adult']
         for option in self.options:
-            if extended: self.set(option, self.focus[option])
-            elif not option in optiondict: self.set(option, self.focus[option])
-            else: self.set(option, -1)
+            if option in optiondict and not extended:
+                self.set(option, -1)
+            else:
+                self.set(option, self.focus[option])
         self.save()
 
     def save(self):
