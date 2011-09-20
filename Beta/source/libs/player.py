@@ -29,6 +29,8 @@ class Navi_PLAYER(mc.Player):
         if item.path == '':         return
         if item.processor != '':    item = self.app.api._PROCESSOR(item)
 
+        Log(self.app, 'NAVI-X: Playing item \'%s\' - type \'%s\'' % ( item.path, item.type ) )
+
         if item.type == 'html':     self.playHTML(item)
         elif item.type == 'audio':  self._play(item, mc.ListItem.MEDIA_AUDIO_MUSIC)
         else:                       self._play(item, mc.ListItem.MEDIA_VIDEO_CLIP)

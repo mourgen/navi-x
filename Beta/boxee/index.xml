@@ -2,7 +2,7 @@
 	<app>
 		<id>navix.beta</id>
 		<name>Navi-x Beta</name>
-		<version>4.20</version>
+		<version>4.21</version>
 		<description>Browse media with Navi-x Browser</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/Beta/boxee/apps/beta.png</thumb>
 		<repositoryid>navix</repositoryid>

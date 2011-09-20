@@ -88,8 +88,9 @@ class Navi_API:
         except:
             Log(self.app, traceback.format_exc() )
 
-        data['URL']  = getattr(item, 'path', '')
-        data['type'] = getattr(item, 'type', '')
+        if data:
+            data['URL']  = getattr(item, 'path', '')
+            data['type'] = getattr(item, 'type', '')
 
         #Save to cache
         if cache > 0:

@@ -284,6 +284,7 @@ class Navi_ITEM:
             
         elif self.type == 'text' or self.type == 'image':
             app.api.loads(self, cache=0)
+
         elif self.type == 'list_note':
             pass
         else:
