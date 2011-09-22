@@ -107,7 +107,7 @@ class NIPL:
             except: period = 86400
         else:
             period = 86400
-        
+
         data = self.__app__.storage.get(id, age = period, persistent = True)
         if data:
             self.nookies = data
@@ -161,7 +161,7 @@ class NIPL:
 
         self.saveCache()
         self.saveNookie()
-        
+
         if self._error:
             self.__item__.path = ''
             self.__item__.error = self._error
@@ -252,6 +252,9 @@ class NIPL:
                 self._printv(0, 'Match Result - ' + str(var) + ' '+ str(results[i]))
                 self.nomatch = '0'
         else:
+            for i in xrange(10):
+                var = "".join(['v', str(i+1)])
+                del vars(self)[var]
             self.nomatch = '1'
 
     def play(self):
@@ -284,7 +287,7 @@ class NIPL:
         htmRaw = re.sub('[\r\n]+', '\n', htmRaw)                            #remove empty lines
         datalist = htmRaw.replace('\t','').split('\n')
         rawdata['content'].close()
-        
+
         self._pass = True
         nipl = NIPL(self.__app__, self.__item__, self.phase+1, datalist)
         return nipl.process()
@@ -309,7 +312,7 @@ class NIPL:
             'postdata':self.s_postdata,
             'headers': self.s_headers,
         }
-        
+
         for i in xrange(5):
             try: del vars(self)["".join(['v', str(i+1)])]
             except: pass
@@ -319,13 +322,13 @@ class NIPL:
         self._printv(2, 'Params - ' + str(url_vars))
 
         rawdata = urlopen(self.__app__, self.s_url, url_vars)
-        if self.s_action == 'read': 
+        if self.s_action == 'read':
             self.htmRaw = rawdata['content'].read()
             rawdata['content'].close()
 
             self._printv(1, 'Scrape htmRaw - ' + self.htmRaw)
             self._match(self.htmRaw)
-                
+
         elif self.s_action == 'headers':
             self.htmRaw = ''
         elif self.s_action == 'geturl':

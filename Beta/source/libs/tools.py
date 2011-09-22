@@ -367,7 +367,7 @@ class storage:
             try:
                 raw       = bz2.decompress(binascii.unhexlify(mc.GetApp().GetLocalConfig().GetValue(pointer)))
                 timestamp = float(mc.GetApp().GetLocalConfig().GetValue(pointer+"_timestamp"))
-                if timestamp >= expire or age == 0:
+                if timestamp >= expire:
                     return pickle.loads(raw)
             except:
                 print traceback.format_exc()
@@ -377,7 +377,7 @@ class storage:
 
             if os.path.isfile(pointer):
                 timestamp = os.path.getmtime(pointer)
-                if timestamp >= expire or age == 0:
+                if timestamp >= expire:
                     try:
                         fp = open( pointer)
                         data = pickle.load(fp)
