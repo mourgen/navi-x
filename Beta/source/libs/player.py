@@ -27,9 +27,12 @@ class Navi_PLAYER(mc.Player):
     #main function to call for playback processing
     def playContent(self, item):
         if item.path == '':         return
-        if item.processor != '':    item = self.app.api._PROCESSOR(item)
+        if item.processor != '':
+            item = self.app.api._PROCESSOR(item)
+        else:
+            item.playurl = item.path
 
-        Log(self.app, 'NAVI-X: Playing item \'%s\' - type \'%s\'' % ( item.path, item.type ) )
+        Log(self.app, 'NAVI-X: Playing item \'%s\' - type \'%s\'' % ( item.playurl, item.type ) )
 
         if item.type == 'html':     self.playHTML(item)
         elif item.type == 'audio':  self._play(item, mc.ListItem.MEDIA_AUDIO_MUSIC)
@@ -39,7 +42,7 @@ class Navi_PLAYER(mc.Player):
     def playHTML(self, item):
         badUrl = False
         http = mc.Http()
-        if not http.Get(item.path):
+        if not http.Get(item.playurl):
             badUrl = True
             self.app.gui.ShowDialogNotification(app.local['50'])
         if not badUrl:
@@ -47,13 +50,14 @@ class Navi_PLAYER(mc.Player):
 
     #Start plyayback of item
     def _play(self, item, listtype, mime=None):
-        if item.path == '':
+        if item.playurl == '':
             if getattr(item, 'error', False):
                 self.app.gui.ShowDialogOk('Playback Error', str(item.error))
             return
 
         self.item = item
         data = item.parseList()
+        data['path'] = item.playurl
 
         if item.playpath != '':
             data['SWFPlayer'] = item.swfplayer
@@ -61,7 +65,7 @@ class Navi_PLAYER(mc.Player):
             data['PageURL'] = item.pageurl
             mime = "video/x-flv"
 
-        if not mime: mime = getMIME(item.path)
+        if not mime: mime = getMIME(item.playurl)
         if mime: data['SetContentType'] = mime
 
         listItem = gui.createList([])

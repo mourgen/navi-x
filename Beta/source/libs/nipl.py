@@ -258,8 +258,8 @@ class NIPL:
             self.nomatch = '1'
 
     def play(self):
-        self.path = str(self.url)
-        parse = ['path','swfplayer','playpath','agent','app','pageurl','swfVfy', 'referer', 'player']
+        self.playurl = str(self.url)
+        parse = ['playurl','swfplayer','playpath','agent','app','pageurl','swfVfy', 'referer', 'player']
         self._printv(0, 'PLAY Variables')
         for item in parse:
             self._printv(0, str(item) + ' - ' + str(vars(self)[item]))
