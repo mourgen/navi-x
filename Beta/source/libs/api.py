@@ -788,10 +788,12 @@ class Navi_API:
 
         filename = slugify(item.name)
 
-        if item.download != '': item.path = item.download
-        elif item.processor != '': item = self.app.api._PROCESSOR(item)
+        if item.download != '':
+            item.playurl = item.download
+        elif item.processor != '':
+            item = self.app.api._PROCESSOR(item)
 
-        url = item.path
+        url = item.playurl
         ext = getFileExtension(url)
     
         filepath = os.path.join(path, "".join([filename, ext]))
