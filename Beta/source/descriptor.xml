@@ -1,9 +1,9 @@
 <app>
 		<id>navix.beta</id>
 		<name>Navi-x Beta</name>
-		<version>4.25</version>
+		<version>4.26</version>
 		<description>Browse media with Navi-x Browser</description>
-		<thumb>http://img89.imageshack.us/img89/4368/thumbvi.png</thumb>
+		<thumb>http://navi-x.googlecode.com/svn/trunk/Beta/boxee/thumb.png</thumb>
 		<repositoryid>net.navix</repositoryid>
 		<repository>http://boxee.navi-x.net</repository>
 		<media>video</media>
