@@ -1,7 +1,7 @@
 <app>
 		<id>navix.beta</id>
 		<name>Navi-x Beta</name>
-		<version>4.24</version>
+		<version>4.25</version>
 		<description>Browse media with Navi-x Browser</description>
 		<thumb>http://img89.imageshack.us/img89/4368/thumbvi.png</thumb>
 		<repositoryid>net.navix</repositoryid>
