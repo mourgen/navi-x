@@ -4,6 +4,7 @@ from gui import *
 
 #Module specific Imports
 from urllib import quote_plus
+from urlparse import urlparse
 import random
 
 ######
@@ -525,7 +526,8 @@ class Navi_DIALOG_INFO:
     def refresh(self):
         name = checkUTF8(self.item.name)
         thumb = checkUTF8(self.item.thumb)
-        description = checkUTF8(self.item.description)
+        description = 'Source: [I]%s[/I] \n' %  urlparse(self.item.path)[1]
+        description += checkUTF8(self.item.description)
         tags = checkStreamTags(self.app, self.item)
         self.list = []
 
