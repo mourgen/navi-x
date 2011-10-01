@@ -1,9 +1,9 @@
 <apps>
    <app>
-      <id>com.navi-x.googlecode.com-4</id>
+      <id>com.navi-x.googlecode.com</id>
       <name>Navi-X</name>
-      <version>4.26</version>
-      <description>Navi-X v4.26. Access Navi-xtreme content from Boxee. See http://navix.turner3d.net.</description>
+      <version>1.4</version>
+      <description>Navi-X v1.4. Access Navi-xtreme content from Boxee. See http://navix.turner3d.net.</description>
       <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
       <repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
       <media>video</media>
