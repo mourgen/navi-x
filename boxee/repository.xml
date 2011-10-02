@@ -1,8 +1,8 @@
 <repository>
-    <id>localhost324</id>
+    <id>navix</id>
     <url>http://navi-x.googlecode.com/svn/trunk/boxee/</url>
-    <name>The Navi-X Repository for Boxee on Google</name>
-    <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
+    <name>The Navi-X Repository for Boxee</name>
+    <thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
     <description>This repository contains the Navi-X plugin for Boxee.</description>
 </repository>
 
