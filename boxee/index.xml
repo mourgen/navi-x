@@ -1,12 +1,12 @@
-<apps>
+﻿<apps>
 	<app>
-		<id>navi.main</id>
+		<id>com.navix.main</id>
 		<name>Navi-x</name>
 		<version>4.0</version>
 		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
-		<repositoryid>navi</repositoryid>
-    <repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
+		<repositoryid>com.navix</repositoryid>
+		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
 		<media>video</media>
 		<copyright>ironbill</copyright>
 		<email>xironbillx@gmail.com</email>
@@ -16,13 +16,13 @@
 		<minversion>0.9.14</minversion>
 	</app>
 	<app>
-		<id>navix.old</id>
+		<id>com.navix.old</id>
 		<name>Navi-x Old</name>
 		<version>1.4</version>
 		<description>Navi-X v1.4. Access Navi-xtreme content from Boxee. This is the old stable version. See also navix.turner3d.net</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
-		<repositoryid>navi</repositoryid>
-    <repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
+		<repositoryid>com.navix</repositoryid>
+		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
 		<media>video</media>
 		<copyright>rodejo16</copyright>
 		<email>rodejo16@gmail.com</email>
@@ -32,3 +32,4 @@
 		<minversion>0.9.14</minversion>
 	</app>
 </apps>
+

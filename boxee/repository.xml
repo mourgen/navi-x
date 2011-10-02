@@ -1,5 +1,5 @@
 <repository>
-    <id>navi</id>
+    <id>com.navix</id>
     <url>http://navi-x.googlecode.com/svn/trunk/boxee/</url>
     <name>The Navi-X Repository for Boxee</name>
     <thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
