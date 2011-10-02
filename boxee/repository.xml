@@ -1,7 +1,7 @@
 <repository>
     <id>navi</id>
     <url>http://navi-x.googlecode.com/svn/trunk/boxee/</url>
-    <name>The Navi-X Repository for Boxee</name>
+    <name>The Navi-X Repository for Boxee on Google</name>
     <thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
     <description>This repository contains the Navi-X plugin for Boxee.</description>
 </repository>
