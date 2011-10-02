@@ -6,7 +6,7 @@
 		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
 		<repositoryid>navi</repositoryid>
-		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
+    <repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
 		<media>video</media>
 		<copyright>ironbill</copyright>
 		<email>xironbillx@gmail.com</email>
@@ -22,7 +22,7 @@
 		<description>Navi-X v1.4. Access Navi-xtreme content from Boxee. This is the old stable version. See also navix.turner3d.net</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 		<repositoryid>navi</repositoryid>
-		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
+    <repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
 		<media>video</media>
 		<copyright>rodejo16</copyright>
 		<email>rodejo16@gmail.com</email>
@@ -32,4 +32,3 @@
 		<minversion>0.9.14</minversion>
 	</app>
 </apps>
-
