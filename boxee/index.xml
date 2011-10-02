@@ -1,22 +1,4 @@
 <apps>
-<<<<<<< HEAD
-   <app>
-      <id>com.navi-x.googlecode.com</id>
-      <name>Navi-X</name>
-      <version>4.26</version>
-      <description>Browse, Search and Add links to your favorite media files on the internet through Navi-X.</description>
-      <thumb>http://navi-x.googlecode.com/svn/trunk/Beta/boxee/thumb.png</thumb>
-      <repositoryid>net.navix</repositoryid>
-      <repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
-      <media>video</media>
-      <copyright>bartsidee</copyright>
-      <email>bartsidee@gmail.com</email>
-      <type>skin</type>
-      <startWindow>default</startWindow>
-      <platform>all</platform>
-      <minversion>0.9.14</minversion>
-   </app>
-=======
 	<app>
 		<id>navix.main</id>
 		<name>Navi-X</name>
@@ -49,5 +31,4 @@
 		<platform>all</platform>
 		<minversion>0.9.14</minversion>
 	</app>
->>>>>>> master
 </apps>
