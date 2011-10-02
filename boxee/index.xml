@@ -1,11 +1,11 @@
 <apps>
 	<app>
-		<id>navix.main</id>
+		<id>navi.main</id>
 		<name>Navi-X</name>
 		<version>4.0</version>
 		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See http://navix.turner3d.net.</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
-		<repositoryid>navix</repositoryid>
+		<repositoryid>navi</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
 		<media>video</media>
 		<copyright>IronBill</copyright>
@@ -16,12 +16,12 @@
 		<minversion>0.9.14</minversion>
 	</app>
 	<app>
-		<id>navix.old</id>
+		<id>navi.old</id>
 		<name>Navi-X Old</name>
 		<version>1.4</version>
 		<description>Navi-X v1.4. Access Navi-xtreme content from Boxee. This is the old stable version. See http://navix.turner3d.net.</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
-		<repositoryid>navix</repositoryid>
+		<repositoryid>navi</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
 		<media>video</media>
 		<copyright>rodejo16</copyright>
