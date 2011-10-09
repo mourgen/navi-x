@@ -53,10 +53,10 @@ date=2010-04-09
 URL=filemanager
 #
 type=playlist
-name=Navi-X updates (Script Navi-X 3.7)
+name=Navi-X updates (Script Navi-X 3.7.1)
 thumb=default
 icon=http://website.navi-x.org/networks/icon.png
-date=2011-08-05
+date=2011-10-09
 URL=http://www.navi-x.org/playlists/scripts/scripts.plx
 #
 type=playlist
