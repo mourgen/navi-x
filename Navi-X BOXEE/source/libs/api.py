@@ -432,7 +432,6 @@ class Navi_API:
             except:
                 playlistdata = datalist.pop(0)
                 playlistdata['items'] = datalist
-
         return playlistdata
 
     ### Fetch rss playlist type   - type=rss

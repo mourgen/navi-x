@@ -305,9 +305,7 @@ class Navi_SEARCH:
 
         self.sources = app.sources['search']
         self.dialog_options = SEARCH_DIALOG_OPTIONS(app, self)
-        self.dialog_history = SEARCH_DIALOG_HISTORY(self)
-        
-        
+        self.dialog_history = SEARCH_DIALOG_HISTORY(self)  
 
     def start(self, query, url=False):
         self.dialog_history.add(query)
@@ -336,8 +334,10 @@ class Navi_SEARCH:
     def getSources(self, query):
         source = self.dialog_options.options['source'][self.dialog_options.focus['source']]
 
-        if source == 'All': sources = self.sources
-        else: sources = select_sublist(self.sources, name=source)
+        if source == 'All':
+            sources = self.sources
+        else:
+            sources = select_sublist(self.sources, name=source)
 
         data = False
         if len(sources) > 0:
@@ -346,7 +346,7 @@ class Navi_SEARCH:
 
     def getUrl(self, source, query):
         url = source['URL'] + quote_plus(query)
-        if getattr(source, 'options', False):
+        if source.has_key('extended'):
             options = []
             append = options.append
             phrase = self.dialog_options.options['phrase'][self.dialog_options.focus['phrase']]
@@ -471,6 +471,8 @@ class SEARCH_DIALOG_HISTORY:
 
     def add(self, query):
         if len(self.history) > 10: self.history.pop()
+        if query in self.history:
+            self.history.remove(query)
         self.history.insert(0, query)
         self.save()
 
