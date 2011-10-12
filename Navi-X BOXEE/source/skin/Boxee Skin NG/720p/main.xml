@@ -18,8 +18,8 @@
 		
 			<control type="group" id="901">
 				<visible>!StringCompare(Container(70).ListItem.property(custom:background),default)</visible>
-				<animation effect="fade" start="100" end="0" time="1000" condition="StringCompare(Container(70).ListItem.property(custom:background),)">Conditional</animation>
-				<animation effect="fade" start="0" end="100" time="2000" condition="!StringCompare(Container(70).ListItem.property(custom:background),)">Conditional</animation>
+				<animation effect="fade" start="40" end="0" time="1000" condition="StringCompare(Container(70).ListItem.property(custom:background),)">Conditional</animation>
+				<animation effect="fade" start="0" end="40" time="2000" condition="!StringCompare(Container(70).ListItem.property(custom:background),)">Conditional</animation>
 				<control type="largeimage">
 					<description>Background - Playlist</description>
 					<posx>0</posx>
@@ -511,7 +511,7 @@ app.action(selected=list, listid=71)
 						<posx>275</posx>
 						<posy>210</posy>
 						<width>600</width>
-						<height>250</height>						
+						<height>300</height>						
 						<onup>1001</onup>
 						<ondown></ondown>
 						<onleft>33</onleft>
