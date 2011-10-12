@@ -417,9 +417,9 @@ class Navi_API:
 
     ### Fetch json playlist type [both yahoo pipes and navi-x search json output excepted]   - type=json
     def _JSON(self, item):
-        rawdata = urlopen(self.app, item.path, {'action':'read'})
-
-        datalist = json_loads(string=rawdata['content'])
+        rawdata  = urlopen(self.app, item.path, {'action':'read'})
+        jsondata  = rawdata['content'].replace('null', '""')
+        datalist = json_loads(string=jsondata)
 
         try: datalist = datalist['value']['items']
         except: pass

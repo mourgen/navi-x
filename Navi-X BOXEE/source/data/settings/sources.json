@@ -60,7 +60,7 @@
 	{"type":"playlist", "tag":"movies", "name":"Megavideo Premium Login", "URL":"http://navix.turner3d.net/scrape/mvloginset/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png"},
 	
 	{"type":"json", "tag":"tv", "name":"CNN Podcasts", "URL":"http://pipes.yahoo.com/pipes/pipe.run?_id=0d637dc84d04d475648640c142814f2e&_render=json", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_cnn.png"}, 
-	{"type":"json", "tag":"audio", "name":"Earth-Touch Podcasts", "URL":"http://pipes.yahoo.com/pipes/pipe.run?_id=4db360f21187e4ddeacbc4f24e58fad8&_render=json", "thumb":"http://a4.mzstatic.com/us/r30/Podcasts/94/0b/fe/ps.ztgjdkow.170x170-75.jpg"}, 
+	{"type":"json", "tag":"video", "name":"Earth-Touch Podcasts", "URL":"http://pipes.yahoo.com/pipes/pipe.run?_id=4db360f21187e4ddeacbc4f24e58fad8&_render=json", "thumb":"http://a4.mzstatic.com/us/r30/Podcasts/94/0b/fe/ps.ztgjdkow.170x170-75.jpg"}, 
 	{"type":"json", "tag":"video", "name":"The Big Picture - Boston.com", "URL":"http://pipes.yahoo.com/pipes/pipe.run?_id=1e9d2efdaa6c55666cb45651bc886cd9&_render=json", "thumb":"http://a6.mzstatic.com/us/r1000/014/Purple/d8/c9/08/mzi.zevxlzbu.175x175-75.jpg"}, 
 	{"type":"playlist", "tag":"tv", "name":"Sesame Street", "URL":"http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/SesameStreet.pl", "thumb":"http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Sesame_Street_logosvg.png"}, 
 	{"type":"playlist", "tag":"tv", "name":"WB Kids", "URL":"http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/WBKids.pl", "thumb":"http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/Kids_WB_2009_logo.png"}, 
