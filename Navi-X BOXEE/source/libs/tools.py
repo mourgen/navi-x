@@ -12,6 +12,7 @@ import tempfile
 import bz2
 import binascii
 import stat
+import httplib
 
 try: import json
 except: import simplejson as json
@@ -293,6 +294,13 @@ def can_create_file(folder_path):
         return True
     except OSError:
         return False
+
+def thumb_exists(url):
+    try:
+      urllib2.urlopen(urllib2.Request(url))
+      return True
+    except:
+      return False
 
 
 class storage:

@@ -253,7 +253,13 @@ class Navi_API:
     ### save favorites
     def saveFavorite(self, item):
         #save item
-        if item.type == 'playlist': item.type = 'plx'
+        if item.type == 'playlist':
+            item.type = 'plx'
+            
+        thumb =  getattr(item, 'thumb', '')
+        if thumb and not thumb_exists(thumb):
+            thumb = ''
+
         result = urlopen(self.app, 'http://navix.turner3d.net/mylists/',{
                 'method':'post',
                 'action':'read',
@@ -271,7 +277,7 @@ class Navi_API:
                     'processor':getattr(item, 'processor', ''),
                     'text_local':0,
                     'this_list_id':'',
-                    'thumb':getattr(item, 'thumb', ''),
+                    'thumb':thumb,
                     'txt':'',
                     'type':getattr(item, 'type', ''),
                     'rndval':int(time.time())
