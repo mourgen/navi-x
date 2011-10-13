@@ -7,9 +7,6 @@ import urllib
 
 from urllib import quote_plus
 
-try: import cPickle as pickle
-except: import pickle
-
 ######
 ### NIPL
 ######

@@ -2,8 +2,7 @@ from default import *
 from tools import *
 
 #Module specific Imports
-try: import cPickle as pickle
-except: import pickle
+import pickle
 import binascii
 
 ######

@@ -23,8 +23,7 @@ from operator import itemgetter, attrgetter
 try:    from hashlib import md5
 except: from md5 import md5
 
-try:    import cPickle as pickle
-except: import pickle
+import pickle
 
 ### prints info to log if mode in debug
 def Log(app, string):

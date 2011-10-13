@@ -1,10 +1,8 @@
 import os, sys, stat, re
 import xbmc, xbmcgui, xbmcaddon
 import urllib2, binascii, urllib
-try:
-    import cPickle as pickle
-except:
-    import pickle
+import pickle
+
 #import types
 from default import CWD, ROOT, PLATFORM, WINDOWS_ID, WINDOWS_STACK
 sys.path.append(os.path.join(ROOT, 'windows'))

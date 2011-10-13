@@ -18,9 +18,6 @@ import threading
 from Queue import Queue
 import traceback
 
-try: import cPickle as pickle
-except: import pickle
-
 ######
 ### API
 ######
