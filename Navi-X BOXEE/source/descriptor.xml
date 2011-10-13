@@ -1,16 +1,16 @@
-<app>
-		<id>navix.beta</id>
-		<name>Navi-x Beta</name>
-		<version>4.27</version>
-		<description>Browse media with Navi-x Browser</description>
-		<thumb>http://navi-x.googlecode.com/svn/trunk/Beta/boxee/thumb.png</thumb>
-		<repositoryid>net.navix</repositoryid>
-		<repository>http://boxee.navi-x.net</repository>
+	<app>
+		<id>com.navix.main</id>
+		<name>Navi-X</name>
+		<version>4.03</version>
+		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See http://navix.turner3d.net.</description>
+		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
+		<repositoryid>com.navix</repositoryid>
+		<repository>http://navi-x.googlecode.com/svn/trunk/boxee/</repository>
 		<media>video</media>
-		<copyright>rodejo16</copyright>
-		<email>rodejo16@gmail.com</email>
+		<copyright>IronBill</copyright>
+		<email>xIronBillx@gmail.com</email>
 		<type>skin</type>
 		<startWindow>default</startWindow>
 		<platform>all</platform>
 		<minversion>0.9.14</minversion>
-</app>
+	</app>
