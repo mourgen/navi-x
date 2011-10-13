@@ -6,6 +6,7 @@ from gui import *
 from urllib import quote_plus
 from urlparse import urlparse
 import random
+import base64
 
 ######
 ### LIBRARY
@@ -208,7 +209,8 @@ class Navi_ITEM:
         
         if not 'http' in self.thumb[:5]:
             self.thumb = "".join([app.mediaDir, self.thumb])
-        if self.name in app.playback_blocklist:
+
+        if forceHEX(self.name) in app.playback_blocklist:
             self.block = True
 
     def parseList(self, **kwargs):
@@ -250,14 +252,14 @@ class Navi_ITEM:
         if self.type not in content:
             if self.block:
                 app.gui.HideDialog('dialog-wait')
-                response = app.gui.ShowDialogConfirm("Navi-X", self.app.local['94'], self.app.local['100'], self.app.local['101'])
+                response = app.gui.ShowDialogConfirm("Navi-X", app.local['94'], app.local['100'], app.local['101'])
                 if response and app.navi_pincode != '':
                     code = app.gui.ShowDialogNumeric(0, app.local['20'], '')
                     if int(code) != app.navi_pincode:
                         app.gui.ShowDialogNotification(app.local['52'])
                         return
                     else:
-                        app.playback_blocklist.remove( self.name )
+                        app.playback_blocklist.remove( forceHEX(self.name) )
                         app.save()
                 else:
                     return
@@ -554,7 +556,7 @@ class Navi_DIALOG_INFO:
         history = [dict_history.keys()[0] for dict_history in self.app.playback_history]
 
         #Check if item is in blocklist
-        if self.item.name in self.app.playback_blocklist:
+        if forceHEX(self.item.name) in self.app.playback_blocklist:
             self.list.pop(0)
             self.list.insert(0 , {'label':self.app.local['34'], 'action':'none', 'item.name':name, 'item.thumb':thumb, 'item.description':description} )
             self.list.insert(3 , {'label':self.app.local['35'], 'action':'unblock', 'item.name':name, 'item.thumb':thumb, 'item.description':description} )
@@ -621,9 +623,10 @@ class Navi_DIALOG_INFO:
         self.refresh()
 
     def block(self):
-        #if len(self.app.playback_blocklist) > 20: self.app.playback_blocklist.remove.pop(0)
-        self.app.playback_blocklist.append( self.item.name )
-        self.app.save()
+        name = forceHEX(self.item.name)
+        if not name in self.app.playback_blocklist:
+            self.app.playback_blocklist.append( name)
+            self.app.save()
         self.refresh()
 
     def unblock(self):
@@ -639,8 +642,9 @@ class Navi_DIALOG_INFO:
             self._unblock()
 
     def _unblock(self):
-        if self.item.name in self.app.playback_blocklist:
-            self.app.playback_blocklist.remove( self.item.name )
+        name = forceHEX(self.item.name)
+        if name in self.app.playback_blocklist:
+            self.app.playback_blocklist.remove( name )
             self.app.save()
         self.refresh()
 
@@ -678,7 +682,7 @@ class Navi_PLAYLIST_INFO:
 
         #Add options if user is logged in
         if self.app.api.is_user_logged_in():
-            if self.playlist.name not in  ['Favorite ', 'Search results', 'Downloads'] and not ' menu' in self.playlist.name:
+            if self.playlist.name not in  ['Favorite ', 'Search results', 'Downloads', ''] and not ' menu' in self.playlist.name:
                 if self.playlist.name in self.app.api.favorite_list:
                     self.list.append( {'label':'[B]%s[/B] ' % self.app.local['42'], 'action':'del_favorite'} )
                 else:
@@ -762,9 +766,10 @@ class Navi_PLAYLIST_INFO:
         self.refresh()
 
     def block(self):
-        #if len(self.app.playback_blocklist) > 20: self.app.playback_blocklist.remove.pop(0)
-        self.app.playback_blocklist.append( self.playlist.name )
-        self.app.save()
+        name = forceHEX(self.playlist.name)
+        if not name in self.app.playback_blocklist:
+            self.app.playback_blocklist.append( name )
+            self.app.save()
         self.refresh()
 
 

@@ -12,7 +12,6 @@ import tempfile
 import bz2
 import binascii
 import stat
-import httplib
 
 try: import json
 except: import simplejson as json
@@ -114,6 +113,10 @@ def urlopen(app, url, args={}):
 def checkUTF8(string):
     try:    return string.encode('utf-8')
     except: return str(string)
+
+### Force string to be HEX
+def forceHEX(string):
+    return binascii.hexlify(string)
 
 ### get warning tags from item to output to INFO DIALOG
 def checkStreamTags(app, item):
@@ -301,7 +304,6 @@ def thumb_exists(url):
       return True
     except:
       return False
-
 
 class storage:
     """
