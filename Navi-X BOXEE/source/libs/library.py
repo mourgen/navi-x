@@ -808,8 +808,10 @@ class Navi_SETTINGS:
 
 
     def sub(self):
-        if self.app.navi_id != '': login = self.app.local['1']
-        else:                      login = self.app.local['2']
+        if self.app.api.is_user_logged_in():
+            login = self.app.local['1']
+        else:
+            login = self.app.local['2']
 
         self.sublist = [
             #main
@@ -907,7 +909,10 @@ class Navi_SETTINGS:
             self.refresh()
 
     def login(self):
-        self.app.api.login()
+        if self.app.api.is_user_logged_in():
+            self.app.api.logout()
+        else:
+            self.app.api.login()
 
     def defaults(self):
         self.app.loadDefaults()

@@ -153,7 +153,7 @@ class Navi_API:
     ### log out user
     def logout(self):
         self.user_id = ''
-        self.save_user_id()
+        self.save()
 
     ### check if logged in
     def is_user_logged_in(self):
@@ -400,7 +400,7 @@ class Navi_API:
                     if line == [] or line == ['#']:
                         item['description'] = "".join([item['description'],' \n '])
                     else:
-                        item['description'] = "".join([item['description'], "=".join(x for x in line)])
+                        item['description'] = "".join([item['description'],  "=".join(x for x in line)  ])
 
                 elif total > 1 and line[0][:1] != '#':
                     key = line.pop(0)
@@ -509,7 +509,7 @@ class Navi_API:
     def _TXT(self, item):
         self.app.gui.ShowDialog('dialog-text')
         rawdata = urlopen(self.app, item.path, {'action':'read'})['content']
-        listItems = createList([{'label':item.name, 'description':rawdata}])
+        listItems = createList([{'label':item.name, 'description': rawdata}])
         listItems.set(GUI(window=15160, listid=90))
         return {}
 
