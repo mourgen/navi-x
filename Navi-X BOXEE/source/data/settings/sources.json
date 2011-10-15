@@ -102,8 +102,8 @@
 	{"type":"playlist", "name":"Videofriender", "URL":"http://76.77.191.9/cgi-bin/Scrapers/vfsearch?q=search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif", "genre":"video"},
 	{"type":"json", "name":"Navi Xtreme", "URL":"http://navix.turner3d.net/search_api?q=", "genre":"navi", "extended":true},
 	{"type":"playlist", "name":"Sesame Street", "URL":"http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/SesameStreet.pl?q=search/", "thumb":"http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Sesame_Street_logosvg.png", "genre":"tv"}
-], 
-"version" : 1} 
+]
+} 
 
 
 

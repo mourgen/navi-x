@@ -2,7 +2,7 @@ from default import *
 from tools import *
 
 #Module specific Imports
-import pickle
+import marshal
 import binascii
 
 ######
@@ -41,14 +41,14 @@ class Navi_VARS:
         if self.embedded:
             import mc
             try:
-                settings = pickle.loads(binascii.unhexlify(mc.GetApp().GetLocalConfig().GetValue('settings')))
+                settings = marshal.loads(binascii.unhexlify(mc.GetApp().GetLocalConfig().GetValue('settings')))
             except:
                 mc.GetApp().GetLocalConfig().SetValue('settings', '')
                 settings = ''
         else:
             settings = json_loads(path=os.path.join(self.dataDir, 'settings', 'settings.json'))
 
-        if settings != {} and settings != '':
+        if settings:
             self._settings = settings.keys()
             for item in self._settings:
                 vars(self)[item] = settings[item]
@@ -85,7 +85,7 @@ class Navi_VARS:
             
         if self.embedded:
             import mc
-            mc.GetApp().GetLocalConfig().SetValue('settings', binascii.hexlify(pickle.dumps(data, pickle.HIGHEST_PROTOCOL)))
+            mc.GetApp().GetLocalConfig().SetValue('settings', binascii.hexlify(marshal.dumps(data)))
         else:
             json_dumps(data, os.path.join(self.dataDir, 'settings', 'settings.json'))
 

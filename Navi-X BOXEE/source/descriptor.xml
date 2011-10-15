@@ -1,7 +1,7 @@
 	<app>
 		<id>com.navix.main</id>
 		<name>Navi-X</name>
-		<version>4.04</version>
+		<version>4.05</version>
 		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See http://navix.turner3d.net.</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
 		<repositoryid>com.navix</repositoryid>

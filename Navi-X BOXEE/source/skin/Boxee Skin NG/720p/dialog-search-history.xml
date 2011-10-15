@@ -18,29 +18,13 @@
 							<posx>0</posx>
 							<posy>100</posy>
 							<width>910</width>
-							<height>217</height>
+							<height>223</height>
 							<texture border="10">search/search_focus.png</texture>
 				</control>				
-				<control type="image">	
-					<visible>Container(90).HasPrevious</visible>
-					<posx>860</posx>
-					<posy>125</posy>
-					<width>13</width>
-					<height>13</height>
-					<texture flipy="true">arrow.png</texture>
-				</control>
-				<control type="image">	
-					<visible>Container(90).HasNext</visible>
-					<posx>860</posx>
-					<posy>275</posy>
-					<width>13</width>
-					<height>13</height>
-					<texture>arrow.png</texture>
-				</control>
 				<control type="list" id="90">
 					<description>history</description>
 					<posx>0</posx>
-					<posy>100</posy>
+					<posy>106</posy>
 					<width>910</width>
 					<height>210</height>						
 					<onup lang="python">
@@ -56,12 +40,12 @@ app.search.dialog_history.hide()
 					<itemlayout width="910" height="70">
 						<control type="label">
 							<posx>100</posx>
-							<posy>25</posy>
+							<posy>20</posy>
 							<width>700</width>
 							<height>30</height>
 							<font>font28b</font>
 							<aligny>center</aligny>					
-							<align>center</align>
+							<align>left</align>
 							<info>ListItem.Label</info>
 							<textcolor>ff4b504b</textcolor>					
 						</control>
@@ -78,8 +62,8 @@ app.search.dialog_history.hide()
 							<posx>4</posx>
 							<posy>0</posy>
 							<width>900</width>
-							<height>70</height>
-							<texture>search/search_h_focus.png</texture>
+							<height>68</height>
+							<texture>colours/lightgrey.png</texture>
 						</control>
 						<control type="image">
 							<posx>4</posx>
@@ -90,12 +74,12 @@ app.search.dialog_history.hide()
 						</control>
 						<control type="label">
 							<posx>100</posx>
-							<posy>25</posy>
+							<posy>20</posy>
 							<width>700</width>
 							<height>30</height>
 							<font>font28b</font>
 							<aligny>center</aligny>					
-							<align>center</align>
+							<align>left</align>
 							<info>ListItem.Label</info>
 							<textcolor>ff222522</textcolor>					
 						</control>
@@ -112,6 +96,22 @@ app.action(listid=75, action='search', query=search)
 						
 						</onclick>
 					</content>	
+				</control>
+				<control type="image">	
+					<visible>Container(90).HasPrevious</visible>
+					<posx>860</posx>
+					<posy>125</posy>
+					<width>13</width>
+					<height>13</height>
+					<texture flipy="true">arrow.png</texture>
+				</control>
+				<control type="image">	
+					<visible>Container(90).HasNext</visible>
+					<posx>860</posx>
+					<posy>275</posy>
+					<width>13</width>
+					<height>13</height>
+					<texture>arrow.png</texture>
 				</control>
 			</control>
 	</controls>

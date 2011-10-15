@@ -146,7 +146,6 @@ class Navi_ITEM:
         self.description = ''
         self.date = ''
 
-        self.block = False
         self.tag = ''
         self.platform = ''
         self.restricted = False
@@ -210,9 +209,6 @@ class Navi_ITEM:
         if not 'http' in self.thumb[:5]:
             self.thumb = "".join([app.mediaDir, self.thumb])
 
-        if forceHEX(self.name) in app.playback_blocklist:
-            self.block = True
-
     def parseList(self, **kwargs):
         list = {
                 'label':self.name,
@@ -250,7 +246,7 @@ class Navi_ITEM:
     def _list(self, app):
         content = ['html_youtube', 'html', 'video', 'audio', 'image', 'text', 'list_note']
         if self.type not in content:
-            if self.block:
+            if forceHEX(self.name) in app.playback_blocklist:
                 app.gui.HideDialog('dialog-wait')
                 response = app.gui.ShowDialogConfirm("Navi-X", app.local['94'], app.local['100'], app.local['101'])
                 if response and app.navi_pincode != '':
@@ -349,17 +345,18 @@ class Navi_SEARCH:
     def getUrl(self, source, query):
         url = source['URL'] + quote_plus(query)
         if source.has_key('extended'):
-            options = []
-            append = options.append
-            phrase = self.dialog_options.options['phrase'][self.dialog_options.focus['phrase']]
-            type = self.dialog_options.options['type'][self.dialog_options.focus['type']]
-            mode = self.dialog_options.options['mode'][self.dialog_options.focus['mode']]
-            adult = self.dialog_options.options['adult'][self.dialog_options.focus['adult']]
-            if phrase: append('&phrase=1')
-            if type != 'All': append('&type='+self.type)
-            if mode != 'All': append('&mode='+self.mode)
-            if adult: append('&adult=1')
-            url = "".join([url, "".join([option for option in options]) ])
+            if source['extended']:
+                options = []
+                append = options.append
+                phrase = self.dialog_options.options['phrase'][self.dialog_options.focus['phrase']]
+                type = self.dialog_options.options['type'][self.dialog_options.focus['type']]
+                mode = self.dialog_options.options['mode'][self.dialog_options.focus['mode']]
+                adult = self.dialog_options.options['adult'][self.dialog_options.focus['adult']]
+                if phrase: append('&phrase=1')
+                if type != 'All': append('&type=%s' % type)
+                if mode != 'All': append('&mode=%s' % mode)
+                if adult: append('&adult=1')
+                url = "".join([url, "".join([option for option in options]) ])
         return url
 
     def save(self):

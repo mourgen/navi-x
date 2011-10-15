@@ -23,7 +23,7 @@ from operator import itemgetter, attrgetter
 try:    from hashlib import md5
 except: from md5 import md5
 
-import pickle
+import marshal
 
 ### prints info to log if mode in debug
 def Log(app, string):
@@ -377,7 +377,7 @@ class storage:
                 raw       = bz2.decompress(binascii.unhexlify(mc.GetApp().GetLocalConfig().GetValue(pointer)))
                 timestamp = float(mc.GetApp().GetLocalConfig().GetValue(pointer+"_timestamp"))
                 if timestamp >= expire:
-                    return pickle.loads(raw)
+                    return marshal.loads(raw)
             except:
                 print traceback.format_exc()
         else:
@@ -389,7 +389,7 @@ class storage:
                 if timestamp >= expire:
                     try:
                         fp = open( pointer)
-                        data = pickle.load(fp)
+                        data = marshal.load(fp)
                         fp.close()
                         return data
                     except:
@@ -408,9 +408,10 @@ class storage:
         if kwargs.get('persistent', False):
             pointer = self.md5(id)
             try:
-                raw = pickle.dumps(data)
+                raw = marshal.dumps(data)
                 mc.GetApp().GetLocalConfig().SetValue(pointer, binascii.hexlify(bz2.compress(raw)))
                 mc.GetApp().GetLocalConfig().SetValue(pointer+"_timestamp", str(time.time()))
+                del raw
                 return True
             except:
                 print traceback.format_exc()
@@ -419,7 +420,7 @@ class storage:
             pointer = os.path.join( self.path, self.md5(id) )
             try:
                 fp = open( pointer, "wb" )
-                pickle.dump(data, fp)
+                marshal.dump(data, fp)
                 fp.close()
                 return True
             except:
