@@ -72,6 +72,7 @@ class Navi_API:
         #check if item exist in cache
         data = self.app.storage.get(item.path, age = cache)
         if data:
+            Log(self.app, 'NAVI-X: Loaded playlist from cache - %s' % item.path)
             return data
 
         #Load Item
@@ -93,6 +94,7 @@ class Navi_API:
         if cache > 0:
             self.app.storage.set(item.path, data)
 
+        Log(self.app, 'NAVI-X: Loaded playlist - %s' % item.path)
         return data
 
     ######

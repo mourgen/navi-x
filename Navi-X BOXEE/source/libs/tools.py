@@ -53,7 +53,8 @@ def urlopen(app, url, args={}):
     if url.find(app.url_navi_server) != -1:
         if args['cookie'] >''  and args['cookie'][-2:] != '; ':
             args['cookie'] = '%s; ' % args['cookie']
-        args['cookie'] = args['cookie'] + 'nxid=%s' % app.api.user_id
+        args['cookie'] = args['cookie'] + 'platform=%s; nxid=%s' % (PLATFORM, app.api.user_id, )
+        print args['cookie']
         
 
     try:

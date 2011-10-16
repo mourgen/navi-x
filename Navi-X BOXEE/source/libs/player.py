@@ -41,11 +41,14 @@ class Navi_PLAYER(mc.Player):
     #Handle playback type=html
     def playHTML(self, item):
         badUrl = False
-        http = mc.Http()
-        if not http.Get(item.playurl):
-            badUrl = True
-            self.app.gui.ShowDialogNotification(app.local['50'])
-        if not badUrl:
+        if not 'flash://' in item.playurl:
+            http = mc.Http()
+            if not http.Get(item.playurl):
+                badUrl = True
+                self.app.gui.ShowDialogNotification(app.local['50'])
+            if not badUrl:
+                self._play(item, mc.ListItem.MEDIA_UNKNOWN, mime="text/html")
+        else:
             self._play(item, mc.ListItem.MEDIA_UNKNOWN, mime="text/html")
 
     #Start plyayback of item

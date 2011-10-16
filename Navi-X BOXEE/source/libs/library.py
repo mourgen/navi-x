@@ -353,8 +353,8 @@ class Navi_SEARCH:
                 mode = self.dialog_options.options['mode'][self.dialog_options.focus['mode']]
                 adult = self.dialog_options.options['adult'][self.dialog_options.focus['adult']]
                 if phrase: append('&phrase=1')
-                if type != 'All': append('&type=%s' % type)
-                if mode != 'All': append('&mode=%s' % mode)
+                if type != 'All': append('&type=%s' % type.lower())
+                if mode != 'All': append('&mode=%s' % mode.lower())
                 if adult: append('&adult=1')
                 url = "".join([url, "".join([option for option in options]) ])
         return url
