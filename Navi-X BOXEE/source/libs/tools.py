@@ -54,8 +54,6 @@ def urlopen(app, url, args={}):
         if args['cookie'] >''  and args['cookie'][-2:] != '; ':
             args['cookie'] = '%s; ' % args['cookie']
         args['cookie'] = args['cookie'] + 'platform=%s; nxid=%s' % (PLATFORM, app.api.user_id, )
-        print args['cookie']
-        
 
     try:
         hdr = {'User-Agent':args['agent'], 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Referer':args['referer'], 'Cookie':args['cookie']}

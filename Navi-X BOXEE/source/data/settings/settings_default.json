@@ -1,7 +1,7 @@
 {
    "cache_url_clear": 60480, 
    "cache_url_time": 3600, 
-   "debug": true, 
+   "debug": false, 
    "bookmark": false, 
    "language": "EN_us", 
    "navi_cookie": "", 
