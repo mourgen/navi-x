@@ -149,6 +149,8 @@
         <onup>143</onup>         
         <onright>149</onright>
         <ondown>148</ondown>  
+        <textcolor>FFFFFFFF</textcolor>
+        <font>special13</font>        
     </control>  
 
      <control type="button" id="149">
@@ -162,7 +164,9 @@
         <label>No Thanks</label>
         <onup>143</onup> 
         <onleft>148</onleft>  
-        <ondown>149</ondown>            
+        <ondown>149</ondown>  
+        <textcolor>FFFFFFFF</textcolor>
+        <font>special13</font>          
     </control>  
      
     </controls>

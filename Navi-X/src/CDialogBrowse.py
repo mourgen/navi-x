@@ -1,8 +1,23 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
-#############################################################################
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
 
 #############################################################################
 #
@@ -28,10 +43,11 @@ try: Emulating = xbmcgui.Emulating
 except: Emulating = False
 
 LABEL_TITLE = 141
-BUTTON_PATH = 142
+TEXT_PATH = 142
 BUTTON_BROWSE = 143
-BUTTON_OK = 144
-BUTTON_CANCEL = 145
+BUTTON_EDIT = 144
+BUTTON_OK = 145
+BUTTON_CANCEL = 146
 
 ######################################################################
 # Description: Browse dialog class
@@ -57,7 +73,7 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
             self.onAction1(action)        
         
     def onAction1(self, action):
-        if action == ACTION_PREVIOUS_MENU or action == ACTION_PARENT_DIR:
+        if (action == ACTION_PREVIOUS_MENU) or (action == ACTION_PARENT_DIR) or (action == ACTION_PREVIOUS_MENU2):
             self.state = -1 #success
             self.close() #exit
                        
@@ -72,7 +88,7 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
             if self.getFocus() == self.getControl(BUTTON_CANCEL):
                 self.state = -1 #success
                 self.close() #exit
-            if self.getFocus() == self.getControl(BUTTON_PATH):
+            if self.getFocus() == self.getControl(BUTTON_EDIT):
                 keyboard = xbmc.Keyboard(self.dir + self.filename)
                 keyboard.doModal()
                 
@@ -127,6 +143,7 @@ class CDialogBrowse(xbmcgui.WindowXMLDialog):
         self.label = heading
         
     def SetLabel(self, filename):
-        control = self.getControl(BUTTON_PATH)
-        control.setLabel(filename[-60:])
+        control = self.getControl(TEXT_PATH)
+        #control.setLabel(filename[-60:])
+        control.setText(filename)
         

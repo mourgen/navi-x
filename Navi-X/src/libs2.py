@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser (additional library functions)
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 from string import *
@@ -48,7 +63,9 @@ class CMediaItem:
                   swfplayer='', \
                   pageurl='', \
                   background='default', \
-                  rating=''):
+                  rating='', \
+                  infotag='', \
+                  view='default'):
         self.type = type    #(required) type (playlist, image, video, audio, text)
         self.version = version #(optional) playlist version
         self.name = name    #(required) name as displayed in list view
@@ -65,6 +82,8 @@ class CMediaItem:
         self.pageurl = pageurl #(optional)
         self.background = background #(optional) background image
         self.rating = rating #(optional) rating value
+        self.infotag = infotag
+        self.view = view #(optional) List view option (list, panel)
                
     ######################################################################
     # Description: Get mediaitem type.

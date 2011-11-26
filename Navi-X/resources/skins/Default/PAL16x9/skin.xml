@@ -8,16 +8,8 @@
             <posy>0</posy>
             <width>720</width>
             <height>576</height>
+            <fadetime>500</fadetime>           
             <!--texture>background1.jpg</texture-->
-        </control>
-
-        <control type="videowindow" id="101">	
-            <description>video preview window</description>
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>720</width>
-            <height>576</height>
-            <visible>true</visible>
         </control>
                
         <control type="image" id="103">
@@ -43,8 +35,8 @@
             <posx>40</posx>
             <posy>180</posy>
             <width>205</width>
-            <height>280</height>
-            <aspectratio>keep</aspectratio>
+            <height>270</height>
+            <aspectratio>keep</aspectratio>           
         </control>
 
         <control type="image" id="126">
@@ -176,6 +168,25 @@
         <visible>Control.IsVisible(120)</visible>
     </control>
 
+    <control type="scrollbar" id="62">
+        <description>Scroll Bar list 3</description>
+        <visible>true</visible>
+        <posx>670</posx>
+        <posy>160</posy>
+        <width>10</width>
+        <height>320</height>
+        <onleft>50</onleft>
+        <!--onright>71</onright-->
+  
+        <texturesliderbackground>scrollbar_background1.png</texturesliderbackground>
+        <texturesliderbar>scrollbar_bar1.png</texturesliderbar>
+        <texturesliderbarfocus>scrollbar_bar_focus1.png</texturesliderbarfocus>
+        <textureslidernib>-</textureslidernib>
+        <textureslidernibfocus>-</textureslidernibfocus>
+        <orientation>vertical</orientation>
+        <visible>Control.IsVisible(129)</visible>      
+    </control>
+
     <control type="textbox" id="121">
         <description>Text box</description>
 		<posx>270</posx>
@@ -241,12 +252,12 @@
 			<control type="label">
 				<posx>400</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>220</width>
 				<height>32</height>
-				<font>font14</font>
+				<font>font12</font>
 				<aligny>center</aligny>
                 <selectedcolor>FFe2ff43</selectedcolor>
-				<textcolor>FFDDDDDD</textcolor>
+				<textcolor>FF2DA2FA</textcolor>
 				<align>right</align>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
@@ -281,12 +292,12 @@
 			<control type="label">
 				<posx>400</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>220</width>
 				<height>32</height>
-				<font>font14</font>
+				<font>font12</font>
 				<aligny>center</aligny>
                 <selectedcolor>FFe2ff43</selectedcolor>
-				<textcolor>FFDDDDDD</textcolor>
+				<textcolor>FF2DA2FA</textcolor>
 				<align>right</align>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
@@ -328,12 +339,12 @@
 			<control type="label">
 				<posx>400</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>220</width>
 				<height>32</height>
-				<font>font14</font>
+				<font>font12</font>
 				<aligny>center</aligny>
                 <selectedcolor>FFe2ff43</selectedcolor>
-				<textcolor>FFDDDDDD</textcolor>
+				<textcolor>FF2DA2FA</textcolor>
 				<align>right</align>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
@@ -368,16 +379,87 @@
 			<control type="label">
 				<posx>400</posx>
 				<posy>0</posy>
-				<width>120</width>
+				<width>220</width>
 				<height>32</height>
-				<font>font14</font>
+				<font>font12</font>
 				<aligny>center</aligny>
                 <selectedcolor>FFe2ff43</selectedcolor>
-				<textcolor>FFDDDDDD</textcolor>
+				<textcolor>FF2DA2FA</textcolor>
 				<align>right</align>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</focusedlayout>
+        </control>
+
+        <!-- Thumbs panel -->
+        <control type="panel" id="129">
+            <posx>30</posx>
+            <posy>160</posy>
+            <width>650</width>
+            <height>325</height>
+            <onup>129</onup>
+            <ondown>129</ondown>                 
+            <onleft>122</onleft>
+            <!--onright>127</onright-->
+            <orientation>vertical</orientation>
+            <pagecontrol>62</pagecontrol>
+            <scrolltime>200</scrolltime>        
+            <itemlayout height="160" width="122">
+                <control type="image">
+                    <posx>15</posx>
+                    <posy>10</posy>
+                    <width>110</width>
+                    <height>100</height>
+                    <aspectratio>keep</aspectratio>
+                    <!--info>ListItem.property(custom:icon)</info-->
+                    <info>ListItem.Thumb</info>
+                </control>
+                <control type="label">
+                    <posx>70</posx>
+                    <posy>115</posy>
+                    <width>110</width>
+                    <height>25</height>
+                    <font>font18</font>
+                    <textcolor>ffdddddd</textcolor>
+                    <selectedcolor>ffdddddd</selectedcolor>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="160" width="120">   
+                <control type="image">
+                    <posx>10</posx>
+                    <posy>0</posy>
+                    <width>120</width>
+                    <height>150</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture>panel-focus1.png</texture>
+                </control>                
+                <control type="image">
+                    <posx>15</posx>
+                    <posy>10</posy>
+                    <width>110</width>
+                    <height>100</height>
+                    <aspectratio>keep</aspectratio>
+                    <!--info>ListItem.property(custom:icon)</info-->
+                    <info>ListItem.Thumb</info>
+                </control>
+                <control type="label">
+                    <posx>70</posx>
+                    <posy>115</posy>
+                    <width>110</width>
+                    <height>25</height>
+                    <font>font18</font>
+                    <!--textcolor>ffd58d10</textcolor-->
+                    <textcolor>ff00ff00</textcolor>
+                    <selectedcolor>ffd58d10</selectedcolor>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <scroll>true</scroll>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
         </control>
 
         <control type="list" id="122">
@@ -387,7 +469,7 @@
             <posx>0</posx>
             <posy>160</posy>
             <width>200</width>
-            <height>250</height>  
+            <height>280</height>  
             <onup>122</onup>
             <ondown>122</ondown>          
             <!--pagecontrol>2050</pagecontrol-->

@@ -1,8 +1,23 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
-#############################################################################
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
+###############################################################################
 
 #############################################################################
 #
@@ -46,18 +61,31 @@ class CServer:
     # Return     : -
     ######################################################################            
     def login(self):
-        login = CDialogLogin("CLoginskin.xml", os.getcwd())
-        login.doModal()
-        if login.state != 0:
+#        login = CDialogLogin("CLoginskin.xml", os.getcwd())
+#        login.doModal()
+#        if login.state != 0:
+#            return -2
+
+        keyboard = xbmc.Keyboard('', 'Enter User name')
+        keyboard.doModal()
+        if (keyboard.isConfirmed() != True):
             return -2
+            
+        username = keyboard.getText()
+
+        keyboard = xbmc.Keyboard('', 'Enter Password')
+        keyboard.doModal()
+        if (keyboard.isConfirmed() != True):
+            return -2
+            
+        password = keyboard.getText()
                    
         #login to the Navi-X server
-        self.user_id = self.nxLogin(login.username, login.password)
+        #self.user_id = self.nxLogin(login.username, login.password)
+        self.user_id = self.nxLogin(username, password)
         if self.user_id == '':
             #failed
             return -1
-
-#@todo: show dialog again using existing user name and password.
 
         print "Login to the NXServer was successful"
 

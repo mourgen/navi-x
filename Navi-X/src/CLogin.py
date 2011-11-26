@@ -45,7 +45,7 @@ class CDialogLogin(xbmcgui.WindowXMLDialog):
         pass
 
     def onAction(self, action):
-        if (action == ACTION_PREVIOUS_MENU) or (action == ACTION_PARENT_DIR):# or (action == ACTION_MOVE_LEFT):
+        if (action == ACTION_PREVIOUS_MENU) or (action == ACTION_PARENT_DIR) or (action == ACTION_PREVIOUS_MENU2):# or (action == ACTION_MOVE_LEFT):
             self.close()
 
     def onFocus( self, controlId ):

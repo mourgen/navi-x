@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 #############################################################################
@@ -47,6 +62,7 @@ TEXT_BOX_LIST3 = 123
 BUTTON_LEFT = 125
 LIST_LIST4 = 127
 BUTTON_RATE = 128
+LIST_LIST5 = 129
 
 ######################################################################
 # Description: creates internal variables for the widget controls
@@ -83,14 +99,19 @@ def load_skin(window):
     window.list2 = window.getControl(LIST_LIST2)
     window.list2.setVisible(False)
     window.list3 = window.getControl(LIST_LIST3)
-    window.list4 = window.getControl(LIST_LIST4)  
+    window.list4 = window.getControl(LIST_LIST4) 
+    window.list5 = window.getControl(LIST_LIST5)  
+    window.list5.setVisible(False)
   
     item = xbmcgui.ListItem("Home")   
     window.list3.addItem(item)
     item = xbmcgui.ListItem("Favorites")   
     window.list3.addItem(item)
-    item = xbmcgui.ListItem("View")   
-    window.list3.addItem(item)
+    item = xbmcgui.ListItem("Downloads")   
+    window.list3.addItem(item) 
+    if platform != 'xbox':
+        item = xbmcgui.ListItem("View: " + window.listview)   
+        window.list3.addItem(item)   
     item = xbmcgui.ListItem("Browse")   
     window.list3.addItem(item)
     item = xbmcgui.ListItem("Sign in")   
@@ -98,6 +119,12 @@ def load_skin(window):
     item = xbmcgui.ListItem("Exit") 
     window.list3.addItem(item)
     
+    item = xbmcgui.ListItem("Play")  
+    window.list4.addItem(item)
+    item = xbmcgui.ListItem("Add to Favorites")  
+    window.list4.addItem(item)    
+    item = xbmcgui.ListItem("Download") 
+    window.list4.addItem(item)      
     item = xbmcgui.ListItem("Rate It") 
     window.list4.addItem(item)   
     item = xbmcgui.ListItem("More Options...") 

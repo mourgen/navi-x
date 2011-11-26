@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 #############################################################################
@@ -17,10 +32,10 @@ import sys
 
 # Script constants
 __scriptname__ = "Navi-X"
-__author__ = "rodejo16"
-__url__ = "http://www.navi-x.org/"
-__credits__ = "Rodejo16"
-__version__ = "3.5.4"
+__author__ = "Navi-X team"
+__url__ = "http://code.google.com/p/navi-x/"
+__credits__ = "Navi-X team"
+__version__ = "3.7"
 
 sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
 
@@ -34,8 +49,8 @@ else:
     SEPARATOR = '\\'
 
 version_default = '0.0.0'
-version_URL='http://www.navi-x.org/updates/version3x.dat'
-update_URL='http://www.navi-x.org/updates/update3x.zip'
+version_URL=''
+update_URL=''
 
 #############################################################################
 def onReadVersion():
@@ -164,23 +179,22 @@ def get_system_platform():
 platform = get_system_platform()
 
 #read the current version installed
-version = onReadVersion()
-newversion = onReadNewVersion(version_URL)
+#version = onReadVersion()
+#newversion = onReadNewVersion(version_URL)
 
-if (version != version_default) and (newversion != version_default) and \
-    (version != newversion):
-    installUpdate(update_URL)
-    #save updated version.
-    onSaveVersion(newversion)
-    dialog = xbmcgui.Dialog()
-    dialog.ok("Message", "Navi-X has been updated.")
+#if (version != version_default) and (newversion != version_default) and \
+#    (version != newversion):
+#    installUpdate(update_URL)
+#    #save updated version.
+#    onSaveVersion(newversion)
+#    dialog = xbmcgui.Dialog()
+#    dialog.ok("Message", "Navi-X has been updated.")
 
 
 #############################################################################
 #Start Navi-X
 #############################################################################
 import navix
-#win = navix.MainWindow()
 win = navix.MainWindow("skin.xml", os.getcwd())
 win.doModal()
 del win

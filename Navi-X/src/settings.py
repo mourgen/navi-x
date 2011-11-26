@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser (Navi-X constants and settings)
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 ACTION_MOVE_LEFT       =  1 #Dpad Left
@@ -22,6 +37,7 @@ ACTION_PREV_ITEM       = 15
 ACTION_XBUTTON	       = 18 #'X'
 ACTION_YBUTTON 	       = 34	#'Y'
 ACTION_MOUSEMOVE       = 90 # Mouse has moved
+ACTION_PREVIOUS_MENU2  = 92 #'Back'
 ACTION_CONTEXT_MENU    = 117 # pops up the context menu
 ACTION_CONTEXT_MENU2   = 229 # pops up the context menu (remote control "title" button)
 
@@ -62,6 +78,7 @@ if RootDir[0] == '/':
     tempCacheDir = RootDir + "cache/temp/"
     nookieCacheDir = RootDir + "cache/nookies/"
     procCacheDir = RootDir + "cache/proc/"
+    favoritesDir = RootDir + "favorites/"
     SEPARATOR = '/'
 else:
     if RootDir[-1] != '\\': RootDir = RootDir+'\\'
@@ -77,6 +94,7 @@ else:
     tempCacheDir = RootDir + "cache\\temp\\"
     nookieCacheDir = RootDir + "cache\\nookies\\"
     procCacheDir = RootDir + "cache\\proc\\"
+    favoritesDir = RootDir + "favorites\\"
     SEPARATOR = '\\'
 
 import xbmc
@@ -100,7 +118,7 @@ useLibrtmp=os.path.exists(xbmc.translatePath('special://xbmc/system/players/dvdp
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='5.4'
+SubVersion='7.1'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -109,14 +127,13 @@ downloads_complete='downloads.plx'
 parent_list='blacklist.plx'
 history_list='history.plx'
 plxVersion = '8'
-home_URL_old='http://www.navi-x.nl/playlists/home.plx'
-home_URL='http://www.navi-x.org/playlists/home.plx'
+home_URL_old='http://www.navi-x.org/playlists/home.plx'
+home_URL='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
 searchhistory_file = 'search.dat'
 nxserver_URL = 'http://navix.turner3d.net'
-navixlogo = 'http://www.navi-x.org/playlists/logo.png'
 
 url_open_timeout = 30 #30 seconds
 page_size = 200 #display maximum 200 entries on one page

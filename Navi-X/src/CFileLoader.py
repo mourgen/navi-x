@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 #############################################################################
@@ -65,7 +80,14 @@ class CFileLoader2:
             else:
                 destfile = tempCacheDir + sum_str  
 
-            if (not((proxy == "ENABLED") and (os.path.exists(destfile) == True))):
+            if proxy == "INCACHE":
+                if os.path.exists(destfile) == True:
+                    self.localfile = destfile
+                    self.state = 0 #success
+#todo: load file in memory if localfile = ''                    
+                else:
+                    self.state =  -1 #failed 
+            elif (not((proxy == "ENABLED") and (os.path.exists(destfile) == True))):
                 if URL[:3] == 'ftp':
                     self.loadFTP(URL, destfile, timeout, proxy, content_type, retries)
                 else:
@@ -116,13 +138,17 @@ class CFileLoader2:
         while (counter <= retries) and (self.state != 0):
             counter = counter + 1 
             try:
+
+                
             
-                cookies='platform=' + platform + '; version=' + Version+'.'+SubVersion
+                cookies = ''
                 if URL.find(nxserver_URL) != -1:
+                    cookies = 'platform=' + platform + '; version=' + Version +'.'+ SubVersion
                     cookies = cookies + '; nxid=' + nxserver.user_id
-            
-                values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
-                           'Cookie' : cookies}
+                    values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)',
+                    'Cookie' : cookies}
+                else:
+                    values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
                         
                 #print values
                                    

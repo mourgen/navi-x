@@ -6,5 +6,5 @@ player=default
 #
 type=playlist
 name=Navi-X Home
-URL=http://www.navi-x.org/playlists/home.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx
 #

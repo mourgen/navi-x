@@ -54,6 +54,8 @@
         <align>left</align>
         <aligny>center</aligny>
         <label>User Name</label>
+        <textcolor>FFFFFFFF</textcolor>
+        <font>special13</font>        
         <!--texturenofocus>button-focus.png</texturenofocus-->
         <!--texturefocus>button-focus.png</texturefocus-->
     </control>
@@ -67,6 +69,8 @@
         <align>left</align>
         <aligny>center</aligny>
         <label>Password</label>
+        <textcolor>FFFFFFFF</textcolor>
+        <font>special13</font>        
     </control>  
 
      <control type="button" id="145">
@@ -81,6 +85,8 @@
         <onup>144</onup>         
         <onright>146</onright>
         <ondown>145</ondown>  
+        <textcolor>FFFFFFFF</textcolor>
+        <font>special13</font>        
     </control>  
 
      <control type="button" id="146">
@@ -94,7 +100,9 @@
         <label>Cancel</label>
         <onup>144</onup> 
         <onleft>145</onleft>  
-        <ondown>146</ondown>            
+        <ondown>146</ondown>
+        <textcolor>FFFFFFFF</textcolor>
+        <font>special13</font>            
     </control>  
      
     </controls>

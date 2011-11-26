@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 #############################################################################
@@ -50,10 +65,12 @@ class CPlayList:
         self.icon_download = 'default'
         #
         self.title = ''
+        self.type = ''
         self.description = ''
         self.URL = ''
         self.player = 'default'
         self.playmode = 'default'
+        self.view = 'default'        
         self.start_index = 0
         self.list = []
     
@@ -124,6 +141,8 @@ class CPlayList:
         self.version = '-1'
         self.background = mediaitem.background
         self.logo = 'none'
+        if mediaitem.thumb != 'default':
+            self.logo = mediaitem.thumb
         #
         self.icon_playlist = 'default'
         self.icon_rss = 'default'
@@ -136,10 +155,12 @@ class CPlayList:
         self.icon_download = 'default'
         #
         self.title = ''
+        self.type = 'playlist'
         self.description = ''
         self.player = mediaitem.player
+        self.view = mediaitem.view
         self.processor = mediaitem.processor
-        self.playmode = 'default'
+        self.playmode = 'default'         
         self.start_index = 0
 
         #parse playlist entries 
@@ -219,6 +240,8 @@ class CPlayList:
                                 state = 2 #description on more lines
                     elif key == 'playmode' and state == 0:
                             self.playmode=value
+                    elif key == 'view' and state == 0:
+                            self.view=value                            
                     elif key == 'type':
                         if state == 1:
                             self.list.append(tmp)
@@ -238,7 +261,7 @@ class CPlayList:
                     elif key == 'name':
                         tmp.name=value
                     elif key == 'date':
-                        tmp.date=value    
+                        tmp.date=value  
                     elif key == 'thumb':
                         tmp.thumb=value
                     elif key == 'icon':
@@ -252,7 +275,11 @@ class CPlayList:
                     elif key == 'background':
                         tmp.background=value
                     elif key == 'rating':
-                        tmp.rating=value                        
+                        tmp.rating=value
+                    elif key == 'infotag':
+                        tmp.infotag=value                        
+                    elif key == 'view':
+                        tmp.view=value                       
                     elif key == 'processor':
                         tmp.processor=value
                     elif key == 'playpath':
@@ -308,15 +335,17 @@ class CPlayList:
         
         #defaults
         self.version = plxVersion
-        #use the current background image if mediaitem background is not set.
-        if mediaitem.background != 'default':
-            self.background = mediaitem.background
+        self.background = mediaitem.background
         self.logo = 'none'
+        if mediaitem.thumb != 'default':
+            self.logo = mediaitem.thumb        
         self.title = ''
+        self.type = 'rss'
         self.description = ''
         self.player = mediaitem.player
         self.processor = mediaitem.processor
         self.playmode = 'default'
+        self.view = 'default'          
         self.start_index = 0
         #clear the list
         del self.list[:]
@@ -384,9 +413,11 @@ class CPlayList:
                         if index3 != -1:
                             index4 = m.find(':', index2, index3)
                             if index4 != -1:
-                                value = m[index2+1:index4-2]
+                                #value = m[index2+1:index4-2]
+                                value = m[index2+1:index3]
                                 value = value.replace('\n',"") 
-                                tmp.name = value
+                                #tmp.name = value
+                                tmp.date = self.parsedate(value)
 
                 #get the title.
                 index = m.find('<title')
@@ -401,7 +432,8 @@ class CPlayList:
                             else:
                                 value = m[index2+1:index3]
                             value = value.replace('\n'," '")                              
-                            tmp.name = tmp.name + value
+                            #tmp.name = tmp.name + value
+                            tmp.name = value
                                              
                 #get the description.
                 index1 = m.find('<content:encoded>')
@@ -538,15 +570,17 @@ class CPlayList:
         
         #defaults
         self.version = plxVersion
-        #use the current background image if mediaitem background is not set.
-        if mediaitem.background != 'default':
-            self.background = mediaitem.background
+        self.background = mediaitem.background
         self.logo = 'none'
+        if mediaitem.thumb != 'default':        
+            self.logo = mediaitem.thumb     
         self.title = ''
+        self.type = 'atom'
         self.description = ''
         self.player = mediaitem.player
         self.processor = mediaitem.processor
         self.playmode = 'default'
+        self.view = 'default'          
         self.start_index = 0
         #clear the list
         del self.list[:]
@@ -619,9 +653,11 @@ class CPlayList:
                         if index3 != -1:
                             index4 = m.find(':', index2, index3)
                             if index4 != -1:
-                                value = m[index2+1:index4-3]
+                                #value = m[index2+1:index4-3]
+                                value = m[index2+1:index3]
                                 value = value.replace('\n',"") 
-                                tmp.name = value
+                                #tmp.name = value
+                                tmp.date = self.parsedate(value)
                                 
                 #get the publication date.
                 index = m.find('<updated')
@@ -632,7 +668,8 @@ class CPlayList:
                         if index3 != -1:
                             index4 = m.find(':', index2, index3)
                             if index4 != -1:
-                                value = m[index2+1:index4-3]
+                                #value = m[index2+1:index4-3]
+                                value = m[index2+1:index3]
                                 value = value.replace('\n',"") 
                                 tmp.name = value                                
                                 
@@ -649,7 +686,8 @@ class CPlayList:
                             else:
                                 value = m[index2+1:index3]
                             value = value.replace('\n'," '")                              
-                            tmp.name = tmp.name + ' ' + value
+                            #tmp.name = tmp.name + ' ' + value
+                            tmp.name = value
                                              
                 #get the description.
                 index = m.find('<summary')
@@ -765,10 +803,14 @@ class CPlayList:
         self.version = plxVersion
         self.background = mediaitem.background
         self.logo = 'none'
+        if mediaitem.thumb != 'default':        
+            self.logo = mediaitem.thumb  
         self.title = ''
+        self.type = 'opml'
         self.description = ''
         self.player = mediaitem.player
         self.playmode = 'default'
+        self.view = 'default'         
         self.start_index = 0
         #clear the list
         del self.list[:]
@@ -797,6 +839,22 @@ class CPlayList:
 
                     tmp.name = value                
             
+            index = m.find('image=')
+            if index != -1:
+                index2 = m.find('"', index+7)
+                if index2 != -1:
+                    value = m[index+7:index2]
+
+                    tmp.thumb= value                
+
+            index = m.find('bitrate=')
+            if index != -1:
+                index2 = m.find('"', index+9)
+                if index2 != -1:
+                    value = m[index+9:index2]
+
+                    tmp.infotag= value 
+            
             index = m.find('URL=')
             if index != -1:
                 index2 = m.find('"', index+5)
@@ -811,10 +869,10 @@ class CPlayList:
                 if index2 != -1:
                     value = m[index+6:index2]
 
-                    #tmp.name = tmp.name + " " + value
-
                     if value == "link":
                         tmp.type = 'opml'
+                        if (tmp.thumb == 'default') and (self.logo != 'none'):
+                            tmp.thumb = self.logo
                     elif value == 'audio':                    
                         tmp.type = 'audio'
                     else:                    
@@ -858,9 +916,11 @@ class CPlayList:
         self.background = mediaitem.background
         self.logo = 'none'
         self.title = ''
+        self.type = 'rss'
         self.description = ''
         self.player = mediaitem.player
         self.playmode = 'default'
+        self.view = 'default'         
         self.start_index = 0
         #clear the list
         del self.list[:]
@@ -1011,9 +1071,11 @@ class CPlayList:
 #        self.logo = 'none'
         self.logo = imageDir + "shoutcast.png"
         self.title = 'Shoutcast' + ' - ' + mediaitem.name
+        self.type = 'xml_shoutcast'
         self.description = ''
         self.player = mediaitem.player
         self.playmode = 'default'
+        self.view = 'default'         
         self.start_index = 0
         #clear the list
         del self.list[:]
@@ -1091,10 +1153,12 @@ class CPlayList:
         self.background = mediaitem.background
         self.logo = 'none'
         self.title = 'Apple Movie Trailers'
+        self.type = 'xml_applemovie'
         self.description = ''
         self.player = mediaitem.player
         self.processor = mediaitem.processor        
         self.playmode = 'default'
+        self.view = 'default'         
         self.start_index = 0
         #clear the list
         del self.list[:]
@@ -1233,9 +1297,11 @@ class CPlayList:
         self.icon_download = 'default'
         #
         self.title = mediaitem.name
+        self.type = 'directory'
         self.description = ''
         self.player = mediaitem.player
         self.playmode = 'default'
+        self.view = 'default'         
         self.start_index = 0
         #clear the list
         del self.list[:]        
@@ -1411,5 +1477,35 @@ class CPlayList:
                 f.write('DLloc=' + self.list[i].DLloc + '\n')
             f.write('#\n')
         f.close()
-        
-        
+
+    ######################################################################        
+    def parsedate(self, datestring):
+        short_weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+        print datestring
+
+        try:
+            s = datestring.split()
+            
+            if len(s) > 1:
+                #RFC822
+                day = s[1]
+                month = str(months.index(s[2]) + 1)
+                year = s[3]
+                tim = s[4] #time
+            else:
+                #ISO8601
+                dt = datestring.split('T')
+                d = dt[0].split('-')  
+                day = d[2]
+                month = d[1]
+                year = d[0]
+                tim = dt[1][:-1]
+        except ValueError:
+            #no match
+            return "" 
+     
+        return year + '-' + month + '-' + day + ' ' + tim
+
+

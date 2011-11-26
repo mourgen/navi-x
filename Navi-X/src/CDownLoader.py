@@ -1,7 +1,22 @@
 #############################################################################
 #
-# Navi-X Playlist browser
-# by rodejo (rodejo16@gmail.com)
+#   Copyright (C) 2011 Navi-X
+#
+#   This file is part of Navi-X.
+#
+#   Navi-X is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   Navi-X is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with Navi-X.  If not, see <http://www.gnu.org/licenses/>.
+#
 #############################################################################
 
 #############################################################################
@@ -177,9 +192,8 @@ class CDownLoader(threading.Thread):
                 size_string = f.headers['Content-Length']
                 size = int(size_string)
                 f.close()
-            except IOError:
-                self.state = -1 #failed to open the HTTP URL
-                return
+            except:
+                size = 0
             
             #special handing for some URL's
             pos = URL.find('http://www.youtube.com') #find last 'http' in the URL
@@ -389,8 +403,8 @@ class CDownLoader(threading.Thread):
                     chunk = 100 * 1024 #100kBytes chunks
                     if (bytes + chunk) > size:
                         chunk = size-bytes #remainder
-                    #data = f.read(chunk)
-                    file.write(f.read(chunk))
+                    data = f.read(chunk)
+                    file.write(data)
                     bytes = bytes + chunk
                             
                     percent = 100 * bytes / size
@@ -413,7 +427,8 @@ class CDownLoader(threading.Thread):
                 if (self.killed == True) or (self.running == False):
                     self.state = -2 #failed to download the file
                         
-        except IOError:        
+#        except IOError:    
+        except:        
             self.state = -1 #failed to download the file
             return
 
