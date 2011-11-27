@@ -182,6 +182,7 @@ class CURLLoader:
                     return -1
 
                 inst_prev=inst
+                v['NIPL']=inst
                 lines=inst.splitlines()
                 if len(lines) < 1:
                     print "Processor error: nothing returned from phase "+str(phase)
@@ -383,7 +384,7 @@ class CURLLoader:
                                         if_report=if_report+" > "
                                     else:
                                         if_report=if_report+" = "
-                                    if_report=if_report+"'': "+v[arg]
+                                    if_report=if_report+"'': "+str(v[arg])
 
                             if bool:
                                 if_satisfied=True
@@ -543,6 +544,16 @@ class CURLLoader:
                                 else:
                                     print "Processor print "+arg+":\n "+v[arg]
 
+                            elif subj=='countdown':
+                                if arg[0:1]=="'":
+                                    secs=arg[1:]
+                                else:
+                                    secs=v[arg]
+                                cd_flag=countdown_timer(int(secs), v['countdown_title'], v['countdown_caption'])
+                                if cd_flag==False:
+                                    SetInfoText("")
+                                    return -1
+                            
                             else:
                                 print "Processor error: unrecognized method '"+subj+"'"
                                 SetInfoText("")

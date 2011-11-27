@@ -335,7 +335,7 @@ def getRemote(url,args={}):
       	    'geturl':'',
       	    'cookies':''
         }
-
+    
     return oret
 
 ######################################################################
@@ -491,3 +491,33 @@ def SetInfoText(text='', window=0, setlock=False):
         
 #retrieve the platform.
 platform = get_system_platform()
+
+######################################################################
+# Description: Presents a countdown timer
+# Parameters : delay_time = int: countdown time in seconds
+#              title      = string: dialog label
+#              caption    = string: caption
+# Return     : True if countdown complete, False if cancelled
+######################################################################
+def countdown_timer(delay_time,title,caption):
+    if delay_time==0:
+        print '0-second delay time specified; returning'
+        return True
+
+    print 'Waiting '+str(delay_time)+' seconds'    
+    if title=='':
+        title='Please wait'
+    dialog=xbmcgui.DialogProgress()
+    dialog.create(title)
+    secs=0
+    while secs<delay_time:
+        secs=secs+1
+        dialog.update(int(100*secs/delay_time), caption, str(delay_time-secs)+" seconds remaining")
+        xbmc.sleep(1000)
+        if(dialog.iscanceled()):
+            print 'Wait cancelled'
+            return False
+
+    dialog.close()
+    print 'Wait finished'
+    return True
