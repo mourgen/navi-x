@@ -574,6 +574,8 @@ class CURLLoader:
                     mediaitem.URL=mediaitem.URL+' pageUrl='+v['pageurl']
                 if v['swfVfy']>'':
                     mediaitem.URL=mediaitem.URL+' swfVfy='+v['swfVfy']
+                if v['live']>'':
+                    mediaitem.URL=mediaitem.URL+' live=1'
 
             else:
                 mediaitem.swfplayer=v['swfplayer']
