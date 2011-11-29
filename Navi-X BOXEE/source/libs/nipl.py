@@ -61,6 +61,7 @@ class NIPL:
                 'concat':self.concat,
                 'debug':self.debug,
                 'print':self._print,
+                'escape':self.escape,
                 'error':self.error,
                 'match':self.match,
                 'play':self.play,
@@ -219,6 +220,11 @@ class NIPL:
             try: print " ".join(['NAVI-X NIPL: ', str(line), '=', str(var1)])
             except: pass
 
+    def escape(self, line):
+        var2 = self.getValue(line)
+        var2 = urllib.quote_plus(var2)
+        self.setValue(var=line, value=var2)
+
     def _print(self, line):
         var1 = self.getValue(line)
         print " ".join(['NAVI-X NIPL: ', str(line), '=', str(var1)])
@@ -256,7 +262,7 @@ class NIPL:
 
     def play(self):
         self.playurl = str(self.url)
-        parse = ['playurl','swfplayer','playpath','agent','app','pageurl','swfVfy', 'referer', 'player']
+        parse = ['playurl','swfplayer','playpath','agent','app','pageurl','swfVfy', 'referer', 'player', 'live']
         self._printv(0, 'PLAY Variables')
         for item in parse:
             self._printv(0, str(item) + ' - ' + str(vars(self)[item]))
