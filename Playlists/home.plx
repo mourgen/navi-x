@@ -49,7 +49,6 @@ URL=pictures
 #
 type=window
 name=File Manager
-date=2010-04-09
 URL=filemanager
 #
 type=playlist
@@ -57,12 +56,12 @@ name=Navi-X updates (Script Navi-X 3.7.1)
 thumb=default
 icon=http://website.navi-x.org/networks/icon.png
 date=2011-10-09
-URL=http://www.navi-x.org/playlists/scripts/scripts.plx
+#URL=http://www.navi-x.org/playlists/scripts/scripts.plx
+URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts.plx
 #
 type=playlist
 name=About Navi-X
 icon=http://website.navi-x.org/networks/icon.png
 thumb=default
-date=2010-10-30
 URL=http://www.navi-x.org/playlists/about.plx
 #
