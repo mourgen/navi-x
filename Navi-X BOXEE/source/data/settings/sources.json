@@ -23,6 +23,7 @@
     {"type":"playlist", "tag":"video", "name":"G4TV", "URL":"http://navix.turner3d.net/scrape/g4tv/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png"}, 
     {"type":"playlist", "tag":"video", "name":"GameFAQs", "URL":"http://navix.turner3d.net/scrape/gamefaqs/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_gamefaqs.png"}, 
     {"type":"playlist", "tag":"video", "name":"GameTrailers.com", "URL":"http://navix.turner3d.net/scrape/gametrailers/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif"},
+       {"type":"playlist", "name":"FastPassTV", "URL":"http://boseman22.dyndns-server.com/cgi-bin/Scrapers/fastpasstv", "thumb":"http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg", "tag":"movie"}, 
        {"type":"playlist", "name":"IceFilms", "URL":"http://navix.turner3d.net/scrape/icefilms/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png", "tag":"movie"}, 
     {"type":"playlist", "tag":"audio", "name":"Librivox Audio Books", "URL":"http://navix.turner3d.net/scrape/librivox/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_librivox.png"}, 
     {"type":"playlist", "tag":"video", "name":"Live Well HD", "URL":"http://navix.turner3d.net/scrape/livewellhd/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_livewellhd.gif"}, 
