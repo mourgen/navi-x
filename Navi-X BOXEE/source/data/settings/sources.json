@@ -97,7 +97,6 @@
     {"type":"playlist", "name":"MTV Artists", "URL":"http://navix.turner3d.net/scrape/mtv_music/artistsearch/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg", "genre":"audio"}, 
     {"type":"playlist", "name":"PokerTube", "URL":"http://navix.turner3d.net/scrape/pokertube/freetext/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif", "genre":"video"}, 
     {"type":"playlist", "name":"VidIcs", "URL":"http://navix.turner3d.net/scrape/vidics/list/?s=", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_vidics.png", "genre":"tv"},
-   {"type":"playlist", "name":"IceFilms.info", "URL":"http://navix.turner3d.net/scrape/icefilms/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png", "genre":"video"},  
 	{"type":"playlist", "name":"Novamov", "URL":"http://76.77.191.9/cgi-bin/Scrapers/novamov?q=search/", "thumb":"http://www.novamov.com/images/logo_novamov.jpg", "genre":"video"},
 	{"type":"playlist", "name":"StageVu", "URL":"http://76.77.191.9/cgi-bin/Scrapers/svsearch?q=basic/", "thumb":"http://stagevu.com/img/white/newtitle.png", "genre":"video"},
 	{"type":"playlist", "name":"Videofriender", "URL":"http://76.77.191.9/cgi-bin/Scrapers/vfsearch?q=search/", "thumb":"http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif", "genre":"video"},
