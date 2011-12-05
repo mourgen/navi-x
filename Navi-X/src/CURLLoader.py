@@ -213,7 +213,7 @@ class CURLLoader:
                     if if_end and line!='endif':
                         continue
 
-                    if if_next and line[0:5]!='elseif' and line!='else' and line!='endif':
+                    if if_next and line[0:6]!='elseif' and line!='else' and line!='endif':
                         continue
 
                     if line=='else':
@@ -355,7 +355,7 @@ class CURLLoader:
                         subj=match.group(1)
                         arg=match.group(3)
 
-                        if subj=='if' or subj=='elsif':
+                        if subj=='if' or subj=='elseif':
                             if if_satisfied:
                                 if_end=True
                             else:
@@ -574,8 +574,6 @@ class CURLLoader:
                     mediaitem.URL=mediaitem.URL+' pageUrl='+v['pageurl']
                 if v['swfVfy']>'':
                     mediaitem.URL=mediaitem.URL+' swfVfy='+v['swfVfy']
-                if v['live']>'':
-                    mediaitem.URL=mediaitem.URL+' live=1'
 
             else:
                 mediaitem.swfplayer=v['swfplayer']
