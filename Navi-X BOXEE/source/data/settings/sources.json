@@ -10,21 +10,14 @@
         {
             "type": "playlist",
             "tag": "tv",
-            "name": "4KidsTV",
-            "URL": "http://navix.turner3d.net/scrape/4kidstv/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_4kidstv.jpg"
-        },
-        {
-            "type": "playlist",
-            "tag": "tv",
-            "name": "66 Stage",
+            "name": "66 Stage TV",
             "URL": "http://navix.turner3d.net/scrape/66stage/cat/tv",
             "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_66stage.png"
         },
         {
             "type": "playlist",
             "tag": "movie",
-            "name": "66 Stage",
+            "name": "66 Stage Movies",
             "URL": "http://navix.turner3d.net/scrape/66stage/list/movies",
             "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_66stage.png"
         },
