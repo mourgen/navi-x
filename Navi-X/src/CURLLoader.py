@@ -340,11 +340,9 @@ class CURLLoader:
                             if if_satisfied:
                                 if_end=True
                             else:
-                                #print "evaluating " + arg
-                                #bool=self.if_eval(arg, v)
                                 boolObj=self.if_eval(arg, v)
                                 if(boolObj["error"]==True):
-                                    return self.proc_error(boolObj["data"])
+                                    return self.proc_error(boolObj["data"] + "\n" + line)
 
                             if boolObj["data"]==True:
                                 if_satisfied=True
@@ -674,9 +672,7 @@ class CURLLoader:
             str_in=str_in.replace('','False')
             try:
                 bool=eval(str_in)
-            except Exception as ex:
-                print "from curlloader:"
-                print type(ex)
+            except Exception, ex:
                 return {
                     "error": True,
                     "data": exception_parse(ex)
@@ -709,7 +705,7 @@ class CURLLoader:
                 rside=v[rraw]
             try:
                 bool=eval("v[lkey]"+oper+"rside")
-            except Exception as ex:
+            except Exception, ex:
                 return {
                     "error": True,
                     "data": exception_parse(ex)
