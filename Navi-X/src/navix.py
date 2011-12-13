@@ -518,7 +518,7 @@ class MainWindow(xbmcgui.WindowXML):
         def ParsePlaylist(self, URL='', mediaitem=CMediaItem(), start_index=0, reload=True, proxy="CACHING"):
             #avoid recursive call of this function by setting state to busy.
             self.state_busy = 1
-
+            
             #The application contains 4 CPlayList objects:
             #(1)main list, 
             #(2)favorites,
@@ -1007,10 +1007,28 @@ class MainWindow(xbmcgui.WindowXML):
                                                         
                 SetInfoText("")
                 
-                if result != 0:
+                if result["code"] == 1:
+                    # general error
+                    try:
+                        result["data"]
+                    except KeyError:
+                        result["data"]="Cannot open file"
+                    
+                    if result["data"][0:2] == 'p:':
+                        result["data"]=result["data"][2:]
+                        etitle="Processor Error"
+                    else:
+                        etitle="Error"
                     dialog = xbmcgui.Dialog()
-                    dialog.ok("Error", "Cannot open file.")
+                    dialog.ok(etitle, result["data"])
 
+                elif result["code"] == 2:
+                    # redirect to playlist
+                    redir_item=CMediaItem()
+                    redir_item.URL=result["data"]
+                    redir_item.type='playlist'
+                    self.ParsePlaylist(mediaitem=redir_item, URL=result["data"])
+                
             elif type == 'image':
                 self.AddHistoryItem()
                 self.viewImage(playlist, pos, 0, mediaitem.URL) #single file show
@@ -1293,7 +1311,7 @@ class MainWindow(xbmcgui.WindowXML):
                     
                     urlopener = CURLLoader()
                     result = urlopener.urlopen(URL, playlist.list[pos])
-                    if result == 0:
+                    if result["code"] == 0:
                         URL = urlopener.loc_url                    
                                        
                 ext = getFileExtension(URL)

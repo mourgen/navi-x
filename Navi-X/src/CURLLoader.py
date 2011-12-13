@@ -46,15 +46,15 @@ class CURLLoader:
     def __init__(self, parent=0):
         self.parent=parent
 
-    ######################################################################
-    # Description: This class is used to retrieve the direct URL of given
-    #              URL which the XBMC player understands.
-    #              
-    # Parameters : URL=source URL, mediaitem = mediaitem to open
-    # Return     : 0=successful, -1=fail
-    ######################################################################
+######################################################################
+# Description: This class is used to retrieve the direct URL of given
+#              URL which the XBMC player understands.
+#              
+# Parameters : URL=source URL, mediaitem = mediaitem to open
+# Return     : 0=successful, -1=fail
+######################################################################
     def urlopen(self, URL, mediaitem=0):
-        result = 0 #successful
+        result = {"code":0} #successful
 
         if mediaitem.processor != '':
             result = self.geturl_processor(mediaitem) 
@@ -68,13 +68,13 @@ class CURLLoader:
         
         return result
 
-    ######################################################################
-    # Description: This class is used to retrieve the real URL of 
-    #              a media item. The XBMC player sometimes fails to handle
-    #              HTTP redirection. Therefore we do it here.           
-    # Parameters : URL=source URL
-    # Return     : 0=successful, -1=fail
-    ######################################################################
+######################################################################
+# Description: This class is used to retrieve the real URL of 
+#              a media item. The XBMC player sometimes fails to handle
+#              HTTP redirection. Therefore we do it here.           
+# Parameters : URL=source URL
+# Return     : 0=successful, -1=fail
+######################################################################
     def geturl_redirect(self, URL):        
         try:
             values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
@@ -83,18 +83,17 @@ class CURLLoader:
             self.loc_url=f.geturl()
             f.close()            
         except IOError:
-            return -1 # failed
+            return {"code": 1} # failed
         
         #always return true    
-        return 0
+        return {"code":0}
 
-    ######################################################################
-    # Description: This class is used to retrieve media playback
-    #              parameters using a processor server
-    #              
-    # Parameters : mediaitem = mediaitem to open
-    # Return     : 0=successful, -1=fail
-    ######################################################################
+######################################################################
+# Description: Retrieve playback parameters using a remote processor
+#              
+# Parameters : mediaitem = mediaitem to open
+# Return     : 0=successful, -1=fail
+######################################################################
     def geturl_processor(self, mediaitem):
         cache_filename=procCacheDir + ProcessorLocalFilename(mediaitem.processor)
         is_cached=False
@@ -117,9 +116,7 @@ class CURLLoader:
             proc_ori=htmRaw
 
         if htmRaw <= '':
-            print "Processor error: nothing returned from learning phase";
-            SetInfoText("")
-            return -1
+            return self.proc_error("nothing returned from learning phase")
 
         if htmRaw[:2]=='v2':
             htmRaw=htmRaw[3:]
@@ -138,11 +135,13 @@ class CURLLoader:
             ## command parser
             lparse=re.compile('^([^ =]+)([ =])(.+)$')
 
-            ## condition parser
-            ifparse=re.compile('^([^<>=!]+)\s*([!<>=]+)\s*(.+)$');
-
             ## dot property parser
-            dotvarparse=re.compile('^(nookies|s_headers)\.(.+)$');
+            dotvarparse=re.compile('^(nookies|s_headers)\.(.+)$')
+
+            self.multiIfTest=re.compile('^\(')
+            self.conditionExtract=re.compile('\(\s*([^\(\)]+)\s*\)')
+            self.ifparse=re.compile('^([^<>=!]+)\s*([!<>=]+)\s*(.+)$');
+
 
             nookies=NookiesRead(mediaitem.processor)
             for ke in nookies:
@@ -177,17 +176,14 @@ class CURLLoader:
                     v['s_url']=mediaitem.URL
 
                 if inst==inst_prev:
-                    print "Processor error: endless loop detected"
-                    SetInfoText("")
-                    return -1
+                    return self.proc_error("endless loop detected")
 
                 inst_prev=inst
                 v['NIPL']=inst
                 lines=inst.splitlines()
                 if len(lines) < 1:
-                    print "Processor error: nothing returned from phase "+str(phase)
-                    SetInfoText("")
-                    return -1
+                    return self.proc_error("nothing returned from phase "+str(phase))
+
                 linenum=0
                 for line in lines:
                     linenum=linenum+1
@@ -215,6 +211,8 @@ class CURLLoader:
 
                     if if_next and line[0:6]!='elseif' and line!='else' and line!='endif':
                         continue
+                        
+                    ### 0-argument methods / commands
 
                     if line=='else':
                         if if_satisfied:
@@ -240,9 +238,7 @@ class CURLLoader:
                             str_info=str_info+" "+str(scrape)
                         SetInfoText(str_info)
                         if v['s_url']=='':
-                            print "Processor error: no scrape URL defined"
-                            SetInfoText("")
-                            return -1
+                            return self.proc_error("no scrape URL defined")
                         scrape=scrape+1
                         scrape_args={
                           'referer': v['s_referer'],
@@ -281,19 +277,6 @@ class CURLLoader:
                             v[hkey]=str(remoteObj['cookies'][ke])
                         if verbose>0:
                             print str_out
-
-#                        if v['s_action']=='headers':
-#                            headers=remoteObj
-#                            str_out="Proc debug headers:"
-#                            for ke in headers:
-#                                str_out=str_out+"\n "+ke+": "+str(headers[ke])
-#                                v[ke]=str(headers[ke])
-#                            if verbose>0:
-#                                print str_out
-#                        elif v['s_action']=='geturl':
-#                            v['v1']=remoteObj
-#                        else:
-#                            v['htmRaw']=remoteObj
 
                         if v['s_action']=='read' and v['regex']>'' and v['htmRaw']>'':
                             # get finished - run regex, populate v(alues) and rep(ort) if regex is defined
@@ -349,9 +332,7 @@ class CURLLoader:
                         # parse
                         match=lparse.search(line)
                         if match is None:
-                            print "Processor syntax error: "+line
-                            SetInfoText("")
-                            return -1
+                            return self.proc_error("syntax error: "+line)
                         subj=match.group(1)
                         arg=match.group(3)
 
@@ -359,41 +340,20 @@ class CURLLoader:
                             if if_satisfied:
                                 if_end=True
                             else:
+                                #print "evaluating " + arg
+                                #bool=self.if_eval(arg, v)
+                                boolObj=self.if_eval(arg, v)
+                                if(boolObj["error"]==True):
+                                    return self.proc_error(boolObj["data"])
 
-                                ### process if / elseif operators
-                                match=ifparse.search(arg)
-                                if match:
-                                    ### process if with operators
-                                    lkey=match.group(1)
-                                    oper=match.group(2)
-                                    rraw=match.group(3)
-                                    if oper=='=':
-                                        oper='=='
-                                    if rraw[0:1]=="'":
-                                        rside=rraw[1:]
-                                    else:
-                                        rside=v[rraw]
-                                    bool=eval("v[lkey]"+oper+"rside")
-                                    if_report=" test: "+lkey+" "+oper+" "+rraw+"\n  left: "+v[lkey]+"\n right: "+rside
-
-                                else:
-                                    ### process single if argument for >''
-                                    bool=v[arg]>''
-                                    if_report=arg
-                                    if bool:
-                                        if_report=if_report+" > "
-                                    else:
-                                        if_report=if_report+" = "
-                                    if_report=if_report+"'': "+str(v[arg])
-
-                            if bool:
+                            if boolObj["data"]==True:
                                 if_satisfied=True
                                 if_next=False
                             else:
                                 if_next=True
 
                             if verbose>0:
-                                print "Proc debug "+subj+" => "+str(bool)+":\n "+if_report
+                                print "Proc debug "+subj+" => "+str(bool)
                             continue
 
                         if match.group(2)=='=':
@@ -436,16 +396,16 @@ class CURLLoader:
                                 verbose=int(arg)
 
                             elif subj=='error':
-                                print "Processor error: "+arg[1:]
-                               	SetInfoText("")
-                               	return -1
+                                if arg[0:1]=="'":
+                                    errmsg=arg[1:]
+                                else:
+                                    errmsg=v[arg]
+                                return self.proc_error(errmsg)
 
                             elif subj=='report_val':
                                 match=lparse.search(arg)
                                 if match is None:
-                                    print "Processor syntax error: "+line
-                                    SetInfoText("")
-                                    return -1
+                                    return self.proc_error("syntax error: "+line)
                                 ke=match.group(1)
                                 va=match.group(3)
                                 if va[0:1]=="'":
@@ -460,9 +420,7 @@ class CURLLoader:
                             elif subj=='concat':
                                 match=lparse.search(arg)
                                 if match is None:
-                                    print "Processor syntax error: "+line
-                                    SetInfoText("")
-                                    return -1
+                                    return self.proc_error("syntax error: "+line)
                                 ke=match.group(1)
                                 va=match.group(3)
                                 oldtmp=v[ke]
@@ -505,9 +463,7 @@ class CURLLoader:
                                # pre-set regex, replace var [']val
                                 match=lparse.search(arg)
                                 if match is None:
-                                    print "Processor syntax error: "+line
-                                    SetInfoText("")
-                                    return -1
+                                    return self.proc_error("syntax error: "+line)
                                 ke=match.group(1)
                                 va=match.group(3)
                                 if va[0:1]=="'":
@@ -552,12 +508,18 @@ class CURLLoader:
                                 cd_flag=countdown_timer(int(secs), v['countdown_title'], v['countdown_caption'])
                                 if cd_flag==False:
                                     SetInfoText("")
-                                    return -1
+                                    return {"code":0}
+                                    
+                            elif subj=='show_playlist':
+                                if arg[0:1]=="'":
+                                    purl=arg[1:]
+                                else:
+                                    purl=v[arg]
+                                print "Processor: redirecting to playlist " + purl
+                                return { "code":2, "data":purl }
                             
                             else:
-                                print "Processor error: unrecognized method '"+subj+"'"
-                                SetInfoText("")
-                                return -1
+                                return self.proc_error("unrecognized method '"+subj+"'")
 
             if v['agent']>'':
                 v['url']=v['url']+'?|User-Agent='+v['agent']
@@ -594,20 +556,16 @@ class CURLLoader:
             ## proc v1
             arr=htmRaw.splitlines()
             if len(arr) < 1:
-                print "Processor error: nothing returned from learning phase";
-                SetInfoText("")
-                return -1
+                return self.proc_error("nothing returned from learning phase")
             URL=arr[0]
             if URL.find('error')==0:
-                print "Processor: "+URL
-                SetInfoText("")
-                return -1
+                return self.proc_error(URL)
             report="Processor: phase 2 - instruct\n URL: "+URL
             if len(arr) < 2:
                 self.loc_url = URL
                 SetInfoText("")
                 print "Processor: single-line processor stage 1 result\n playing "+URL
-                return 0
+                return {"code":0}
             filt=arr[1]
             report=report+"\n filter: "+filt
             if len(arr) > 2:
@@ -625,9 +583,7 @@ class CURLLoader:
             SetInfoText("Processor: scraping...")
             htm=getRemote(URL,{'referer':ref,'cookie':cookie})['content']
             if htm == '':
-                print "Processor error: nothing returned from scrape"
-                SetInfoText("")
-                return -1
+                return self.proc_error("nothing returned from scrape")
 
             p=re.compile(filt)
             match=p.search(htm)
@@ -644,16 +600,12 @@ class CURLLoader:
                 SetInfoText("Processor: processing...")
                 htmRaw2=getRemote(tgt)['content']
                 if htmRaw2<='':
-                    print "Processor error: could not retrieve data from process phase"
-                    SetInfoText("")
-                    return -1
+                    return self.proc_error("could not retrieve data from process phase")
                 arr=htmRaw2.splitlines()
                 mediaitem.URL=arr[0]
 
                 if arr[0].find('error')==0:
-                    print "Processor: "+arr[0]
-                    SetInfoText("")
-                    return -1
+                    return self.proc_error(arr[0])
                 if len(arr) > 1:
                     if useLibrtmp:
                         mediaitem.URL=mediaitem.URL+' tcUrl='+arr[0]+' swfUrl='+arr[1]
@@ -669,9 +621,7 @@ class CURLLoader:
                             mediaitem.pageurl=arr[3]
                 mediaitem.processor=''
             else:
-                print "Processor error: pattern not found in scraped data"
-                SetInfoText("")
-                return -1
+                return self.proc_error("pattern not found in scraped data")
 
         self.loc_url = mediaitem.URL
 
@@ -687,7 +637,104 @@ class CURLLoader:
             report=report+"\n PageUrl: "+mediaitem.pageurl
         print report
 
-        return 0
+        return {"code":0}
+
+######################################################################
+# Description: evaluate if / elseif line
+#              
+# Parameters : str_in = condition(s) to test
+#            : v = NIPLVars
+# Return     : object: value=boolean, err=""
+######################################################################
+    def if_eval(self, str_in, v):
+        match=self.multiIfTest.search(str_in)
+        if match is None:
+            # single condition request
+            return self.condition_eval(str_in, v)
+        else:
+            # multiple condition request
+            mflag=True
+            while mflag==True:
+                match=self.conditionExtract.search(str_in)
+                if match:
+                    cond=match.group(1)
+                    #bool=self.condition_eval(cond, v)
+                    boolObj=self.condition_eval(cond, v)
+                    if(boolObj["error"]==True):
+                        return self.proc_error(boolObj["data"])
+
+                    if boolObj["data"]==True:
+                        rep=''
+                    else:
+                        rep=''
+                    str_in=str_in.replace(cond,rep)
+                else:
+                    mflag=False
+            str_in=str_in.replace('','True')
+            str_in=str_in.replace('','False')
+            try:
+                bool=eval(str_in)
+            except Exception as ex:
+                print "from curlloader:"
+                print type(ex)
+                return {
+                    "error": True,
+                    "data": exception_parse(ex)
+                }
+            return {
+                "error": False,
+                "data": bool
+            }
+            
+    
+######################################################################
+# Description: evaluate single condition
+#              
+# Parameters : str_in = condition to test
+#            : v = NIPLVars
+# Return     : Boolean
+######################################################################
+    def condition_eval(self, cond, v):
+        match=self.ifparse.search(cond)
+        if match:
+            ### process with operators
+            lkey=match.group(1)
+            oper=match.group(2)
+            rraw=match.group(3)
+            if oper=='=':
+                oper='=='
+            if rraw[0:1]=="'":
+                rside=rraw[1:]
+            else:
+                rside=v[rraw]
+            try:
+                bool=eval("v[lkey]"+oper+"rside")
+            except Exception as ex:
+                return {
+                    "error": True,
+                    "data": exception_parse(ex)
+                }
+    
+        else:
+            ### process single if argument for >''
+            bool=v[cond]>''
+        
+        return {
+            "error": False,
+            "data": bool
+        }
+
+    
+######################################################################
+# Description: handle processor error
+#              
+# Parameters : msg = error message
+# Return     : urlopen return object
+######################################################################
+    def proc_error(self, msg):
+        SetInfoText("")
+        print "Processor error: " + str(msg)
+        return {"code":1, "data":"p:" + str(msg)}
 
 
 ######################################################################
@@ -746,4 +793,3 @@ class NIPLVars:
             for ke in v_defaults:
                 self.data[ke]=v_defaults[ke]
 
-#end of file

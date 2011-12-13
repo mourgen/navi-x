@@ -177,7 +177,7 @@ class CDownLoader(threading.Thread):
             #HTTP
             urlopener = CURLLoader()
             result = urlopener.urlopen(URL, entry)
-            if result != 0:
+            if result["code"] != 0:
                 self.state = -1 #URL does not point to internet file.
                 return
             loc_url = urlopener.loc_url
@@ -313,7 +313,7 @@ class CDownLoader(threading.Thread):
         #Get the direct URL to the mediaitem given URL      
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, entry)
-        if result != 0:
+        if result["code"] != 0:
             self.state = -1 #failed to download the file
             return        
 
@@ -617,7 +617,7 @@ class CDownLoader(threading.Thread):
         #Get the direct URL to the mediaitem given URL      
         urlopener = CURLLoader()
         result = urlopener.urlopen(entry.URL, entry)
-        if result != 0:
+        if result["code"] != 0:
             return -1       
 
         URL = urlopener.loc_url

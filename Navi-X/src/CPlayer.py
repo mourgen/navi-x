@@ -91,7 +91,7 @@ class CPlayer(xbmc.Player):
                     URL = playlist.list[index].URL
 
                     result = urlopener.urlopen(URL, playlist.list[index])
-                    if result == 0:
+                    if result["code"] == 0:
                         loc_url = urlopener.loc_url
 
                         name = playlist.list[index].name
@@ -111,9 +111,9 @@ class CPlayer(xbmc.Player):
             
             if self.pls.size() == 0:
                 #no valid items found
-                return -1
+                return {"code":1,"data":"no valid items found"}
                 
-        return 0
+        return {"code":0}
 
     ######################################################################
     ######################################################################            
@@ -121,12 +121,12 @@ class CPlayer(xbmc.Player):
         #URL=mediaitem.URL
         #check if the URL is empty or not
         if URL == '':
-            return -1
+            return {"code":1, "data":"URL is empty"}
                                               
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, mediaitem)
-        if result != 0:
-            return -1    
+        if result["code"] != 0:
+            return result   
         URL = urlopener.loc_url
         
         SetInfoText("Loading...... ", setlock=True)
@@ -144,7 +144,7 @@ class CPlayer(xbmc.Player):
             if loader.state == 0: #success
                 result = self.pls.load(loader.localfile)
                 if result == False:
-                    return -1
+                    return {"code":1}
                     
                 #xbmc.Player.play(self, self.pls) #play the playlist
                 self.play_media(loader.localfile)
@@ -155,7 +155,7 @@ class CPlayer(xbmc.Player):
             else: 
                 self.play_media(URL)
             
-        return 0
+        return {"code":0}
 
     ######################################################################
     ######################################################################  
@@ -172,7 +172,7 @@ class CPlayer(xbmc.Player):
     def play_RTMP(self, URL, playpath, swfplayer, pageurl):
         #check if the URL is empty or not
         if URL == '':
-            return -1
+            return {"code":1,"data":"URL is empty"}
     
         self.pls.clear() #clear the playlist
     
@@ -186,5 +186,5 @@ class CPlayer(xbmc.Player):
 
         xbmc.Player(xbmc.PLAYER_CORE_DVDPLAYER).play(URL, item)
         
-        return 0
+        return {"code":0}
         

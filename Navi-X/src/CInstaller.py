@@ -62,7 +62,7 @@ class CInstaller(xbmcgui.Window):
         
         urlopener = CURLLoader()
         result = urlopener.urlopen(self.URL, mediaitem)
-        if result == 0:
+        if result["code"] == 0:
             self.URL = urlopener.loc_url
         
         SetInfoText("Downloading... ", setlock=True)
@@ -94,7 +94,7 @@ class CInstaller(xbmcgui.Window):
         
         urlopener = CURLLoader()
         result = urlopener.urlopen(self.URL, mediaitem)
-        if result == 0:
+        if result["code"] == 0:
             self.URL = urlopener.loc_url
         
         
@@ -137,7 +137,7 @@ class CInstaller(xbmcgui.Window):
         
         urlopener = CURLLoader()
         result = urlopener.urlopen(self.URL, mediaitem)
-        if result == 0:
+        if result["code"] == 0:
             self.URL = urlopener.loc_url
         
         SetInfoText("Downloading... ", setlock=True)
@@ -169,7 +169,7 @@ class CInstaller(xbmcgui.Window):
         
         urlopener = CURLLoader()
         result = urlopener.urlopen(self.URL, mediaitem)
-        if result == 0:
+        if result["code"] == 0:
             self.URL = urlopener.loc_url
         
         SetInfoText("Downloading... ", setlock=True)

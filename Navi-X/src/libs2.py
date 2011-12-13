@@ -521,3 +521,24 @@ def countdown_timer(delay_time,title,caption):
     dialog.close()
     print 'Wait finished'
     return True
+
+######################################################################
+# Description: Parse Python exception into an error-message string
+# Parameters : ex = exception object
+# Return     : string [exception type]: [exception message]
+######################################################################
+def exception_parse(ex):
+    print "exc_info:"
+    print str(sys.exc_info()[0])
+    msg=ex.args[0]
+    traw=str(type(ex))
+    m=re.match(r"<type 'exceptions\.([^']+)", traw) # Python 2.6+
+    if m is None:
+        m=re.match(r"exceptions.(\w+)", str(sys.exc_info()[0]) ) # pre Python 2.6
+        if m is None:
+            intro=traw
+        else:
+            intro=m.group(1)
+    else:
+        intro=m.group(1)
+    return intro+': '+msg
