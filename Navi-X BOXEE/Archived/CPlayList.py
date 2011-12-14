@@ -55,6 +55,7 @@ class CPlayList:
         self.URL = ''
         self.player = 'default'
         self.playmode = 'default'
+        self.view = 'default'
         self.start_index = 0
         self.list = []
     
@@ -220,6 +221,8 @@ class CPlayList:
                                 state = 2 #description on more lines
                     elif key == 'playmode' and state == 0:
                             self.playmode=value
+                    elif key == 'view' and state == 0:
+                            self.view=value
                     elif key == 'type':
                         if state == 1:
                             self.list.append(tmp)
@@ -732,6 +735,98 @@ class CPlayList:
         #Post rocessing in case of Youtube playlist URL.   
         self.load_youtube_postprocessor(filename, mediaitem, proxy) 
                     
+        return 0
+
+    ######################################################################
+    # Description: Loads a OPML file.
+    # Parameters : filename=URL or local file
+    #              mediaitem=CMediaItem object to load    
+    # Return     : 0=succes, 
+    #              -1=invalid playlist version, 
+    #              -2=could not open playlist
+    ######################################################################
+    def load_opml_10(self, filename='', mediaitem=CMediaItem(), proxy="CACHING"):
+        if filename != '':
+            self.URL = filename
+        else:
+            self.URL = mediaitem.URL
+
+        loader = CFileLoader2()
+        loader.load(self.URL, tempCacheDir + 'feed.xml', proxy=proxy)
+        if loader.state != 0:
+            return -2
+        filename = loader.localfile
+        
+        try:
+            f = open(filename, 'r')
+            data = f.read()
+            #data = data.split('<outline')
+            f.close()
+        except IOError:
+            return -2
+        
+        #defaults
+        self.version = plxVersion
+        self.background = mediaitem.background
+        self.logo = 'none'
+        self.title = ''
+        self.description = ''
+        self.player = mediaitem.player
+        self.playmode = 'default'
+        self.start_index = 0
+        #clear the list
+        del self.list[:]
+        
+        #first process the header
+        index = data.find('<title>')
+        if index != -1:
+            index2 = data.find('</title>')
+            if index2 != -1:
+                value = data[index+7:index2]
+                self.title = value    
+        
+        #now process the elements
+        data = data.split('<outline')
+            
+        counter=0
+        #parse playlist entries 
+        for m in data:
+            tmp = CMediaItem() #create new item
+            #fill the title
+            index = m.find('text=')
+            if index != -1:
+                index2 = m.find('"', index+6)
+                if index2 != -1:
+                    value = m[index+6:index2]
+
+                    tmp.name = value                
+            
+            index = m.find('URL=')
+            if index != -1:
+                index2 = m.find('"', index+5)
+                if index2 != -1:
+                    value = m[index+5:index2]
+
+                    tmp.URL= value             
+            
+            index = m.find('type=')
+            if index != -1:
+                index2 = m.find('"', index+6)
+                if index2 != -1:
+                    value = m[index+6:index2]
+
+                    #tmp.name = tmp.name + " " + value
+
+                    if value == "link":
+                        tmp.type = 'opml'
+                    elif value == 'audio':                    
+                        tmp.type = 'audio'
+                    else:                    
+                        tmp.type = 'video'
+        
+            if tmp.name != "":
+                self.list.append(tmp)
+                                  
         return 0
 
     ######################################################################

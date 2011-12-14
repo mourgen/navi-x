@@ -69,19 +69,19 @@ class CPlayer(mc.Player):
 #        SetInfoText("Loading... ")
 
 #        self.pls.clear() #clear the playlist
-    
-#        ext = getFileExtension(URL)
-#        if ext == 'pls' or ext == 'm3u':
-#            loader = CFileLoader2() #file loader
-#            loader.load(URL, tempCacheDir + "playlist." + ext, retries=2)
-#            if loader.state == 0: #success
-#                result = self.pls.load(loader.localfile)
-#                if result == False:
-#                    return -1
-#                xbmc.Player.play(self, self.pls) #play the playlist
-#        else:
-            #self.pls.add(urlopener.loc_url)
-
+#################################  
+        ext = getFileExtension(URL)
+        
+        #todo ashx  
+        if ext == 'ashx':
+            ext = 'm3u'
+        
+        if ext == 'pls' or ext == 'm3u':
+            loader = CFileLoader2() #file loader
+            loader.load(URL, tempCacheDir + "playlist." + ext, retries=2)
+            if loader.state == 0: #success
+                URL = loader.localfile
+################################# 
         ##mc.ShowDialogOk("Debug in play_URL before play", "type = " + mediaitem.type + '\n' + "processor = " + orig_processor)
 
         if mediaitem.type == 'html':   #assume html processing returns video?
@@ -146,39 +146,37 @@ class CPlayer(mc.Player):
 ## Returns ListItem
 
 def CreateHTMLListItem(url):
-        #mc.ShowDialogOk("Debug", "Creating HTMLListItem")
+	#mc.ShowDialogOk("Debug", "Creating HTMLListItem")
 	uri = urlparse.urlparse(url)
-
+	
 	if not uri[0]:
 		url = "http://" + urlparse.urlunparse(uri)
 		uri = urlparse.urlparse(url)
-
+	
 	domain = uri[1]
 	domain = domain.split('.')
-
+	
 	if len(domain) > 2:
 		domain = domain[-2:]
-
+	
 	domain = ".".join(domain)
-
+	
 	badUrl = False
 
-        http = mc.Http()
-        if not http.Get(url):
-	    badUrl = True
-
+	http = mc.Http()
+	if not http.Get(url):
+		badUrl = True
+	
 	if not badUrl:
-
-            path = 'flash://%s/src=%s&bx-jsactions=%s' % (domain, urllib.quote(url), urllib.quote('http://dir.boxee.tv/apps/browser/browser.js'))
-
-            item = mc.ListItem()
-            item.SetLabel("Navi-X Browser")
-            item.SetAddToHistory(False)
-            item.SetReportToServer(False)
-            item.SetContentType("application/x-shockwave-flash")
-            item.SetPath(path)
-            return item
-        else:
-            mc.ShowDialogOk("Error: html", "The address does not exist or cannot be displayed through the browser.")
-            return -1
+		
+		item = mc.ListItem()
+		item.SetLabel("Navi-X Browser")
+		item.SetAddToHistory(False)
+		item.SetReportToServer(False)
+		item.SetContentType("text/html")
+		item.SetPath(url)
+		return item
+	else:
+		mc.ShowDialogOk("Error: html", "The address does not exist or cannot be displayed through the browser.")
+		return -1
         

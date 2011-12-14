@@ -59,7 +59,9 @@ if RootDir[0] == '/':
     cacheDir = RootDir + "cache/"
     imageViewCacheDir = RootDir + "cache/mageview/"
     imageCacheDir = RootDir + "cache/images/"
-    tempCacheDir = RootDir + "cache/temp/"    
+    tempCacheDir = RootDir + "cache/temp/"
+    nookieCacheDir = RootDir + "cache/nookies/"
+    procCacheDir = RootDir + "cache/proc/"
     SEPARATOR = '/'
 else:
     if RootDir[-1] != '\\': RootDir = RootDir+'\\'
@@ -72,7 +74,9 @@ else:
     cacheDir = RootDir + "cache\\"
     imageViewCacheDir = RootDir + "cache\\imageview\\"
     imageCacheDir = RootDir + "cache\\images\\"
-    tempCacheDir = RootDir + "cache\\temp\\"    
+    tempCacheDir = RootDir + "cache\\temp\\"
+    nookieCacheDir = RootDir + "cache\\nookies\\"
+    procCacheDir = RootDir + "cache\\proc\\"
     SEPARATOR = '\\'
 
 ##import xbmc
@@ -90,7 +94,7 @@ else:
 
 ######################################################################
 #program version: Combination of version and subversion
-Version='3' 
+Version='1' 
 SubVersion='2'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
@@ -101,13 +105,14 @@ parent_list='blacklist.plx'
 history_list='history.plx'
 plxVersion = '8'
 home_URL_old='http://www.navi-x.nl/playlists/home.plx'
-home_URL='http://www.navi-x.org/playlists/homeboxee.plx'   #Appropriate starting point for Navi-X on Boxee
-#home_URL='homeboxee.plx'
+#home_URL='http://www.navi-x.org/playlists/homeboxee1.plx'
+home_URL='http://navix.turner3d.net/playlist/50242/navi-xtreme_nxportal_home.plx'
 home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
 searchhistory_file = 'search.dat'
 nxserver_URL = 'http://navix.turner3d.net'
+favorites_URL= 'http://www.navi-x.org/favorites/favorites.py'
 
 url_open_timeout = 10 #10 seconds
 page_size = 200 #display maximum 100 entries on one page

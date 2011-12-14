@@ -15,11 +15,11 @@ from string import *
 import sys, os.path
 import urllib
 import re, random, string
-##import xbmc, xbmcgui
 import re, os, time, datetime, traceback
 import shutil
 import zipfile
 import copy
+import random
 
 from libs2 import *
 from CURLLoader import *
@@ -28,8 +28,9 @@ from CPlayer import *
 from CInstaller import *
 from settings import *
 from CServer import *
+from navixboxee import *
 
-def Init():
+def Init(firsttime=False):
     list = mc.GetWindow(14000).GetList(122)
     listcontrol = list.GetItems()
     del listcontrol[:]
@@ -37,18 +38,67 @@ def Init():
     item = mc.ListItem()
     item.SetLabel("Home")
     listcontrol.append(item)
+
     item = mc.ListItem()
+    item.SetLabel("Favorites")
+    listcontrol.append(item)
+    
+    if firsttime == True:
+        mc.GetApp().GetLocalConfig().SetValue("listview", "default")
+        
+#    if firsttime == True:
+#        if nxserver.is_user_logged_in() == True:
+#            versionlabel = mc.GetWindow(14000).GetLabel(107)
+#            versionlabel.SetLabel('version: '+ Version + '.' + SubVersion + " (signed in)")        
+    item = mc.ListItem()
+    ListView = mc.GetApp().GetLocalConfig().GetValue("listview")
+    if ListView == "default":
+        item.SetLabel("View: Default")
+    if ListView == "thumbnails":
+        item.SetLabel("View: Thumbnails")
+    elif ListView == "list":   
+        item.SetLabel("View: List")
+    else:
+        mc.GetApp().GetLocalConfig().SetValue("listview", "default")
+        item.SetLabel("View: Default")
+        #item.SetLabel("View: Thumbnails")
+    listcontrol.append(item)    
+    
+    item = mc.ListItem()    
     if nxserver.is_user_logged_in() == True:
         item.SetLabel("Sign Out Navi-Xtreme")
     else:
         item.SetLabel("Sign In Navi-Xtreme")
     listcontrol.append(item)
+            
     item = mc.ListItem()
     item.SetLabel("Exit")
     listcontrol.append(item)
-
     list.SetItems(listcontrol)
-
+    
+    #right popup menu
+    list = mc.GetWindow(14000).GetList(127)
+    listcontrol = list.GetItems()
+    del listcontrol[:]
+    
+    item = mc.ListItem()
+    item.SetLabel("Add to Favorites")
+    listcontrol.append(item)
+    item = mc.ListItem()
+    item.SetLabel("Remove from Favorites")
+    listcontrol.append(item)
+    item = mc.ListItem()
+    item.SetLabel("About Navi-X")
+    listcontrol.append(item)    
+    list.SetItems(listcontrol)
+    
+    userkey = mc.GetApp().GetLocalConfig().GetValue("userkey")
+    if userkey == "":
+        userkey = str(random.randint(1, 1000))
+        userkey = userkey + str(random.randint(1, 1000))
+        userkey = userkey + str(random.randint(1, 1000))
+        mc.GetApp().GetLocalConfig().SetValue("userkey", userkey)
+            
 ######################################################################
 # Description: Parse playlist file. Playlist file can be a:
 #              -PLX file; Based on ParsePlaylist in navix.py
@@ -57,37 +107,52 @@ def Init():
 #              playlist info. Replaces URL parameter.
 # Return     : 0 if success
 ######################################################################
-def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
+def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True, view=''):
+    if reload == False:
+        listcontrol = mc.GetWindow(14000).GetList(GetListView()).GetItems()
+        stackitem = mc.GetWindow(14000).GetList(555).GetItem(0)
+        view = stackitem.GetProperty("view")
+        SetListView(view)
+        mc.GetWindow(14000).GetList(GetListView()).SetFocus()
+        mc.GetWindow(14000).GetList(GetListView()).SetItems(listcontrol)
+        
+        #pos = stackitem.GetProperty("focusseditem")
+        #mc.GetWindow(14000).GetList(GetListView()).SetFocusedItem(pos) 
+        return
+
+    if URL != '':
+        mediaitem=CMediaItem()
+        mediaitem.URL = URL
+        mediaitem.type = 'playlist'
+
     mc.ShowDialogWait()
     playlist = CPlayList()
-    listcontrol = mc.GetWindow(14000).GetList(112).GetItems()
-    del listcontrol[:]
-
-    #load the playlist
-
+                        
     type = mediaitem.GetType()
     ##mc.ShowDialogOk("Debug", "Parse mediaitem of type " + type)
-
-    if reload == True:
-        #load the playlist
-        if type == 'rss_flickr_daily':
-            result = playlist.load_rss_flickr_daily(URL, mediaitem)                
-        elif type[0:3] == 'rss':
-            result = playlist.load_rss_20(URL, mediaitem)
-        elif type[0:4] == 'atom':
-            result = playlist.load_atom_10(URL, mediaitem)
-        elif type == 'html_youtube':
-            result = playlist.load_html_youtube(URL, mediaitem)
-        elif type == 'xml_shoutcast':
-            result = playlist.load_xml_shoutcast(URL, mediaitem)
-        elif type == 'xml_applemovie':
-            result = playlist.load_xml_applemovie(URL, mediaitem)
-        elif type == 'directory':
-            result = playlist.load_dir(URL, mediaitem)
-        else: #assume playlist file
-            result = playlist.load_plx(URL, mediaitem)
-
-    #mc.ShowDialogOk("Error", "playlist.load result =" + str(result))
+    
+    listcontrol = mc.GetWindow(14000).GetList(GetListView()).GetItems()
+    del listcontrol[:]
+    
+    #load the playlist
+    if type == 'rss_flickr_daily':
+        result = playlist.load_rss_flickr_daily(URL, mediaitem)                
+    elif type[0:3] == 'rss':
+        result = playlist.load_rss_20(URL, mediaitem)
+    elif type[0:4] == 'atom':
+        result = playlist.load_atom_10(URL, mediaitem)
+    elif type == 'opml':
+        result = playlist.load_opml_10(URL, mediaitem)
+    elif type == 'html_youtube':
+        result = playlist.load_html_youtube(URL, mediaitem)
+    elif type == 'xml_shoutcast':
+        result = playlist.load_xml_shoutcast(URL, mediaitem)
+    elif type == 'xml_applemovie':
+        result = playlist.load_xml_applemovie(URL, mediaitem)
+    elif type == 'directory':
+        result = playlist.load_dir(URL, mediaitem)
+    else: #assume playlist file
+        result = playlist.load_plx(URL, mediaitem)
     
 ###    playlist.save(RootDir + 'source.plx')
 
@@ -98,10 +163,7 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
                 
     if result != 0: #failure
         return -1
-
-    #succesful
-    ##mc.ShowDialogOk("Ok", "playlist loaded size ="+str(playlist.size()) )
-
+    
     #display the new URL on top of the screen
     if len(playlist.title) > 0:
         title = playlist.title # + ' - (' + playlist.URL + ')'
@@ -114,8 +176,11 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
     title = re.sub(reg1, '', title)
 
     stackitem = mc.ListItem()
-    stackitem.SetProperty("listtitle",title);
-
+    stackitem.SetProperty("URL", mediaitem.URL)
+    stackitem.SetProperty("listtitle", title)
+    stackitem.SetProperty("view", playlist.view)
+    #stackitem.SetProperty("focusseditem", mc.GetWindow(14000).GetList(GetListView()).GetFocusedItem())
+    
     #set the background image
     m = playlist.background
     if (m == 'default') or (m == 'previous'): #default BG image
@@ -133,7 +198,7 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
         m = playlist.list[i]
         if int(m.version) <= int(plxVersion):
 
-            icon = getPlEntryThumb(m, playlist)
+            icon, thumb = getPlEntryThumb(m, playlist)
             
             # set label2      
             label2=''
@@ -152,14 +217,7 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
             if m.description != '':
                 label2 = label2 + ' >'
 
-            #mc.ShowDialogOk("Error", m.name)
-            #mc.ShowDialogOk("Error", m.processor)
-            #mc.ShowDialogOk("Error", m.URL)
-
-            item = mc.ListItem()
-            ###item.SetLabel(unicode(m.name, "utf-8", "ignore" ))  # this would not work.???
-            #label = str(m.name)
-            #item.SetLabel(label)            
+            item = mc.ListItem()          
             item.SetLabel(m.name)
             if m.URL != "":
                 item.SetPath(m.URL + " : " + m.processor )
@@ -167,7 +225,9 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
             item.SetProperty('description', m.description)
             item.SetProperty('background', m.background)
             item.SetProperty('processor', m.processor )
+            item.SetProperty('thumb', m.thumb)
             item.SetProperty('url', m.URL )
+            item.SetProperty('rating', imageDir + "rating" + m.rating + ".png" )
                         
             item.SetProperty('media_type', m.type)
             
@@ -175,15 +235,22 @@ def ParsePlaylist(URL='', mediaitem=CMediaItem(), reload=True):
                 item.SetThumbnail(m.thumb)
             elif  playlist.logo != 'none':
                 item.SetThumbnail(playlist.logo)
+            else:
+                item.SetThumbnail(thumb)
             
             item.SetProperty('icon', icon)
             ##mc.ShowDialogOk("item", "Label = " + item.GetLabel() + "Icon = " + item.GetIcon() + "Thumb = " + item.GetThumbnail() )
             listcontrol.append(item)
 
-    mc.GetWindow(14000).GetList(112).SetItems(listcontrol)        #set displayed list
+    if view != '':
+        playlist.view = view
 
+    newview = SetListView(playlist.view, passive=True)
+    mc.GetWindow(14000).GetList(newview).SetItems(listcontrol)        #set displayed list
+    SetListView(playlist.view, passive=False)
+    mc.GetWindow(14000).GetList(newview).SetFocus()    
     mc.HideDialogWait()
-    
+        
     return 0           
 
 ######################################################################
@@ -202,8 +269,8 @@ def getPlEntryThumb(mediaitem, playlist):
         type = 'rss'
     elif type[0:3] == 'xml':
         type = 'playlist'
-#    elif type == 'html_youtube':
-#        type = 'playlist'
+    elif type[0:4] == 'opml':
+        type = 'playlist'
     elif type[0:6] == 'search':
         type = 'search'               
     elif type == 'directory':
@@ -247,19 +314,21 @@ def getPlEntryThumb(mediaitem, playlist):
     elif type == 'download':
         if pl_focus.icon_download != 'default':
             URL = pl_focus.icon_download
-
+    
     #if the icon attribute has been set then use this for the icon.
     if mediaitem.icon != 'default':
-        URL = mediaitem.icon
-
-    if URL != '':
-        ext = getFileExtension(URL)
+        ext = getFileExtension(mediaitem.icon)
         loader = CFileLoader2() #file loader
-        loader.load(URL, imageCacheDir + "icon." + ext, timeout=2, proxy="ENABLED", content_type='image')
-        if loader.state == 0:
-            return loader.localfile
-            
-    return imageDir+'icon_'+str(type)+'.png'
+        loader.load(mediaitem.icon, imageCacheDir + "icon." + ext, proxy="ENABLED", content_type='image')
+        if loader.state == 0:    
+            URL = loader.localfile
+
+    if URL == '':
+        URL = imageDir+'icon_' + str(type) + '.png'
+        
+    URL_thumb = imageDir+'thumb_' + str(type) + '.png'
+        
+    return URL, URL_thumb
 
 ######################################################################
 # Description: Handle selection of playlist search item (e.g. Youtube)
@@ -272,14 +341,9 @@ def PlaylistSearch(item):
     string = ''
     
     searchstring = mc.ShowDialogKeyboard("Search", "", False)
-    ##mc.ShowDialogOk("Debug", "Searchstring entered : " + searchstring)
-
+     
     if len(searchstring) == 0:
-        while len(searchstring) == 0:
-             searchstring = mc.ShowDialogKeyboard("Search", "", False)
-        else:
-           pass
-           
+        return None      
 
     #get the search type:
     index=item.type.find(":")
@@ -411,13 +475,13 @@ def SelectItem(iURL='', listitem=''):
     if type == 'playlist' or type == 'favorite' or type[0:3] == 'rss' or \
        type == 'rss_flickr_daily' or type == 'directory' or \
        type == 'html_youtube' or type == 'xml_shoutcast' or \
-       type == 'xml_applemovie' or type == 'atom':
+       type == 'xml_applemovie' or type == 'atom' or type == 'opml':
         #add new URL to the history array
         mc.GetWindow(14000).PushState()
 
         #exception case: Do not add Youtube pages to history list
-        if mediaitem.GetType() == 'html_youtube':
-            append = False
+#        if mediaitem.GetType() == 'html_youtube':
+#            append = False
                 
         result = ParsePlaylist(mediaitem=mediaitem)
         ##mc.ShowDialogOk("Debug", "ParsePlaylist result = " + str(result))
@@ -447,40 +511,32 @@ def SelectItem(iURL='', listitem=''):
     #mediaitem is other type: go through possibilites
 
     elif type == 'image':
-##        self.AddHistoryItem()
-        mc.GetApp().GetLocalConfig().SetValue("resume", "True")
         viewImage(0,mediaitem) #single file show
+        mc.GetApp().GetLocalConfig().SetValue("resume", "True")        
 
 
     elif type == 'text':
-##        self.AddHistoryItem()
+        mc.GetWindow(14000).PushState()
         OpenTextFile(mediaitem=mediaitem)
-##        mc.ShowDialogOk("Error", "This item is not yet supported because it is a " + type)
 
     elif (type[0:3] == 'app'):
         InstallApp(mediaitem=mediaitem)
 
     elif type == 'download':
-##        self.AddHistoryItem()
-##        self.onDownload()
         mc.ShowDialogOk("Error", "This item is not supported because it is a " + type)
 
     elif (type[0:6] == 'search'):
         mediaitem_search = PlaylistSearch(mediaitem)
-        result = ParsePlaylist(mediaitem=mediaitem_search)
-        if result != 0:               ### Search Failed + playlist cleared by ParsePlaylist
-            mc.HideDialogWait()
-            return -1 
+        if mediaitem_search != None:
+            mc.GetWindow(14000).PushState()
+            result = ParsePlaylist(mediaitem=mediaitem_search)
         
     elif type == 'window':
-##        xbmc.executebuiltin("xbmc.ActivateWindow(" + mediaitem.URL + ")")
         mc.ShowDialogOk("Error", "This item is not supported because it is a " + type)
 
     else:
         mc.ShowDialogOk("Playlist format error", '"' + type + '"' + " is not a valid type.")
         
-##    self.state_busy = 0
-
     return 0
 
 ######################################################################
@@ -526,18 +582,17 @@ def OpenTextFile(URL='', mediaitem=0):
 
             ## Hide list, Show text in textbox, Focus on textbox scrollbar
             ##mc.ShowDialogOk("Text file", text)
-            mc.GetWindow(14000).GetControl(112).SetVisible(False)   #Hide List
-#            mc.GetWindow(14000).GetControl(60).SetVisible(False)    #Hide List ScrollBar
+            mc.GetWindow(14000).GetControl(GetListView()).SetVisible(False)   #Hide List
 
-            stackitem = mc.GetWindow(14000).GetList(555).GetItem(0)
+            #stackitem = mc.GetWindow(14000).GetList(555).GetItem(0)
+            stackitem = mc.ListItem()
             stackitem.SetProperty("contenttext",text)
             stacklist = mc.ListItems()
             stacklist.append(stackitem)
             mc.GetWindow(14000).GetList(555).SetItems(stacklist)
-            #xbmc.executebuiltin("Control.SetLabel(130," +'"' + text + '"' + ")" )  #Put text in TextBox
 
             mc.GetWindow(14000).GetControl(130).SetVisible(True)    #Show TextBox
-            mc.GetWindow(14000).GetControl(131).SetVisible(True)    #Show TextBox
+            mc.GetWindow(14000).GetControl(131).SetVisible(True)    #Show Scrollbar
             mc.GetWindow(14000).GetControl(131).SetFocus()  #Focus on TextBox ScrollBar
 
             return 0 #success
@@ -616,17 +671,34 @@ def InstallApp(URL='', mediaitem=CMediaItem()):
 # Description: 
 # Parameters : 
 # Return     : -
-######################################################################
-   
-def MenuLeftSelectItem( itemNumber) :
+######################################################################   
+def MenuLeftSelectItem( itemNumber):
     if itemNumber == 0:
         SelectItem(iURL=home_URL)
-        mc.GetWindow(14000).GetList(112).SetFocus()
+        mc.GetWindow(14000).GetList(GetListView()).SetFocus()
     elif itemNumber == 1:
+        userkey = mc.GetApp().GetLocalConfig().GetValue("userkey")
+        arguments = "?user=" + userkey + "&request=get&type=.plx"              
+        SelectItem(iURL = favorites_URL + arguments)
+    elif itemNumber == 2:     
+        ListView = mc.GetApp().GetLocalConfig().GetValue("listview")
+        if ListView == "default":  
+            mc.GetApp().GetLocalConfig().SetValue("listview", "thumbnails")        
+        elif ListView == "thumbnails":
+            mc.GetApp().GetLocalConfig().SetValue("listview", "list")  
+        else:
+            mc.GetApp().GetLocalConfig().SetValue("listview", "default")                    
+        Init()
+        ParsePlaylist(reload=False)
+        mc.GetWindow(14000).GetList(122).SetFocus()
+        mc.GetWindow(14000).GetList(122).SetFocusedItem(itemNumber)
+    elif itemNumber == 3:
         if nxserver.is_user_logged_in() == True:
-            nxserver.logout()
-            mc.ShowDialogOk("Sign out", "Sign out Successful.")
-            Init()
+            response = mc.ShowDialogConfirm("Message", "Sign out?", "No", "Yes")
+            if response:
+                nxserver.logout()
+                mc.ShowDialogOk("Sign out", "Sign out Successful.")
+                Init()
         else:
             result = nxserver.login()
             if result == 0:
@@ -634,8 +706,127 @@ def MenuLeftSelectItem( itemNumber) :
                 Init()
             elif result == -1:
                 mc.ShowDialogOk("Sign in", "Sign in Failed.")
-        mc.GetWindow(14000).GetList(112).SetFocus()
-    elif itemNumber == 2:
+        mc.GetWindow(14000).GetList(GetListView()).SetFocus()
+    elif itemNumber == 4:
         mc.CloseWindow()
     pass
+
+######################################################################
+# Description: 
+# Parameters : 
+# Return     : -
+######################################################################   
+def MenuRightSelectItem( itemNumber):
+    if itemNumber == 0: #add item to favorites
+        stackitem = mc.GetWindow(14000).GetList(555).GetItem(0)
+        URL = stackitem.GetProperty("URL")
+        if URL.find(favorites_URL) != -1:
+            mc.ShowDialogOk("Error", "Cannot Add From Favorite List.")  
+            return
+        ModifyFavoriteList('add')        
+        mc.GetWindow(14000).GetList(GetListView()).SetFocus()
+    elif itemNumber == 1: #remove items from favorites
+        stackitem = mc.GetWindow(14000).GetList(555).GetItem(0)
+        URL = stackitem.GetProperty("URL")
+        if URL.find(favorites_URL) == -1:
+            mc.ShowDialogOk("Error", "Please Select Favorite List First.") 
+            return
+        ModifyFavoriteList('remove')
+        
+        userkey = mc.GetApp().GetLocalConfig().GetValue("userkey")
+        arguments = "?user=" + userkey + "&request=get&type=.plx"              
+        ParsePlaylist(URL = favorites_URL + arguments)
+        
+        mc.GetWindow(14000).GetList(GetListView()).SetFocus()
+    elif itemNumber == 2: #about Navi-X
+        mc.GetWindow(14000).PushState()
+        OpenTextFile(URL='readme.txt') 
     
+######################################################################
+# Description: 
+# Parameters : 
+# Return     : -
+######################################################################   
+def GetListView():
+    if mc.GetWindow(14000).GetControl(212).IsVisible() == True:
+        return 212
+    else:
+        return 112
+    
+######################################################################
+# Description: 
+# Parameters : 
+# Return     : -
+######################################################################   
+def SetListView(view, passive=False):
+    ListView = mc.GetApp().GetLocalConfig().GetValue("listview")
+    if ListView == "list":
+        view = "list"
+    elif ListView == "thumbnails":
+        view = "thumbnails"
+     
+    if view == "default":
+        oldview = 212
+        newview = 112
+    if view == "list":
+        oldview = 212
+        newview = 112
+    elif view == "thumbnails":
+        oldview = 112
+        newview = 212        
+    else: #list
+        oldview = 212
+        newview = 112
+        
+    if passive == False:    
+        mc.GetWindow(14000).GetControl(oldview).SetVisible(False)   #Hide List
+        mc.GetWindow(14000).GetControl(newview).SetVisible(True)   #Show List
+    
+    return newview
+       
+######################################################################
+# Description: 
+# Parameters : 
+# Return     : -
+######################################################################   
+def ModifyFavoriteList(command='none'):
+    list = mc.GetWindow(14000).GetList(GetListView())
+    itemNumber = list.GetFocusedItem()
+    
+    if itemNumber < 0:
+        return
+            
+    if command == 'add':
+        listitem = list.GetItem( itemNumber)
+        mediaitem=CMediaItem()
+        mediaitem.type = listitem.GetProperty("media_type")
+        mediaitem.name = listitem.GetLabel()
+        mediaitem.thumb = listitem.GetProperty("thumb")
+        mediaitem.URL = listitem.GetProperty("url")
+        mediaitem.processor = listitem.GetProperty("processor")
+    
+        postdata = "type=" + mediaitem.type + "\n"
+        postdata = postdata + "name=" + mediaitem.name + "\n"
+        postdata = postdata + "thumb=" + mediaitem.thumb + "\n"       
+        postdata = postdata + "URL=" + mediaitem.URL + "\n"
+        postdata = postdata + "processor=" + mediaitem.processor + "\n"
+    
+        try:
+            userkey = mc.GetApp().GetLocalConfig().GetValue("userkey")
+            arguments = "?user=" + userkey + "&request=add"
+            req = urllib2.Request(favorites_URL + arguments, postdata)
+            f = urllib2.urlopen(req)
+            data = f.read()
+            f.close()
+        except IOError:
+            pass
+    elif command == 'remove':
+        try:
+            userkey = mc.GetApp().GetLocalConfig().GetValue("userkey")
+            arguments = "?user=" + userkey + "&request=remove&index=" + str(itemNumber)
+            req = urllib2.Request(favorites_URL + arguments)
+            f = urllib2.urlopen(req)
+            data = f.read()
+            f.close()
+        except IOError:
+            pass

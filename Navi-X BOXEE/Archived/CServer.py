@@ -79,7 +79,7 @@ class CServer:
         return getRemote('http://navix.turner3d.net/login/',{
             'method':'post',
             'postdata':urllib.urlencode({'username':username,'password':password})
-        })
+        })['content']
 
     ######################################################################
     # Description: -
@@ -139,7 +139,7 @@ class CServer:
             'method':'post',
             'postdata':urllib.urlencode({'url':mediaitem.URL,'rating':rating}),
             'cookie':'nxid='+nxserver.user_id
-        })
+        })['content']
 
         dialog = xbmcgui.Dialog()                            
         p=re.compile('^\d$')
@@ -158,12 +158,14 @@ class CServer:
     # Return     : -
     ######################################################################     
     def read_user_id(self):
-        try:
-            f=open(RootDir + 'user_id.dat', 'r')
-            self.user_id = f.read()
-            f.close()
-        except IOError:
-            return   
+#        try:
+#            f=open(RootDir + 'user_id.dat', 'r')
+#            self.user_id = f.read()
+#            f.close()
+#        except IOError:
+#            return 
+        config = mc.GetApp().GetLocalConfig()
+        self.user_id = config.GetValue("userid")
 
     ######################################################################
     # Description: -
@@ -171,11 +173,11 @@ class CServer:
     # Return     : -
     ###################################################################### 
     def save_user_id(self):
-        f=open(RootDir + 'user_id.dat', 'w')
-        f.write(self.user_id)    
-        f.close()
-        pass
- 
+        #f=open(RootDir + 'user_id.dat', 'w')
+        #f.write(self.user_id)    
+        #f.close()
+        config = mc.GetApp().GetLocalConfig()
+        config.SetValue("userid", self.user_id) 
 
 #Create server instance here and use it as a global variable for all other components that import server.py.
 global nxserver
