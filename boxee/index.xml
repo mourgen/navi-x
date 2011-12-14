@@ -1,15 +1,15 @@
 <apps>
 	<app>
-		<id>com.navix.main</id>
-		<name>Navi-x</name>
-		<version>4.06</version>
-		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
-		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
+		<id>com.navix.old</id>
+		<name>Navi-x Stable</name>
+		<version>1.4.1</version>
+		<description>Navi-X v1.4.1. Access Navi-xtreme content from Boxee. This is the stable version. See also navix.turner3d.net</description>
+		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
 		<media>video</media>
-		<copyright>ironbill</copyright>
-		<email>xironbillx@gmail.com</email>
+		<copyright>rodejo16</copyright>
+		<email>rodejo16@gmail.com</email>
 		<type>skin</type>
 		<startWindow>default</startWindow>
 		<platform>all</platform>
@@ -17,15 +17,31 @@
 	</app>
 	<app>
 		<id>com.navix.old</id>
-		<name>Navi-x Old</name>
+		<name>Navi-x Stable</name>
 		<version>1.4</version>
-		<description>Navi-X v1.4. Access Navi-xtreme content from Boxee. This is the old stable version. See also navix.turner3d.net</description>
+		<description>Navi-X v1.4. Access Navi-xtreme content from Boxee. This is the stable version. See also navix.turner3d.net</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
 		<media>video</media>
 		<copyright>rodejo16</copyright>
 		<email>rodejo16@gmail.com</email>
+		<type>skin</type>
+		<startWindow>default</startWindow>
+		<platform>all</platform>
+		<minversion>0.9.14</minversion>
+	</app>
+	<app>
+		<id>com.navix.main</id>
+		<name>Navi-x Beta</name>
+		<version>4.06</version>
+		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. Has issues; use at hour own risk. See also navix.turner3d.net</description>
+		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
+		<repositoryid>com.navix</repositoryid>
+		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
+		<media>video</media>
+		<copyright>ironbill</copyright>
+		<email>xironbillx@gmail.com</email>
 		<type>skin</type>
 		<startWindow>default</startWindow>
 		<platform>all</platform>
