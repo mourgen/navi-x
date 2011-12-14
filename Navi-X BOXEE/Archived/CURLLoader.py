@@ -552,15 +552,15 @@ class CURLLoader:
                                 else:
                                     print "Processor print "+arg+":\n "+v[arg]
 
-#                            elif subj=='countdown':
-#                                if arg[0:1]=="'":
-#                                    secs=arg[1:]
-#                                else:
-#                                    secs=v[arg]
-#                                cd_flag=countdown_timer(int(secs), v['countdown_title'], v['countdown_caption'])
-#                                if cd_flag==False:
-#                                    SetInfoText("")
-#                                    return {"code":0}
+                            elif subj=='countdown':
+                                if arg[0:1]=="'":
+                                    secs=arg[1:]
+                                else:
+                                    secs=v[arg]
+                                cd_flag=countdown_timer(int(secs), v['countdown_title'], v['countdown_caption'])
+                                if cd_flag==False:
+                                    SetInfoText("")
+                                    return {"code":0}
                                     
                             elif subj=='show_playlist':
                                 if arg[0:1]=="'":

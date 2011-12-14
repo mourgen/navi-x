@@ -6,10 +6,12 @@
 
 from string import *
 import sys, os.path
+import mc
 import urllib
 import urllib2
 import re, random, string
 ##import xbmc, xbmcgui
+import xbmcgui
 import re, os, time, datetime, traceback
 import shutil
 import zipfile
@@ -378,6 +380,40 @@ def ProcessorLocalFilename(url):
     fn_raw="%X"%(reduce(lambda x,y:x+y, map(ord, url))) + "~" + match.group(1)
     return fn_raw[:42]
 
+
+######################################################################
+# Description: Presents a countdown timer
+# Parameters : delay_time = int: countdown time in seconds
+#              title      = string: dialog label
+#              caption    = string: caption
+# Return     : True if countdown complete, False if cancelled
+######################################################################
+def countdown_timer(delay_time,title,caption):
+    if delay_time==0:
+        print '0-second delay time specified; returning'
+        return True
+
+    print 'Waiting '+str(delay_time)+' seconds'    
+    if title=='':
+        title='Please wait'
+
+    dialog=xbmcgui.DialogProgress()
+    dialog.create(title)
+
+    secs=0
+    while secs<delay_time:
+        secs=secs+1
+#        dialog.update(int(100*secs/delay_time), caption, str(delay_time-secs)+" seconds remaining")
+        mc.ShowDialogNotification(title + ": " + str(delay_time-secs)+" seconds remaining")
+        time.sleep(1)
+        if(dialog.iscanceled()):
+            print 'Wait cancelled'
+            mc.ShowDialogNotification("Wait cancelled")
+            return False
+
+    dialog.close()
+    print 'Wait finished'
+    return True
 
 ######################################################################
 # Description: Parse Python exception into an error-message string
