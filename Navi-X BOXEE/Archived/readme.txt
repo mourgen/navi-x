@@ -1,17 +1,12 @@
-Welcome to Navi-X for Boxee v1.1
+Welcome to Navi-X for Boxee v1.4
 
 Changelog:
--Fixed Youtube secion.
--Added left pop-up menu, press the left cursor key to show this menu. Work in progress.
--Added Navi-Xtreme login option.
--Added Boxee app installer to install Boxee apps from within Navi-X.
--GUI update.
+-Improved HTML support. Mouse and keyboard controls are now support.
+-Moved the Navi-X media portal to the Navi-Xtreme website. Visit Navi-Xtreme at http://navix.turner3d.net/.
 
 This version has been tested on:
 -Boxee 0.9.23.15885 (vWindows XP)
-
-Don't forget to visit the Navi-xtreme website (http://navix.turner3d.net)
+-Boxee Box
 
 ##########################
 
-Rodejo (rodejo16@gmail.com)

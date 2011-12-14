@@ -8,15 +8,26 @@ from navixboxee import *
 
 resume_string = mc.GetApp().GetLocalConfig().GetValue("resume")
 
-if resume_string != "True":
-  mc.GetWindow(14000).GetList(112).SetFocus()
+view = GetListView()
+if view != -1:
+    list = mc.GetWindow(14000).GetList(view)
+    size = len(list.GetItems())
+#    mc.ShowDialogOk("Error", "list empty.")
+else:
+    size = 0
+#    mc.ShowDialogOk("Error", "invalid view.")
+    
+if (resume_string != "True") or (view == -1) or (size == 0):
+  mc.GetWindow(14000).GetList(GetListView()).SetFocus()
   # Load main Navi-x playlist
-  SelectItem(iURL=home_URL)
-  Init()
-
+  #SelectItem(iURL=home_URL)
+  ParsePlaylist(URL=home_URL, view='thumbnails')
+  Init(True)
+  
 mc.GetApp().GetLocalConfig().SetValue("resume", "False")
 ]]>
-    </onload>
+    </onload>  
+    
 	<controls>
         <control type="largeimage" id="10">
             <description>largeimage background</description>
@@ -27,7 +38,7 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <visible>true</visible>
             <colordiffuse>FFFFFFFF</colordiffuse>
             <fadetime>200</fadetime>
-            <aspectratio>scale</aspectratio>
+            <!--aspectratio>scale</aspectratio-->
             <info>Container(555).ListItem.Property(custom:bgimage)</info>
         </control>               
         <control type="image" id="103">
@@ -39,7 +50,6 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <height>720</height>
             <texture>background2.png</texture>
         </control>
-
 
         <control type="image" id="104">
             <description>logo</description>
@@ -55,20 +65,22 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <posx>71</posx>
             <posy>212</posy>
             <width>364</width>
-            <height>387</height>
+            <height>360</height>
             <aspectratio>keep</aspectratio>
             <!--texture>$INFO[Container(112).ListItem.Thumb]</texture-->
             <info>Container(112).ListItem.Thumb</info>
+            <visible>!Control.IsVisible(212)</visible>
         </control>
         
-        <control type="image" id="118">
-            <description>download_logo</description>
-            <posx>462</posx>
-            <posy>618</posy>
-            <width>44</width>
-            <height>31</height>
-            <texture>icon_download.png</texture>
-            <visible>false</visible>
+        <control type="image" id="126">
+            <description>rating</description>
+            <posx>150</posx>
+            <posy>580</posy>
+            <width>180</width>
+            <height>32</height>
+            <aspectratio>keep</aspectratio>
+            <info>Container(112).ListItem.Property(custom:rating)</info>         
+            <visible>!Control.IsVisible(212)</visible>
         </control>
 
         <control type="list" id="555">
@@ -117,7 +129,7 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <posy>50</posy>
             <width>350</width>
             <height>40</height>
-            <label>version 1.1</label>
+            <label>version 1.4</label>
             <textcolor>FFFFFFFF</textcolor>
             <font>font14</font>
             <visible>True</visible>
@@ -132,10 +144,22 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <font>font20</font>
             <info>Container(112).ListItem.Path</info>
             <textcolor>DD999999</textcolor>
-            <visible>True</visible>
+            <visible>Control.IsVisible(112)</visible>
         </control>
         
         <control type="label" id="109">
+            <description>target URL2</description>
+            <posx>106</posx>
+            <posy>625</posy>
+            <width>1050</width>
+            <height>37</height>
+            <font>font20</font>
+            <info>Container(212).ListItem.Path</info>
+            <textcolor>DD999999</textcolor>
+            <visible>Control.IsVisible(212)</visible>
+        </control>
+        
+        <!--control type="label" id="109">
             <description>dlinfotext</description>
             <posx>533</posx>
             <posy>625</posy>
@@ -144,9 +168,9 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <label>label</label>
             <textcolor>FFFFFFFF</textcolor>
             <visible>False</visible>
-        </control>
+        </control-->
         
-        <control type="label" id="110">
+        <!--control type="label" id="110">
             <description>loading</description>
             <posx>480</posx>
             <posy>200</posy>
@@ -155,22 +179,20 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <label>Please wait</label>
             <textcolor>FFFFFFFF</textcolor>
             <visible>False</visible>
-        </control>
+        </control-->
                 
-        <control type="label" id="111">
+        <!--control type="label" id="111">
             <description>listpos</description>
             <posx>1120</posx>
             <posy>625</posy>
             <width>444</width>
             <height>37</height>
-            <!--label>1 of 5</label-->
             <textcolor>FFFFFFFF</textcolor>
             <visible>true</visible>
-        </control>
+        </control-->
 
         <control type="list" id="112">
             <content type="action">
-                <!--onclick>SaveWindowState</onclick-->
                 <onclick lang="python">
 <![CDATA[
 list = mc.GetWindow(14000).GetList(112)
@@ -184,15 +206,13 @@ SelectItem( listitem=focused )
             <description>list1</description>
             <posx>462</posx>
             <posy>200</posy>
-            <width>720</width>
+            <width>730</width>
             <height>406</height>
             <onleft>122</onleft>
-            <onright>60</onright>
+            <onright>127</onright>
             <onup>112</onup>
             <ondown>112</ondown>            
             <pagecontrol>60</pagecontrol>
-            <!--onleft>122</onleft-->
-            <!--onRight>61</onRight-->
             <visible>!Control.HasFocus(123)</visible>
 	    <scrolltime>200</scrolltime>
 		<itemlayout height="32">
@@ -230,7 +250,7 @@ SelectItem( listitem=focused )
 		</itemlayout>
 		<focusedlayout height="32">          
 			<control type="image">
-				<width>720</width>
+				<width>730</width>
 				<height>52</height>
 				<posx>0</posx>
 				<posy>0</posy>
@@ -290,7 +310,7 @@ SelectItem( listitem=focused )
         <textureslidernib>-</textureslidernib>
         <textureslidernibfocus>-</textureslidernibfocus>
         <orientation>vertical</orientation>
-        <visible>Control.IsVisible(112)</visible>
+        <!--visible>Control.IsVisible(112)</visible-->
     </control>
     
 <!-- need to get focus back to list 112-->
@@ -324,7 +344,7 @@ SelectItem( listitem=focused )
         <onleft>SetVisible(60)</onleft>
         <onleft>SetHidden(123)</onleft>
         <onleft>SetHidden(124)</onleft>
-        <onleft>SetFocus(60)</onleft>
+        <onleft>SetFocus(112)</onleft>
         <onright>124</onright>
         <ondown>124</ondown>
         <onup>124</onup>
@@ -401,6 +421,85 @@ mc.GetWindow(14000).PopState()
         </onclick>
     </control>
 
+    <!-- Thumbs panel -->
+    <control type="panel" id="212">
+        <posx>60</posx>
+        <posy>200</posy>
+        <width>1200</width>
+        <height>406</height>
+        <!--onup>20100</onup-->                    
+        <onleft>122</onleft>
+        <!--onright>127</onright-->
+        <orientation>vertical</orientation>
+        <pagecontrol>60</pagecontrol>
+	    <scrolltime>200</scrolltime>        
+        <content type="action">
+            <onclick lang="python">
+<![CDATA[
+list = mc.GetWindow(14000).GetList(212)
+focused = list.GetItem( list.GetFocusedItem() ) 
+SelectItem( listitem=focused )
+]]>
+            </onclick>
+        </content>
+        <itemlayout height="200" width="220">
+            <control type="image">
+                <posx>25</posx>
+                <posy>20</posy>
+                <width>200</width>
+                <height>130</height>
+                <aspectratio>keep</aspectratio>
+                <!--info>ListItem.property(custom:icon)</info-->
+                <info>ListItem.Thumb</info>
+            </control>
+            <control type="label">
+                <posx>125</posx>
+                <posy>135</posy>
+                <width>210</width>
+                <height>55</height>
+                <font>font18</font>
+                <textcolor>ffdddddd</textcolor>
+                <selectedcolor>ffdddddd</selectedcolor>
+                <aligny>center</aligny>
+                <align>center</align>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </itemlayout>
+        <focusedlayout height="220" width="220">   
+            <control type="image">
+                <posx>10</posx>
+                <posy>10</posy>
+                <width>230</width>
+                <height>180</height>
+                <aspectratio>keep</aspectratio>
+                <texture>panel-focus1.png</texture>
+            </control>                
+            <control type="image">
+                <posx>25</posx>
+                <posy>20</posy>
+                <width>200</width>
+                <height>130</height>
+                <aspectratio>keep</aspectratio>
+                <!--info>ListItem.property(custom:icon)</info-->
+                <info>ListItem.Thumb</info>
+            </control>
+            <control type="label">
+                <posx>125</posx>
+                <posy>135</posy>
+                <width>210</width>
+                <height>55</height>
+                <font>font18</font>
+                <!--textcolor>ffd58d10</textcolor-->
+                <textcolor>ff00ff00</textcolor>
+                <selectedcolor>ffd58d10</selectedcolor>
+                <aligny>center</aligny>
+                <align>center</align>
+                <scroll>true</scroll>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </focusedlayout>
+    </control>
+ 
     <control type="list" id="122">
             <content type="action">
                 <!--onclick>SaveWindowState</onclick-->
@@ -421,7 +520,11 @@ MenuLeftSelectItem( itemNumber)
         <height>250</height>  
         <onup>122</onup>
         <ondown>122</ondown>
-        <onright>112</onright>
+        <onright lang="python">
+<![CDATA[
+mc.GetWindow(14000).GetList(GetListView()).SetFocus()
+]]>
+        </onright>
         <visible>!Control.HasFocus(123)</visible>
             <!--pagecontrol>2050</pagecontrol-->
 	    <scrolltime>200</scrolltime>
@@ -436,8 +539,8 @@ MenuLeftSelectItem( itemNumber)
 
 			<control type="label">
 				<posx>40</posx>
-				<posy>8</posy>
-				<width>2000</width>
+				<posy>5</posy>
+				<width>250</width>
 				<height>32</height>
 				<font>font20</font>
 				<aligny>center</aligny>
@@ -450,14 +553,14 @@ MenuLeftSelectItem( itemNumber)
 		<focusedlayout height="40">          
 			<control type="image">
 				<width>300</width>
-				<height>52</height>
+				<height>42</height>
 				<posx>0</posx>
 				<posy>0</posy>
-				<texture>list-focus1.png</texture>
+				<texture>list-focus3.png</texture>
 			</control>
 			<control type="label">
 				<posx>40</posx>
-				<posy>8</posy>
+				<posy>5</posy>
 				<width>250</width>
 				<height>32</height>
 				<font>font20</font>
@@ -469,8 +572,86 @@ MenuLeftSelectItem( itemNumber)
 			</control>
 		</focusedlayout>
     </control>
+    
+    <control type="list" id="127">
+            <content type="action">
+                <!--onclick>SaveWindowState</onclick-->
+                <onclick lang="python">
+<![CDATA[
+list = mc.GetWindow(14000).GetList(127)
+itemNumber = list.GetFocusedItem()
+MenuRightSelectItem( itemNumber)
+]]>
+                </onclick>
+            </content>    
+        <description>list4</description>
+        <animation effect="slide" start="1630" time="150" condition="Control.HasFocus(127)">Conditional</animation>
+        <animation effect="slide" end="1630" time="150" condition="!Control.HasFocus(127)">Conditional</animation>              
+        <posx>980</posx>
+        <posy>200</posy>
+        <width>300</width>
+        <height>250</height>  
+        <onup>127</onup>
+        <ondown>127</ondown>               
+        <onleft lang="python">
+<![CDATA[
+mc.GetWindow(14000).GetList(GetListView()).SetFocus()
+]]>
+        </onleft>
+        <onright>SetVisible(123)</onright>
+        <onright>SetVisible(124)</onright>   
+        <onright>SetHidden(112)</onright>
+        <onright>SetHidden(60)</onright>
+        <onright>SetFocus(124)</onright>           
+        <visible>!Control.HasFocus(123)</visible>
+	    <scrolltime>200</scrolltime>
+		<itemlayout height="40">
+			<control type="image">
+				<width>300</width>
+				<height>40</height>
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>list-nofocus1.png</texture>
+			</control>        
 
-    <include>Common_Status</include>     
+			<control type="label">
+				<posx>40</posx>
+				<posy>5</posy>
+				<width>250</width>
+				<height>32</height>
+				<font>font20</font>
+				<aligny>center</aligny>
+                <selectedcolor>FFe2ff43</selectedcolor>
+                <textcolor>FFDDDDDD</textcolor>
+                <align>left</align>
+				<info>ListItem.Label</info>
+			</control>
+		</itemlayout>
+		<focusedlayout height="40">          
+			<control type="image">
+				<width>300</width>
+				<height>42</height>
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>list-focus3.png</texture>
+			</control>
+			<control type="label">
+				<posx>40</posx>
+				<posy>5</posy>
+				<width>250</width>
+				<height>32</height>
+				<font>font20</font>
+				<aligny>center</aligny>
+                <selectedcolor>FFe2ff43</selectedcolor>
+                <textcolor>FFDDDDDD</textcolor>
+                <align>left</align>
+				<info>ListItem.Label</info>
+			</control>
+		</focusedlayout>
+    </control>    
+    
+    <include>Common_Status</include>
+    <include>Common_Now_Playing</include> 
     </controls>
 </window>
 
