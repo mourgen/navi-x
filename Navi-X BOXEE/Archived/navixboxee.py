@@ -501,9 +501,28 @@ def SelectItem(iURL='', listitem=''):
         result = MyPlayer.play_URL(mediaitem.URL, mediaitem)
                                                 
         mc.HideDialogWait()
-        
-        if result != 0:
-            mc.ShowDialogOk("Error", "Cannot open file.")
+
+        if result["code"] == 1:
+            # general error
+            try:
+                result["data"]
+            except KeyError:
+                result["data"]="Cannot open file"
+            
+            if result["data"][0:2] == 'p:':
+                result["data"]=result["data"][2:]
+                etitle="Processor Error"
+            else:
+                etitle="Error"
+            mc.ShowDialogOk(etitle, result["data"])
+
+        elif result["code"] == 2:
+            # redirect to playlist
+            redir_item=CMediaItem()
+            redir_item.URL=result["data"]
+            redir_item.type='playlist'
+            ParsePlaylist(mediaitem=redir_item, URL=result["data"])
+
         else:
             #When app reloads after play it will resume at the last playlist viewed 
             mc.GetApp().GetLocalConfig().SetValue("resume", "True")

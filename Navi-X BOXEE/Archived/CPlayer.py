@@ -53,7 +53,7 @@ class CPlayer(mc.Player):
         #URL=mediaitem.URL
         #check if the URL is empty or not
         if URL == '':
-            return -1
+            return {"code":1, "data":"URL is empty"}
         
         orig_processor = mediaitem.processor   #remember to decide if we show a webpage or play the result of html processing      
         ##mc.ShowDialogOk("Debug in play_URL start", "type = " + mediaitem.type + '\n' + "processor = " + mediaitem.processor) 
@@ -61,8 +61,8 @@ class CPlayer(mc.Player):
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, mediaitem)
         ##mc.ShowDialogOk("result from urlopen", str(result))
-        if result != 0:
-            return -1    
+        if result["code"] != 0:
+            return result   
         URL = urlopener.loc_url
         ##mc.ShowDialogOk("loc_url", str(URL))
         
@@ -86,9 +86,12 @@ class CPlayer(mc.Player):
 
         if mediaitem.type == 'html':   #assume html processing returns video?
             if orig_processor == '':  #no actual html processing, just display the webpage using boxee browser
-                listitem = CreateHTMLListItem(URL)
-                mc.Player().Play(listitem)
-                return 0
+                listitemObj = CreateHTMLListItem(URL)
+                if listitemObj["error"]==0:
+                    mc.Player().Play(listitem)
+                    return {"code":0}
+                else:
+                    return listitemObj
             else:  
                 listitem = mc.ListItem(mc.ListItem.MEDIA_VIDEO_CLIP)
 
@@ -97,7 +100,7 @@ class CPlayer(mc.Player):
         elif mediaitem.type == 'audio':
             listitem = mc.ListItem(mc.ListItem.MEDIA_AUDIO_MUSIC)
         else:                      #Player can only play audio or video or html
-            return -1
+            return {"code":1,"data":"Item type not supported"}
 
         listitem.SetLabel(mediaitem.name)
         listitem.SetPath(URL)
@@ -109,14 +112,14 @@ class CPlayer(mc.Player):
 #            xbmc.Player.play(self, urlopener.loc_url)
              mc.Player().Play(listitem)
             
-        return 0
+        return {"code":0}
 
     ######################################################################
     ###################################################################### 
     def play_RTMP(self, URL, playpath, swfplayer, pageurl):
         #check if the URL is empty or not
         if URL == '':
-            return -1
+            return {"code":1,"data":"URL is empty"}
     
 ##        self.pls.clear() #clear the playlist
     
@@ -135,7 +138,7 @@ class CPlayer(mc.Player):
         ##mc.ShowDialogOk("Ok", "trying to play rtmp" )
         mc.Player().Play(listitem)
         
-        return 0
+        return {"code":0}
 
 
 ######################################################################
@@ -175,8 +178,9 @@ def CreateHTMLListItem(url):
 		item.SetReportToServer(False)
 		item.SetContentType("text/html")
 		item.SetPath(url)
-		return item
+		#return item
+		return {"code":0,"data":item}
 	else:
-		mc.ShowDialogOk("Error: html", "The address does not exist or cannot be displayed through the browser.")
-		return -1
+		#mc.ShowDialogOk("Error: html", "The address does not exist or cannot be displayed through the browser.")
+		return {"code":1,"data":"The address does not exist or cannot be displayed through the browser."}
         
