@@ -52,10 +52,10 @@ name=File Manager
 URL=filemanager
 #
 type=playlist
-name=Navi-X updates (Script Navi-X 3.7.2)
+name=Navi-X updates (Script Navi-X 3.7.3)
 thumb=default
 icon=http://website.navi-x.org/networks/icon.png
-date=2011-11-30
+date=2011-12-17
 #URL=http://www.navi-x.org/playlists/scripts/scripts.plx
 URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts.plx
 #
