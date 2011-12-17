@@ -9,7 +9,7 @@ title=XBMC Scripts + skins
 #
 type=script:navi-x
 name=(script) 2011/12/17 Navi-X v3.7.3 (All XBMC platforms)
-date=2011-10-09
+date=2011-12-17
 URL=http://navi-x.googlecode.com/files/Navi-X_v37_3.zip
 #
 type=script:navi-x
