@@ -1,9 +1,9 @@
 <apps>
 	<app>
 		<id>com.navix.main</id>
-		<name>Navi-x</name>
+		<name>Navi-x Beta</name>
 		<version>4.06</version>
-		<description>Navi-X v4.0. Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
+		<description>Navi-X v4.0 - There are several bugs with this version. If you have issues, please use 1.41</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
@@ -16,10 +16,10 @@
 		<minversion>0.9.14</minversion>
 	</app>
 	<app>
-		<id>com.navix.old</id>
-		<name>Navi-x Old</name>
-		<version>1.4</version>
-		<description>Navi-X v1.4. Access Navi-xtreme content from Boxee. This is the old stable version. See also navix.turner3d.net</description>
+		<id>com.navix.stable</id>
+		<name>Navi-x</name>
+		<version>1.41</version>
+		<description>Navi-X v1.41 - Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
