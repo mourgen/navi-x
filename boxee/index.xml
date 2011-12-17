@@ -18,8 +18,8 @@
 	<app>
 		<id>com.navix.stable</id>
 		<name>Navi-x</name>
-		<version>1.41</version>
-		<description>Navi-X v1.41 - Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
+		<version>1.42</version>
+		<description>Navi-X v1.42 - Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
