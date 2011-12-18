@@ -383,9 +383,11 @@ def ProcessorLocalFilename(url):
 
 ######################################################################
 # Description: Presents a countdown timer
+#              Checks hardware clock 10x per second
 # Parameters : delay_time = int: countdown time in seconds
 #              title      = string: dialog label
-#              caption    = string: caption
+#              caption    = string: caption (leftover from XBMC; not
+#                                   yet implemented in Boxee)
 # Return     : True if countdown complete, False if cancelled
 ######################################################################
 def countdown_timer(delay_time,title,caption):
@@ -397,15 +399,26 @@ def countdown_timer(delay_time,title,caption):
     if title=='':
         title='Please wait'
 
+    # calculate target end time
+    cur_time=time.time()
+    end_time=cur_time+delay_time
+
     dialog=xbmcgui.DialogProgress()
     dialog.create(title)
 
-    secs=0
-    while secs<delay_time:
-        secs=secs+1
-#        dialog.update(int(100*secs/delay_time), caption, str(delay_time-secs)+" seconds remaining")
-        mc.ShowDialogNotification(title + ": " + str(delay_time-secs)+" seconds remaining")
-        time.sleep(1)
+    rdisp=0
+    while cur_time<end_time:
+        cur_time=time.time()
+        remaining=int(end_time-cur_time)
+        
+        # Only update display once per second
+        if rdisp != remaining:
+            #percent=str(int(100*(delay_time-remaining)/delay_time))
+            #mc.ShowDialogNotification(title + ": " + percent + "% - " +str(remaining)+" seconds remaining")
+            mc.ShowDialogNotification(title + ": " + str(remaining)+" seconds remaining")
+            rdisp=remaining
+
+        time.sleep(0.1)
         if(dialog.iscanceled()):
             print 'Wait cancelled'
             mc.ShowDialogNotification("Wait cancelled")
