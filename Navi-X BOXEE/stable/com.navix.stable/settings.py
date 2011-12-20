@@ -95,7 +95,7 @@ else:
 ######################################################################
 #program version: Combination of version and subversion
 Version='1' 
-SubVersion='4.3'
+SubVersion='4.4'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist

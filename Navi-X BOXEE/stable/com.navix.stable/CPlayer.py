@@ -87,7 +87,8 @@ class CPlayer(mc.Player):
         if mediaitem.type == 'html':   #assume html processing returns video?
             if orig_processor == '':  #no actual html processing, just display the webpage using boxee browser
                 listitemObj = CreateHTMLListItem(URL)
-                if listitemObj["error"]==0:
+                if listitemObj["code"]==0:
+                    listitem=listitemObj["data"]
                     mc.Player().Play(listitem)
                     return {"code":0}
                 else:

@@ -2,6 +2,10 @@ Welcome to Navi-X for Boxee v1.43
 
 Changelog:
 -------------------------------------------------------------------------------
+1.44
+-Fixed HTML-only playback
+
+-------------------------------------------------------------------------------
 1.43
 -Delay method modified in "countdown" method; now checks internal hardware clock
  10x per second instead of relying on Python's "sleep" method

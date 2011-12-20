@@ -129,7 +129,7 @@ mc.GetApp().GetLocalConfig().SetValue("resume", "False")
             <posy>50</posy>
             <width>350</width>
             <height>40</height>
-            <label>version 1.43</label>
+            <label>version 1.44</label>
             <textcolor>FFFFFFFF</textcolor>
             <font>font14</font>
             <visible>True</visible>
