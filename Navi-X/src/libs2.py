@@ -30,9 +30,16 @@ import shutil
 import zipfile
 import socket
 from settings import *
+from compiler import parse
+from compiler.ast import *
 
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
+
+try:
+    from urlparse import parse_qs
+except ImportError:
+    from cgi import parse_qs
 
 ######################################################################
 # Description: Playlist item class. 
@@ -47,25 +54,31 @@ except: Emulating = False
 #        self.URL = URL      #URL to playlist entry
 ######################################################################
 class CMediaItem:
-    def __init__(self, \
-                  type='unknown', \
-                  version=plxVersion, \
-                  name='', \
-                  description='', \
-                  date='', \
-                  thumb='default', \
-                  icon='default', \
-                  URL='', \
-                  DLloc='', \
-                  player='default', \
-                  processor='', \
-                  playpath='', \
-                  swfplayer='', \
-                  pageurl='', \
-                  background='default', \
-                  rating='', \
-                  infotag='', \
-                  view='default'):
+    def __init__(
+        self,
+        type='unknown',
+        version=plxVersion,
+        name='',
+        description='',
+        date='',
+        thumb='default',
+        icon='default',
+        URL='',
+        DLloc='',
+        player='default',
+        processor='',
+        playpath='',
+        swfplayer='',
+        pageurl='',
+        referer='',
+        agent='',
+        background='default',
+        rating='',
+        infotag='',
+        view='default',
+        processed=False,
+        data={}
+    ):
         self.type = type    #(required) type (playlist, image, video, audio, text)
         self.version = version #(optional) playlist version
         self.name = name    #(required) name as displayed in list view
@@ -83,7 +96,11 @@ class CMediaItem:
         self.background = background #(optional) background image
         self.rating = rating #(optional) rating value
         self.infotag = infotag
+        self.referer = referer #(optional)
+        self.agent = agent #(optional)
         self.view = view #(optional) List view option (list, panel)
+        self.processed = processed
+        self.data = data #(optional) multi-purpose slot for Python dictionaries
                
     ######################################################################
     # Description: Get mediaitem type.
@@ -542,3 +559,58 @@ def exception_parse(ex):
     else:
         intro=m.group(1)
     return intro+': '+msg
+
+######################################################################
+# Description: Parse string into python dictionary
+# Parameters : node or string
+# Return     : dictionary
+######################################################################
+def literal_eval(node_or_string):
+    _safe_names = {'None': None, 'True': True, 'False': False}
+    if isinstance(node_or_string, basestring):
+        try:
+            node_or_string = parse(node_or_string, mode='eval')
+        except SyntaxError:
+            print "!!! literal_eval  syntax error\nCould not parse: "+node_or_string
+            return {}
+    if isinstance(node_or_string, Expression):
+        node_or_string = node_or_string.node
+    def _convert(node):
+        if isinstance(node, Const) and isinstance(node.value, (basestring, int, float, long, complex)):
+            return node.value
+        elif isinstance(node, Tuple):
+            return tuple(map(_convert, node.nodes))
+        elif isinstance(node, List):
+            return list(map(_convert, node.nodes))
+        elif isinstance(node, Dict):
+            return dict((_convert(k), _convert(v)) for k, v in node.items)
+        elif isinstance(node, Name):
+            if node.name in _safe_names:
+                return _safe_names[node.name]
+        elif isinstance(node, UnarySub):
+            return -_convert(node.expr)
+        raise ValueError('malformed string')
+    return _convert(node_or_string)
+
+######################################################################
+# Description: Transforms XBMC-style URLs with headers incuded into
+#              a standard URL + a dictionary of headers
+# Parameters : string
+# Return     : URL string, headers dictionary
+######################################################################
+def parse_headers(URL, entry=CMediaItem()):
+    headers = { 'User-Agent' : user_agent_default }
+    index = URL.find('|')
+    if index != -1:
+        dtmp = parse_qs(URL[index+1:])
+        URL=URL[:index]
+        for ke in dtmp:
+            headers[ke]=dtmp[ke]
+
+    if entry.agent>'':
+        headers['User-Agent']=entry.agent
+    
+    if entry.referer>'':
+        headers['Referer']=entry.referer
+
+    return URL, headers

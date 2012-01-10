@@ -15,7 +15,7 @@ import sys, os.path
 import urllib
 import urllib2
 import re, random, string
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import Image, ImageFile
 import shutil
@@ -26,7 +26,9 @@ from settings import *
 try: Emulating = xbmcgui.Emulating
 except: Emulating = False
 
-RootDir = os.getcwd()
+addon = xbmcaddon.Addon(id='script.navi-x')
+RootDir = addon.getAddonInfo('path')
+
 if RootDir[-1]==';': RootDir=RootDir[0:-1]
 if RootDir[-1]!='\\': RootDir=RootDir+'\\'
 imageDir = RootDir + "\\images\\"

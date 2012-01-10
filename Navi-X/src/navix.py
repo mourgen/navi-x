@@ -23,13 +23,16 @@ from string import *
 import sys, os.path
 import urllib
 import re, random, string
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import shutil
 import zipfile
 import copy
 
-sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
+addon = xbmcaddon.Addon(id='script.navi-x')
+root_path = addon.getAddonInfo('path')
+sys.path.append(os.path.join(root_path.replace(";",""),'src'))
+
 from libs2 import *
 from settings import *
 from CPlayList import *
@@ -1272,7 +1275,8 @@ class MainWindow(xbmcgui.WindowXML):
                 mediaitem = copy.copy(mediaitem)
                 mediaitem.background = self.pl_focus.background
             
-            textwnd = CTextView("CTextViewskin.xml", os.getcwd())
+            #textwnd = CTextView("CTextViewskin.xml", os.getcwd())
+            textwnd = CTextView("CTextViewskin.xml", addon.getAddonInfo('path'))
             result = textwnd.OpenDocument(URL, mediaitem)
             #self.setInfoText(visible=0) #loading text off   
             SetInfoText("")
@@ -1587,7 +1591,8 @@ class MainWindow(xbmcgui.WindowXML):
         # Return     : -
         ######################################################################
         def onSelectURL(self):
-            browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
+            #browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
+            browsewnd = CDialogBrowse("CBrowseskin.xml", addon.getAddonInfo('path'))
             browsewnd.SetFile('', self.URL, 1, "Browse File:")
             browsewnd.doModal()
             

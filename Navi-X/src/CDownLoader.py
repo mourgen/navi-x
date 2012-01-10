@@ -30,7 +30,7 @@ import sys, os.path
 import urllib
 import urllib2
 import re, random, string
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import shutil
 import zipfile
@@ -113,6 +113,7 @@ class CDownLoader(threading.Thread):
     def browse(self, entry, dir=myDownloadsDir):
         self.state = 0 #success
         self.dir = ''
+        self.processed=False
        
         URL=entry.URL
 
@@ -120,24 +121,62 @@ class CDownLoader(threading.Thread):
             self.state = -1 #URL does not point to internet file.
             return
 
-        ext, size = self.read_file_info(entry)
+        if re.search('^http://(\w+\.)?(icefilms|mega(upload|video))\.', URL):
+            size_check_skip=True
+        else:
+            size_check_skip=False
+            
+        if size_check_skip:
+            print "Mega URL; skipping size check"
+            size=0
+            urlopener = CURLLoader()
+            result = urlopener.geturl_processor(entry)
+            URL=entry.URL
+            loc_url=URL
+            self.processed=entry.processed
+            self.loc_url=URL
+            url_stripped = re.sub('\?.*$', '', loc_url) # strip GET-method args
+            url_stripped = re.sub('\|.*$', '', url_stripped) # strip header info if any
+            # find extension
+            match = re.search('(\.\w+)$',url_stripped)
+            if match is None:
+                #ext = ""
+                ext = getFileExtension(loc_url)
+                if ext != '':
+                    ext = '.' + ext
+            else:
+                ext = match.group(1)
+        else:
+            ext, size = self.read_file_info(entry)
+            url_stripped = re.sub('\?.*$', '', entry.URL) # strip GET-method args
+            url_stripped = re.sub('\&.*$', '', entry.URL) # strip odd GET-method args
+            url_stripped = re.sub('\|.*$', '', url_stripped) # strip header info if any
+
         if self.state != 0:
             return
                
-        #For the local file name we use the playlist item 'name' field.
-        #But this string may contain invalid characters. Therefore
-        #we strip these invalid characters. We also limit the file
-        #name length to 42 which is the XBMC XBOX limit.
+        # For the local file name we use the playlist item 'name' field.
+        # But this string may contain invalid characters. Therefore
+        # we strip these invalid characters. We also limit the file
+        # name length to 42 which is the XBMC XBOX limit.
 
-        localfile = re.sub('[^\w\s-]', '', entry.name) # remove characters which are not a letter, digit, white-space, underscore, or dash
-        localfile = re.sub('\s+', ' ', localfile) # convert all instances of multiple spaces to single spaces
-        localfile = localfile[:(42-len(ext))] # limit to 42 characters.
-        localfile = localfile + ext
-                
-        size_MB = float(size) / (1024 * 1024)
-        heading = "Download File: (Size = %.1f MB)" % size_MB
+        if re.search('^Source #', entry.name):
+            localfile=url_stripped[url_stripped.rindex("/")+1:]
+        else:
+            localfile = re.sub('[^\w\s-]', '', entry.name) # remove characters which are not a letter, digit, white-space, underscore, or dash
+            localfile = re.sub('\s+', ' ', localfile) # convert all instances of multiple spaces to single spaces
+            localfile = localfile[:(42-len(ext))] # limit to 42 characters.
+            localfile = localfile + ext
         
-        browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
+        if size_check_skip:
+            heading="Download File"
+        else:
+            size_MB = float(size) / (1024 * 1024)
+            heading = "Download File: (Size = %.1f MB)" % size_MB
+        
+        #browsewnd = CDialogBrowse("CBrowseskin.xml", os.getcwd())
+        curdir = addon.getAddonInfo('path')
+        browsewnd = CDialogBrowse("CBrowseskin.xml", curdir)
         browsewnd.SetFile(dir, localfile, 3, heading)
         browsewnd.doModal()
 
@@ -166,7 +205,7 @@ class CDownLoader(threading.Thread):
         ext='' #no extension
         size = 0
         
-        URL = entry.URL
+        URL, headers = parse_headers(entry.URL)
     
         if URL[:3] == 'ftp':
             #FTP
@@ -179,13 +218,14 @@ class CDownLoader(threading.Thread):
             result = urlopener.urlopen(URL, entry)
             if result["code"] != 0:
                 self.state = -1 #URL does not point to internet file.
-                return
+                return ext, size
             loc_url = urlopener.loc_url
+            self.processed=urlopener.processed
 
             #Now we try to open the URL. If it does not exist an error is
             #returned.
             try:
-                headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
+                #headers = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
                 req = urllib2.Request(loc_url, None, headers)
                 f = urllib2.urlopen(req)
                 #loc_url=f.geturl()
@@ -217,10 +257,25 @@ class CDownLoader(threading.Thread):
                     else:
                         ext = match.group(1)
 
+            # processed youtube URL
+            match=re.search('youtube\.com/.*?&itag=(\d+)', loc_url)
+            if match:
+                fmt=int(match.group(1))
+                if [5,6,34,35].index(fmt) >= 0:
+                    ext='.flv'
+                elif [43,44,45,46,100,101,46,102].index(fmt) >= 0:
+                    ext='.webm'
+                else:
+                    ext='.mp4' # [18,22,37,38,83,82,85,84] - default to instead of testing for
+
+        # safety net
+        if len(ext)>6:
+            ext='.avi'
+
         return ext, size
         
     ######################################################################
-    # Description: Downloads a URL to local disk
+    # Description: Adds an item to the local download queue playlist
     # Parameters : URL=source
     # Return     : -
     ######################################################################
@@ -310,22 +365,20 @@ class CDownLoader(threading.Thread):
         #Continue with HTTP download
         self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Retrieving file info...") 
 
+        entry.processed=self.processed
+
+        # set custom headers if specified
+        URL, headers=parse_headers(URL, entry)
+
         #Get the direct URL to the mediaitem given URL      
         urlopener = CURLLoader()
         result = urlopener.urlopen(URL, entry)
         if result["code"] != 0:
             self.state = -1 #failed to download the file
-            return        
+            print "urlopener.urlopen failed"
+            return
 
         URL = urlopener.loc_url
-        
-        #rembember the user agent set the processor
-        index = URL.find('|User-Agent=')
-        if index != -1:
-            useragent = URL[index+12:]
-            URL = URL[:index]
-        else:
-            useragent = 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'
       
         try:
 #            oldtimeout=socket_getdefaulttimeout()
@@ -362,20 +415,18 @@ class CDownLoader(threading.Thread):
                 os.remove(backupfile)
                                    
                 #If the file exists, then only download the remainder 
-                headers = { 'User-Agent' : useragent,
-                            'Range' : 'bytes=%s-' % existSize}                          
+                headers['Range'] = 'bytes=%s-' % existSize
 
             else: 
                 #file does not exist 
                 file = open(localfile, "wb")           
-                headers = { 'User-Agent' : useragent}
             
             #destination is already open            
 
             self.MainWindow.dlinfotekst.setLabel('(' + header + ')' + " Downloading file...")  
             
             req = urllib2.Request(URL, None, headers)
-            f = urllib2.urlopen(req)            
+            f = urllib2.urlopen(req)
                         
             #If the file exists, but we already have the whole thing, don't download again
             size_string = f.headers['Content-Length']

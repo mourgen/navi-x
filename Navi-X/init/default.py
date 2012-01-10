@@ -4,7 +4,7 @@
 # by rodejo (rodejo16@gmail.com)
 #############################################################################
 
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import urllib2
 import zipfile
@@ -13,8 +13,10 @@ import shutil
 #############################################################################
 # directory settings
 #############################################################################
-import os
-RootDir = os.getcwd()
+
+addon = xbmcaddon.Addon(id='script.navi-x')
+RootDir = addon.getAddonInfo('path')
+
 if RootDir[-1]==';': RootDir=RootDir[0:-1]
 if RootDir[0] == '/':
     if RootDir[-1] != '/': RootDir = RootDir+'/'

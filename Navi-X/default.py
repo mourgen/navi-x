@@ -23,7 +23,7 @@
 #
 # Navi-X bootloader + auto update installer.
 #############################################################################
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import urllib2
 import zipfile
@@ -35,11 +35,12 @@ __scriptname__ = "Navi-X"
 __author__ = "Navi-X team"
 __url__ = "http://code.google.com/p/navi-x/"
 __credits__ = "Navi-X team"
-__version__ = "3.7"
+__version__ = "3.74"
 
-sys.path.append(os.path.join(os.getcwd().replace(";",""),'src'))
+addon = xbmcaddon.Addon(id='script.navi-x')
+RootDir = addon.getAddonInfo('path')
+sys.path.append(os.path.join(RootDir.replace(";",""),'src'))
 
-RootDir = os.getcwd()
 if RootDir[-1]==';': RootDir=RootDir[0:-1]
 if RootDir[0] == '/':
     if RootDir[-1] != '/': RootDir = RootDir+'/'
@@ -195,7 +196,7 @@ platform = get_system_platform()
 #Start Navi-X
 #############################################################################
 import navix
-win = navix.MainWindow("skin.xml", os.getcwd())
+win = navix.MainWindow("skin.xml", addon.getAddonInfo('path'))
 win.doModal()
 del win
 

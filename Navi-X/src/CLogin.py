@@ -15,7 +15,7 @@ import sys, os.path
 import urllib
 import urllib2
 import re, random, string
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import shutil
 import os
@@ -87,4 +87,5 @@ class CDialogLogin(xbmcgui.WindowXMLDialog):
     #end of class    
         
 #use singleton
-login = CDialogLogin("CLoginskin.xml", os.getcwd())
+#login = CDialogLogin("CLoginskin.xml", os.getcwd())
+login = CDialogLogin("CLoginskin.xml", addon.getAddonInfo('path'))

@@ -61,8 +61,11 @@ PAL60_16x9 = 9      #(720x480, 16:9, pixels are 5760:4739)
 #############################################################################
 # directory settings
 #############################################################################
-import os
-RootDir = os.getcwd()
+import os, xbmcaddon
+
+addon = xbmcaddon.Addon(id='script.navi-x')
+RootDir = addon.getAddonInfo('path')
+
 if RootDir[-1]==';': RootDir=RootDir[0:-1]
 if RootDir[0] == '/':
     if RootDir[-1] != '/': RootDir = RootDir+'/'
@@ -118,7 +121,7 @@ useLibrtmp=os.path.exists(xbmc.translatePath('special://xbmc/system/players/dvdp
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='7.3'
+SubVersion='7.4'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -139,3 +142,4 @@ url_open_timeout = 30 #30 seconds
 page_size = 200 #display maximum 200 entries on one page
 history_size = 50 #maximum of entries in the history list
 
+user_agent_default = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.4) Gecko/2008102920 Firefox/3.0.4';

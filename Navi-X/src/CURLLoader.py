@@ -57,12 +57,15 @@ class CURLLoader:
         result = {"code":0} #successful
 
         if mediaitem.processor != '':
-            result = self.geturl_processor(mediaitem) 
+            result = self.geturl_processor(mediaitem)
         elif URL.find('http://www.youtube.com') != -1:
             mediaitem.processor = "http://navix.turner3d.net/proc/youtube"
-            result = self.geturl_processor(mediaitem) 
+            result = self.geturl_processor(mediaitem)
         elif URL[:4] == 'http':
-            result = self.geturl_redirect(URL) 
+            if mediaitem.processed == True:
+                self.loc_url = mediaitem.URL
+            else:
+                result = self.geturl_redirect(URL, mediaitem) 
         else:
             self.loc_url = URL
         
@@ -75,10 +78,20 @@ class CURLLoader:
 # Parameters : URL=source URL
 # Return     : 0=successful, -1=fail
 ######################################################################
-    def geturl_redirect(self, URL):        
+    def geturl_redirect(self, URL, entry):
+
         try:
-            values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
-            req = urllib2.Request(URL, None, values)
+            URL=self.loc_url
+        except AttributeError:
+            try:
+                URL=entry.URL
+            except AttributeError:
+                print "geturl_redirect from vanilla URL"
+
+        URL, headers=parse_headers(URL, entry)
+
+        try:
+            req = urllib2.Request(URL, None, headers)
             f = urllib2.urlopen(req)
             self.loc_url=f.geturl()
             f.close()            
@@ -534,8 +547,11 @@ class CURLLoader:
                             else:
                                 return self.proc_error("unrecognized method '"+subj+"'")
 
+            if v['referer']>'':
+                mediaitem.referer=v['referer']
             if v['agent']>'':
                 v['url']=v['url']+'?|User-Agent='+v['agent']
+                mediaitem.agent=v['agent']
             mediaitem.URL=v['url']
             if useLibrtmp and (v['playpath']>'' or v['swfplayer']>''):
                 mediaitem.URL=mediaitem.URL+' tcUrl='+v['url']
@@ -640,6 +656,8 @@ class CURLLoader:
                 return self.proc_error("pattern not found in scraped data")
 
         self.loc_url = mediaitem.URL
+        mediaitem.processed=True
+        self.processed=True
 
         SetInfoText("Processor complete - playing...")
         time.sleep(.1)
@@ -755,7 +773,7 @@ class CURLLoader:
 # Description: This class is used to create the variable dictionary
 #              object used by NIPL. Its primary purpose is to allow
 #              querying dictionary elements which don't exist without
-#              crashing Python, although a comple of methods have been
+#              crashing Python, although a couple of methods have been
 #              added for initializing and resetting the object.
 #              
 # Parameters : URL=source URL

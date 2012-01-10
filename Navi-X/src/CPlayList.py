@@ -73,6 +73,7 @@ class CPlayList:
         self.view = 'default'        
         self.start_index = 0
         self.list = []
+        self.data = {}
     
     ######################################################################
     # Description: Adds a item to playlist.
@@ -241,7 +242,9 @@ class CPlayList:
                     elif key == 'playmode' and state == 0:
                             self.playmode=value
                     elif key == 'view' and state == 0:
-                            self.view=value                            
+                            self.view=value
+                    elif key == 'data' and state == 0:
+                        self.data=literal_eval(value)
                     elif key == 'type':
                         if state == 1:
                             self.list.append(tmp)
@@ -288,6 +291,8 @@ class CPlayList:
                         tmp.swfplayer=value    
                     elif key == 'pageurl':
                         tmp.pageurl=value    
+                    elif key == 'data':
+                        tmp.data=literal_eval(value)
                     elif key == 'description':
                         #self.description = ' ' #this will make the description field visible
                         index = value.find('/description')
@@ -1507,5 +1512,3 @@ class CPlayList:
             return "" 
      
         return year + '-' + month + '-' + day + ' ' + tim
-
-

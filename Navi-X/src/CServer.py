@@ -30,7 +30,7 @@ import sys, os.path
 import urllib
 import urllib2
 import re, random, string
-import xbmc, xbmcgui
+import xbmc, xbmcgui, xbmcaddon
 import re, os, time, datetime, traceback
 import shutil
 import zipfile
@@ -61,11 +61,6 @@ class CServer:
     # Return     : -
     ######################################################################            
     def login(self):
-#        login = CDialogLogin("CLoginskin.xml", os.getcwd())
-#        login.doModal()
-#        if login.state != 0:
-#            return -2
-
         keyboard = xbmc.Keyboard('', 'Enter User name')
         keyboard.doModal()
         if (keyboard.isConfirmed() != True):
@@ -81,7 +76,6 @@ class CServer:
         password = keyboard.getText()
                    
         #login to the Navi-X server
-        #self.user_id = self.nxLogin(login.username, login.password)
         self.user_id = self.nxLogin(username, password)
         if self.user_id == '':
             #failed
@@ -133,7 +127,8 @@ class CServer:
     # Return     : -
     ######################################################################            
     def rate_item(self, mediaitem):    
-        rate = CDialogRating("CRatingskin.xml", os.getcwd())
+        #rate = CDialogRating("CRatingskin.xml", os.getcwd())
+        rate = CDialogRating("CRatingskin.xml", addon.getAddonInfo('path'))
         rate.doModal()
         if rate.state != 0:
             return -2
@@ -155,10 +150,6 @@ class CServer:
     #              Failure: error message string
     ######################################################################      
     def nxrate_item(self, mediaitem, rating):  
-        #print "Rating: " + str(rating) + " " + mediaitem.URL
-        #return 0
-                   
-        #rate mediaitem
         result=getRemote('http://navix.turner3d.net/rate/',{
             'method':'post',
             'postdata':urllib.urlencode({'url':mediaitem.URL,'rating':rating}),
@@ -201,7 +192,7 @@ class CServer:
         pass
  
 
-#Create server instance here and use it as a global variable for all other components that import server.py.
+#Create server instance here and use it as a global variable for all other components that import CServer.py.
 global nxserver
 nxserver = CServer() 
 
