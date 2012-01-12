@@ -1,9 +1,9 @@
 <apps>
 	<app>
 		<id>com.navix.stable</id>
-		<name>Navi-x</name>
+		<name>Navi-X</name>
 		<version>1.44</version>
-		<description>Navi-X v1.44 - Access Navi-xtreme content from Boxee. See also navix.turner3d.net</description>
+		<description>Navi-X v1.44 - A "content aggregator" that provides access to all kinds of multimedia content, listed on a public directory of user contributed listings or playlists for playing on your TV!. Visit navix.turner3d.net</description>
 		<thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
@@ -17,9 +17,9 @@
 	</app>
 	<app>
 		<id>com.navix.main</id>
-		<name>Navi-x Beta</name>
+		<name>Navi-X Beta</name>
 		<version>4.06</version>
-		<description>Navi-X v4.0 - There are several bugs with this version. If you have issues, please use 1.41</description>
+		<description>Navi-X v4.06 - UNSUPPORTED - If you have issues, please use 1.44</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
