@@ -8,8 +8,8 @@
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
 		<media>video</media>
-		<copyright>rodejo16</copyright>
-		<email>rodejo16@gmail.com</email>
+		<copyright>Team Navi-X</copyright>
+		<email>xironbillx@gmail.com</email>
 		<type>skin</type>
 		<startWindow>default</startWindow>
 		<platform>all</platform>
@@ -24,7 +24,7 @@
 		<repositoryid>com.navix</repositoryid>
 		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
 		<media>video</media>
-		<copyright>ironbill</copyright>
+		<copyright>Team Navi-X</copyright>
 		<email>xironbillx@gmail.com</email>
 		<type>skin</type>
 		<startWindow>default</startWindow>
