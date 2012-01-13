@@ -30,6 +30,23 @@
 		<startWindow>default</startWindow>
 		<platform>all</platform>
 		<minversion>0.9.14</minversion>
+	</app>	<app>
+		<id>com.navix.1.44</id>
+  <name>Navi-X 1.44 - TEST</name>
+		<version>4.06</version>
+		<description>TEST</description>
+		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
+		<repositoryid>com.navix.</repositoryid>
+		<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
+		<media>video</media>
+		<copyright>Team Navi-X</copyright>
+		<email>xironbillx@gmail.com</email>
+		<type>skin</type>
+		<startWindow>default</startWindow>
+		<platform>all</platform>
+		<minversion>0.9.14</minversion>
 	</app>
+
+   
 </apps>
 
