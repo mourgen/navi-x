@@ -32,7 +32,7 @@
 		<minversion>0.9.14</minversion>
 	</app>	<app>
 		<id>com.navix.1.44</id>
-  <name>Navi-X 1.44 - TEST</name>
+    <name>Navi-X 1.44 - TEST</name>
 		<version>4.06</version>
 		<description>TEST</description>
 		<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
