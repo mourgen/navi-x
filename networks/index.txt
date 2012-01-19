@@ -5,38 +5,11 @@ logo=http://website.navi-x.org/networks/logo.png
 background=http://website.navi-x.org/networks/bg.jpg
 
 type=playlist
-name=New Content
-URL=http://www.box.net/rssdownload/664028538/index.txt 
-thumb=http://website.navi-x.org/networks/logo.png
-icon=http://website.navi-x.org/networks/icon.png
-date=2011-1-29
-
-type=playlist
-name=Browse Content
-URL=http://www.box.net/rssdownload/664028996/index.txt 
-thumb=http://website.navi-x.org/networks/logo.png
-icon=http://website.navi-x.org/networks/icon.png
-
-type=playlist
-name=Search Content
+name=Search Navi-X
 URL=http://www.box.net/rssdownload/664028208/index.txt 
 thumb=http://website.navi-x.org/networks/logo.png
 icon=http://website.navi-x.org/networks/icon.png
 date=2011-1-29
-
-type=rss:rss
-name=Live TV (Boxee Only)
-thumb=http://i1013.photobucket.com/albums/af252/streamfreetv/Boxee/LiveTV/LiveTV.png
-background=http://4.bp.blogspot.com/_jsj9RmUuy9o/TIWriKtMFDI/AAAAAAAAA3s/ChwGkBqY3RI/s1600/floral-pattern-wallpaper-black-1600x1200.jpg
-URL=http://feeds.feedburner.com/sftv-livetv-cat-main
-date=2011-3-19
-
-type=playlist
-name=Websites (Boxee Box Only)
-#URL=http://website.navi-x.org/networks/websites/index.plx
-URL=http://navi-x-playlists-for-websites.googlecode.com/svn/trunk/index.plx
-date=2011-04-20
-icon=http://website.navi-x.org/networks/icon.png
 
 type=playlist
 name=TV Shows
@@ -75,11 +48,24 @@ thumb=http://website.navi-x.org/networks/logos/main_menu/apps.png
 icon=http://website.navi-x.org/networks/icon.png
 date=2010-10-29
 
-#type=playlist
-#name=Help and Support
-#URL=http://docs.google.com/document/export?format=txt&id=1wZ0KbNfxqHGzra99m6Vm4oZPOWvArxwHiFw3t7JDR_E
-#thumb=http://website.navi-x.org/networks/logos/main_menu/help.png
-#icon=http://website.navi-x.org/networks/icon.png
+type=playlist
+name=Websites (Boxee Box Only)
+URL=http://website.navi-x.org/networks/websites/index.plx
+#URL=http://navi-x-playlists-for-websites.googlecode.com/svn/trunk/index.plx
+thumb=http://www.box.net/rssdownload/737035476/websites.png
+date=2011-04-20
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=theStreamDB (XBMC only)
+date=2011-06-15
+URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D3ef1acd333db60bac49eb0df6a481011%26_render%3Djson
+thumb=http://icons.iconarchive.com/icons/robsonbillponte/cartoon/256/TV-icon.png
+icon=http://website.navi-x.org/networks/icon.png
+#description=
+theStreamDB.com is an open database for live streaming media.
+Can use this also on Boxee. 
+But remember not all streams will work on Boxee (for example the rtmp streams)./description
 
 type=rss
 name=Twitter on Navi-X
