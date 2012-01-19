@@ -40,6 +40,6 @@ name=XBMC Unofficial Add-on Repositories (XBMC Only)
 URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A//pipes.yahoo.com/pipes/pipe.run%3F_id%3D6045e49745bf8620eb4816fd332ccdff%26_render%3Djson
 #URL=http://pipes.yahoo.com/pipes/pipe.run?_id=6bce5503e3eed7ac27f0cdc9eb6a0626&_render=rss
 
-
-
-
+type=playlist
+name=Navi-X Plugin (XBMC Only)
+URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3Df7b1903fb8aca8077084a04cec3b6fd6%26_render%3Djson
