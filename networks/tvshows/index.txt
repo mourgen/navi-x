@@ -6,36 +6,27 @@ logo=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=- News
-URL=http://www.box.net/rssdownload/664046384/index.txt 
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/index.txt 
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=- Sports
-URL=http://www.box.net/rssdownload/664046730/index.txt 
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/sports/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
-
-#type=playlist
-#name=- Regional
-#URL=http://www.box.net/rssdownload/664200828/index.txt
-#thumb=http://website.navi-x.org/networks/logo.png
-#note tikkiew - no purpose for this anymore. 
-User playlist should be handled by NAvi-Xtreme
-And there is nobody willing to collect and maintain 
-playlists for livetv by region/genre.
 
 type=playlist
 name=- Kids
-URL=http://www.box.net/rssdownload/664045990/index.txt 
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/kids/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=- Games
-URL=http://www.box.net/rssdownload/664045552/index.txt
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/games/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=- Video Sharing Sites
-URL=http://www.box.net/rssdownload/664047092/index.txt 
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/videosites/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
@@ -70,55 +61,60 @@ URL=http://navix.turner3d.net/scrape/adultswim/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_bet.png
 #URL=http://navix.turner3d.net/scrape/bet/
 
-type=playlist
-name=Bravo
-thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Bravo_TVsvg.png
-date=2011-03-22
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/BravoTV.pl
-description=With more breakout stars and critically acclaimed original series than any other network on cable, Bravo's original programming --- from hot cuisine to haute couture --- delivers the best in food, fashion, beauty, design and pop culture to the most engaged, upscale and educated audience in cable.
-Bravo is a program service of NBC Universal Cable Entertainment, a division of NBC Universal one of the world's leading media and entertainment companies in the development, production, and marketing of entertainment, news and information to a global audience./description
+#type=playlist
+#name=Bravo
+#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Bravo_TVsvg.png
+#date=2011-03-22
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/BravoTV.pl
+#description=With more breakout stars and critically acclaimed original series than any other network on cable, Bravo's original programming --- from hot cuisine to haute couture --- delivers the best in food, fashion, beauty, design and pop culture to the most engaged, upscale and educated audience in cable.
+#Bravo is a program service of NBC Universal Cable Entertainment, a division of NBC Universal one of the world's leading media and entertainment companies in the development, production, and marketing of entertainment, news and information to a global audience./description
 
 type=playlist
 name=CBS
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_cbs.png
 URL=http://navix.turner3d.net/scrape/cbs/
 
-type=playlist
-name=Crackle TV
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_crackle.png
-URL=http://navix.turner3d.net/scrape/crackletv/
+#type=playlist
+#name=Crackle TV
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_crackle.png
+#URL=http://navix.turner3d.net/scrape/crackletv/
 
 #type=playlist
 #name=Discovery Channel
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_dsc.png
 #URL=http://navix.turner3d.net/scrape/discovery/dsc
 
-type=playlist
-name=Food Network
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/200px-Food_Networksvg.png
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/FoodNetwork.pl
-player=default
-date=2011-1-28
+#type=playlist
+#name=Food Network
+#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/200px-Food_Networksvg.png
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/FoodNetwork.pl
+#player=default
+#date=2011-1-28
 
-type=playlist
-name=GSN (Game Show Network)
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/500px-GSN_logosvg.png
-date=2011-03-22
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GSN.pl
-description=(*** Not Xbox friendly streams ***) 
-GSN is a multimedia entertainment company that offers original and classic game programming via its 73-million subscriber television network and online games sites. GSN's cross-platform content puts winning within reach for viewers and participants, whether through GSN's popular TV game shows, gsn.com's free casual games or its WorldWinner competitive cash tournaments./description
+#type=playlist
+#name=GSN (Game Show Network)
+#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/500px-GSN_logosvg.png
+#date=2011-03-22
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GSN.pl
+#description=(*** Not Xbox friendly streams ***) 
+#GSN is a multimedia entertainment company that offers original and classic game programming via its 73-million subscriber television network and online games sites. GSN's cross-platform content puts winning within reach for viewers and participants, whether through GSN's popular TV game shows, gsn.com's free casual games or its WorldWinner competitive cash tournaments./description
 
-type=playlist
-name=HGTV Network
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/hgtv-logo.jpg
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/HGTV.pl
-player=default
-date=2011-1-28
+#type=playlist
+#name=HGTV Network
+#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/hgtv-logo.jpg
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/HGTV.pl
+#player=default
+#date=2011-1-28
 
 type=video
 name=HSN - LIVE (XBMC Only)
 URL=http://a1797.l8175151796.c81751.g.lm.akamaistream.net/D/1797/81751/v0001/reflector:51796
 thumb=http://website.navi-x.org/networks/logos/hsn.jpg
+
+#type=playlist
+#name=Justin TV (Boxee only)
+#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/logo_for_blog.png
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Justin.pl
 
 type=video
 name=Knife and Gun Show - LIVE
@@ -129,7 +125,6 @@ type=playlist
 name=Live Well HD
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_livewellhd.gif
 URL=http://navix.turner3d.net/scrape/livewellhd/
-#thumb=http://testtikkiew.googlecode.com/files/broken.png
 
 type=playlist
 name=Maxim
@@ -152,16 +147,16 @@ name=NBC
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_nbc.jpg
 URL=http://navix.turner3d.net/scrape/nbc/
 
-type=playlist
-name=NFB
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_nfb_ca.jpg
-URL=http://navix.turner3d.net/scrape/nfb_ca/
+#type=playlist
+#name=(broken) NFB
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_nfb_ca.jpg
+#URL=http://navix.turner3d.net/scrape/nfb_ca/
 
-type=playlist
-name=Onion News Network
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20News/onnlogo.png
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/OnionNewsNetwork.pl
-date=2011-1-28
+#type=playlist
+#name=Onion News Network
+#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20News/onnlogo.png
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/OnionNewsNetwork.pl
+#date=2011-1-28
 
 type=playlist
 name=PBS
@@ -178,16 +173,16 @@ URL=http://navix.turner3d.net/scrape/pbs/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif
 #URL=http://navix.turner3d.net/scrape/pokertube/
 
-type=playlist
-name=Revision3
-thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Revision3svg.png
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Revision3.pl
-date=2011-2-15
+#type=playlist
+#name=Revision3
+#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Revision3svg.png
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Revision3.pl
+#date=2011-2-15
 
-type=playlist
-name=SyFy
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_syfy.gif
-URL=http://navix.turner3d.net/scrape/scifi/
+#type=playlist
+#name=SyFy
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_syfy.gif
+#URL=http://navix.turner3d.net/scrape/scifi/
 
 #type=playlist
 #name=The Learning Channel
@@ -199,17 +194,20 @@ name=TruTV
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_trutv.gif
 URL=http://navix.turner3d.net/scrape/trutv/
 
-type=video
-name=TWiT Broadcast
-URL=http://bglive-a.bitgravity.com/twit/live/high
-thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
+#type=video
+#name=TWiT Broadcast
+#URL=http://bglive-a.bitgravity.com/twit/live/high
+#thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
 
-type=playlist
-name=YouTube Shows
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_youtube_shows.jpg
-URL=http://navix.turner3d.net/scrape/youtube_shows/
+#type=playlist
+#name=YouTube Shows
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_youtube_shows.jpg
+#URL=http://navix.turner3d.net/scrape/youtube_shows/
 
-type=playlist
-name=VeeHD
-thumb=http://static.veehd.com/logo.gif
-URL=http://76.77.191.9/cgi-bin/Scrapers/veehd
+#type=playlist
+#name=VeeHD
+#thumb=http://static.veehd.com/logo.gif
+#URL=http://navix.turner3d.net/cgi-bin/parsers/veehd.cgi
+#URL=http://76.77.191.9/cgi-bin/Scrapers/veehd
+#description=Tikkiew : Use same URL of Navi-Xtreme scraper instead of Boseman's scraper.
+#/description
