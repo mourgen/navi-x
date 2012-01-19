@@ -1,0 +1,16 @@
+﻿version=1
+background=http://website.navi-x.org/networks/bg.jpg
+title=Russia
+logo=http://website.navi-x.org/networks/logo.jpg
+#
+type=playlist
+name=LIVE TV - Russian
+date=2009-05-28
+URL=http://navix.turner3d.net/playlist/15399/live_tv__russian.plx
+player=default
+#
+type=playlist
+name=movie_rus
+URL=http://navix.turner3d.net/playlist/1624/movie_rus.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description

@@ -1,0 +1,147 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=old Regional Networks
+#view=thumbnails
+#
+
+#type=playlist
+#name=New Live TV by Region
+#date=2011-03-28
+#thumb=
+#URL=http://livetvfornavi-x.googlecode.com/svn/branches/index
+#description=./description
+
+type=list_note
+name=future Regional Networks. Read me >>>
+description=I am in the progress of deciding what to do with this playlist. Possible I will delete this here. One of the Reasons is becuase it is Not KNOWN if Playlist Are Still Maintained and if it is Useful. One thing I want to do is collect live tv streams, But I need help. Look at - Live TV by Region. If you got any questions or comments or ideas for or want to help me. Http://navix.turner3d.net/forums/ tell me or email me tikkiebreed1@gmail.com
+Greetings tikkiew./description
+
+
+type=playlist
+name=United Kingdom
+date=2009-05-30
+thumb=http://website.navi-x.org/networks/flags/uk.png
+URL=http://navix.turner3d.net/playlist/30811/united_kingdom.plx
+description=Playlist from Regional Networks UK live tv/description
+
+#
+type=playlist
+name=Arabic
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/arabic.png
+URL=http://www.box.net/rssdownload/664201592/Arabic.txt
+#
+type=playlist
+name=Asia
+date=2009-06-04
+thumb=http://website.navi-x.org/networks/flags/asia.jpg
+URL=http://navix.turner3d.net/playlist/17592/asia.plx
+description=Playlist from Regional Networks/description
+#
+
+type=playlist
+name=Canada
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/canada.png
+URL=http://navix.turner3d.net/playlist/15565/canada.plx
+description=Playlist from Regional Networks/description
+
+
+#type=playlist
+#name=China
+#date=2009-05-28
+#thumb=http://website.navi-x.org/networks/flags/china.png
+#URL=http://navix.turner3d.net/playlist/15473/chinese.plx
+
+#
+type=playlist
+name=Denmark
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/denmark.png
+URL=http://www.box.net/rssdownload/664201556/Denmark.txt
+
+#
+type=playlist
+name=Dominican Republic
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/dominican.png
+URL=http://www.box.net/rssdownload/664201442/The_Dominican_Republic.txt
+#
+type=playlist
+name=Dutch
+date=2009-05-28
+#thumb=http://website.navi-x.org/networks/flags/netherlands.png
+thumb=http://th07.deviantart.net/fs43/PRE/i/2009/122/2/8/Netherlands_Grunge_Flag_by_think0.jpg
+URL=http://www.box.net/rssdownload/664201380/Dutch.txt
+
+#
+type=playlist
+name=France
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/france.png
+URL=http://www.box.net/rssdownload/664201530/France.txt
+
+#
+type=playlist
+name=Germany
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/germany.png
+URL=http://www.box.net/rssdownload/664201620/Germany.txt
+
+#
+type=playlist
+name=Greece
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/greece.png
+URL=http://navix.turner3d.net/playlist/15392/live_tv__greek.plx
+#URL=http://navix.turner3d.net/playlist/15477/greek.plx
+description=Playlist from Regional Networks/description
+#
+type=playlist
+name=Italia
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/italy.png
+URL=http://www.box.net/rssdownload/664201632/Italia.txt
+
+#
+type=playlist
+name=Japan
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/japan.png
+URL=http://navix.turner3d.net/playlist/15394/live_tv__japanese.plx
+description=Playlist from Regional Networks/description
+#URL=http://navix.turner3d.net/playlist/15479/japanese.plx
+
+#
+type=playlist
+name=Poland
+date=2009-05-28
+thumb=http://www.bogurski.de/assets/images/Polska_Flaga.png
+URL=http://navix.turner3d.net/playlist/15398/live_tv__polish.plx
+description=Playlist from Regional Networks/description
+#URL=http://navix.turner3d.net/playlist/15481/polish.plx
+
+#
+type=playlist
+name=Russia
+thumb=http://website.navi-x.org/networks/flags/russia.png
+URL=http://www.box.net/rssdownload/664201508/Russia.txt
+#
+type=playlist
+name=Spain
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/spain.png
+URL=http://www.box.net/rssdownload/664201492/Spanish.txt
+#
+type=playlist
+name=Sweden
+date=2009-05-28
+thumb=http://website.navi-x.org/networks/flags/sweden.png
+URL=http://www.box.net/rssdownload/664201460/Swedish.txt
+#
+type=playlist
+name=Other Languages
+date=2009-05-28
+URL=http://navix.turner3d.net/playlist/15400/live_tv__other_languages.plx
+description=Playlist from Regional Networks/description
+#URL=http://navix.turner3d.net/playlist/15485/other_languages.plx

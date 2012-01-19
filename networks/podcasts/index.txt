@@ -1,0 +1,52 @@
+﻿version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - Podcasts
+view=thumbnails
+logo=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=Video & Audio Podcasts
+thumb=http://www.navi-x.org/playlists/podcasts/podcast.png
+URL=http://www.navi-x.org/playlists/podcasts/podcasts.plx
+date=2011-03-19
+
+type=playlist
+name=Apple iTunes Podcasts
+URL=http://navix.turner3d.net/scrape/podcasts/
+thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
+
+type=playlist
+name=Digitalpodcast.com
+URL=http://www.symbolengine.com/navixopml/?s=digitalpodcast.com
+thumb=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=Podcast Alley
+URL=http://www.symbolengine.com/navixopml/?s=Podcast+Alley
+thumb=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=Podcast Providers
+URL=http://www.navi-x.org/playlists/podcasts/providers.plx
+thumb=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=Tech Podcasts
+URL=http://www.symbolengine.com/navixopml/?s=techpodcasts
+thumb=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=Top Podcasts
+URL=http://www.navi-x.org/playlists/podcasts/popular.plx
+thumb=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=TWiT TV Podcasts
+thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
+URL=http://www.navi-x.org/playlists/podcasts/Technology/TWiT.plx
+
+type=rss
+name=WebBeat.TV
+thumb=http://webbeat.tv/wp-content/themes/thesis_17/custom/images/WebBeat-logo.jpg
+date=2010-10-09
+URL=http://feeds.feedburner.com/wbtvlarge?format=xml

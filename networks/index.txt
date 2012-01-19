@@ -1,0 +1,88 @@
+version=8
+title=Navi-X Networks
+view=thumbnails
+logo=http://website.navi-x.org/networks/logo.png
+background=http://website.navi-x.org/networks/bg.jpg
+
+type=playlist
+name=New Content
+URL=http://www.box.net/rssdownload/664028538/index.txt 
+thumb=http://website.navi-x.org/networks/logo.png
+icon=http://website.navi-x.org/networks/icon.png
+date=2011-1-29
+
+type=playlist
+name=Browse Content
+URL=http://www.box.net/rssdownload/664028996/index.txt 
+thumb=http://website.navi-x.org/networks/logo.png
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Search Content
+URL=http://www.box.net/rssdownload/664028208/index.txt 
+thumb=http://website.navi-x.org/networks/logo.png
+icon=http://website.navi-x.org/networks/icon.png
+date=2011-1-29
+
+type=rss:rss
+name=Live TV (Boxee Only)
+thumb=http://i1013.photobucket.com/albums/af252/streamfreetv/Boxee/LiveTV/LiveTV.png
+background=http://4.bp.blogspot.com/_jsj9RmUuy9o/TIWriKtMFDI/AAAAAAAAA3s/ChwGkBqY3RI/s1600/floral-pattern-wallpaper-black-1600x1200.jpg
+URL=http://feeds.feedburner.com/sftv-livetv-cat-main
+date=2011-3-19
+
+type=playlist
+name=Websites (Boxee Box Only)
+#URL=http://website.navi-x.org/networks/websites/index.plx
+URL=http://navi-x-playlists-for-websites.googlecode.com/svn/trunk/index.plx
+date=2011-04-20
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=TV Shows
+URL=http://www.box.net/rssdownload/664023546/index.txt
+thumb=http://website.navi-x.org/networks/logos/main_menu/tvshows.png
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Movies
+URL=http://www.box.net/rssdownload/664064286/index.txt 
+thumb=http://website.navi-x.org/networks/logos/main_menu/movies.png
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Music
+URL=http://www.box.net/rssdownload/664068084/index.txt 
+thumb=http://website.navi-x.org/networks/logos/main_menu/music.png
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Podcasts
+URL=http://www.box.net/rssdownload/664068846/index.txt 
+thumb=http://website.navi-x.org/networks/logos/main_menu/podcasts.png
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Pictures
+URL=http://www.box.net/rssdownload/664076112/index.txt 
+thumb=http://website.navi-x.org/networks/logos/main_menu/pictures.png
+icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Apps
+URL=http://www.box.net/rssdownload/664119748/index.txt 
+thumb=http://website.navi-x.org/networks/logos/main_menu/apps.png
+icon=http://website.navi-x.org/networks/icon.png
+date=2010-10-29
+
+#type=playlist
+#name=Help and Support
+#URL=http://docs.google.com/document/export?format=txt&id=1wZ0KbNfxqHGzra99m6Vm4oZPOWvArxwHiFw3t7JDR_E
+#thumb=http://website.navi-x.org/networks/logos/main_menu/help.png
+#icon=http://website.navi-x.org/networks/icon.png
+
+type=rss
+name=Twitter on Navi-X
+URL=http://twitter.com/statuses/user_timeline/46791316.rss
+thumb=http://website.navi-x.org/networks/logos/main_menu/twitter_logo.png
+icon=http://website.navi-x.org/networks/twitter_icon.png

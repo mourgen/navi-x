@@ -1,0 +1,26 @@
+﻿Downloading Navi-X :
+You will find the latest version of Navi-X.
+When using Navi-X go to Navi-X Home or go to the website www.Navi-X.org
+
+Recommendation use of Navi-X:
+At this time (3 august 2010) you probably should use Navi-X with on of the latest XBMC builds. However with every change on Navi-X or XBMC it can effect which XBMC build you should use. Preferable to use the script and not plugin, because this isn't updated in a while.
+
+Which buttons I can use with Navi-X ?
+Read the text file : (Key) buttons when using script.
+You can find this in Help and Support
+
+Context menu :
+There are many options on the context menu
+Did you know you can automatically play next video,
+download files and add a playlist/folder to your favorites with the context menu?
+There is also an option : about on Navi-X.
+Here you can read what is updated on your Navi-X version.
+Or the option view playlist source. With that you would able to see the url of contents of the playlist.
+
+How to bring up Context menu ?
+Read the text file : (Key) buttons when using script.
+
+Getting started :
+Most new users I would suggest to put the playlist
+Navi-X Networks,  -= Search =-  and  -= Site Scrapers =-  in your favorites.
+Watch the video in Help and Support : How to setup your favorites on Navi-X

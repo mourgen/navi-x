@@ -1,0 +1,18 @@
+﻿version=8
+background=http://website.navi-x.org/networks/bg2.png
+title=WiiMC
+logo=http://3.bp.blogspot.com/_SDlR4sT20VA/S8ixPiYK_nI/AAAAAAAABjI/V9XLr4O6Eko/s400/wiimc_cool.PNG
+description=(Wii Media Centre) is an open source media player for the Nintendo Wii./description
+#
+type=list_note
+name=Why can't I view playlists that are on other Media Centers available?
+thumb=
+background=default
+URL=
+description=Simple answer. This is done because most of the videos and audios don't work on WiiMC.
+Therefore there is a special playlist made for Navi-X. And you will not be able to access and read this playlist on WiiMC.
+People are working in there free time to make WiiMC more compatible with Navi-X. There will be no estimated time on an update.
+But don't expect a full compatibility in the near time. And if you are interest and capable to make it more compatible,
+you should probably contact first turner3d. www.navi-x.org » Contact Us. Or on forums of www.navix.turner3d.net.
+/description
+#

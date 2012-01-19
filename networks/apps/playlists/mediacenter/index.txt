@@ -1,0 +1,24 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - Apps - Media Center Apps
+logo=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=Boxee
+thumb=default
+background=default
+URL=http://www.box.net/rssdownload/664169960/Boxee.txt
+
+
+type=playlist
+name=WiiMC
+thumb=default
+background=default
+URL=http://www.box.net/rssdownload/664169972/WiiMC.txt
+
+
+type=playlist
+name=XBMC
+thumb=default
+background=default
+URL=http://www.box.net/rssdownload/664170348/index.txt

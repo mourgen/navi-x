@@ -1,0 +1,34 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - TV Shows - News
+view=thumbnails
+type=playlist
+name=ABC News
+URL=http://www.box.net/rssdownload/664046428/abc.txt
+thumb=http://website.navi-x.org/networks/logos/abc.jpg
+#description=A collection of podcasts and ABC 20/20 videos of the site ./description
+
+#type=playlist
+#name=AP News < is broken
+#thumb=http://3.bp.blogspot.com/_Vr8Xl0cbUZA/SOuBvQY4c6I/AAAAAAAADow/ag6g3RGgJsM/s400/Image+%3D+Associated+Press+Logo.jpg
+#URL=http://navix.turner3d.net/scrape/yt_grid/AssociatedPress/u
+
+type=rss:video
+name=AP News
+thumb=http://3.bp.blogspot.com/_Vr8Xl0cbUZA/SOuBvQY4c6I/AAAAAAAADow/ag6g3RGgJsM/s400/Image+%3D+Associated+Press+Logo.jpg
+URL=http://gdata.youtube.com/feeds/base/users/AssociatedPress/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile
+
+type=playlist
+name=CNN.com
+URL=http://navix.turner3d.net/scrape/cnn/
+background=http://website.navi-x.org/networks/bg.png
+thumb=http://website.navi-x.org/networks/logos/cnn.jpg
+type=playlist
+name=CNN Podcasts
+URL=http://www.box.net/rssdownload/664046400/cnn.txt
+background=http://website.navi-x.org/networks/bg.png
+thumb=http://website.navi-x.org/networks/logos/cnn.jpg
+type=playlist
+name=MSNBC News
+URL=http://www.box.net/rssdownload/664046468/msnbc.txt
+thumb=http://website.navi-x.org/networks/logos/msnbc.jpg

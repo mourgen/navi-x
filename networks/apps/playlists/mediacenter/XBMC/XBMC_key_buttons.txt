@@ -1,0 +1,34 @@
+﻿This isn't a full list of keys, it was tested with Navi-X 3.0
+
+
+WINDOWS
+
+Up, down, right and left : Arrow keys or Mouse movement
+Up, down on a text file : Up and down Arrow Keys
+Enter and Play : Enter
+Go back : Backspace
+Context menu : C or Application key
+Go to buttom and top of playlist : Home and end
+Go to next page on playlist forwards and backwards : Page up  and Page down
+When you highlight a video or audio file. You can select the player : Q
+If you highlight an image you can start a slight show : Q
+
+
+APPLE TV REMOTE
+
+Context menu : Press and hold the menu button
+
+XBOX
+
+Xbox Controller :
+Up, down, right and left : Directional Pad
+Up, down on a text file :  Up and down of the Directional Pad
+Enter and Play : A
+Go back : B
+Context menu : White button
+When you highlight a video or audio file. You can select the player : Y
+If you highlight an image you can start a slight show : Y
+Scroll down and up on playlist : Left and Right Tricker
+
+
+Made by tikkiew on 27 nov 2009

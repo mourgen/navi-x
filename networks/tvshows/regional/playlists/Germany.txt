@@ -1,0 +1,91 @@
+﻿version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Germany
+logo=http://website.navi-x.org/networks/logo.jpg
+description=/description
+#
+type=playlist
+name=GunGung Cinema
+URL=http://navix.turner3d.net/playlist/19481/test.plx
+player=default
+#
+type=playlist
+name=TV
+URL=http://navix.turner3d.net/playlist/15388/test.plx
+player=default
+#
+type=playlist
+name=Live TV Streams German
+URL=http://navix.turner3d.net/playlist/11593/live_tv_streams_german.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description
+#
+type=playlist
+name=Filme
+thumb=http://tbn1.google.com/images?q=tbn:BVxhhjEyRcMRKM:http://193.100.219.185/aktuell/images/filmrolle.jpg
+URL=http://navix.turner3d.net/playlist/3954/filme.plx
+player=default
+description=direct link of the playlist on Navi-Xtreme Media Portal>Quentin.TV [ German, English, Italiani ]
+/description
+#
+type=playlist
+name=Simpsons
+thumb=http://rossdouthat.theatlantic.com/simpsons.jpg
+URL=http://navix.turner3d.net/playlist/19372/test.plx
+description=direct link of a playlist on Navi-Xtreme Media Portal > made by gunggung
+/description
+#
+type=playlist
+name=German Stuff
+thumb=http://www.worldindividuals.de/German%20Flag.gif
+URL=http://navix.turner3d.net/playlist/553/german_stuff.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description
+#
+type=playlist
+name=Germany - Coldpep
+thumb=http://www.testbericht.de/img/produkt-images/lcd-monitor/XL_/samsung/syncmaster-240-t40t.jpg
+URL=http://navix.turner3d.net/playlist/36648/german_-_coldpep.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description
+#
+type=playlist
+name=SnoxX Deutsch
+thumb=http://www.lb-acoustics.at/lb-acoustics_en/images/stories/lb_acoustics/Home/deutsch.gif
+URL=http://navix.turner3d.net/playlist/2339/snoxx_deutsch.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description
+#
+#type=playlist
+#name=Wir Sind Auch noch Da
+#thumb=http://www.reisefreund.org/media/Urlaub_Deutschland/Deutschland%20Reisen.jpg
+#URL=http://navix.turner3d.net/playlist/4290/wir_sind_auch_noch_da.plx
+#description=direct link of the playlist on Navi-Xtreme Media Portal/description
+#
+type=playlist
+name=Wir Sind Auch noch Da 1
+thumb=http://www.reisefreund.org/media/Urlaub_Deutschland/Deutschland%20Reisen.jpg
+URL=http://navix.turner3d.net/playlist/14001/wir_sind_auch_noch_da_1.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description
+#
+type=playlist
+name=PODCAST - DEUTSCHE
+thumb=http://3.bp.blogspot.com/_WNZxTllRIFk/SKJfY3if65I/AAAAAAAAARU/9BTeT6uRhVg/s320/GermanyFlag.gif
+URL=http://navix.turner3d.net/playlist/3962/podcast__deutsche.plx
+player=mplayer
+description=direct link of the playlist on Navi-Xtreme Media Portal>SAMTROM MEDIA CENTER (Esp-Eng-Deu)
+/description
+#
+type=playlist
+name=Fernseh-Kritik.TV (german)
+thumb=http://samsemilia.x-dream-pc.de/daten/tab1-1.gif
+URL=http://navix.turner3d.net/playlist/9666/fernsehkritik.tv_(german).plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description
+#
+type=playlist
+name=deutsche video-podcasts
+URL=http://navix.turner3d.net/playlist/15601/deutsche_videopodcasts.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal
+/description

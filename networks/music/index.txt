@@ -1,0 +1,55 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - Music
+view=thumbnails
+logo=http://website.navi-x.org/networks/logo.png
+description=/description
+type=playlist
+name=Shoutcast Internet Radio
+URL=http://www.navi-x.org/playlists/shoutcast/shoutcast.plx
+thumb=http://www.navi-x.org/playlists/shoutcast/shoutcast.png
+#thumb=http://testtikkiew.googlecode.com/files/broken.png
+type=opml
+name=RadioTime
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx
+date=2010-12-23
+type=playlist
+name=Radiolala
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_radiolala.png
+URL=http://navix.turner3d.net/scrape/radiolala/
+type=playlist
+name=Grooveshark
+URL=http://navix.turner3d.net/scrape/grooveshark/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
+date=2011-2-6
+
+type=playlist
+name=MTV Music Videos
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg
+URL=http://navix.turner3d.net/scrape/mtv_music/
+
+type=playlist
+name=Vevo (U.S.A. and Canada Only)
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/500px-Vevo_Logosvg.png
+date=2011-01-21
+URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Vevo.pl
+player=default
+rating=-1.00
+description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
+
+type=playlist
+name=(semi-broken) Top 40 Charts
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_top40-charts.png
+URL=http://navix.turner3d.net/scrape/top40charts/
+description==(semi-broken) Some playlist are empty./description
+
+type=playlist
+name=Librivox Audio Books
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
+URL=http://navix.turner3d.net/scrape/librivox/
+#type=xml_shoutcast
+#name=Police Scanners
+#URL=http://www.shoutcast.com/sbin/newxml.phtml?genre=Scanner
+#thumb=http://www.navi-x.org/playlists/shoutcast/shoutcast.png
+#thumb=http://testtikkiew.googlecode.com/files/broken.png

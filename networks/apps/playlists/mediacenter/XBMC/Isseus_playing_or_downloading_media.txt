@@ -1,0 +1,27 @@
+﻿Isseus playing or downloading media specific on XBMC.
+
+There are many reasons why you can't play or download a video.
+Some reasons are mentioned on Navi-X googlecode or on Help & Support,
+but I won't go necessarily into the bugs reported on that list.
+ 
+
+XBMC or XBMC4xbox    
+
+Suddenly streams just drops.
+Example onVideofriender but not 100 percent sure if this error still excist. Quote turner3d:" I'm pretty certain that the videofriender issue is that the connection is simply timing out.
+I would call this an issue with the way XBMC does things since it's the only streaming media player. I know of that just stops if the stream is interrupted."
+
+Downloading
+1.cannot download file.
+Not all items are able to download. Most of the time you will get a message : cannot download file. But unfortunally not always. One of the reasons can be that there is a  false url on his/her playlist on navix.turner3d.net. And the dead link checker can't see there isn't a file in there.
+2.restarting download
+When you restarted Navi-X in the middle of the download. Some downloads doesn't go further. This you will only know for now with trial and error. Remove that link on download queue and download the file again.
+
+
+XBMC4xbox
+
+1.xbox can't play all videos
+On some sites are some real good quality videos. And therefore are not able to play correctly on xbox and other systems which you can compare with the Xbox.
+Example videofriender and MTV.  
+1a.videofriender Those vidoes on videofriender are mostly named (BDrip) (720p HDTV) or (HD) but don't count on that. If you play this streams on xbox : You would only be able to hear the audio and the screen stays black or on screen video plays very slow and will stops playing within seconds. If you choose to download look at the file size. A movies of an hour is =- 700 mb and a tv episode of 30 minutes +- is 250 mb. These are divx quality videos. Which I recommendend to use on xbox.    
+1b.MTV On XBOX on some videos the sound doesn't work correctly. Example: The Fugees - Killing Me Softly With His Song

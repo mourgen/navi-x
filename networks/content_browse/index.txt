@@ -1,0 +1,23 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - Browse Content
+view=thumbnails
+logo=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=FilmTrailer.com - by Region
+URL=http://navix.turner3d.net/scrape/filmtrailer/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_filmtrailer.gif
+
+type=playlist
+name=Movie Genres - JimQode's Movie List
+URL=http://symbolengine.com/navixopml/tags.php
+thumb=http://website.navi-x.org/networks/logo.png
+
+#type=playlist
+#name=Bandwidth - Tikkiew’s Movie List
+#URL=http://website.navi-x.org/networks/content_browse/playlists/bandwidth.plx
+#URL=http://docs.google.com/document/d/1oHxBdIbBPTVb5jpGqmn99yZaUIbi2tS0rmAOcl4_qFQ/export?format=txt&id=1oHxBdIbBPTVb5jpGqmn99yZaUIbi2tS0rmAOcl4_qFQ&tfe=yh_193
+#thumb=http://website.navi-x.org/networks/logo.png
+#note=this is made t understand which sites yoiu are not alwways able to stream video without buffering
+will make a list of unrealiable sites on FAQ

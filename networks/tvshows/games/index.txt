@@ -1,0 +1,55 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - TV Shows - Games
+view=thumbnails
+logo=http://website.navi-x.org/networks/logo.png
+type=playlist
+name=G4TV Website
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png
+URL=http://navix.turner3d.net/scrape/g4tv/
+type=playlist
+name=G4TV Podcast
+thumb=default
+URL=http://www.navi-x.org/playlists/podcasts/Technology/g4tv.plx
+type=playlist
+name=GameFAQ's
+URL=http://navix.turner3d.net/scrape/gamefaqs/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamefaqs.png
+type=playlist
+name=GameSpot
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/gamespot_logo-1.jpg
+URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GameSpot.pl
+date=2011-1-28
+type=playlist
+name=GameTrailers.com
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif
+URL=http://navix.turner3d.net/scrape/gametrailers/
+type=playlist
+name=IGN
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/IGN/IGN_Logo.jpg
+URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/IGN.pl
+date=2011-1-28
+type=playlist
+name=Machinima
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_machinima.jpg
+URL=http://navix.turner3d.net/scrape/machinima/
+
+#type=playlist
+#name=(broken) Gamekings
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.png
+#URL=http://navix.turner3d.net/scrape/gamekings/
+
+type=playlist
+name=Gamekings (Dutch)
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.jpg
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GameKings.pl
+URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GameKings.pl?q=gamekings/
+#description=Complete (full) site scraper. Will remove when turner3d fixes his original Gamkeings site scraper./description
+#note : tikkiew - I am not sure if he will fix it and this is a Complete (full) site scraper. So no need to use his any way. If he will fix it.
+
+#type=playlist
+#name=Gamekings (Dutch)
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.jpg
+#URL=http://navix.turner3d.net/playlist/50142/gamekings.plx
+#URL=http://navix.turner3d.net/playlist/49914/gamekings.tv.plx
+#processor=http://navix.turner3d.net/proc/gamekings

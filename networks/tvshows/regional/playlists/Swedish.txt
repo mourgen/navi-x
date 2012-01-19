@@ -1,0 +1,25 @@
+﻿version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Swedish
+logo=http://website.navi-x.org/networks/logo.jpg
+description=/description
+#
+type=playlist
+name=LIVE TV - Swedish
+URL=http://navix.turner3d.net/playlist/15397/live_tv__swedish.plx
+#
+type=playlist
+name=Swedish TV 1
+URL=http://navix.turner3d.net/playlist/4276/swedish_tv.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal/description
+#
+type=playlist
+name=Swedish TV 2
+URL=http://navix.turner3d.net/playlist/13919/swedish_tv.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal/description
+#
+type=playlist
+name=Swedish Radio
+URL=http://navix.turner3d.net/playlist/4277/swedish_radio.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal/description
+#

@@ -1,0 +1,23 @@
+﻿version=1
+title=Spanish
+#
+type=playlist
+name=Live TV - Spain
+thumb=http://www.travelblog.org/World/flags/spain-large-flag-sp.gif
+URL=http://navix.turner3d.net/playlist/18709/live_tv__spain_.plx
+description=direct link of the playlist on Navi-Xtreme User Media/description
+#
+type=playlist
+name=LIVE TV - Spanish
+date=2009-05-28
+URL=http://navix.turner3d.net/playlist/15396/live_tv__spanish.plx
+player=default
+description=Original Playlist/description
+#
+#type=playlist
+#name=LaSexta (Spanish)
+#URL=http://www.navi-x.org/playlists/laSexta/lasexta.plx
+#background=http://website.navi-x.org/networks/bg.jpg
+#thumb=http://www.navi-x.org/playlists/laSexta/images/lasexta_thumb.jpg
+#description=direct link of the playlist on navi-x.org/description
+#

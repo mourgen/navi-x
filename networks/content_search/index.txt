@@ -1,0 +1,110 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - Search Content
+logo=http://website.navi-x.org/networks/logo.png
+
+#
+type=search
+name=Search Navi-Xtreme
+URL=http://navix.turner3d.net/playlist/search/
+thumb=http://navix.turner3d.net/images/logo.jpg
+#
+type=playlist
+name=Search Navi-Xtreme - Advanced
+#URL=http://76.77.191.9/cgi-bin/Scrapers/navsearch
+URL=http://76.77.191.9/cgi-bin/Scrapers/navsearchaoff
+thumb=http://navix.turner3d.net/images/logo.jpg
+description=This script takes the Navi-Xtreme API provided by Turner3d and allows the user to selectively turn-on and turn-off options for an extended search.  There are the most frequently used  search selections found in the PreDefined Search section.
+/description
+#
+type=playlist
+name=Search Site Scrapers
+URL=http://76.77.191.9/cgi-bin/Scrapers/gsearchv20
+thumb=http://navix.turner3d.net/images/logo.jpg
+description=Video Search is a script which provides searching by video. The user may select searching for the video by individual site or all at once with the results listed in a single dimensional representation, separated by site. The user is prompted for a video name, then allowed available search options are made available.
+There is a Trailer section which allows the video search against frequently used trailer sites.
+There is a Movie Info section which allows the video search against IMDb and TMDb. When once of these are selected, the user is given the available possibilities which match the entered video name.  Then taken to either IMDb or TMDb for details.  The user is then allowed to continue the search for the actual video based on the original input name or the one taken from the movie info site.
+/description
+#
+type=playlist
+name=Search Media Info
+URL=http://76.77.191.9/cgi-bin/Scrapers/imdb20
+thumb=http://website.navi-x.org/networks/logo.png
+description=This browse/search script allows access to the IMDb users lists and a person search for TMDb.
+In honor of our 20th anniversary, we've created a number of lists celebrating the past two decades in movies and television. Our topics range from looking backwards at our favorite stars and films to picking the stars we think you should be looking out for in the next 20 years. But most importantly, we want to hear from our users! Tell us what you think  were the best movies, TV shows, people and characters of the last 20 years. Take a look at our 20th anniversary lists, and then create one of your own!
+/description
+#
+type=search
+name=Search Dailymotion
+URL=http://navix.turner3d.net/search/dailymotion/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_dailymotion.jpg
+#
+type=search
+name=Search DivXStage
+URL=http://navix.turner3d.net/scrape/divxstage/?s=
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
+#
+type=search
+name=Search Google Video
+URL=http://navix.turner3d.net/search/google/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_google.gif
+#
+type=playlist
+name=Search Grooveshark
+URL=http://navix.turner3d.net/scrape/grooveshark/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
+date=2011-2-6
+#
+#type=search
+#name=Search Guba _ broken
+#URL=http://navix.turner3d.net/search/guba/
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_guba.gif
+#
+type=search
+name=Search iTunes Podcasts
+URL=http://navix.turner3d.net/scrape/podcasts/search/
+thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
+#
+type=search
+name=Search Librivox
+URL=http://navix.turner3d.net/scrape/librivox/search/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
+#
+type=search
+name=Search Megavideo
+URL=http://navix.turner3d.net/search/megavideo/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_megavideo.gif
+#
+type=search
+name=Search Novamov
+URL=http://76.77.191.9/cgi-bin/Scrapers/novamov?q=search/
+thumb=http://www.novamov.com/images/logo_novamov.jpg
+#
+#type=search
+#name=Search Photobucket
+#URL=http://feed.photobucket.com/videos/?s=/feed.rss
+#
+#type=search_shoutcast
+#name=Search Shoutcast
+#thumb=default
+#
+type=search
+name=Search StageVu
+URL=http://76.77.191.9/cgi-bin/Scrapers/svsearch?q=basic/
+thumb=http://stagevu.com/img/white/newtitle.png
+description=Just your basic search.  Only keyword is set, all other search arguments are set to default (null)/description
+#
+type=search
+name=Search Videofriender
+URL=http://navix.turner3d.net/search/videofriender/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif
+#
+type=search
+name=Search Vimeo
+URL=http://navix.turner3d.net/search/vimeo/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_vimeo.gif
+#
+type=search
+name=Search YouTube
+URL=http://navix.turner3d.net/search/youtube/
+thumb=http://www.navi-x.org/playlists/youtube/logo.png

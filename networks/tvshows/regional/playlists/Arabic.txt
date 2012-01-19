@@ -1,0 +1,18 @@
+﻿version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Arabic
+logo=http://website.navi-x.org/networks/flags/arabicicon.png
+#
+type=playlist
+name=Arabic general TV
+thumb=http://www.justin.tv/widgets/jtv_player.swf?r=0.9026658530592463
+URL=http://navix.turner3d.net/playlist/18692/arabic_general_tv.plx
+description=direct link of the playlist on Navi-Xtreme Media Portal/description
+#
+type=playlist
+name=LIVE TV - Arabic
+URL=http://navix.turner3d.net/playlist/15389/test.plx
+player=default
+description=original playlist
+/description
+#

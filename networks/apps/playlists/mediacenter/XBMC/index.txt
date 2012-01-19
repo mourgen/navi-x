@@ -1,0 +1,92 @@
+version=8
+background=http://website.navi-x.org/networks/bg2.png
+title=XBMC
+logo=http://ic.tweakimg.net/ext/i/1221810239.png
+description=XBMC Media Center is a free and open source cross-platform media player and home entertainment system software./description
+
+#
+type=rss:
+name=xbmc - feed
+URL=http://xbmc.org/feed/
+player=default
+
+type=rss:
+name=xbmc4xbox - feed
+date=2010-07-26
+URL=http://www.xbmc4xbox.org/feed
+player=default
+#
+type=playlist
+name=XBMCZone - Scripts and Plugins
+thumb=http://www.xbmczone.com/navi-x/logo.png
+URL=http://www.xbmczone.com/navi-x/xbmczone.asp
+description=download script and plugins for xbmc4xbox./description
+
+type=rss:download
+name=XBMC Unofficial Add-on Repositories. Read me »
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=6bce5503e3eed7ac27f0cdc9eb6a0626&_render=rss
+description=XBMC Dharma only.  HOW TO: Install Additional Add-on Repositories
+
+   1. Download the ZIP file for the add-on repository you wish to install and save to a location accessible by XBMC.
+   2. Open the XBMC Add-Ons Manager from the XBMC System menu.
+   3. Choose "Install from zip file".
+   4. Browse to the file you downloaded.
+   5. Your repository is now installed and will be seen in "Get Add-ons".
+
+Repository not listed : xbmcadult./description
+
+#type=playlist
+#name=XBMC Unofficial Add-on Repositories Backup
+#URL=http://website.navi-x.org/-networks/Media_Center_Section_&_Help_and_Support/XBMC/xbmc_unofficial_add-on_repositories.plx
+#description=Manually updated. And doesn't contain the latest Add-on Repositories. When the above is not working. You can use this one./description
+
+type=window
+name=Addon Browser - window
+URL=addonbrowser
+description=XBMC Dharma only./description
+
+type=download
+name=The Navi-X Manual (PDF format)
+URL=http://website.navi-x.org/Navi-X%20Manual_April2009.pdf
+description=Some information is outdated. Old Manual from april 2009. Mostly with XBMC script Navi-X in mind. The first pages focus on how to use XBMC Navi-X script./description
+
+#
+type=video
+name=How to setup your favourites on Navi-X
+thumb=http://i3.ytimg.com/vi/22HuX8JzVus/default.jpg
+URL=http://youtube.com/v/22HuX8JzVus.swf
+processor=http://navix.turner3d.net/proc/youtube
+player=default
+description=I would suggest to put these playlist in your favorites
+Navi-X Networks, Navi-Xtreme Search and Navi-Xtreme Site Scrapers.
+This can be done with context menu. There are more option on context menu: Examples: Downloading , auto play next video and Image Slideshow.
+Context menu button
+On Windows:C or Apllication Key.
+Xbox controller: White button.
+Apple TV remote : Press and hold the menu button./description
+#
+#type=playlist
+#name=Navi-X Playlist building tips : not only xbmc related : will hide this I refer users now to navix.turner3d.net/forums •  Help and Support • Playlist editor: The Basics and
+#thumb=default
+#URL=http://www.box.net/rssdownload/342848388/navix_playlist_building_tips.plx
+#
+type=text
+name=Isseus playing or downloading media
+URL=http://www.box.net/rssdownload/664170424/Isseus_playing_or_downloading_media.txt
+
+type=text
+name=Tips and Tricks
+URL=http://www.box.net/rssdownload/664170380/Tips_and_tricks.txt
+
+type=text
+name=XBMC Key Buttons
+URL=http://www.box.net/rssdownload/664170396/XBMC_key_buttons.txt
+
+type=list_note
+name=Bug List « with any luck in the future
+URL=
+
+
+type=list_note
+name=Requests from users « with any luck in the future
+URL=

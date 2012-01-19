@@ -1,0 +1,21 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+logo=http://website.navi-x.org/networks/logo.png
+title=Regional Networks
+view=thumbnails
+#
+
+type=playlist
+name=Live TV by Region
+date=2011-03-28
+thumb=http://website.navi-x.org/networks/logo.png
+URL=http://navi-x-playlists-for-livetv.googlecode.com/svn/trunk/index.plx
+#URL=http://livetvfornavi-x.googlecode.com/svn/branches/index
+#description=./description
+
+type=playlist
+name=old Regional Networks
+date=2009-05-30
+thumb=http://website.navi-x.org/networks/logo.png
+URL=http://www.box.net/rssdownload/686711128/index_old_Regional_Networks.txt
+#description=./description

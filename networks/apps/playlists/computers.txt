@@ -1,0 +1,11 @@
+﻿version=8
+background=http://website.navi-x.org/networks/bg.png
+title=Navi-X Networks - Apps - Computer Apps
+logo=http://website.navi-x.org/networks/logo.png
+ 
+type=playlist
+name=UNDER CONSTRUCTION
+URL=
+thumb=http://website.navi-x.org/networks/logo.png
+description=Including Media Center Apps/description
+date=
