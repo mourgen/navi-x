@@ -2,16 +2,12 @@ version=8
 background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - TV Shows - News
 view=thumbnails
-type=playlist
-name=ABC News
-URL=http://www.box.net/rssdownload/664046428/abc.txt
-thumb=http://website.navi-x.org/networks/logos/abc.jpg
-#description=A collection of podcasts and ABC 20/20 videos of the site ./description
 
 #type=playlist
-#name=AP News < is broken
-#thumb=http://3.bp.blogspot.com/_Vr8Xl0cbUZA/SOuBvQY4c6I/AAAAAAAADow/ag6g3RGgJsM/s400/Image+%3D+Associated+Press+Logo.jpg
-#URL=http://navix.turner3d.net/scrape/yt_grid/AssociatedPress/u
+#name=ABC News
+#URL=http://www.box.net/rssdownload/664046428/abc.txt
+#thumb=http://website.navi-x.org/networks/logos/abc.jpg
+#description=A collection of podcasts and ABC 20/20 videos of the site ./description
 
 type=rss:video
 name=AP News
@@ -23,11 +19,15 @@ name=CNN.com
 URL=http://navix.turner3d.net/scrape/cnn/
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://website.navi-x.org/networks/logos/cnn.jpg
+
 type=playlist
 name=CNN Podcasts
-URL=http://www.box.net/rssdownload/664046400/cnn.txt
+#URL=http://www.box.net/rssdownload/664046400/cnn.txt
+URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A//pipes.yahoo.com/pipes/pipe.run%3F_id%3D0d637dc84d04d475648640c142814f2e%26_render%3Djson
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://website.navi-x.org/networks/logos/cnn.jpg
+#desription=yahoo.pipe/scraper made by tikkiew. /description
+
 type=playlist
 name=MSNBC News
 URL=http://www.box.net/rssdownload/664046468/msnbc.txt
