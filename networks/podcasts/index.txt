@@ -1,8 +1,13 @@
-﻿version=8
+version=8
 background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - Podcasts
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
+
+type=playlist
+name=NASA
+thumb=http://www.navi-x.org/playlists/nasa/nasa.png
+URL=http://www.navi-x.org/playlists/nasa/nasa.plx
 
 type=playlist
 name=Video & Audio Podcasts
@@ -15,25 +20,25 @@ name=Apple iTunes Podcasts
 URL=http://navix.turner3d.net/scrape/podcasts/
 thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
 
-type=playlist
-name=Digitalpodcast.com
-URL=http://www.symbolengine.com/navixopml/?s=digitalpodcast.com
-thumb=http://website.navi-x.org/networks/logo.png
+#type=playlist
+#name=Digitalpodcast.com
+#URL=http://www.symbolengine.com/navixopml/?s=digitalpodcast.com
+#thumb=http://website.navi-x.org/networks/logo.png
 
-type=playlist
-name=Podcast Alley
-URL=http://www.symbolengine.com/navixopml/?s=Podcast+Alley
-thumb=http://website.navi-x.org/networks/logo.png
+#type=playlist
+#name=Podcast Alley
+#URL=http://www.symbolengine.com/navixopml/?s=Podcast+Alley
+#thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=Podcast Providers
 URL=http://www.navi-x.org/playlists/podcasts/providers.plx
 thumb=http://website.navi-x.org/networks/logo.png
 
-type=playlist
-name=Tech Podcasts
-URL=http://www.symbolengine.com/navixopml/?s=techpodcasts
-thumb=http://website.navi-x.org/networks/logo.png
+#type=playlist
+#name=Tech Podcasts
+#URL=http://www.symbolengine.com/navixopml/?s=techpodcasts
+#thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=Top Podcasts
