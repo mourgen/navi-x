@@ -68,7 +68,7 @@ and I made the change here aswell. However the old one should also work.  /descr
 #URL=http://navix.turner3d.net/scrape/vidics/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_vidics.png
 
-type=playlist
-name=Megavideo Premium Login
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png
-URL=http://navix.turner3d.net/scrape/mvloginset/
+#type=playlist
+#name=Megavideo Premium Login
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png
+#URL=http://navix.turner3d.net/scrape/mvloginset/
