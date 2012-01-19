@@ -34,25 +34,34 @@ thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
 type=playlist
 name=Novamov
 thumb=http://www.novamov.com/images/logo_novamov.jpg
-URL=http://76.77.191.9/cgi-bin/Scrapers/novamov
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/novamov
+#URL=http://76.77.191.9/cgi-bin/Scrapers/novamov
 #note: tikkiew - description just general info about scrapers, so I hide it.
 #description=This search script basically scrapes the Novamov site and represents the results in Navi-X playlist form.  For more info on its use you can visit the site and take it for a spin.
 /description
+#description= tikkiew : boseman changed his URL on his playlist 
+and I made the change here aswell. However the old one should also work.  /description
 
 type=playlist
 name=StageVu
 thumb=http://stagevu.com/img/white/newtitle.png
-URL=http://76.77.191.9/cgi-bin/Scrapers/svsearch
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/svsearch
+#URL=http://76.77.191.9/cgi-bin/Scrapers/svsearch
 #description=This search script basically scrapes the StageVu site and represents the results in Navi-X playlist form.  For more info on its use you can visit the site and take it for a spin.
 /description
+#description= tikkiew : boseman changed his URL on his playlist 
+and I made the change here aswell. However the old one should also work.  /description
 
 type=playlist
 name=Videofriender
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif
-URL=http://76.77.191.9/cgi-bin/Scrapers/vfsearch
-player=default
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/vfsearch
+#URL=http://76.77.191.9/cgi-bin/Scrapers/vfsearch
+#description=The standard Videofriender search is being used until Boseman's scrapers come back online. /description
 #description= This search script basically scrapes the Videofriender site and represents the results in Navi-X playlist form.  For more info on its use you can visit the site and take it for a spin.
 /description
+#description= tikkiew : scraper is back online. Boseman changed his URL on his playlist 
+and I made the change here aswell. However the old one should also work.  /description
 
 #type=playlist
 #name=VidIcs - broken
@@ -63,8 +72,3 @@ type=playlist
 name=Megavideo Premium Login
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png
 URL=http://navix.turner3d.net/scrape/mvloginset/
-
-
-
-
-
