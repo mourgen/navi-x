@@ -2,7 +2,6 @@ version=8
 background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - Search Content
 logo=http://website.navi-x.org/networks/logo.png
-
 #
 type=search
 name=Search Navi-Xtreme
@@ -11,15 +10,17 @@ thumb=http://navix.turner3d.net/images/logo.jpg
 #
 type=playlist
 name=Search Navi-Xtreme - Advanced
-#URL=http://76.77.191.9/cgi-bin/Scrapers/navsearch
-URL=http://76.77.191.9/cgi-bin/Scrapers/navsearchaoff
+#oldURL=http://76.77.191.9/cgi-bin/Scrapers/navsearch
+#URL=http://76.77.191.9/cgi-bin/Scrapers/navsearchaoff
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/navsearchaoff
 thumb=http://navix.turner3d.net/images/logo.jpg
 description=This script takes the Navi-Xtreme API provided by Turner3d and allows the user to selectively turn-on and turn-off options for an extended search.  There are the most frequently used  search selections found in the PreDefined Search section.
 /description
 #
 type=playlist
 name=Search Site Scrapers
-URL=http://76.77.191.9/cgi-bin/Scrapers/gsearchv20
+#URL=http://76.77.191.9/cgi-bin/Scrapers/gsearchv20
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/gsearchv20
 thumb=http://navix.turner3d.net/images/logo.jpg
 description=Video Search is a script which provides searching by video. The user may select searching for the video by individual site or all at once with the results listed in a single dimensional representation, separated by site. The user is prompted for a video name, then allowed available search options are made available.
 There is a Trailer section which allows the video search against frequently used trailer sites.
@@ -28,7 +29,8 @@ There is a Movie Info section which allows the video search against IMDb and TMD
 #
 type=playlist
 name=Search Media Info
-URL=http://76.77.191.9/cgi-bin/Scrapers/imdb20
+#URL=http://76.77.191.9/cgi-bin/Scrapers/imdb20
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/imdb20
 thumb=http://website.navi-x.org/networks/logo.png
 description=This browse/search script allows access to the IMDb users lists and a person search for TMDb.
 In honor of our 20th anniversary, we've created a number of lists celebrating the past two decades in movies and television. Our topics range from looking backwards at our favorite stars and films to picking the stars we think you should be looking out for in the next 20 years. But most importantly, we want to hear from our users! Tell us what you think  were the best movies, TV shows, people and characters of the last 20 years. Take a look at our 20th anniversary lists, and then create one of your own!
@@ -77,7 +79,8 @@ thumb=http://navix.turner3d.net/images/backgrounds/thumb_megavideo.gif
 #
 type=search
 name=Search Novamov
-URL=http://76.77.191.9/cgi-bin/Scrapers/novamov?q=search/
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/novamov
+#URL=http://76.77.191.9/cgi-bin/Scrapers/novamov?q=search/
 thumb=http://www.novamov.com/images/logo_novamov.jpg
 #
 #type=search
@@ -90,9 +93,11 @@ thumb=http://www.novamov.com/images/logo_novamov.jpg
 #
 type=search
 name=Search StageVu
-URL=http://76.77.191.9/cgi-bin/Scrapers/svsearch?q=basic/
+URL=http://boseman22.dyndns-server.com/cgi-bin/Scrapers/svsearch?q=basic/
+#URL=http://76.77.191.9/cgi-bin/Scrapers/svsearch?q=basic/
 thumb=http://stagevu.com/img/white/newtitle.png
-description=Just your basic search.  Only keyword is set, all other search arguments are set to default (null)/description
+#description=Just your basic search.  Only keyword is set, all other search arguments are set to default (null)/description
+#note= tikkiw : hide description. just basic info.
 #
 type=search
 name=Search Videofriender
