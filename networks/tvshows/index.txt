@@ -26,7 +26,7 @@ thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=- Video Sharing Sites
-URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/videosites/index.txt
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/video_sites/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
