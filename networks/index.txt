@@ -48,7 +48,7 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Websites (Boxee Box Only)
-URL=http://navi-x.googlecode.com/svn/trunk/networks/websites/index.txt
+URL=http://navi-x.googlecode.com/svn/trunk/networks/websites/index.plx
 thumb=http://navi-x.googlecode.com/svn/trunk/networks/logos/main_menu/websites.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
