@@ -1,0 +1,44 @@
+version=0
+title=Tunein 
+logo=http://www.navi-x.org/playlists/radiotime.jpg
+#
+type=opml
+name=Local Radio
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?c=local
+#
+type=opml
+name=Music
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?c=music
+#
+type=opml
+name=Talk
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?c=talk
+#
+type=opml
+name=Sports
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?c=sports
+#
+type=opml
+name=By Location
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?id=r0
+#
+type=opml
+name=By Language
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?c=lang
+#
+type=opml
+name=Podcasts
+thumb=http://www.navi-x.org/playlists/radiotime.jpg
+URL=http://opml.radiotime.com/Browse.ashx?c=podcast
+#
+type=search:opml
+name=Search RadioTime
+URL=http://opml.radiotime.com/Search.ashx?query=
+#
+
