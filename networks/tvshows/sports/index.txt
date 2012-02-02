@@ -50,41 +50,30 @@ URL=http://navix.turner3d.net/scrape/nfl/
 #rating=-1.00
 #description=Video News from TheGolfChannel.com rss feed/description
 
-#type=rss:video
-#name=MLS Soccer - Latest Videos
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/500px-MLS_Logosvg.png
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=65187f24e174a748863e14f07d49973b&_render=rss
-#processor=http://navix.turner3d.net/proc/youtube
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/MLS_Logo.jpg
-#player=default
-#rating=-1.00
-#description=Major League Soccer (MLS) is a professional soccer league based in the United States, sanctioned by the United States Soccer Federation (U.S. Soccer). The league comprises 16 teams, 15 in the U.S. and one in Canada and is scheduled to become 18 teams for the 2011 season and 19 teams by 2012. MLS represents the top tier of the American and Canadian soccer pyramids.
-#Major League Soccer was founded in 1993 as part of the United States's bid to host the 1994 FIFA World Cup. The first season took place in 1996 beginning with 10 teams. Seasons run from late March or early April to November, with teams playing 30 regular season games each. Eight teams compete in the postseason MLS Cup Playoffs culminating in the championship game, MLS Cup./description
+type=rss:video
+name=MLSSOCCER.COM - Latest Videos
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/500px-MLS_Logosvg.png
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=65187f24e174a748863e14f07d49973b&_render=rss
+processor=http://navix.turner3d.net/proc/youtube
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/MLS_Logo.jpg
+description=Major League Soccer (MLS) is a professional soccer league based in the United States, sanctioned by the United States Soccer Federation (U.S. Soccer). The league comprises 16 teams, 15 in the U.S. and one in Canada  and is scheduled to become 18 teams for the 2011 season and 19 teams by 2012. MLS represents the top tier of the American and Canadian soccer pyramids.
+Major League Soccer was founded in 1993 as part of the United States's bid to host the 1994 FIFA World Cup. The first season took place in 1996 beginning with 10 teams. Seasons run from late March or early April to November, with teams playing 30 regular season games each. Eight teams compete in the postseason MLS Cup Playoffs culminating in the championship game, MLS Cup./description
+date=2012-02-02
 
-#type=playlist
-#name=Nascar
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-NASCARsvg.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Nascar.pl
-#player=default
-#rating=-1.00
-#description=Videos from the The official site of NASCAR, the National Association for Stock Car Auto Racing, Nascar.com/description
+type=playlist
+name=Nascar.com
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/nascar-logo.jpg
+URL=http://navix.turner3d.net/playlist/25784/nascar.com.plx
+description=Videos from the The official site of NASCAR, the National Association for Stock Car Auto Racing, Nascar.com/description
+date=2012-02-02
 
-#type=playlist
-#name=MLB
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/mlb-logo.jpg
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/MLB.pl
-#player=default
-#rating=-1.00
-
-#type=rss:video
-#name=NBA.com - Top Videos
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo.jpg
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=db8ad3abedfc938bc8b245275793d082&_render=rss
-#processor=http://navix.turner3d.net/proc/nba
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
-#player=default
-#rating=-1.00
-#description=NBA.com - Top Videos/description
+type=rss:video
+name=NBA.com -  Top Videos
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo.jpg
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=db8ad3abedfc938bc8b245275793d082&_render=rss
+processor=http://navix.turner3d.net/proc/nba
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
+description=NBA.com -  Top Videos/description
 
 type=rss:video
 name=NBA.com - TNT Overtime
@@ -92,8 +81,6 @@ thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Ju
 URL=http://www.nba.com/broadband/tnt_overtime.xml
 processor=http://navix.turner3d.net/proc/nba
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
-player=default
-rating=-1.00
 
 type=rss:video
 name=NBA.com - Barkley Zone Video
@@ -101,30 +88,28 @@ thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Ju
 URL=http://www.nba.com/rss/barkleyzone.rss
 processor=http://navix.turner3d.net/proc/nba
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
+
+type=rss:video
+name=UEFA.com Weekly Edition
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/uefa.png
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=8b2dd1dcb7cb6821b86c32d74448c888&_render=rss
+processor=http://justme4u2c.zymichost.com/UEFA.php
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/uefa_champions_league.jpg
 player=default
 rating=-1.00
+description=UEFA.com Weekly Edition (Real-Time Updated)
+The official site of the European governing body of the sport with results from the UEFA Champions League, and the UEFA Cup. Daily news, photographs, videos .../description
 
-#type=rss:video
-#name=UEFA.com Weekly Edition
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/uefa.png
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=8b2dd1dcb7cb6821b86c32d74448c888&_render=rss
-#processor=http://justme4u2c.zymichost.com/UEFA.php
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/uefa_champions_league.jpg
-#player=default
-#rating=-1.00
-#description=UEFA.com Weekly Edition (Real-Time Updated)
-#The official site of the European governing body of the sport with results from the UEFA Champions League, and the UEFA Cup. Daily news, photographs, videos .../description
-
-#type=rss:video
-#name=Sports Illustrated.com (Newest Videos)
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u?2c%20Sports%20Network/sportsillustrated.jpg
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=6aa99b69765bbdf863b72e4986dcf437&_render=rss
-#processor=http://justme4u2c.zymichost.com/SportsIllustrated.php
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/2654378.jpg
-#player=default
-#rating=-1.00
-#description=Sports Illustrated.com (Newest Videos) (Real-Time Updated)
-#SI.com - sports news, scores, photos, columns and expert analysis from the world of sports including NFL, NBA, NHL, MLB, NASCAR, college basketball, .../description
+type=rss:video
+name=Sports Illustrated.com (Newest Videos)
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/sportsillustrated.jpg
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=6aa99b69765bbdf863b72e4986dcf437&_render=rss
+processor=http://justme4u2c.zymichost.com/SportsIllustrated.php
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/2654378.jpg
+player=default
+rating=-1.00
+description=Sports Illustrated.com (Newest Videos) (Real-Time Updated)
+SI.com - sports news, scores, photos, columns and expert analysis from the world of sports including NFL, NBA, NHL, MLB, NASCAR, college basketball, .../description
 
 type=rss:
 name=MLB.com Video Podcast
@@ -135,55 +120,32 @@ player=default
 rating=-1.00
 description=A daily dose of hits from MLB.com. This all-star lineup includes news, features, highlights and analysis. Interviews with game-shapers and movers: from the players on the field to the the front office brass and the media that cover them -- this daily download a must-listen./description
 
-#type=rss:video
-#name=Versus (Most Recent Videos)
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/main_logo_beta.png
-#URL=http://www.dapper.net/transform.php?dappName=VersusMostRecentVideos&transformer=RSS&extraArg_title=title&extraArg_description[]=thumbnail&applyToUrl=http%3A%2F%2Fwww.versus.com%2Fvideos%2F
-#processor=http://justme4u2c.zymichost.com/Versus.php
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/logo_versus-150x128.gif
-#player=default
-#rating=-1.00
-#description=Versus.com, formerly the Outdoor Life Network, offers the latest in sports programming including Professional Bullriding, College Football, NHL, Cycling, Hunting, MMA, Fishing and Indycar..../description
+type=rss:video
+name=Versus (Most Recent Videos)
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/main_logo_beta.png
+URL=http://www.dapper.net/transform.php?dappName=VersusMostRecentVideos&transformer=RSS&extraArg_title=title&extraArg_description[]=thumbnail&applyToUrl=http%3A%2F%2Fwww.versus.com%2Fvideos%2F
+processor=http://justme4u2c.zymichost.com/Versus.php
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/logo_versus-150x128.gif
+player=default
+rating=-1.00
+description=Versus.com, formerly the Outdoor Life Network, offers the latest in sports programming including Professional Bullriding, College Football, NHL, Cycling, Hunting, MMA, Fishing and Indycar..../description
 
-#type=rss:video
-#name=YesNetwork.com - Latest Videos
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/YES_Network_logo.png
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=b21056cd8be63a0b8dd30acb85b3ced6&_render=rss
-#processor=http://justme4u2c.zymichost.com/YesNetwork.php
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/YES-bgtile.jpg
-#player=dvdplayer
-#rating=-1.00
-#description=Comprehensive coverage of the New York Yankees, New Jersey Nets and New York, Major League Baseball (MLB), National Basketball Association(NBA), .../description
-
-type=playlist
-name=Soccer Clips
-thumb=http://navix.turner3d.net/justme4u2c/images/SoccerClips.jpg
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/SoccerClips.pl
-date=2012-02-02
+type=rss:video
+name=YesNetwork.com - Latest Videos
+thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/YES_Network_logo.png
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=b21056cd8be63a0b8dd30acb85b3ced6&_render=rss
+processor=http://justme4u2c.zymichost.com/YesNetwork.php
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/YES-bgtile.jpg
+player=dvdplayer
+rating=-1.00
+description=Comprehensive coverage of the New York Yankees, New Jersey Nets and New York, Major League Baseball (MLB), National Basketball Association(NBA), .../description
 
 type=rss:video
 name=NBA on Metacafe
 thumb=http://s4.mcstatic.com/image/user_photo_landscape_large/10602659/nba.jpg
 URL=http://www.metacafe.com/nba/rss.xml
 processor=http://justme4u2c.zymichost.com/Metacafe.php
-background=
-http://i254.photobucket.com/albums/hh98/justme4u2cme/metacafe1.png
+background=http://i254.photobucket.com/albums/hh98/justme4u2cme/metacafe1.png
 player=default
 rating=-1.00
 description=NBA on Metacafe/description
-
-type=rss
-name=MLB.com Podcast
-thumb=http://podcast.com/images/channels/mlb-podcasts.jpg
-URL=http://mlb.mlb.com/feed/podcast/c1265936.xml
-
-
-#type=rss
-#name=(broken) Golf Tips - On Networks Podcast
-#thumb=http://www.podbean.com/image-logos/17641_logo.jpg
-#URL=http://golf.onnetworks.com/videos/shows/785/podcast
-
-type=rss
-name=UEFA.com Training Ground
-thumb=http://www.uefa.com/img/podcast/training_ground.png
-URL=http://www.uefa.com/rssfeed/podcast/eurofootballreview-vodcast-event.xml
