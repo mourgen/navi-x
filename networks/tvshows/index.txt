@@ -85,6 +85,12 @@ URL=http://navix.turner3d.net/scrape/cbs/
 #URL=http://navix.turner3d.net/scrape/discovery/dsc
 
 type=playlist
+name=DIY Network
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_diynetwork.png
+URL=http://navix.turner3d.net/scrape/diynetwork/
+date=2012-02-02
+
+type=playlist
 name=Food Network
 thumb=http://navix.turner3d.net/justme4u2c/images/Food_Network.png
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
