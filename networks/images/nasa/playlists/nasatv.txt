@@ -1,0 +1,30 @@
+version=1
+background=http://navi-x.googlecode.com/svn/trunk/networks/nasa/nasa_bg.jpg
+title=NASA TV
+
+type=video
+name=NASA Public Channel stream 1 (HD 720p)
+URL=http://liveips.nasa.gov.edgesuite.net/msfc/Wifi.m3u8?|User-Agent=QuickTime N-/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)\\r\\n
+#
+type=video
+name=NASA Media Channel stream 1 (Flash)
+thumb=default
+URL=rtmp://cp76072.live.edgefcs.net/live/ swfUrl="http://www.nasa.gov/templateimages/redesign/flash_player/swf/4.5/player.swf" pageUrl="http://www.nasa.gov/multimedia/nasatv/media_flash.html" Playpath=MED-HQ-Flash@42814 live=true timeout=180
+#
+type=video
+name=NASA Media Channel stream 2 (320x240, 150kbps)
+thumb=default
+processor=http://www.navi-x.org/asxparse.py
+URL=http://www.nasa.gov/145590main_Digital_Media.asx
+#
+type=video
+name=NASA Education Channel stream (320x240, 150kbps)
+thumb=default
+processor=http://www.navi-x.org/asxparse.py
+URL=http://www.nasa.gov/145588main_Digital_Edu.asx
+#
+type=video
+name=NASA Live Space Station Video (320x240, 150kbps)
+thumb=default
+processor=http://www.navi-x.org/asxparse.py
+URL=http://www.nasa.gov/multimedia/isslivestream.asx

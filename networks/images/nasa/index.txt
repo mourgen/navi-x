@@ -1,0 +1,24 @@
+version=1
+background=http://navi-x.googlecode.com/svn/trunk/networks/nasa/nasa_bg.jpg
+title=NASA
+
+type=rss
+name=NASA Image of the Day
+thumb=default
+URL=http://www.nasa.gov/rss/lg_image_of_the_day.rss
+#
+type=playlist
+name=NASA TV
+thumb=default
+URL=http://navi-x.googlecode.com/svn/trunk/networks/nasa/playlists/nasatv.txt
+#
+type=playlist
+name=NASA Podcast
+thumb=default
+URL=http://navi-x.googlecode.com/svn/trunk/networks/nasa/playlists/podcast.txt
+#
+type=rss
+name=NASA Breaking news
+thumb=default
+URL=http://www.nasa.gov/rss/breaking_news.rss
+#
