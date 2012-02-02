@@ -166,6 +166,12 @@ URL=http://navix.turner3d.net/scrape/pbs/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_planetgreen.png
 #URL=http://navix.turner3d.net/scrape/discovery/planetgreen
 
+type=playlist
+name=Pokerstars TV
+thumb=http://navix.turner3d.net/justme4u2c/images/PokerstarsTV.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/PokerStars.pl
+date=2012-02-02
+
 #type=playlist
 #name=PokerTube
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif
