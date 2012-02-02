@@ -155,16 +155,11 @@ description=A daily dose of hits from MLB.com. This all-star lineup includes new
 #rating=-1.00
 #description=Comprehensive coverage of the New York Yankees, New Jersey Nets and New York, Major League Baseball (MLB), National Basketball Association(NBA), .../description
 
-#type=rss:video
-#name=(broken) Soccerclips.net - Latest Videos (Real-Time Updated)
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/logo_soccerclips.jpg
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=f798fa334410b45d83fd2e89aa936c2d&_render=rss
-#processor=http://justme4u2c.zymichost.com/Soccerclips.net.php
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/soccerclips.jpg
-#player=default
-#rating=-1.00
-#description=Soccerclips.net - Latest Videos (Real-Time Updated)
-Football videos, football news, forum and more. SoccerClips is a community/description
+type=playlist
+name=Soccer Clips
+thumb=http://navix.turner3d.net/justme4u2c/images/SoccerClips.jpg
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/SoccerClips.pl
+date=2012-02-02
 
 type=rss:video
 name=NBA on Metacafe
