@@ -36,13 +36,13 @@ URL=http://navix.turner3d.net/scrape/nfl/
 #rating=-1.00
 #description=UFC.com - Latest Videos/description
 
-type=playlist
-name=TheGolfChannel Video News
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/500px-Golf_Channel_logosvg.png
-URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/TheGolfChannel.pl
-player=default
-rating=-1.00
-description=Video News from TheGolfChannel.com rss feed/description
+#type=playlist
+#name=TheGolfChannel Video News
+#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/500px-Golf_Channel_logosvg.png
+#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/TheGolfChannel.pl
+#player=default
+#rating=-1.00
+#description=Video News from TheGolfChannel.com rss feed/description
 
 type=playlist
 name=Fox Sports
