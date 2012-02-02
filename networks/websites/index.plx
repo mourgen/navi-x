@@ -1,8 +1,8 @@
 version=8
 title=Navi-X Networks - Websites
 view=thumbnails
-logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
-background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
+logo=http://website.navi-x.org/networks/logo.png
+background=http://website.navi-x.org/networks/bg.jpg
 description=This section contains a list of popular websites on the internet that broadcast content./description
 
 type=playlist
