@@ -29,11 +29,10 @@ type=rss
 name=Vintage Tooncast
 URL=http://feeds.gespod.nl/VintageToonCast
 
-#type=playlist
-#name=Sesame Street
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Sesame_Street_logosvg.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/SesameStreet.pl
-#date=2011-1-28
+type=playlist
+name=Sesame Street
+thumb=http://navix.turner3d.net/justme4u2c/images/SesameStreet.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
 #type=playlist
 #name=WB Kids
