@@ -34,11 +34,11 @@ name=Sesame Street
 thumb=http://navix.turner3d.net/justme4u2c/images/SesameStreet.png
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
-#type=playlist
-#name=WB Kids
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/Kids_WB_2009_logo.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/WBKids.pl
-#date=2011-1-28
+type=playlist
+name=WB Kids
+thumb=http://navix.turner3d.net/justme4u2c/images/Kids_WB.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/WBKids.pl
+date=2012-02-02
 
 #type=playlist
 #name=Nick Jr.
