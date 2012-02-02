@@ -30,11 +30,11 @@ thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamefaqs.png
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif
 #URL=http://navix.turner3d.net/scrape/gametrailers/
 
-#type=playlist
-#name=IGN
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/IGN/IGN_Logo.jpg
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/IGN.pl
-#date=2011-1-28
+type=playlist
+name=IGN
+thumb=http://navix.turner3d.net/justme4u2c/images/IGN.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/IGN.pl
+date=2012-02-02
 
 #type=playlist
 #name=Machinima
