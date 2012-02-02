@@ -136,6 +136,12 @@ thumb=http://navix.turner3d.net/images/logo_maxim.jpg
 URL=http://navix.turner3d.net/scrape/maxim/
 
 type=playlist
+name=Mekong TV
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_mekongtv.png
+URL=http://navix.turner3d.net/scrape/mekongtv/
+date=2012-02-02
+
+type=playlist
 name=National Geographic
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_natgeo.jpg
 URL=http://navix.turner3d.net/scrape/natgeo/
