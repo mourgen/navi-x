@@ -1,8 +1,8 @@
-﻿version=8
-background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
+ version=8
+background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - Podcasts
 view=thumbnails
-logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
+logo=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=NASA
