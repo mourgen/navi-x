@@ -1,9 +1,8 @@
 version=8
-background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
+background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - Apps
 view=thumbnails
-logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
-
+logo=http://website.navi-x.org/networks/logo.png
 type=playlist
 name=Gaming Networks
 URL=http://navix.turner3d.net/playlist/39820/test.plx
