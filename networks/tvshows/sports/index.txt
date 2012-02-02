@@ -22,6 +22,12 @@ logo=http://website.navi-x.org/networks/logo.jpg
 #date=2011-1-28
 
 type=playlist
+name=Fox Sports
+thumb=http://navix.turner3d.net/justme4u2c/images/Fox_Sports.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoxSports.pl?q=foxsports/
+date=2012-02-02
+
+type=playlist
 name=NFL
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_nfl.jpg
 URL=http://navix.turner3d.net/scrape/nfl/
@@ -43,14 +49,6 @@ URL=http://navix.turner3d.net/scrape/nfl/
 #player=default
 #rating=-1.00
 #description=Video News from TheGolfChannel.com rss feed/description
-
-type=playlist
-name=Fox Sports
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/250px-Fox_Sports_logosvg.png
-URL=http://navix.turner3d.net/playlist/25487/fox_sports.com_video_central.plx
-player=default
-rating=-1.00
-description=Fox Sports is a division of the Fox Broadcasting Company (part of News Corporation). It was formed in 1994 with Fox's acquisition of broadcast rights to National Football League games. In subsequent years, it has televised the National Hockey League (1994-1999), Major League Baseball (1996-present), NASCAR (2001-present), and the Bowl Championship Series (2007-2010)./description
 
 #type=rss:video
 #name=MLS Soccer - Latest Videos
