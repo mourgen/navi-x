@@ -31,6 +31,13 @@ name=DivXStage
 URL=http://navix.turner3d.net/scrape/divxstage/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
 
+type=playlist
+name=Movie25
+thumb=http://navix.turner3d.net/justme4u2c/images/Movie25.jpg
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl
+player=default
+date=2012-02-02
+
 #type=playlist
 #name=Novamov
 #thumb=http://www.novamov.com/images/logo_novamov.jpg
