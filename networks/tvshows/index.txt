@@ -84,12 +84,11 @@ URL=http://navix.turner3d.net/scrape/cbs/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_dsc.png
 #URL=http://navix.turner3d.net/scrape/discovery/dsc
 
-#type=playlist
-#name=Food Network
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/200px-Food_Networksvg.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/FoodNetwork.pl
-#player=default
-#date=2011-1-28
+type=playlist
+name=Food Network
+thumb=http://navix.turner3d.net/justme4u2c/images/Food_Network.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
+date=2012-02-02
 
 #type=playlist
 #name=GSN (Game Show Network)
