@@ -9,11 +9,11 @@ logo=http://website.navi-x.org/networks/logo.jpg
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_cbssports.gif
 #URL=http://navix.turner3d.net/scrape/cbs_sports/
 
-#type=playlist
-#name=ESPN
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/ESPN/ESPN.png
-#URL=http://navix.turner3d.net/playlist/48361/espn_networks.plx
-#description=made by Justme4u2c./description
+type=playlist
+name=ESPN
+thumb=http://navix.turner3d.net/justme4u2c/images/ESPN.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/ESPN.pl
+date=2012-02-02
 
 #type=playlist
 #name=ESPN Deportes
