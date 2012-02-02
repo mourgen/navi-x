@@ -173,11 +173,11 @@ URL=http://navix.turner3d.net/scrape/pbs/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif
 #URL=http://navix.turner3d.net/scrape/pokertube/
 
-#type=playlist
-#name=Revision3
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Revision3svg.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Revision3.pl
-#date=2011-2-15
+type=playlist
+name=Revision3
+thumb=http://navix.turner3d.net/justme4u2c/images/Revision3.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
+date=2012-02-02
 
 #type=playlist
 #name=SyFy
