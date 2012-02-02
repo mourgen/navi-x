@@ -22,13 +22,12 @@ thumb=http://website.navi-x.org/networks/logos/cnn.jpg
 
 type=playlist
 name=CNN Podcasts
-#URL=http://www.box.net/rssdownload/664046400/cnn.txt
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A//pipes.yahoo.com/pipes/pipe.run%3F_id%3D0d637dc84d04d475648640c142814f2e%26_render%3Djson
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/cnn.txt
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://website.navi-x.org/networks/logos/cnn.jpg
-#desription=yahoo.pipe/scraper made by tikkiew. /description
+#desription=Tikkiew, I will redo the CNN playlist myself. Thanks!/description
 
 type=playlist
 name=MSNBC News
-URL=http://www.box.net/rssdownload/664046468/msnbc.txt
+URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/msnbc.txt
 thumb=http://website.navi-x.org/networks/logos/msnbc.jpg
