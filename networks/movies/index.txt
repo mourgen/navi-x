@@ -32,6 +32,18 @@ URL=http://navix.turner3d.net/scrape/divxstage/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
 
 type=playlist
+name=Extramina
+thumb=http://profile.ak.fbcdn.net/hprofile-ak-ash2/48910_100000452142540_411_n.jpg
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_recentvideos?q=intheaters
+date=2012-02-02
+
+type=playlist
+name=Fast Pass TV
+thumb=http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=getmovies
+date=2012-02-02
+
+type=playlist
 name=IceFilms.info
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png
 URL=http://navix.turner3d.net/scrape/icefilms/
@@ -47,6 +59,18 @@ type=playlist
 name=Novamov
 thumb=http://www.novamov.com/images/logo_novamov.jpg
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_novamov
+date=2012-02-02
+
+type=playlist
+name=Project: Free TV
+thumb=http://www.free-tv-video-online.me/images/projectfree4.gif
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
+date=2012-02-02
+
+type=playlist
+name=Public Domain Flicks
+thumb=http://www.publicdomainflicks.com/img/logo.gif
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/public
 date=2012-02-02
 
 type=playlist
