@@ -98,12 +98,11 @@ date=2012-02-02
 #description=(*** Not Xbox friendly streams ***) 
 #GSN is a multimedia entertainment company that offers original and classic game programming via its 73-million subscriber television network and online games sites. GSN's cross-platform content puts winning within reach for viewers and participants, whether through GSN's popular TV game shows, gsn.com's free casual games or its WorldWinner competitive cash tournaments./description
 
-#type=playlist
-#name=HGTV Network
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/hgtv-logo.jpg
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/HGTV.pl
-#player=default
-#date=2011-1-28
+type=playlist
+name=HGTV
+thumb=http://navix.turner3d.net/justme4u2c/images/HGTV.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/HGTV.pl
+date=2012-02-02
 
 type=video
 name=HSN - LIVE (XBMC Only)
