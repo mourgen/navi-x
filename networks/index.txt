@@ -1,8 +1,8 @@
 version=8
 title=Navi-X Networks
 view=thumbnails
-logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
-background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
+logo=http://website.navi-x.org/networks/logo.png
+background=http://website.navi-x.org/networks/bg.jpg
 
 type=playlist
 name=Search Navi-X
