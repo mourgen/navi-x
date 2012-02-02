@@ -55,5 +55,5 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 type=rss
 name=Twitter on Navi-X
 URL=http://twitter.com/statuses/user_timeline/46791316.rss
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/logos/main_menu/twitter_logo.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/twitter_icon.png
+thumb=http://website.navi-x.org/networks/logos/main_menu/twitter_logo.png
+icon=http://website.navi-x.org/networks/twitter_icon.png
