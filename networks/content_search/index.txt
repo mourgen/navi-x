@@ -139,12 +139,12 @@ thumb=http://static.veehd.com/logo.gif
 type=search
 name=Search Videofriender
 URL=http://navix.turner3d.net/search/videofriender/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif
+thumb=http://videofriender.com/images/logo.png?1218389123
 #
 type=playlist
 name=Search Videofriender (Extended)
-thumb=http://videofriender.com/images/logo.png?1218389123
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
+thumb=http://videofriender.com/images/logo.png?1218389123
 #
 type=search
 name=Search Vimeo
