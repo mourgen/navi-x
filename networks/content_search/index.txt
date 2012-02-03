@@ -8,6 +8,75 @@ name=Search Navi-Xtreme
 URL=http://navix.turner3d.net/playlist/search/
 thumb=http://navix.turner3d.net/images/logo.jpg
 #
+type=playlist
+name=Navi-Xtreme Extended Search
+thumb=http://navix.turner3d.net/images/logo.jpg
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_navsearch
+player=default
+rating=-1.00
+description=08-31-10 Add predefined item, modified predefined playlist search
+
+08-08-10 Bug fix on some single entry search results
+
+v4 - Added Media site link support for searching string for a particular media site only
+
+v3.5 - serious work done to parameter passing and duplicates.  Fixed many bugs.
+
+08-06-10 adds removal of duplicate URL option
+
+3.1 adds sorting of the names
+
+Identical to Navi-X Extended Search except now uses JSON.
+
+An attempt at applying Turner's new database api to a search engine giving user options to extend search options.  May be the same effect as the Search in the main menu, but hey....any coding chance is a good one right now.
+
+The following are anomolies with the scraper:
+
+Searching for Playlist type, I need to have Mode set to Name and Phrase set to on for a successful search./description
+#
+type=playlist
+name=Video Search
+thumb=http://navix.turner3d.net/images/logo.jpg
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_gsearchv20
+player=default
+rating=5.00
+description=(01-19-12) Added video reference to IMDb from the TMDb search function
+(10-23-11) Added IMDb duration, Genres, Directors, Writers, and Cast to the Description on the IMDb video results
+(04-11-11) Added time length to Megavideo entries.  Changed format for clarity per suggestions from Pitcher.
+(03-07-11) Megavideo now returns the results in length of time sorted order, then by title.  Based on a request.
+(02-23-11) Includes Boseman's Media Television in Navi-Xtreme results  
+(02-19-11) Fixed recent issue where Navi-Xtreme search was not returning the selected "Exact" keyword results.  Introduced with improved search results below.
+(02-11-11) Improved search results for Navi-Xtreme
+(12-16-10) Added JustMe4u2c's Zalaa Search engine
+
+(12-15-10) Added search all sites to the by site list.
+Re-arranged the search by site area to add additional search engines which are not a part of the scraper.
+
+(12-07-10) Updated Megavideo for site format changes
+ Changed sorted output order to be case insensitive.
+
+10-31-10 Added Megavideo Search option.  Note that Novamov does not work currently since the scripts current host is blocked from Novamov.  Novamov has been disabled in Search Videos section.  It remains in the selective Search Site Videos, hoping that it will someday be resolved. 
+
+10-17-10 Added IMDb group search with Top 250 
+No longer shows trailers from IMDB that reside on Hulu....since the processor cannot handle them anyway
+Fixed bug that showed a blank name in IMDb results based on the media type
+
+10-10-10 Now incorporates the Version 1 results if selected
+
+10-09-10 IMDb Processor had some real issues.  Seems to be working now on all formats I have checked.  If anyone runs into trailers that do not, please let me know.  Some are rtmp so they may need Dharma for success.
+
+10-08-10 New IMDb processor to handle other media types plus rtmp.  Modifications to IMDB to match recent Dharma scraper changes; Returns appropriate results again.
+
+10-07-10 Added IMDB Title list to select from and IMDB Trailers when available.  Also included a continuation of search based on the media info sites selection.
+
+10-05-10 Added Movie Information section at bottom.  IMDB not so great.    It only returns 1 result from the top 
+of Popular .
+Must be really accurate with name or search for the id.
+
+TMDb will return the IMDB id (if available) and allow direct search from there as well as allow linkage to trailer if available.
+
+Virtually the same as V1 above (wip), except interface selects by site, rather than a single dimension list./description
+#
 type=search
 name=Search Dailymotion
 URL=http://navix.turner3d.net/search/dailymotion/
@@ -17,6 +86,16 @@ type=search
 name=Search DivXStage
 URL=http://navix.turner3d.net/scrape/divxstage/?s=
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
+#
+type=search
+name=Search Extramina
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_extramina?q=search/
+thumb=http://profile.ak.fbcdn.net/hprofile-ak-ash2/48910_100000452142540_411_n.jpg
+#
+type=search
+name=Search Fast Pass TV
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=search/
+thumb=http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg
 #
 type=playlist
 name=Search Grooveshark
@@ -34,19 +113,41 @@ name=Search Librivox
 URL=http://navix.turner3d.net/scrape/librivox/search/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
 #
-#type=search
-#name=Search Photobucket
-#URL=http://feed.photobucket.com/videos/?s=/feed.rss
+type=search
+name=Search Movie2k
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=search//
+#
+type=search
+name=Search Public Domain Movies
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/public?q=search/1/
+#
+type=playlist
+name=Search StageVu
+thumb=http://stagevu.com/img/white/newtitle.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
+#
+type=search
+name=Search VeeHD
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd?q=search/#
 #
 type=search
 name=Search Videofriender
 URL=http://navix.turner3d.net/search/videofriender/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif
 #
+type=playlist
+name=Search Videofriender (Extended)
+thumb=http://videofriender.com/images/logo.png?1218389123
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
+#
 type=search
 name=Search Vimeo
 URL=http://navix.turner3d.net/search/vimeo/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_vimeo.gif
+#
+type=search
+name=Search Watch Series
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries?q=search/
 #
 type=search
 name=Search YouTube
