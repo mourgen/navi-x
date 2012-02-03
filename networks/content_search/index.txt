@@ -114,6 +114,11 @@ URL=http://navix.turner3d.net/scrape/librivox/search/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
 #
 type=search
+name=Search Movie25.com
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl?q=search/
+thumb=http://navix.turner3d.net/justme4u2c/images/Movie25.jpg
+#
+type=search
 name=Search Movie2k
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=search//
 #
