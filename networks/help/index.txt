@@ -4,12 +4,6 @@ background=http://navix.turner3d.net/images/backgrounds/bkg_navix_bh_plain.jpg
 logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
 description=Please visit http://navix.turner3d.net for full Navi-X support!  Team Navi-X/description
 #
-type=text
-name=Frequently Asked Questions
-URL=http://navi-x.googlecode.com/svn/trunk/networks/faq.txt
-background=http://navix.turner3d.net/images/backgrounds/bkg_navix_bh_plain.jpg
-description=Our FAQ section with frequently asked questions about Navi-X. If this does not resolve your questions, go to http://navix.turner3d.net for full Navi-X support!/description
-
 type=html
 name=Navi-Xtreme Chat Shoutbox (Boxee Only)
 URL=http://navix.turner3d.net
