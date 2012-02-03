@@ -1,11 +1,6 @@
-﻿version=8
+ version=8
 background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - TV Shows - News - CNN Podcasts
-type=rss
-name=Amanpour
-URL=http://rss.cnn.com/services/podcasting/amanpour_video/rss?format=xml
-background=http://website.navi-x.org/networks/bg.png
-thumb=http://i.cdn.turner.com/cnn/services/podcasting/amanpour/images/amanpour_pcast.jpg
 type=rss
 name=CNN Now in the News
 URL=http://rss.cnn.com/services/podcasting/nitn/rss.xml
