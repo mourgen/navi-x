@@ -1,11 +1,6 @@
-﻿version=8
+ version=8
 background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - TV Shows - News - MSNBC News
-type=rss
-name=The ED Show
-URL=http://www.wegoted.com/archive/ibFeed.asp
-background=http://website.navi-x.org/networks/bg.png
-thumb=http://images.huffingtonpost.com/gen/72348/thumbs/s-ED-SCHULTZ-large.jpg
 type=rss
 name=The Today Show
 URL=http://podcast.msnbc.com/audio/podcast/MSNBC-TDY-PODCAST-M4V.xml
