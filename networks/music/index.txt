@@ -13,6 +13,12 @@ thumb=http://www.navi-x.org/playlists/shoutcast/shoutcast.png
 description=(semi-broken) Some playlist are empty and possible some streams don't work./description
 
 type=playlist
+name=Grooveshark
+URL=http://navix.turner3d.net/scrape/grooveshark/
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
+date=2011-2-6
+
+type=playlist
 name=RadioTime
 thumb=http://www.navi-x.org/playlists/radiotime.jpg
 URL=http://navi-x.googlecode.com/svn/trunk/networks/music/radiotime.txt
@@ -38,12 +44,6 @@ type=playlist
 name=Radiolala
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_radiolala.png
 URL=http://navix.turner3d.net/scrape/radiolala/
-
-type=playlist
-name=Grooveshark
-URL=http://navix.turner3d.net/scrape/grooveshark/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
-date=2011-2-6
 
 #type=playlist
 #name=MTV Music Videos
