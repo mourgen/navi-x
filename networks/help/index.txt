@@ -24,5 +24,5 @@ name=Download Navi-X Updates
 URL=http://code.google.com/feeds/p/navi-x/downloads/basic
 
 type=rss:atom
-name=View Reported Navi-X Issues
+name=View Reported Issues with Navi-X
 URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
