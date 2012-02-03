@@ -133,7 +133,8 @@ URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
 #
 type=search
 name=Search VeeHD
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd?q=search/#
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd?q=search/
+thumb=http://static.veehd.com/logo.gif
 #
 type=search
 name=Search Videofriender
@@ -153,6 +154,7 @@ thumb=http://navix.turner3d.net/images/backgrounds/thumb_vimeo.gif
 type=search
 name=Search Watch Series
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries?q=search/
+thumb=http://watchseries.eu/images/logo-hover.png
 #
 type=search
 name=Search YouTube
