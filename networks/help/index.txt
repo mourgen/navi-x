@@ -5,6 +5,11 @@ logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
 description=Please visit http://navix.turner3d.net for full Navi-X support!  Team Navi-X/description
 #
 type=html
+name=Navi-X Wiki Help Articles and FAQ on GoogleCode (Boxee Only)
+URL=http://code.google.com/p/navi-x/w/list?can=2&q=&sort=pagename&colspec=PageName
+description=This works for Boxee Box users only!!/description
+
+type=html
 name=Navi-Xtreme Chat Shoutbox (Boxee Only)
 URL=http://navix.turner3d.net
 description=This works for Boxee Box users only!!/description
@@ -14,15 +19,10 @@ name=Navi-Xtreme Forums (Boxee Only)
 URL=http://navix.turner3d.net/forums
 description=This works for Boxee Box users only!!/description
 
-type=html
-name=Navi-X Wiki Help Articles on GoogleCode (Boxee Only)
-URL=http://code.google.com/p/navi-x/w/list?can=2&q=&sort=pagename&colspec=PageName
-description=This works for Boxee Box users only!!/description
-
-type=rss
+type=rss:script
 name=Download Navi-X Updates
 URL=http://code.google.com/feeds/p/navi-x/downloads/basic
 
-type=rss
+type=rss:atom
 name=View Reported Navi-X Issues
 URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
