@@ -1,86 +1,97 @@
  version=8
-background=http://website.navi-x.org/networks/bg.jpg
+background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
 title=Navi-X Networks - TV Shows - News - CNN Podcasts
-type=rss
-name=CNN Now in the News
-URL=http://rss.cnn.com/services/podcasting/nitn/rss.xml
-background=http://website.navi-x.org/networks/bg.png
-thumb=http://s13.podbean.com/image-logo/0/7399_logo.jpg
+
 type=rss
 name=Anderson Cooper 360 Daily
 URL=http://rss.cnn.com/services/podcasting/ac360/rss.xml
-background=http://website.navi-x.org/networks/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/ac360/images/AC.jpg
+
 type=rss
 name=Fareed Zakaria GPS
 URL=http://rss.cnn.com/services/podcasting/fareedzakaria/rss.xml
-background=http://website.navi-x.org/networks/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/fareedzakaria/images/fareedzakaria1.jpg
+
 type=rss
-name=Larry King Live
-URL=http://rss.cnn.com/services/podcasting/lkl/rss.xml
-background=http://website.navi-x.org/networks/bg.png
-thumb=http://i.cdn.turner.com/cnn/services/podcasting/lkl/images/LKL.jpg
+name=The CNN Daily
+URL=http://rss.cnn.com/services/podcasting/cnnnewsroom/rss.xml
+background=http://navi-x.googlecode.com/svn/trunk/networks/bg.jpg
+thumb=
+
 type=rss
 name=State of the Union with Candy Crowley
 URL=http://rss.cnn.com/services/podcasting/lateedition/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/sotu/images/SU.jpg
+
 type=rss
 name=Robin Meade Expressed
 URL=http://rss.cnn.com/services/podcasting/robinmeade/rss?format=xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/robinmeade/images/rmex_300.jpg
+
 type=rss
 name=Paging Dr. Gupta
 URL=http://rss.cnn.com/services/podcasting/gupta/rss?format=xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/doctalk/images/doctalk_revised.jpg
+
 type=rss
 name=CNN Student News
 URL=http://rss.cnn.com/services/podcasting/studentnews/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/studentnews/images/studentnews1.jpg
+
 type=rss
 name=The Screening Room: Movie Review
 URL=http://rss.cnn.com/services/podcasting/thescreeningroom/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/images/screeningroom.jpg
+
 type=rss
 name=SHOWandTELL
 URL=http://rss.cnn.com/services/podcasting/showandtell/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/showandtell/images/showandtell.jpg
+
 type=rss
 name=Showbiz Tonight
 URL=http://rss.cnn.com/services/podcasting/ShowbizTonight/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/images/showbiznew.jpg
+
 type=rss
 name=Nancy Grace
 URL=http://rss.cnn.com/services/podcasting/nancygrace/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/zeroto60/images/cross_exam.jpg
+
 type=rss
 name=News of the Absurd
 URL=http://rss.cnn.com/services/podcasting/absurd/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/thegrist/images/NEWSABSURD.jpg
+
 type=rss
 name=Reliable Sources
 URL=http://rss.cnn.com/services/podcasting/reliablesources/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/reliablesources/images/reliablesources.jpg
+
 type=rss
 name=CNN Heroes
 URL=http://rss.cnn.com/services/podcasting/cnnheroes/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://i.cdn.turner.com/cnn/services/podcasting/cnnheroes/images/300_cnnheroes1.jpg
+
 type=rss
 name=All Access
 URL=http://rss.cnn.com/services/podcasting/allaccess/rss.xml
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://edition.cnn.com/tour/atlanta/images/inside_cnn_logo.gif
+
 type=rss
 name=Special Programming
 URL=http://rss.cnn.com/rss/cnn_specialvideo.rss
