@@ -106,7 +106,7 @@ date=2012-02-02
 
 type=playlist
 name=HGTV
-thumb=http://navix.turner3d.net/justme4u2c/images/HGTV.png
+thumb=http://navix.turner3d.net/justme4u2c/images/HGTV_Logo.jpg
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/HGTV.pl
 date=2012-02-02
 
@@ -115,15 +115,10 @@ name=HSN - LIVE (XBMC Only)
 URL=http://a1797.l8175151796.c81751.g.lm.akamaistream.net/D/1797/81751/v0001/reflector:51796
 thumb=http://website.navi-x.org/networks/logos/hsn.jpg
 
-#type=playlist
-#name=Justin TV (Boxee only)
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/logo_for_blog.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/Justin.pl
-
 type=video
 name=Knife and Gun Show - LIVE
 URL=mms://stream.netro.ca/thebroadcastchannel
-thumb=default
+thumb=http://www.king-cart.com/store/knifeandgunshow/ShowLogo.jpg
 
 type=playlist
 name=Live Well HD
