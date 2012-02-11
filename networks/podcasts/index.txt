@@ -1,13 +1,9 @@
  version=8
-background=http://website.navi-x.org/networks/bg.jpg
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 title=Navi-X Networks - Podcasts
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
-type=playlist
-name=NASA
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/nasa/nasa.png
-URL=http://navi-x.googlecode.com/svn/trunk/networks/nasa/index.plx
 
 type=playlist
 name=Apple iTunes Podcasts
@@ -27,10 +23,10 @@ thumb=http://website.navi-x.org/networks/logo.png
 type=playlist
 name=TWiT TV Podcasts
 thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
-URL=http://navi-x.googlecode.com/svn/trunk/networks/podcasts/TWiT.plx
+URL=http://www.navi-x.org/playlists/podcasts/Technology/TWiT.plx
+http://www.navi-x.org/playlists/podcasts/Technology/TWiT.plx
 
 type=rss
 name=WebBeat.TV
 thumb=http://webbeat.tv/wp-content/themes/thesis_17/custom/images/WebBeat-logo.jpg
-date=2010-10-09
 URL=http://feeds.feedburner.com/wbtvlarge?format=xml
