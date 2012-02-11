@@ -4,7 +4,6 @@ title=Navi-X Networks - Podcasts
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
-
 type=playlist
 name=Apple iTunes Podcasts
 URL=http://navix.turner3d.net/scrape/podcasts/
