@@ -91,6 +91,19 @@ URL=http://navix.turner3d.net/scrape/diynetwork/
 date=2012-02-02
 
 type=playlist
+name=E! Online
+thumb=http://navix.turner3d.net/justme4u2c/images/E!.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/E!Online.pl
+player=default
+rating=-1.00
+
+type=playlist
+name=Engadget
+thumb=http://navix.turner3d.net/justme4u2c/images/Engadget.png
+date=2012-02-15
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Engadget.pl
+
+type=playlist
 name=Food Network
 thumb=http://navix.turner3d.net/justme4u2c/images/Food_Network.png
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
@@ -114,6 +127,15 @@ type=video
 name=HSN - LIVE (XBMC Only)
 URL=http://a1797.l8175151796.c81751.g.lm.akamaistream.net/D/1797/81751/v0001/reflector:51796
 thumb=http://website.navi-x.org/networks/logos/hsn.jpg
+
+type=playlist
+name=Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
+thumb=http://navix.turner3d.net/justme4u2c/images/JustinTV.png
+date=2012-02-12
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/JustinTV.pl
+player=default
+rating=-1.00
+description=*** BOXEE Only ***/description
 
 type=video
 name=Knife and Gun Show - LIVE
@@ -189,6 +211,12 @@ name=Revision3
 thumb=http://navix.turner3d.net/justme4u2c/images/Revision3.png
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
 date=2012-02-02
+
+type=playlist
+name=Sports Illustrated Swimsuit
+thumb=http://navix.turner3d.net/justme4u2c/images/2012SISwimsuitCover.jpg
+date=2012-02-18
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/2012SISwimsuit.pl
 
 #type=playlist
 #name=SyFy
