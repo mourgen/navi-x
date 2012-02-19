@@ -26,3 +26,7 @@ URL=http://code.google.com/feeds/p/navi-x/downloads/basic
 type=rss:atom
 name=View Reported Issues with Navi-X
 URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
+
+type=html
+name=Navi-X Terms of Use
+URL=http://navix.turner3d.net/terms/
