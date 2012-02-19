@@ -19,11 +19,11 @@ name=Navi-Xtreme Forums (Boxee Only)
 URL=http://navix.turner3d.net/forums
 description=This works for Boxee Box users only!!/description
 
-type=rss:script
+type=rss:download
 name=Download Navi-X Updates
 URL=http://code.google.com/feeds/p/navi-x/downloads/basic
 
-type=rss:atom
+type=rss
 name=View Reported Issues with Navi-X
 URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
 
