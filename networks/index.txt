@@ -16,11 +16,11 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/index.txt
 thumb=http://navi-x.googlecode.com/svn/trunk/networks/images/logos/main_menu/tvshows.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
-type=playlist
-name=Movies
-URL=http://navi-x.googlecode.com/svn/trunk/networks/movies/index.txt
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/images/logos/main_menu/movies.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
+#type=playlist
+#name=Movies
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/movies/index.txt
+#thumb=http://navi-x.googlecode.com/svn/trunk/networks/images/logos/main_menu/movies.png
+#icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Music
