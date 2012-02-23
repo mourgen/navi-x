@@ -23,9 +23,9 @@ type=playlist
 name=Download Navi-X Updates
 URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4c061566044d9e6e47ff1310f6062923%26_render%3Djson%26t2%3Ddownload
 
-type=rss
-name=View Reported Issues with Navi-X
-URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
+#type=rss
+#name=View Reported Issues with Navi-X
+#URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
 
 type=html
 name=Navi-X Terms of Use
