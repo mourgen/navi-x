@@ -1,0 +1,2071 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<channels>
+    <channel>
+        
+        <name>HD Channels</name>
+        <thumbnail>http://alatest.com/blog/wp-content/uploads/2010/10/hdtv-300x241.jpg</thumbnail>
+        <items>
+ 
+	    <item>
+	        <title>HBO HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010402.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/hh/hbo_hd.jpg</thumbnail>
+	    </item>
+  
+	    <item>
+	        <title>HBO2 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010701.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/hh/hbo2_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>CINEMAX HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050221.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/cc/cinemax_ce.jpg</thumbnail>
+	    </item>
+        
+            <item>
+	        <title>CINEMAX 2 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010401.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/cc/cinemax2_ce.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Sky Cinema1 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050207.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_it_cinema_plus1_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Fox HD</title>
+	        <link>rtmp://s7.webport.tv/live playpath=z050224.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fox_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Sky Movies Modern Greats HD</title>
+	        <link>rtmp://s7.webport.tv/live playpath=z050228.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_modern_greats_hd.jpg</thumbnail>
+	    </item> 
+           
+	    <item>
+		<title>Sky Movies Drama & Romance HD</title>
+		<link>rtmp://s7.webport.tv/live playpath=z050229.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_drama_romance_hd.jpg</thumbnail>
+	    </item>
+	   
+	    <item>
+	        <title>Sky Movies SciFi & Horror HD</title>
+	        <link>rtmp://s7.webport.tv/live playpath=z050230.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_scifi_horror_hd.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Sky Movies Comedy HD</title>
+	        <link>rtmp://s7.webport.tv/live playpath=z050231.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_comedy_hd.jpg</thumbnail>
+	    </item>
+		    
+	    <item>
+	        <title>Sky News HD</title>
+	        <link>rtmp://s7.webport.tv/live playpath=z050227.stream pageUrl=http://www.tvsector.com live=1 swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_news_hd.jpg</thumbnail>
+	    </item>
+	    
+            <item>
+	        <title>Cinema Hits HD</title>
+	        <link>rtmp://s99.webport.tv/live playpath=z050211.stream  pageUrl=http://www.tvsector.com live=1  swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+            <item>
+	        <title>Cinema MAX HD</title>
+	        <link>rtmp://s99.webport.tv/live playpath=z050206.stream  pageUrl=http://www.tvsector.com live=1  swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf</link>
+	        <thumbnail></thumbnail>
+	    </item>	    
+    
+	    <item>
+	        <title>Nat Geo Wild HD</title>
+	        <link>rtmp://s99.webport.tv/live/ playpath=z050204.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/" timeout=60</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_wild_emea_hd.jpg</thumbnail>
+	    </item>   
+
+            <item>
+	        <title>Nat Geo Italy</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050223.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_it.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>National Geographic HD</title>
+		<link>rtmp://tv.tvsector.com/live playpath=z050203.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_us_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Nat Geo HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050225.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_us_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Animal Planet HD</title>
+	        <link>rtmp://s7.webport.tv/live/z050001.stream playpath=z050001.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/aa/animal_planet_us_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>History HD</title>
+	        <link>rtmp://s99.webport.tv/live/ playpath=z050003.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/History-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/hh/history_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Discovery Channel HD a</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050208.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/discovery-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/discovery_hd_us.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>Discovery Channel HD b</title>
+		<link>http://bitgravity.live.cdn.bitgravity.com/bitgravity/live/mobileDemo_hi</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/discovery_hd_us.jpg</thumbnail>
+	    </item>
+           
+            <item>
+	        <title>BIO HD</title>
+	        <link>rtmp://s7.webport.tv/live/z020204.stream playpath=z020204.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/biography.jpg</thumbnail>
+	    </item>
+            
+            <item>
+	        <title>RED BULL SPORT</title>
+	        <link>rtmp://cp93704.live.edgefcs.net/live/ playpath=redbull1@21839 swfUrl=http://www.chanfeed.com/streams/mediaplayer.swf live=1 pageUrl=http://chanfeed.com/red-bull-sport</link>
+	        <thumbnail>http://img507.imageshack.us/img507/4618/00450httpihaymarketneta.jpg</thumbnail>
+	    </item>
+    
+	    <item>
+	        <title>DisneyXD HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z020101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/disney_xd_hd.jpg</thumbnail>
+	    </item>
+	        
+            <item>
+	        <title>Comedy Central HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z020503.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/Comedy_Central_HD/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/cc/comedy_central.jpg</thumbnail>
+	    </item>
+	     
+	    <item>
+	        <title>MGM HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z020401.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/mgm_hd_uk.jpg</thumbnail>
+	    </item>
+	    	    
+	    <item>
+                <title>BBC HD</title>
+                <link>rtmp://s6.webport.tv/live/ playpath=z010201.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/"</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bbc_hd_scan.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+		<title>ITV2 HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z020102.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ii/itv2_hd.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+		<title>ITV3 HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z020103.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ii/itv3_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>MTV Live HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z010001.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/mtv_live_hd_us.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>Eurosport HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z010601.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>Eurosport HD 1080p</title>
+		<link>http://tinyurl.com/85sd2z2</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>  
+ 
+    	    <item>
+		<title>Eurosport 2 HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z010301.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	    	<thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport2_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Sky Sports HD1</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050226.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_sports1.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>ESPN HD America</title>
+	        <link>rtmp://s7.webport.tv/live/ playpath=z050201.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/espn-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/espn_lam_hd.jpg</thumbnail>
+	    </item>
+            
+            <item>
+	        <title>ZDF HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z030401.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/zz/zdf_de_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>ARD HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z030402.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/aa/ard_das_erste.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>RTL HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z030101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rtl2_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>SAT1 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sat1_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>PRO7 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010102.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/pp/prosieben_hd.jpg</thumbnail>
+	    </item>
+        
+            <item>
+	        <title>EUROSPORT HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010601.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>
+            
+            <item>
+	        <title>RTL 2 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050219.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rtl2_hr.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>FOX Crime HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050209.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fox_crime_asia_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>RAI1 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050214.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rai_1.jpg</thumbnail>
+	    </item>
+            
+            <item>
+	        <title>RAI2 HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050215.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rai_2.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>RAI NEWS HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050217.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rai_news.jpg</thumbnail>
+	    </item>
+
+	    <item>
+                <title>France 2 HD</title>
+                <link>rtmp://s7.webport.tv/live/ playpath=z010105.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/france-2/" timeout=60</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/france2.jpg</thumbnail>
+	    </item>
+       
+	    <item>
+                <title>M6 HD</title>
+                <link>rtmp://s6.webport.tv/live/ playpath=z010106.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/m6-hd/" timeout=60</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/m6.jpg</thumbnail>
+	    </item>
+
+	    <item>
+                <title>Das Erste HD</title>
+                <link>rtmp://s7.webport.tv/live/ playpath=z030402.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/aa/ard_das_erste.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+                <title>Sat.1 HD</title>
+                <link>rtmp://s7.webport.tv/live/ playpath=z010101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sat1.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+                <title>Kabel Eins HD</title>
+                <link>rtmp://s7.webport.tv/live/ playpath=z010103.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/kk/kabel_eins_hd.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+                <title>Pro Sieben HD</title>
+                <link>rtmp://s7.webport.tv/live/ playpath=z010102.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/pp/prosieben_hd.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>ZDF HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z030401.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/zz/zdf_de_hd.jpg</thumbnail>
+	    </item>
+       
+	    <item>
+	        <title>RTL HD</title>
+	        <link>rtmp://s99.webport.tv/live/ playpath=z030101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rtl_hd.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>RTL II HD</title>
+	        <link>rtmp://s7.webport.tv/live/ playpath=z030104.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rtl2_hd.jpg</thumbnail>
+	    </item>
+ 
+ 
+	    <item>
+	        <title>VoX HD</title>
+	        <link>rtmp://s7.webport.tv/live/ playpath=z030102.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/vv/vox_at_hd.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>N24 HD</title>
+	        <link>rtmp://s7.webport.tv/live/ playpath=z050008.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/n24_de_hd.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>Sport 1 HD</title>
+                <link>rtmp://s99.webport.tv/live/ playpath=z030103.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/" timeout=60</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport1_de_hd.jpg</thumbnail>
+            </item>
+ 
+	    <item>
+	        <title>NTV</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z040001.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/ntv_ru.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>THT</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z040004.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/tt/tnt_ru.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>Channel One HD</title>
+	        <link>rtmp://s99.webport.tv/live/ playpath=z040002.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/pp/perviy_1_kanal.jpg</thumbnail>
+	    </item>
+    
+	    <item>
+	        <title>Italia 1</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010502.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/mediaset_italia1.jpg</thumbnail>
+	    </item>
+ 
+ 
+	    <item>
+	        <title>Canale 5</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010501.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/mediaset_canale5.jpg</thumbnail>
+	    </item>
+	    
+            <item>
+                <title>National Geographic HD</title>
+                <link>rtmp://s7.webport.tv:1935/live/ playpath=z050203.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/ timeout=60</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_wild_emea.jpg</thumbnail>
+            </item>
+	    
+	    <item>
+                <title>HGTV HD</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/hh/hgtv_ca_hd.png</thumbnail>
+                <link>rtmp://fms3.tikilive.com:1935/view/25503_212/stream25503 playpath=stream25503 swfurl=http://www.tikilive.com/public/flash/viewerModules/player/PlayerModule.swf live=1 pageurl=http://www.watchfomny.com/HGTV</link>
+            </item>
+		    
+        </items>
+
+    
+    </channel>
+
+
+
+
+
+    <channel>
+        
+        <name>SD Channels</name>
+	<thumbnail>http://img689.imageshack.us/img689/6091/sdchannels.jpg</thumbnail>
+    
+        <items>
+	    
+
+	    <item>
+		<title>+ US \ HBO</title>
+		<link>rtmp://38.96.175.173:1935/live/ playpath=77778@hyqw swfUrl=http://veohcast.tv/veohcast.tv.swf pageUrl=http://www.veohcast.tv/veohV.php?n=00003@hyqw</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/hh/hbo_hd.jpg</thumbnail>
+	    </item>
+	
+            <item>
+	        <title>AXN Black</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisaaxnblack swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/aa/axn_black_pt.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>FOX MOVIES</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisafoxmovies swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fox_movies_middle_east.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>FOX LIFE</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisafoxlife swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fox_life_bg.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>FOX CRIME</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisafoxcrime swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fox_crime_jp.jpg</thumbnail>
+	    </item>
+		    
+	    <item>
+	        <title>CANAL HOLLYWOOD</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisahollywood swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/cc/canal_hollywood.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>VH1 HITS</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisavh1 swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/vv/vh1_au.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>MTV</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisamtv swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/mtv_gr.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>DISCOVERY CHANNEL</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisadiscovery swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/discovery_it.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Discovery Science</title>
+	        <link>http://tinyurl.com/7n9benl</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/discovery_science_channel.jpg</thumbnail>
+	    </item>	    
+	    
+	    <item>
+	        <title>ODISSEIA TV</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisaodisseia swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/oo/odisseia.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>HISTORY</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisahistoria swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/hh/history.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>NATIONAL GEOGRAPHIC</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisanationalgeographic swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_kr.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>DISNEY CHANNEL</title>
+	        <link>rtmp://94.102.56.186/histream playpath=televisadisney swfUrl=http://www.histream.tv/player.swf live=1 pageUrl=http://www.histream.tv/embedTele.php?file=televisasporttv3&width=650&height=500</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/disney_channel.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Eurosport</title>
+	        <link>http://tinyurl.com/87aj9g7</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_international.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Футбол+</title>
+	        <link>http://tinyurl.com/6rf66gw</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/tt/trk_ukraina_futbol_plus.jpg</thumbnail>
+	    </item>
+		
+	    <item>
+	        <title>Футбол</title>
+	        <link>http://tinyurl.com/7l45pht</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/tt/trk_ukraina_futbol.jpg</thumbnail>
+	    </item>	
+	
+	    <item>
+		<title>Starz</title>
+		<link>rtmp://38.96.175.173:1935/live/ playpath=20012@hyqw swfUrl=http://www.tvopencast.com/tvopencast.com.swf pageUrl=http://tvopencast.com/video.php?n=20012@hyqw</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/starz.jpg</thumbnail>
+	    </item>
+	    
+            <item>
+                <title>A&E</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/aa/ae_east.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=g1e7mba93z9x3zd swfurl=http://cdn.static.ilive.to/jwplayer/player_new.swf pageurl=http://www.ilive.to/A&E</link>
+            </item>
+
+            <item>
+                <title>ABC</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/aa/abc.png</thumbnail>
+                <link>rtmp://176.31.231.57:1935/edge playpath=tve1lkzlj5vqz83 swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/ABC</link>
+            </item>
+
+            <item>
+                <title>Action Cinema</title>
+                <thumbnail>http://sellesblack.files.wordpress.com/2011/03/photo_11.jpg</thumbnail>
+                <link>rtmp://live127.origin.la3.filmon.com:1935/live/_definst_/ playpath=500.high.stream live=true/Action Cinema</link>
+            </item>
+
+
+            <item>
+                <title>Animal Planet a</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/aa/animal_planet_it.png</thumbnail>
+                <link>http://195.64.148.4:9112</link>
+            </item>
+
+            <item>
+                <title>Animal Planet b</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/aa/animal_planet_it.png</thumbnail>
+                <link>rtmp://122.160.220.49:1935/live/ playpath=ANIMALPLANET_HVGA.sdp live=true pageurl=http://www.google.com/Animal Planet</link>
+            </item>
+
+            <item>
+                <title>AXN Black</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/aa/axn_black_pt.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisaaxnblack playpath=televisaaxnblack swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/AXN Black</link>
+            </item>
+
+            <item>
+                <title>AXN</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/aa/axn.png</thumbnail>
+                <link>rtmp://31.193.12.66/histream/televisaaxn playpath=televisaaxn live=1 swfurl=http://www.histream.tv/player.swf pageurl=http://www.histream.tv/AXN</link>
+            </item>
+
+            <item>
+                <title>Bio</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/bb/biography.png</thumbnail>
+                <link>mms://174.127.91.123/bio.lkj/The%20Biography%20Channel</link>
+            </item>
+
+            <item>
+                <title>CNN</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/xx/xm_cnn.png</thumbnail>
+                <link>rtmp://a.cdn.msnbclive.eu/edge/cnn_uza playpath=cnn_uza swfurl=http://www.rentadrone.org/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=1 pageurl=http://www.rentadrone.tv/CNN</link>
+            </item>
+
+            <item>
+                <title>Comedy Net</title>
+                <thumbnail>http://lazrojas.com/comedynetLogo.jpg</thumbnail>
+                <link>rtmp://live127.origin.la3.filmon.com:1935/live/_definst_/ playpath=497.high.stream live=true/Comedy Net</link>
+            </item>
+
+            <item>
+                <title>The Country Network</title>
+                <thumbnail>http://upload.wikimedia.org/wikipedia/en/d/dd/The_Country_Network_Logo.png</thumbnail>
+                <link>rtmp://82.166.201.223/live?_fcs_vhost=cp76676.live.edgefcs.net/5uMjNmMjqqV2tI5_ZzsUtHcPRTSQiUli_640_480_600@54976 playpath=5uMjNmMjqqV2tI5_ZzsUtHcPRTSQiUli_640_480_600@54976 swfurl=http://player.ooyala.com/static/cacheable/4da23032782e072c77aa3f26ab6dbbbb/player_v2.swf live=1 pageurl=http://tcncountry.com/The Country Network</link>
+            </item>
+
+            <item>
+                <title>The CW</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/kk/kjct_dt3_cw_grand_junction.png</thumbnail>
+                <link>rtmp://38.96.175.173:1935/live/00001@hyqw playpath=00001@hyqw swfUrl=http://www.veohcast.tv/veohcast.tv.swf live=1 pageUrl=http://www.veohcast.tv</link>
+            </item>
+
+            <item>
+                <title>Discovery Channel a</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery_au.png</thumbnail>
+                <link>rtmp://176.31.231.57/edge/8ooa2sbg4a2zs43 playpath=8ooa2sbg4a2zs43 swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/Discovery</link>
+            </item>
+
+            <item>
+                <title>Discovery Channel b</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery.png</thumbnail>
+                <link>rtmp://122.160.220.49/live/DISCOVERYCHANNEL_HVGA.sdp playpath=DISCOVERYCHANNEL_HVGA.sdp live=1 pageurl=http://www.google.com/Discovery Channel</link>
+            </item>
+
+            <item>
+                <title>Discovery Channel c</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery.png</thumbnail>
+                <link>http://bitgravity.live.cdn.bitgravity.com/bitgravity/live/mobileDemo_hi</link>
+            </item>
+
+            <item>
+                <title>Discovery Science a</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery_science_ca.png</thumbnail>
+                <link>http://tinyurl.com/7n9benl</link>
+            </item>
+
+            <item>
+                <title>Discovery Science b</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery_science_ca.png</thumbnail>
+                <link>rtmp://122.160.220.49:1935/live/DISCOVERYSCIENCE_HVGA.sdp pageurl=http://www.google.ca/Discovery Science</link>
+            </item>
+
+            <item>
+                <title>Discovery Turbo</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery_turbo_uk.png</thumbnail>
+                <link>rtmp://122.160.220.49/live/DISCOVERYTURBO_HVGA.sdp playpath=DISCOVERYTURBO_HVGA.sdp swfurl=none pageurl=http://www.google.ca/Discovery Turbo</link>
+            </item>
+
+            <item>
+                <title>Discovery World</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/dd/discovery_world.png</thumbnail>
+                <link>http://195.64.148.4:9104</link>
+            </item>
+
+            <item>
+                <title>ESPN</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ee/espn_classic.png</thumbnail>
+                <link>rtmp://38.96.175.173:1935/live/80001@hyqw playpath=80001@hyqw swfurl=http://www.veohcast.tv/player/player.swff pageurl=http://www.veohcast.tv/ESPN</link>
+            </item>
+
+            <item>
+                <title>Euronews</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ee/euronews.png</thumbnail>
+                <link>rtmp://media2.lsops.net/live/ playpath=euronews_en_high.sdp swfUrl=http://www.livestation.com/flash/player/5.4/player.swf pageUrl=http://www.livestation.com/Euronews</link>
+            </item>
+
+            <item>
+                <title>Food Network</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/food_network_us.png</thumbnail>
+                <link>rtmp://176.31.231.57/edge/7pb51t4nqxrmubw playpath=7pb51t4nqxrmubw swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/Food</link>
+            </item>
+
+            <item>
+                <title>Fox Crime</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/fox_crime.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/ playpath=televisafoxcrime swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Crime</link>
+            </item>
+
+            <item>
+                <title>FOX Life</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/fox_life_pt.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/ playpath=televisafoxlife swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Life</link>
+            </item>
+
+            <item>
+                <title>Fox Movies</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/fox_movies_middle_east.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/ playpath=televisafoxmovies swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Movies</link>
+            </item>
+
+            <item>
+                <title>Fox News</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/fox_news_channel.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=4tc63z84u1gx6yu swfurl=http://cdn.static.ilive.to/jwplayer/player_new.swf pageurl=http://www.ilive.to/Fox News</link>
+            </item>
+
+            <item>
+                <title>Fox</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/fox.png</thumbnail>
+                <link>mms://195.90.118.93/verytangytvsitcom_1/Fox</link>
+            </item>
+
+            <item>
+                <title>Fuel TV</title>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fuel_tv_au.jpg</thumbnail>
+                <link>rtmp://31.193.12.66/histream/televisafueltv playpath=televisafueltv swfurl=http://www.histream.tv/player.swf live=1 pageurl=http://www.histream.tv/Fuel TV</link>
+            </item>
+
+            <item>
+                <title>FX</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ff/fx_africa.png</thumbnail>
+                <link>rtmp://38.96.175.173:1935/live/99998@hyqw playpath=99998@hyqw swfurl=http://www.veohcast.tv/veohcast.tv.swf pageurl=http://www.veohcast.tv/FX</link>
+            </item>
+	    
+            <item>
+                <title>HGTV HD</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/hh/hgtv_ca_hd.png</thumbnail>
+                <link>rtmp://fms3.tikilive.com:1935/view/25503_212/stream25503 playpath=stream25503 swfurl=http://www.tikilive.com/public/flash/viewerModules/player/PlayerModule.swf live=1 pageurl=http://www.watchfomny.com/HGTV</link>
+            </item>
+	    
+            <item>
+                <title>History</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/hh/history_channel_jp.png</thumbnail>
+                <link>rtmp://176.31.231.57/edge/azk6xj9d4hcaamo playpath=azk6xj9d4hcaamo swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/History</link>
+            </item>
+
+            <item>
+                <title>Hollywood</title>
+                <thumbnail>http://i2.photobucket.com/albums/y3/stoward/1_0_19_7882_414_1_C00000_0_0_0trans.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisahollywood playpath=televisahollywood swfurl=http://www.histream.tv/player.swf live=1 pageurl=http://www.histream.tv/Hollywood</link>
+            </item>
+
+            <item>
+                <title>Investigation Discovery</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ii/investigation_discovery_ca.png</thumbnail>
+                <link>http://195.64.148.4:9101</link>
+            </item>
+
+            <item>
+                <title>Movies 1</title>
+                <thumbnail>http://gi249.photobucket.com/groups/gg210/3E9XZI7GMD/movies2.jpg</thumbnail>
+                <link>mms://195.90.118.93/somethingmovies1_1?MSWMExt=.asf</link>
+            </item>
+
+            <item>
+                <title>Movies 2</title>
+                <thumbnail>http://gi249.photobucket.com/groups/gg210/3E9XZI7GMD/movies2.jpg</thumbnail>
+                <link>mms://195.90.118.93/somethingmovies2_1?MSWMExt=.asf</link>
+            </item>
+
+            <item>
+                <title>Movies 3</title>
+                <thumbnail>http://gi249.photobucket.com/groups/gg210/3E9XZI7GMD/movies2.jpg</thumbnail>
+                <link>mms://195.90.118.93/somethingmovies3_1?MSWMExt=.asf</link>
+            </item>
+
+            <item>
+                <title>MSNBC</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/mm/msnbc.png</thumbnail>
+                <link>rtmp://a.cdn.msnbclive.eu:80/edge/msnbc_live playpath=msnbc_live swfurl=http://www.rentadrone.tv/player.swf live=true pageurl=http://www.rentadrone.tv/MSNBC</link>
+            </item>
+
+            <item>
+                <title>MTV a</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/mm/mtv_fr.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisamtv playpath=televisamtv swfurl=http://www.histream.tv/player.swf live=1 pageurl=http://www.histream.tv/MTV</link>
+            </item>
+
+            <item>
+                <title>MTV b</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/mm/mtv_fr.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=7gd0klihpn1y2nr swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/MTV</link>
+            </item>
+
+            <item>
+                <title>National Geographic</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/nn/nat_geo_tw.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisanationalgeographic playpath=televisanationalgeographic live=1 swfurl=http://www.histream.tv/player.swf pageurl=http://www.histream.tv/National Geographic</link>
+            </item>
+
+            <item>
+                <title>National Geographic HD</title>
+                <link>rtmp://s7.webport.tv:1935/live/ playpath=z050203.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/ timeout=60</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_wild_emea.jpg</thumbnail>
+            </item>
+
+            <item>
+                <title>NBC East</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/nn/nbc.png</thumbnail>
+                <link>rtmp://68.68.26.4/live/_definst_/ playpath=castonen swfurl=http://www.veemi.com/player/player-licensed.swf live=1 pageurl=http://www.veemi.com/</link>
+            </item>
+
+            <item>
+                <title>NHK World HD
+                </title><thumbnail>http://media.abonnez-vous.orange.fr/medias/visuel/tv/logo/l_167_nhkhd_ang.png</thumbnail>
+                <link>rtmp://ny-1.net.fivecool.org/2e2cd/ playpath=nhkworldglobalhigh1.sdp swfurl=http://www3.nhk.or.jp/nhkworld/r/movie/streamhub_player_20110429.swf pageurl=http://www3.nhk.or.jp/NHK World HD</link>
+            </item>
+
+            <item>
+                <title>NHK World</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/nn/nhk_world.png</thumbnail>
+                <link>rtmp://216.155.128.59:1935/2e2cd playpath=nhkworldhd.sdp swfUrl=http://www.livestation.com/flash/player/5.4/player.swf pageUrl=http://www3.nhk.or.jp/NHK World</link>
+            </item>
+
+            <item>
+                <title>Redbull</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/rr/red_bull_tv.png</thumbnail>
+                <link>rtmp://cp93704.live.edgefcs.net:443/live/redbull2@21839 playpath=redbull2@21839 swfurl=http://www.shadownet.ro/webplayer/player1.swf live=1 pageurl=http://www.1tv4u.net/Redbull</link>
+            </item>
+    
+            <item>
+                <title>RMC LEGEND</title>
+                <thumbnail>http://www.crozcast.com/images/logos/legend.jpg</thumbnail>
+                <link>rtmp://fms.105.net:1935/live/legend1 playpath=legend1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.highermedia.com/RMC Legend</link>
+            </item>
+
+            <item>
+                <title>RMC Top 40</title>
+                <thumbnail>http://www.cuntscorner.com/upload/1309811080.png</thumbnail>
+                <link>rtmp://fms.105.net:1935/live/charts1 playpath=charts1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.highermedia.com/RMC Top 40</link>
+            </item>
+
+            <item>
+                <title>Sony</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ss/sony_entertainment_tv_africa.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisasonyentertainment playpath=televisasonyentertainment swfurl=http://www.histream.tv/player.swf live=1 pageurl=http://www.histream.tv/Sony</link>
+            </item>
+
+            <item>
+                <title>Spike</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ss/spike_tv.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=cw4ess57se29nfb swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/Spike</link>
+            </item>
+
+            <item>
+                <title>Starz</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ss/starz.png</thumbnail>
+                <link>rtmp://38.96.175.173:1935/live/20012@hyqw playpath=20012@hyqw swfurl=http://www.tvopencast.com/tvopencast.com.swf pageurl=http://tvopencast.com/Starz</link>
+            </item>
+
+            <item>
+                <title>SYFY a</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ss/syfy_de.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=vo738uvzb1fp5mk swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/SYFY</link>
+            </item>
+
+            <item>
+                <title>SYFY b</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ss/syfy.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/ playpath=televisasyfy swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/SYFY</link>
+            </item>
+
+            <item>
+                <title>TLC</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/tt/tlc_balkan.png</thumbnail>
+                <link>rtmp://122.160.220.49:1935/live/TLC_HVGA.sdp</link>
+            </item>
+
+            <item>
+                <title>TNT</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/tt/tnt.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge playpath=p9p6783e22878ys swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/TNT</link>
+            </item>
+
+            <item>
+                <title>Toons</title>
+                <thumbnail>none</thumbnail>
+                <link>mms://72.13.93.186/toons</link>
+            </item>
+
+            <item>
+                <title>TruTV</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/tt/tru_tv.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=eqsqh9245ydfea1 swfurl=http://cdn.static.ilive.to/jwplayer/player_new.swf pageurl=http://www.ilive.to//truTV</link>
+            </item>
+
+            <item>
+                <title>USA</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/uu/usa_network.png</thumbnail>
+                <link>rtmp://176.31.231.57/edge/ playpath=f0v1m4mxu9prq8i swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/USA</link>
+            </item>
+
+            <item>
+                <title>VH1</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/vv/vh1.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisavh1 playpath=televisavh1 swfurl=http://www.histream.tv/player.swf  live=1 pageurl=http://www.histream.tv/VH1</link>
+            </item>
+
+            <item>
+                <title>Virgin 1</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/vv/virgin_1_plus1.png</thumbnail>
+                <link>rtmp://fms.105.net:1935/live/virgin1 playpath=virgin1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.google.com/Virgin 1</link>
+            </item>    
+
+	    <item>
+	        <title>BBC 1</title>
+	        <link>rtmp://212.7.206.66:1935/live/_definst_ playpath=1PPjq8LeQi1kmkD swfUrl=http://www.streamiton.tv/player/player.swf pageUrl=http://www.yycast.com/embed.php?fileid=1PPjq8LeQi1kmkD&vw=640&vh=360</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bbc_one.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>BBC 2</title>
+	        <link>rtmp://146.185.26.10:1935/live/_definst_ playpath=sLUApqzGReOMd60 swfUrl=http://www.streamiton.tv/player/player.swf pageUrl=http://www.yycast.com/embed.php?fileid=sLUApqzGReOMd60&vw=640&vh=360</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bbc2_wales.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>SKY Movies 1</title>
+	        <link>rtmp://46.105.106.60/sp27/authenticated//sp27/authenticated/ playpath=sp27/sp27 app=sp27/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp27/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Movies 2</title>
+	        <link>rtmp://46.105.106.60/sp28/authenticated//sp28/authenticated/ playpath=sp28/sp28 app=sp28/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp28/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+           	   	   
+	    <item>
+	        <title>Classic Movies 1</title>
+	        <link>mms://195.90.118.87/classicmovies_1</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Classic Movies 2</title>
+	        <link>mms://195.90.118.87/classicmovies_2</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>TWit</title>
+	        <link>http://bglive-a.bitgravity.com/twit/live/high</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>NASA</title>
+	        <link>rtmp://cp76072.live.edgefcs.net/live/ swfUrl=http://www.nasa.gov/templateimages/redesign/flash_player/swf/4.5/player.swf pageUrl=http://www.nasa.gov/multimedia/nasatv/media_flash.html Playpath=MED-HQ-Flash@42814 live=true timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Pentagon Channel</title>
+	        <link>rtmp://cp114761.live.edgefcs.net:443/live/ playpath=tpc-live_1@44263 swfUrl=http://www.pentagonchannel.mil/swf/flvPlayer.swf pageUrl=http://www.pentagonchannel.mil/library.html swfVfy=true live=true timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>TBN</title>
+	        <link>rtmp://stream1.trinetsolutions.com/tbn/ playpath=tbnworld_high.sdp swfUrl=http://www.tbn.org/flash/tbn_player2_fullscreen.swf pageUrl=http://www.tbn.org</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Create and Craft</title>
+	        <link>rtmp://live.simplestreamcdn.net/idealworld/chan=createandcraft playpath=createandcraft2 swfUrl=http://www.createandcraft.tv/common/flash/showpage/liveplayer.swf pageUrl=http://www.createandcraft.tv/ShowGridView.aspx swfVfy=true live=true timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>VH-1 Europe (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisavh1 swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Crime</link>
+	        <thumbnail></thumbnail>
+	    </item>
+           	   	   
+	    <item>
+	        <title>Fox Crime (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisafoxcrime swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Crime</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>FOX Life (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisafoxlife swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Life</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Fox Movies (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisafoxmovies swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/Fox Movies</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>AXN Black (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/televisaaxnblack playpath=televisaaxnblack swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/AXN Black</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>AXN Europe (Portugal)</title>
+	        <link>rtmp://31.193.12.66/histream/televisaaxn playpath=televisaaxn live=1 swfurl=http://www.histream.tv/player.swf pageurl=http://www.histream.tv/AXN</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Syfy (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisasyfy swfurl=http://www.histream.tv/player.swf live=true pageurl=http://www.histream.tv/SYFY</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>National Geographic (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisanationalgeographic pageUrl=http://www.histream.tv/ live=1 swfUrl=http://www.histream.tv/player.swf</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>History Channel (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisahistoria pageUrl=http://www.histream.tv/ live=1 swfUrl=http://www.histream.tv/player.swf</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Discovery Channel (Portugal)</title>
+	        <link>rtmp://94.102.56.186/histream/ playpath=televisadiscovery pageUrl=http://www.histream.tv/ live=1 swfUrl=http://www.histream.tv/player.swf</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>ORF 1</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC9vcmYxXzFfODAwQDQzMDU5&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ORF 2</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmUzLWYuYWthbWFpaGQubmV0L29yZjJfMV84MDBANDU1MDI%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Sport 1 Germany</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU1LWYuYWthbWFpaGQubmV0L3Nwb3J0MV8xXzgwMEA0NTUxNw%3D%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>Eurosport Germany</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU1LWYuYWthbWFpaGQubmV0L2V1cm9zcG9ydF8xXzgwMEA0NTUxNQ%3D%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>RTL</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC9ydGxfMV84MDBANDMwNTA%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>RTL 2</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC9ydGwyXzFfODAwQDQzMDUz&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Pro 7</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC9wcm83XzFfODAwQDQzMDUx&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>SF 2</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC9zZjJfMV84MDBANDMwNDg%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Vox</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC92b3hfMV84MDBANDMwNTI%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>Super RTL</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmUyLWYuYWthbWFpaGQubmV0L3N1cGVycnRsXzFfODAwQDQ0NDg5&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Kabel 1</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZi5saXZlMS1mLmFrYW1haWhkLm5ldC9rYWJlbDFfMV84MDBANDMwNTU%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item> 
+ 
+	    <item>
+	        <title>Zdf</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU0LWYuYWthbWFpaGQubmV0L3pkZl8xXzgwMEA0NTUwOQ%3D%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Joiz</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmUyLWYuYWthbWFpaGQubmV0L2pvaXpfMV84MDBANTI3Mjg%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item> 
+
+	    <item>
+	        <title>Sixx</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU1LWYuYWthbWFpaGQubmV0L3NpeHhfMV84MDBANDU1MTY%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Dmax</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmUzLWYuYWthbWFpaGQubmV0L2RtYXhfMV84MDBANDU0OTg%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Das Vierte</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU0LWYuYWthbWFpaGQubmV0L2Rhc3ZpZXJ0ZV8xXzgwMEA0NTUxMA%3D%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>3 Plus</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU3LWYuYWthbWFpaGQubmV0LzNwbHVzXzFfODAwQDE2MTUw&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Sf Info</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmU0LWYuYWthbWFpaGQubmV0L3NmaW5mb18xXzgwMEA0NTUwNQ%3D%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Sat 1</title>
+	        <link>http://freeiptv.be/myproxy1/index.php?q=aHR0cDovL2dhcnRlbmhvZmxpdmUyLWYuYWthbWFpaGQubmV0L3NhdDFfMV84MDBANDQ0OTA%3D&hl=3ed</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	</items>    
+    
+    </channel>
+    
+    
+    
+    
+    <channel>
+        
+        <name>Music</name>
+        <thumbnail>http://www.lyngsat-logo.com/logo/tv/cc/c_music_tv.jpg</thumbnail>
+	
+	<items>
+
+	    <item>
+	        <title>Deluxemusic TV</title>
+	        <link>rtmp://flash.cdn.deluxemusic.tv/deluxemusic.tv-live/web_850 swfVfy=http://static.staging.deluxemusic.tv.dl1.ipercast.net/theme/deluxemusic.tv/flash/player.swf live=1</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/dd/deluxe_music.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>Radio Montecarlo TV</title>
+	        <link>rtmp://fms.105.net:1935/live/rmc1 swfVfy=http://video.radiomontecarlo.net/com/universalmind/swf/videoPlayer.swf live=1</link>
+	        <thumbnail>http://www.crozcast.com/images/logos/aa7ca.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Italy TV</title>
+	        <link>rtmp://fms.105.net:1935/live/italytv1 swfVfy=http://video.105.net/com/universalmind/swf/videoPlayerAdsWizz01.swf?xmlPath=/com/universalmind/tv/italytv/videoXML.xml&advXML=/com/universalmind/adsWizzConfig/47.xml live=1</link>
+	        <thumbnail>http://www.crozcast.com/images/logos/1ea6d.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Legend</title>
+	        <link>rtmp://fms.105.net:1935/live/legend1 swfVfy=http://video.105.net/com/universalmind/swf/videoPlayerAdsWizz01.swf?xmlPath=/com/universalmind/tv/legend/videoXML.xml&advXML=/com/universalmind/adsWizzConfig/44.xml live=1</link>
+	        <thumbnail>http://www.crozcast.com/images/logos/legend.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>Radio 105 TV</title>
+	        <link>rtmp://fms.105.net:1935/live/105Test1 swfVfy=http://video.105.net/com/universalmind/swf/videoPlayerAdsWizz01.swf?xmlPath=/com/universalmind/tv/105/videoXML.xml&advXML=/com/universalmind/adsWizzConfig/5.xml live=1</link>
+	        <thumbnail>http://www.crozcast.com/images/logos/908de.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>TOP 40</title>
+	        <link>rtmp://fms.105.net:1935/live/charts1 swfVfy=http://video.105.net/com/universalmind/swf/videoPlayerAdsWizz01.swf?xmlPath=/com/universalmind/tv/charts/videoXML.xml&advXML=/com/universalmind/adsWizzConfig/41.xml live=1</link>
+	        <thumbnail>http://www.crozcast.com/images/logos/3d19a.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Virgin Radio TV</title>
+	        <link>rtmp://fms.105.net:1935/live/virgin1 swfVfy=http://video.virginradioitaly.it/com/universalmind/swf/videoPlayerTV.swf?xmlPath=http://video.virginradioitaly.it/com/universalmind/tv/virgin/videoXML.xml live=1</link>
+	        <thumbnail>http://video.virginradioitaly.it/images/virgin/VirginRadioVideo.png</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>Kiss TV</title>
+	        <link>rtmp://kisstelevision.es.flash3.glb.ipercast.net/kisstelevision.es-live/live swfVfy=http://kisstelevision.en-directo.com/kisstelevision_avw.swf live=1</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/kk/kiss_tv_ro.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Dance TV HU</title>
+	        <link>mmsh://dancetv.dyndns.org/dancetv</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>MTV Live HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010001.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/mtv_live_hd_us.jpg</thumbnail>
+	    </item>
+
+            <item>
+                <title>MTV a</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/mm/mtv_fr.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisamtv playpath=televisamtv swfurl=http://www.histream.tv/player.swf live=1 pageurl=http://www.histream.tv/MTV</link>
+            </item>
+
+            <item>
+                <title>MTV b</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/mm/mtv_fr.png</thumbnail>
+                <link>rtmp://46.105.109.122/edge/ playpath=7gd0klihpn1y2nr swfurl=http://static.ilive.to/jwplayer/player.swf pageurl=http://www.ilive.to/MTV</link>
+            </item>	
+
+            <item>
+                <title>VH1</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/vv/vh1.png</thumbnail>
+                <link>rtmp://94.102.56.186/histream/televisavh1 playpath=televisavh1 swfurl=http://www.histream.tv/player.swf  live=1 pageurl=http://www.histream.tv/VH1</link>
+            </item>
+
+            <item>
+                <title>Virgin 1</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/vv/virgin_1_plus1.png</thumbnail>
+                <link>rtmp://fms.105.net:1935/live/virgin1 playpath=virgin1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.google.com/Virgin 1</link>
+            </item>
+
+            <item>
+                <title>RMC LEGEND</title>
+                <thumbnail>http://www.crozcast.com/images/logos/legend.jpg</thumbnail>
+                <link>rtmp://fms.105.net:1935/live/legend1 playpath=legend1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.highermedia.com/RMC Legend</link>
+            </item>
+
+            <item>
+                <title>RMC Top 40</title>
+                <thumbnail>http://www.cuntscorner.com/upload/1309811080.png</thumbnail>
+                <link>rtmp://fms.105.net:1935/live/charts1 playpath=charts1 swfurl=http://www.highermedia.com/assets/flash/jw_player.swf live=1 pageurl=http://www.highermedia.com/RMC Top 40</link>
+            </item>
+
+	    <item>
+	        <title>ONE HD POP</title>
+	        <link>rtmp://93.114.43.3:1935/live/ playpath=pop swfUrl=http://live.1hd.ro/player5.3.swf pageUrl=http://tiiveniepg.webs.com/Music_Channels/OneHD_Pop_2.htm</link>
+	        <thumbnail></thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>ONE HD Jazz</title>
+	        <link>rtmp://93.114.43.3:1935/live/ playpath=jazz swfUrl=http://live.1hd.ro/player5.3.swf pageUrl=http://tiiveniepg.webs.com/Music_Channels/OneHD_Jazz_2.htm</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ONE HD Classical</title>
+	        <link>rtmp://93.114.43.3:1935/live/ playpath=classics swfUrl=http://live.1hd.ro/player5.3.swf pageUrl=http://tiiveniepg.webs.com/Music_Channels/OneHD_Classic_2.htm</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ONE HD Dance</title>
+	        <link>rtmp://93.114.43.3:1935/live/ playpath=dance swfUrl=http://live.1hd.ro/player5.3.swf pageUrl=http://tiiveniepg.webs.com/Music_Channels/OneHD_Dance_2.htm</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ONE HD Rock</title>
+	        <link>rtmp://93.114.43.3:1935/live/ playpath=rock swfUrl=http://live.1hd.ro/player5.3.swf pageUrl=http://tiiveniepg.webs.com/Music_Channels/OneHD_Rock_2.htm</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ONE HD</title>
+	        <link>rtmp://93.114.43.3:1935/live/ playpath=onehd swfUrl=http://live.1hd.ro/player5.3.swf pageUrl=http://tiiveniepg.webs.com/Music_Channels/OneHD_2.htm</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>RougeTV</title>
+	        <link>rtmp://rtmp.infomaniak.ch/livecast/ playpath=rougetv swfUrl=http://www.rougetv.ch/JWPlayer/mediaplayer/player.swf?streamer=rtmp://rtmp.infomaniak.ch/livecast/&file=rougetv.flv&autostart=true&stretching=exactfit pageUrl=http://www.rougetv.ch/JWPlayer/mediaplayer/player.swf?streamer=rtmp://rtmp.infomaniak.ch/livecast/&file=rougetv.flv&autostart=true&stretching=exactfit</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ONE HD</title>
+	        <link>rtmp://93.114.43.3:1935/live playpath=onehd swfUrl=http://live.1hd.ro/player5.3.swf  pageUrl=</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>ONE Jazz HD</title>
+	        <link>rtmp://93.114.43.3:1935/live playpath=jazz  swfUrl=http://live.1hd.ro/player5.3.swf  pageUrl=</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>ONE Classic HD</title>
+	        <link>rtmp://93.114.43.3:1935/live playpath=classic  swfUrl=http://live.1hd.ro/player5.3.swf  pageUrl=</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>ONE Dance HD</title>
+	        <link>rtmp://93.114.43.3:1935/live playpath=dance  swfUrl=http://live.1hd.ro/player5.3.swf  pageUrl=</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>ONE Rock HD</title>
+	        <link>rtmp://93.114.43.3:1935/live playpath=rock  swfUrl=http://live.1hd.ro/player5.3.swf  pageUrl=</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>HD suisse</title>
+	        <link>rtmp://93.114.43.3:1935/live playpath=pop  swfUrl=http://live.1hd.ro/player5.3.swf  pageUrl=</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Music BOX Hits</title>
+	        <link>http://88.212.35.225:2002/</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	</items>    
+    
+    </channel>
+	
+	
+	
+	
+    <channel>
+	    <name>BG Channels</name>
+	    <thumbnail>http://img560.imageshack.us/img560/4397/bulgarias.jpg</thumbnail>    
+    
+	<items>
+	
+	    <item>
+	        <title>BNT 1</title>
+	        <link>rtmp://edge2.evolink.net:2020/fls playpath=bnt.stream swfUrl=http://tv.bnt.bg/bnt1/player.swf pageUrl=http://tv.bnt.bg/bnt1/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bnt1_bg.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>bTV</title>
+	        <link>rtmp://94.155.44.75:80/ios playpath=live swfUrl=http://images.btv.bg/fplayer/flowplayer.commercial-3.2.5.swf?0.7469287110252113  pageUrl=http://www.btv.bg/live/online</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/btv_bg.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>bTV iOS</title>
+	        <link>http://94.155.44.74/ios/live/playlist.m3u8</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/btv_bg.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>NOVA TV</title>
+	        <link>mms://87.120.130.34/nova_live_q3.wmv</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nova_tv_bg.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>bTV Sport</title>
+	        <link>rtmp://94.155.44.75:80/sport playpath=sportlive swfUrl=http://images.btv.bg/fplayer/flowplayer.commercial-3.2.5.swf?0.03258616218907584 pageUrl=http://www.btv.bg/sport/live</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/ring_tv.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>bTV Sport iOS</title>
+	        <link>http://94.155.44.74:80/sport/sportlive/playlist.m3u8</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/ring_tv.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>BNT2</title>
+	        <link>rtmp://edge2.evolink.net:2020/fls playpath=bnt2.stream swfUrl=http://tv.bnt.bg/bnt2/player.swf pageUrl=http://tv.bnt.bg/bnt2/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bnt2_bg.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>BNT World</title>
+	        <link>rtmp://193.43.26.22/live playpath=livestream1 swfUrl=http://showww.bnt.bg/sat/myVideo.swf pageUrl=http://showww.bnt.bg/sat/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bnt_world.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Ring.BG</title>
+	        <link>rtmp://94.155.44.74:80/sport playpath=sportlive swfUrl=http://images.btv.bg/fplayer/flowplayer.commercial-3.2.5.swf?0.1794764335699809 pageUrl=http://www.btv.bg/sport/live</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/ring_tv.jpg</thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>Kanal3</title>
+	        <link>http://93.155.252.137:9090/stream.flv</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/kk/kanal3.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>BNT World</title>
+	        <link>rtmp://193.43.26.22/live/livestream1 pageUrl=http://tv.bnt.bg/bntworld/ live=1 swfUrl=http://showww.bnt.bg/sat/myVideo.swf/flowplayer-3.2.4.swf</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bnt_world.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>bTV</title>
+	        <link>rtmp://94.155.44.75:80/ios/live pageUrl=http://www.btv.bg/live/online swfUrl=http://images.btv.bg/fplayer/flowplayer.rtmp-3.2.3.swf live=1</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/btv_bg.jpg</thumbnail>
+	    </item>
+			
+            <item>
+	        <title>BGTV</title>
+	        <link>rtmp://95.87.193.146/bgtv/livestream pageUrl=http://www.bgtv-tv.com/ swfUrl=http://www.bgtv-tv.com/swf/Taime.swf live=1</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/bb/bg_tv.jpg</thumbnail>
+	    </item>
+	    
+            <item>
+	        <title>Gordimy</title>
+	        <link>rtmp://95.87.193.146/gordimy/livestream pageUrl=http://www.gordimy-tv.com/ swfUrl=http://www.gordimy-tv.com/index.swf live=1</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/gg/gordimy_tv.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Alfa TV</title>
+	        <link>rtmp://ataka.tv/live playpath=live pageUrl=http://tv-sv.blogspot.com/2010/04/alfa-tv.html live=1</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/aa/alfa_tv_bg.jpg</thumbnail>
+	    </item>
+			
+            <item>
+	        <title>Ring TV</title>
+	        <link>rtmp://94.155.44.74:80/sport playpath=sportlive swfUrl=Ohttp://images.btv.bg/fplayer/flowplayer.commercial-3.2.5 pageUrl=http://tv-sv.blogspot.com/2010/09/ring-bg.html</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/ring_tv.jpg</thumbnail>
+	    </item>	    
+
+	    <item>
+	        <title>Bulgaria on Air</title>
+	        <link>mmsh://87.120.201.2/msat_live_direct_q2.wmv</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>kanal 0</title>
+	        <link>mmsh://stream.kompasbg.com:8081/</link>
+	        <thumbnail></thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>ZONA M</title>
+	        <link>http://wtv.cores.biz/relay/zonam.mp4</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Tiankov TV</title>
+	        <link>mmsh://tiankov.netguard.bg:8456/</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Tiankov Music</title>
+	        <link>mmsh://hqtiankov.netguard.bg:8454/</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>emusictv.eu</title>
+	        <link>mms://93.152.172.201/emtv</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Hip-Hop TV</title>
+	        <link>mms://93.152.172.201/hiphoptv</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Rila TV</title>
+	        <link>http://109.160.76.6:90/rila.mpeg</link>
+	        <thumbnail></thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>BG Far</title>
+	        <link>http://84.54.180.132:8080/bgfar.flv</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>TV Mix</title>
+	        <link>http://109.160.31.20:8090/tvmix_big.flv</link>
+	        <thumbnail></thumbnail>
+	    </item>	    
+	</items>
+	
+    </channel>
+
+    <channel>
+		<name>Razsledvane</name>
+		<thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	<items>
+	
+	    <item>
+	        <title>Епизод 1 - Шокиращи репортажи в най-новото предаване на Нова ТВ...</title>
+	        <link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-01-15.flv</link>
+	        <thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Епизод 2 - Жертвите на банкови престъпления...</title>
+	        <link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-01-22.flv</link>
+	        <thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item> 
+           
+	    <item>
+		<title>Епизод 3 - Има едно място, където младите отглеждат канабис, а вината поемат възрастните...</title>
+		<link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-01-29.flv</link>
+		<thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item>
+	   
+	    <item>
+	        <title>Епизод 4 - Кой и как фалшифицират талони за технически прегледи, земеделски скици и др...</title>
+	        <link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-02-05.flv</link>
+	        <thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Епизод 5 - Разкрития по случая с ареста на семейство Начкови от Мировяне...</title>
+	        <link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-02-12.flv</link>
+	        <thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item>
+ 
+ 	    <item>
+	        <title>Епизод 6 - Държавни поръчки, ремонти или как да забогатеем бързо...</title>
+	        <link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-02-19.flv</link>
+	        <thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item>
+
+ 	    <item>
+	        <title>Епизод 7 - Магистрати пият в работно време...</title>
+	        <link>http://str.by.host.bg/novatv/razsledvane/razsledvane-2012-02-26.flv</link>
+	        <thumbnail>http://img821.imageshack.us/img821/8453/unknownnj.jpg</thumbnail>
+	    </item>
+	    
+	</items>
+	
+    </channel>
+
+
+    
+    
+    <channel>
+	
+	    <name>Russian Channels</name>
+	    <thumbnail>http://media-3.web.britannica.com/eb-media/42/3842-004-C238EDD3.gif</thumbnail> 
+	
+	<items>
+	
+	    <item>
+	        <title>NTV</title>
+	        <link>rtmp://s7.webport.tv/live/z040001.stream playpath=z040001.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/ntv_ru.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>PRVI KANAL RUSSIA</title>
+	        <link>rtmp://s7.webport.tv/live/z040002.stream playpath=z040002.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/pp/perviy_1_kanal.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>CTC</title>
+	        <link>rtmp://s7.webport.tv/live/z040003.stream playpath=z040003.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sts_international.jpg</thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>TNT</title>
+	        <link>rtmp://s7.webport.tv/live/z040004.stream playpath=z040004.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/tt/tnt_ru.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>RUSSIA 1</title>
+	        <link>rtmp://s7.webport.tv/live/z040005.stream playpath=z040005.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rossiya_1.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>RUSSIA 2</title>
+	        <link>rtmp://s7.webport.tv/live/z040006.stream playpath=z040006.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rossiya_2.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>5 TV</title>
+	        <link>rtmp://s7.webport.tv/live/z040007.stream playpath=z040007.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/kk/kanal5_petersburg.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>RUSSIA 24</title>
+	        <link>rtmp://s7.webport.tv/live/z0400082.stream playpath=z040008.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/rossiya_24.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>REN</title>
+	        <link>rtmp://s7.webport.tv/live/z040009.stream playpath=z040009.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/ren_tv.jpg</thumbnail>
+	    </item>
+ 
+	    <item>
+	        <title>MYZ</title>
+	        <link>rtmp://s7.webport.tv/live/z040010.stream playpath=z040010.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/mm/muz_tv.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>OHOTNIK I RIBOLOV</title>
+	        <link>rtmp://s7.webport.tv/live/z040011.stream playpath=z040011.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/oo/ohotnik_i_rybolov.jpg</thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>KINOPOKAZ HD-1</title>
+	        <link>rtmp://s7.webport.tv/live/z040012.stream playpath=z040012.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/kk/kinopokaz_hd1.jpg</thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>TELEPUTESHESTVIYA HD</title>
+	        <link>rtmp://s7.webport.tv/live/z040013.stream playpath=z040013.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/kk/kanal_teleputeshestviya_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>SPORT</title>
+	        <link>rtmp://s7.webport.tv/live/z040017.stream playpath=z040017.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/ntv_plus_hd_sport.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>EUROSPORT HD</title>
+	        <link>rtmp://s7.webport.tv/live/z040018.stream playpath=z040018.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>NATIONAL GEOGRAPHIC</title>
+	        <link>rtmp://s7.webport.tv/live/z040019.stream playpath=z040019.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_ru.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>NAT GEO WILD</title>
+	        <link>rtmp://s7.webport.tv/live/z040020.stream playpath=z040020.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_wild_ru.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>SPORT 1</title>
+		<link>rtmp://s7.webport.tv/live/z040021.stream playpath=z040021.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport1_ru.jpg</thumbnail>
+	    </item>
+	    
+	</items>
+
+    </channel>
+
+
+
+
+
+
+    <channel>
+	   
+	    <name>Sport</name>
+	    <thumbnail>http://img208.imageshack.us/img208/7983/onlinesportsbetting1.jpg</thumbnail>
+	
+	<items>
+
+            <item>
+	        <title>EUROSPORT HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010601.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>RED BULL SPORT</title>
+	        <link>rtmp://cp93704.live.edgefcs.net/live/ playpath=redbull1@21839 swfUrl=http://www.chanfeed.com/streams/mediaplayer.swf live=1 pageUrl=http://chanfeed.com/red-bull-sport</link>
+	        <thumbnail>http://img507.imageshack.us/img507/4618/00450httpihaymarketneta.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>Eurosport HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z010601.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+		<title>Eurosport HD 1080p</title>
+		<link>http://tinyurl.com/85sd2z2</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_hd.jpg</thumbnail>
+	    </item>  
+ 
+    	    <item>
+		<title>Eurosport 2 HD</title>
+		<link>rtmp://s6.webport.tv/live/ playpath=z010301.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	    	<thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport2_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Sky Sports HD1</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z050226.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_sports1.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>ESPN HD America</title>
+	        <link>rtmp://s7.webport.tv/live/ playpath=z050201.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/espn-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/espn_lam_hd.jpg</thumbnail>
+	    </item>
+
+            <item>
+                <title>Fuel TV</title>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/ff/fuel_tv_au.jpg</thumbnail>
+                <link>rtmp://31.193.12.66/histream/televisafueltv playpath=televisafueltv swfurl=http://www.histream.tv/player.swf live=1 pageurl=http://www.histream.tv/Fuel TV</link>
+            </item>
+
+            <item>
+                <title>ESPN</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/ee/espn_classic.png</thumbnail>
+                <link>rtmp://38.96.175.173:1935/live/80001@hyqw playpath=80001@hyqw swfurl=http://www.veohcast.tv/player/player.swff pageurl=http://www.veohcast.tv/ESPN</link>
+            </item>
+
+	    <item>
+	        <title>Футбол+</title>
+	        <link>http://tinyurl.com/6rf66gw</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/tt/trk_ukraina_futbol_plus.jpg</thumbnail>
+	    </item>
+		
+	    <item>
+	        <title>Футбол</title>
+	        <link>http://tinyurl.com/7l45pht</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/tt/trk_ukraina_futbol.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Eurosport</title>
+	        <link>http://tinyurl.com/87aj9g7</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ee/eurosport_international.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Sport 1 HD</title>
+                <link>rtmp://s99.webport.tv/live/ playpath=z030103.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf" pageUrl="http://www.tvsector.com/national-geographic-nat-geo-hd/" timeout=60</link>
+                <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport1_de_hd.jpg</thumbnail>
+            </item>
+
+	    <item>
+	        <title>SPORT</title>
+	        <link>rtmp://s7.webport.tv/live/z040017.stream playpath=z040017.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/nn/ntv_plus_hd_sport.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>SPORT 1</title>
+		<link>rtmp://s7.webport.tv/live/z040021.stream playpath=z040021.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport1_ru.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Спорт1 HD</title>
+	        <link>rtmp://212.40.43.10/sport1/sport10.stream</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport1_ru.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Спорт2 HD</title>
+	        <link>rtmp://212.40.43.10/sport1/sport20.stream</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport2_ru.jpg</thumbnail>
+	    </item> 
+           
+	    <item>
+		<title>Спорт1 SD</title>
+		<link>rtmp://212.40.43.10/sport1/sport1i1.stream</link>
+		<thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport1_ru.jpg</thumbnail>
+	    </item>
+	   
+	    <item>
+	        <title>Спорт2 SD</title>
+	        <link>rtmp://212.40.43.10/sport1/sport2i1.stream</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport2_ru.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Gol T</title>
+	        <link>rtmp://173.193.223.150/live/g?id=90899</link>
+	        <thumbnail>http://img837.imageshack.us/img837/738/80106206.jpg</thumbnail>
+	    </item>	    
+
+            <item>
+	        <title>Ring TV</title>
+	        <link>rtmp://94.155.44.74:80/sport playpath=sportlive swfUrl=Ohttp://images.btv.bg/fplayer/flowplayer.commercial-3.2.5 pageUrl=http://tv-sv.blogspot.com/2010/09/ring-bg.html</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/ring_tv.jpg</thumbnail>
+	    </item>
+	    
+            <item>
+                <title>Redbull</title>
+                <thumbnail>http://www.lyngsat-logo.com/hires/rr/red_bull_tv.png</thumbnail>
+                <link>rtmp://cp93704.live.edgefcs.net:443/live/redbull2@21839 playpath=redbull2@21839 swfurl=http://www.shadownet.ro/webplayer/player1.swf live=1 pageurl=http://www.1tv4u.net/Redbull</link>
+            </item>
+	    
+	    <item>
+	        <title>Sport RO</title>
+	        <link>rtmp://live.sport.ro/live1/ playpath=mp4:live1.mp4 swfUrl=http://assets.acasatv.ro/assets/flvplayer/player.swf live=1 pageUrl=http://www.sport.ro/live/ibu1.html</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport_ro_hd.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Sport TV1</title>
+	        <link>rtmp://s3.zcast.us/liveedge playpath=euromfc-81947 swfUrl=http://www.zcast.us/player.swf  pageUrl=http://zcast.us/gen.php </link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/ss/sport_tv1_pt.jpg</thumbnail>
+	    </item> 
+
+	    <item>
+		<title>SKY Sports 1</title>
+		<link>rtmp://46.105.106.60/sp1/authenticated//sp1/authenticated/ playpath=sp1/sp1 app=sp1/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp1/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+		<thumbnail>http://channelspk.tk/ad1/logo/sky_sports1.png</thumbnail>
+	    </item>
+
+	    <item>
+		<title>SKY Sports 2</title>
+		<link>rtmp://46.105.106.60/sp2/authenticated//sp2/authenticated/ playpath=sp2/sp2 app=sp2/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp2/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+		<thumbnail>http://channelspk.tk/ad1/logo/sky_sports2.png</thumbnail>
+	    </item>
+
+	    <item>
+		<title>SKY Sports 3</title>
+		<link>rtmp://46.105.106.60/sp3/authenticated//sp3/authenticated/ playpath=sp3/sp3 app=sp3/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp3/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+		<thumbnail>http://channelspk.tk/ad1/logo/sky_sports3.png</thumbnail>
+	    </item>
+
+	    <item>
+		<title>SKY Sports 4</title>
+		<link>rtmp://46.105.106.60/sp4/authenticated//sp4/authenticated/ playpath=sp4/sp4 app=sp4/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp4/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+		<thumbnail>http://channelspk.tk/ad1/logo/sky_sports4.png</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>TV Scuba 1</title>
+	        <link>http://195.90.118.93/tvscuba_sched1?TID=57d38700e6ccb3e95ff838e083c08d7a&userId=13144&channelId=2739&ppvId=0&portalId=5&portal=5&startTime=1329422779&mark=2793&source=box&epgType=live</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>TV Scuba 2</title>
+	        <link>http://195.90.118.93/tvscuba_3?TID=1a26a1822fb416fe57c1dbc6004c8606&userId=13144&channelId=2740&ppvId=0&portalId=5&portal=5&startTime=1329422885&mark=4989&source=box&epgType=live</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+            <item>
+	        <title>ESPN</title>
+	        <link>rtmp://46.105.106.60/fss7/protected//fss7/protected/ playpath=fss7/vip7/protected/ app=fss7/protected/ pageURL=http://www.flashsportstreams.tv/forum/view.php?pg=vip7 tcURL=rtmp://46.105.106.60/fss7/protected/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+            </item>
+           
+            <item>
+	        <title>ESPN2 a</title>
+	        <link>rtmp://46.105.106.60/fss8/protected//fss8/protected/ playpath=fss8/vip8/protected/ app=fss8/protected/ pageURL=http://www.flashsportstreams.tv/forum/view.php?pg=vip8 tcURL=rtmp://46.105.106.60/fss8/protected/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>ESPN2 b</title>
+	        <link>rtmp://176.31.231.57/edge/jm04j5tp6ancm52 swfUrl=http://cdn.static.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/16619/ESPN_2 tcUrl=rtmp://176.31.231.57/edge timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ESPN U</title>
+	        <link>rtmp://46.105.106.60/fss9/protected//fss9/protected/ playpath=fss9/vip9/protected/ app=fss9/protected/ pageURL=http://www.flashsportstreams.tv/forum/view.php?pg=vip9 tcURL=rtmp://46.105.106.60/fss9/protected/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>Fox Soccer</title>
+	        <link>rtmp://46.105.106.60/fss15/authenticated//fss15/authenticated/ playpath=fss15/vip15 app=fss15/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/fss15/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Fox Soccer Plus</title>
+	        <link>rtmp://46.105.106.60/fss16/authenticated//fss16/authenticated/ playpath=fss16/vip16 app=fss16/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/fss16/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SPEED Channel</title>
+	        <link>rtmp://176.31.231.57/edge/6i149337we7wsrw swfUrl=http://cdn.static.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/16619/SPEED tcUrl=rtmp://176.31.231.57/edge timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+           
+	    <item>
+	        <title>NBC Sports Network</title>
+	        <link>rtmp://176.31.231.57/edge/98jlmhfkbhc5o07 swfUrl=http://static.ilive.to/jwplayer/player.swf pageUrl=http://www.ilive.to/18843/VH_1 tcUrl=rtmp://176.31.231.57/edge timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>MotorsTV</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z010301.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf  pageUrl=http://www.tvsector.com/eurosport2-hd/</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Setanta Sports a</title>
+	        <link>rtmp://46.105.106.60/sp13/authenticated//sp13/authenticated/ playpath=sp13/sp13 app=sp13/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp13/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+           	   	   
+	    <item>
+	        <title>Satanta Sports b</title>
+	        <link>rtmp://46.105.106.60/sp10/authenticated//sp10/authenticated/ playpath=sp10/sp10 app=sp10/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp10/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SportsNet World</title>
+	        <link>rtmp://46.105.106.60/sp10/authenticated//sp10/authenticated/ playpath=sp10/sp10 app=sp10/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp10/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 1</title>
+	        <link>rtmp://46.105.106.60/sp1/authenticated//sp1/authenticated/ playpath=sp1/sp1 app=sp1/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp1/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 1 (Server 2)</title>
+	        <link>rtmp://67.228.31.169/sp1/authenticated//sp1/authenticated/ playpath=sp1/sp1 app=sp1/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://67.228.31.169/sp1/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 2</title>
+	        <link>rtmp://46.105.106.60/sp2/authenticated//sp2/authenticated/ playpath=sp2/sp2 app=sp2/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp2/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 2 (Server 2)</title>
+	        <link>rtmp://67.228.31.169/sp2/authenticated//sp2/authenticated/ playpath=sp2/sp2 app=sp2/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://67.228.31.169/sp2/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 3</title>
+	        <link>rtmp://46.105.106.60/sp3/authenticated//sp3/authenticated/ playpath=sp3/sp3 app=sp3/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp3/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 3 (Server 2)</title>
+	        <link>rtmp://67.228.31.169/sp3/authenticated//sp3/authenticated/ playpath=sp3/sp3 app=sp3/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://67.228.31.169/sp3/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>SKY Sports 4</title>
+	        <link>rtmp://46.105.106.60/sp4/authenticated//sp4/authenticated/ playpath=sp4/sp4 app=sp4/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://46.105.106.60/sp4/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>SKY Sports 4 (Server 2)</title>
+	        <link>rtmp://67.228.31.169/sp4/authenticated//sp4/authenticated/ playpath=sp4/sp4 app=sp4/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://67.228.31.169/sp4/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Sky Poker</title>
+	        <link>rtmp://cp67698.live.edgefcs.net/live/SkyPoker_500k@9124 app=live pageUrl=http://www.estadio.in/skypoker swfUrl=http://www.estadio.in/player.swf tcUrl=rtmp://cp67698.live.edgefcs.net/live playPath=SkyPoker_500k@9124 swfVfy=true live=true timeout=60</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>Sky Sports News (Server 2)</title>
+	        <link>rtmp://67.228.31.169/sp5/authenticated//sp5/authenticated/ playpath=sp5/sp5 app=sp5/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://67.228.31.169/sp5/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>ESPN (Server 2)</title>
+	        <link>rtmp://67.228.31.169/sp6/authenticated//sp6/authenticated/ playpath=sp6/sp6 app=sp6/authenticated/ pageURL=http://www.flashsportstreams.tv/ tcURL=rtmp://67.228.31.169/sp6/authenticated/ swfUrl=http://www.flashsportstreams.info/mediaplayer/player.swf swfVfy=true live=true</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>OHOTNIK I RIBOLOV</title>
+	        <link>rtmp://s7.webport.tv/live/z040011.stream playpath=z040011.stream swfUrl=http://tvsector.com/mediaplayer/player.swf live=1 pageUrl=http://tvsector.com/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/oo/ohotnik_i_rybolov.jpg</thumbnail>
+	    </item>
+
+	    <item>
+	        <title>CT 4 SPORT</title>
+	        <link>http://79.127.143.125:8080/ct4sport</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>Orange Sport</title>
+	        <link>mms://livewm.orange.fr/live-multicanaux</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	
+	    <item>
+	        <title>ORANGE SPORT EVENT 1 TV</title>
+	        <link>mms://livewm.orange.fr/direct-evenementiels</link>
+	        <thumbnail></thumbnail>
+	    </item>	
+
+	    <item>
+	        <title>ORANGE SPORT EVENT 2 TV</title>
+	        <link>mms://livewm.orange.fr/direct-evenementiels2</link>
+	        <thumbnail></thumbnail>
+	    </item>
+
+	    <item>
+	        <title>ORANGE SPORT INFO TV</title>
+	        <link>mms://livewm.orange.fr/live-multicanaux</link>
+	        <thumbnail></thumbnail>
+	    </item>
+	    
+	</items>
+    </channel>	    
+	    
+    <channel>
+	   
+	    <name>18+</name>
+	    <thumbnail>http://img441.imageshack.us/img441/3203/unknownb.jpg</thumbnail>
+    	
+	<items>
+	    
+	    <item>
+	        <title>Penthouse HD1</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z990103.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/pp/penthouse_hd1.jpg</thumbnail>
+	    </item>
+        
+            <item>
+	        <title>Penthouse HD2</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z990104.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>hhttp://www.lyngsat-logo.com/logo/tv/pp/penthouse_hd2.jpg</thumbnail>
+	    </item>
+
+            <item>
+	        <title>Redlight HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z990101.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/rr/redlight_hd.jpg</thumbnail>
+	    </item>
+            
+            <item>
+	        <title>HustlerTV HD</title>
+	        <link>rtmp://s6.webport.tv/live/ playpath=z990102.stream swfUrl="http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf"  pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/hh/hustler_hd.jpg</thumbnail>
+	    </item>
+	    
+	    <item>
+	        <title>Venus</title>
+	        <link>rtmp://c31.webcaston.com/live/channel/ playpath=fituyry swfUrl=http://www.webcaston.com/player/player.swf live=1 pageUrl=http://www.webcaston.com</link>
+	        <thumbnail>http://www.lyngsat-logo.com/logo/tv/vv/venus_ar.jpg</thumbnail>
+	    </item>
+	</items>
+	
+    </channel>
+    
+
+</channels>     
