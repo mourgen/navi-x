@@ -4,12 +4,12 @@ title=LiveStreams from Johnny Bravo (Boxee Compatible Too!)
 logo=http://bargainbabe.com/wp-content/uploads/2009/03/fuzzy-tv-screen.jpg
 description=These are LiveStreams from Johnny Bravo, a link discovered by AminB, made compatible with Boxee... hopefully!/description
 
-type=video
+type=html
 name=HBO HD
 URL=rtmp://s6.webport.tv/live/ playpath=z010402.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
 thumbnail=http://www.lyngsat-logo.com/logo/tv/hh/hbo_hd.jpg
 
-type=video
+type=html
 name=HBO2 HD
 URL=rtmp://s6.webport.tv/live/ playpath=z010701.stream swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
 thumbnail=http://www.lyngsat-logo.com/logo/tv/hh/hbo2_hd.jpg
