@@ -1,0 +1,197 @@
+version=1
+background=http://farm8.staticflickr.com/7164/6836497851_c558d09c35_b_d.jpg
+title=LiveStreams from Johnny Bravo (Boxee Compatible Too!)
+logo=http://bargainbabe.com/wp-content/uploads/2009/03/fuzzy-tv-screen.jpg
+description=These are LiveStreams from Johnny Bravo, a link discovered by AminB, made compatible with Boxee... hopefully!/description
+
+type=video
+name=HBO HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z010402.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/hh/hbo_hd.jpg
+
+type=video
+name=HBO2 HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z010701.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/hh/hbo2_hd.jpg
+
+type=video
+name=CINEMAX HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z050221.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/cc/cinemax_ce.jpg
+
+type=video
+name=CINEMAX 2 HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z010401.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/cc/cinemax2_ce.jpg
+
+type=video
+name=Sky Cinema 1 HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z050207.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ss/sky_it_cinema_plus1_hd.jpg
+
+type=video
+name=FOX HD
+URL=rtmp://s7.webport.tv/live
+playpath=z050224.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ff/fox_hd.jpg
+
+type=video
+name=Sky Movies Modern Greats HD
+URL=rtmp://s7.webport.tv/live
+playpath=z050228.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_modern_greats_hd.jpg
+
+type=video
+name=Sky Movies Drama & Romance HD
+URL=rtmp://s7.webport.tv/live
+playpath=z050229.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_drama_romance_hd.jpg
+
+type=video
+name=Sky Movies SciFi & Horror HD
+URL=rtmp://s7.webport.tv/live
+playpath=z050230.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_scifi_horror_hd.jpg
+
+type=video
+name=Sky Movies Comedy HD
+URL=rtmp://s7.webport.tv/live
+playpath=z050231.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_comedy_hd.jpg
+
+type=video
+name=SKY NEWS HD
+URL=rtmp://s7.webport.tv/live
+playpath=z050227.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+thumbnail=http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_news_hd.jpg
+
+type=video
+name=Cinema Hits HD
+URL=rtmp://s99.webport.tv/live
+playpath=z050211.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+
+type=video
+name=Cinema MAX HD
+URL=rtmp://s99.webport.tv/live
+playpath=z050206.stream
+pageUrl=http://www.tvsector.com
+live=1
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+
+type=video
+name=NAT GEO Wild
+URL=rtmp://s99.webport.tv/live
+playpath=z050204.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+timeout=60
+thumbnail=http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_wild_emea_hd.jpg
+
+type=video
+name=NAT GEO Italy
+URL=rtmp://s6.webport.tv/live
+playpath=z050223.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_it.jpg
+
+type=video
+name=National Geographic HD
+URL=rtmp://tv.tvsector.com/live
+playpath=z050203.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_us_hd.jpg
+
+type=video
+name=NAT GEO HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z050225.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/nn/nat_geo_us_hd.jpg
+
+type=video
+name=Animal Planet HD
+URL=rtmp://s7.webport.tv/live/
+playpath=z050001.stream
+swfUrl=http://tvsector.com/mediaplayer/player.swf
+live=1
+pageUrl=http://tvsector.com/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/aa/animal_planet_us_hd.jpg
+
+type=video
+name=History HD
+URL=rtmp://s99.webport.tv/live/
+playpath=z050003.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/History-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/hh/history_hd.jpg
+
+type=video
+name=Discovery Channel HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z050208.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/discovery-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/dd/discovery_hd_us.jpg
+
+type=video
+name=DisneyXD HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z020101.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/dd/disney_xd_hd.jpg
+
+type=video
+name=Comedy Central HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z020503.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/Comedy_Central_HD/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/cc/comedy_central.jpg
+
+type=video
+name=BBC HD
+URL=rtmp://s6.webport.tv/live/
+playpath=z010201.stream
+swfUrl=http://www.tvsector.com/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf
+pageUrl=http://www.tvsector.com/national-geographic-nat-geo-hd/
+thumbnail=http://www.lyngsat-logo.com/logo/tv/bb/bbc_hd_scan.jpg
