@@ -54,7 +54,7 @@ icon=http://website.navi-x.org/networks/icon.png
 
 type=rss:video
 name=Live Streams (XBMC Only)
-URL=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/livestreams.xml
+URL=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/livestreams2.xml
 thumb=http://navi-x.googlecode.com/svn/trunk/networks/images/logos/livestreams.png
 
 type=playlist
