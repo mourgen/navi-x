@@ -53,10 +53,10 @@ thumb=http://icons.iconarchive.com/icons/robsonbillponte/cartoon/256/TV-icon.png
 icon=http://website.navi-x.org/networks/icon.png
 
 type=rss:video
-name=Live Streams (XBMC Only)
+name=TVsector (XBMC Only)
 URL=https://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
 #URL=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/livestreams.xml
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/images/logos/livestreams3.png
+thumb=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/tvsector.jpg
 icon=http://website.navi-x.org/networks/icon.png
 
 type=playlist
