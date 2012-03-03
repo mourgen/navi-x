@@ -12,6 +12,14 @@ URL=http://www.navi-x.org/playlists/apple.plx
 date=2011-3-19
 
 type=playlist
+name=1Channel
+date=2012-03-03
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
+player=default
+rating=-1.00
+
+
+type=playlist
 name=66 Stage
 URL=http://navix.turner3d.net/scrape/66stage/list/movies
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_66stage.png
