@@ -12,14 +12,6 @@ URL=http://www.navi-x.org/playlists/apple.plx
 date=2011-3-19
 
 type=playlist
-name=1Channel
-date=2012-03-03
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
-player=default
-rating=-1.00
-
-
-type=playlist
 name=66 Stage
 URL=http://navix.turner3d.net/scrape/66stage/list/movies
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_66stage.png
@@ -40,18 +32,6 @@ URL=http://navix.turner3d.net/scrape/divxstage/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
 
 type=playlist
-name=Extramina
-thumb=http://profile.ak.fbcdn.net/hprofile-ak-ash2/48910_100000452142540_411_n.jpg
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_recentvideos?q=intheaters
-date=2012-2-02
-
-type=playlist
-name=Fast Pass TV
-thumb=http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=getmovies
-date=2012-2-02
-
-type=playlist
 name=IceFilms.info
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png
 URL=http://navix.turner3d.net/scrape/icefilms/
@@ -64,37 +44,8 @@ URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl
 date=2012-2-02
 
 type=playlist
-name=Novamov
-thumb=http://www.novamov.com/images/logo_novamov.jpg
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_novamov
-date=2012-2-02
-
-type=playlist
 name=Project: Free TV
 thumb=http://www.free-tv-video-online.me/images/projectfree4.gif
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
 date=2012-2-02
 
-type=playlist
-name=Public Domain Flicks
-thumb=http://www.publicdomainflicks.com/img/logo.gif
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/public
-date=2012-2-02
-
-type=playlist
-name=StageVu
-thumb=http://stagevu.com/img/white/newtitle.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
-date=2012-2-02
-
-type=playlist
-name=VeeHD
-thumb=http://static.veehd.com/logo.gif
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd
-date=2012-2-02
-
-type=playlist
-name=Videofriender
-thumb=http://videofriender.com/images/logo.png?1218389123
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
-date=2012-2-02
