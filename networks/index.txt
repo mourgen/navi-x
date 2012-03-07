@@ -52,7 +52,7 @@ URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.
 thumb=http://icons.iconarchive.com/icons/robsonbillponte/cartoon/256/TV-icon.png
 icon=http://website.navi-x.org/networks/icon.png
 
-type=rss:video
+type=rss
 name=TVsector (XBMC Only)
 URL=https://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
 thumb=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/tvsector.jpg
