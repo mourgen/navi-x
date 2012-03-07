@@ -54,7 +54,7 @@ icon=http://website.navi-x.org/networks/icon.png
 
 type=rss
 name=TVsector (XBMC Only)
-URL=https://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
+URL=http://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
 thumb=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/tvsector.jpg
 icon=http://website.navi-x.org/networks/icon.png
 
