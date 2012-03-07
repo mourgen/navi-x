@@ -32,7 +32,13 @@ URL=http://navix.turner3d.net/scrape/divxstage/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
 
 type=playlist
-name=IceFilms.info
+name=HTTPfilm.com
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_httpfilm.png
+URL=http://navix.turner3d.net/scrape/httpfilm/
+date=2012-3-07
+
+type=playlist
+name=IceFilms.info (XBMC Only)
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png
 URL=http://navix.turner3d.net/scrape/icefilms/
 date=2012-2-02
@@ -42,10 +48,3 @@ name=Movie25
 thumb=http://navix.turner3d.net/justme4u2c/images/Movie25.jpg
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl
 date=2012-2-02
-
-type=playlist
-name=Project: Free TV
-thumb=http://www.free-tv-video-online.me/images/projectfree4.gif
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
-date=2012-2-02
-
