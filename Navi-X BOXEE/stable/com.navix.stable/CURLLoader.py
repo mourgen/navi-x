@@ -196,9 +196,8 @@ class CURLLoader:
                 phase=phase+1
                 rep={}
 
-                if_satisfied=False
-                if_next=False
-                if_end=False
+                if_stack=[]
+                if_stacklen=0
 
                 src_printed=False
 
@@ -222,6 +221,7 @@ class CURLLoader:
                     return self.proc_error("endless loop detected")
 
                 inst_prev=inst
+                v['NIPL']=inst
                 lines=inst.splitlines()
                 if len(lines) < 1:
                     return self.proc_error("nothing returned from phase "+str(phase))
@@ -235,37 +235,39 @@ class CURLLoader:
                         src_printed=True
 
                     if line>'' and verbose>1:
-                        noexec=''
-                        if if_next or if_end:
-                            noexec=' (skipped)'
-                        str_report="NIPL line "+str(linenum)+noexec+": "+line
-                        if verbose>2 and (if_next or if_satisfied or if_end):
-                            str_report=str_report+"\n (IF: satisfied="+str(if_satisfied)+", skip to next="+str(if_next)+", skip to end="+str(if_end)+")"
+                        str_report="NIPL line "+str(linenum)+": "+line
+                        
+                        if if_stacklen>0 and verbose>2 and (if_stack[-1]["if_next"] or if_stack[-1]["if_satisfied"] or if_stack[-1]["if_end"]):
+                            str_report=str_report+"\n (IF: satisfied="+str(if_stack[-1]["if_satisfied"])+", skip to next="+str(if_stack[-1]["if_next"])+", skip to end="+str(if_stack[-1]["if_end"])+")"
                         print str_report
 
                     # skip comments and blanks
                     if line[:1]=='#' or line[:2]=='//' or line=='':
                         continue
 
-                    if if_end and line!='endif':
-                        continue
+                    if if_stacklen>0 and line[0:3]!='if ' and line[0:5]!='endif':
+                        if if_stack[-1]["if_end"] and line!='endif':
+                            if verbose>1:
+                                print "    ^^^ skipped"
+                            continue
+    
+                        if if_stack[-1]["if_next"] and line[0:6]!='elseif' and line!='else' and line!='endif':
+                            if verbose>1:
+                                print "    ^^^ skipped"
+                            continue
 
-                    if if_next and line[0:6]!='elseif' and line!='else' and line!='endif':
-                        continue
+                    ### 0-argument methods / commands
 
-                    if line=='else':
-                        if if_satisfied:
-                            if_end=True
+                    if line=='else' and if_stacklen>0:
+                        if if_stack[-1]["if_satisfied"]:
+                            if_stack[-1]["if_end"]=True
                         else:
-                            if_next=False
-                            if verbose>0:
-                                print "Proc debug else: executing"
+                            if_stack[-1]["if_next"]=False
                         continue
 
-                    elif line=='endif':
-                        if_satisfied=False
-                        if_next=False
-                        if_end=False
+                    elif line=='endif' and if_stacklen>0:   # reset if params
+                        if_stack.pop()
+                        if_stacklen=len(if_stack)
                         continue
 
                     elif line=='scrape':
@@ -317,19 +319,6 @@ class CURLLoader:
                         if verbose>0:
                             print str_out
 
-#                        if v['s_action']=='headers':
-#                            headers=remoteObj
-#                            str_out="Proc debug headers:"
-#                            for ke in headers:
-#                                str_out=str_out+"\n "+ke+": "+str(headers[ke])
-#                                v[ke]=str(headers[ke])
-#                            if verbose>0:
-#                                print str_out
-#                        elif v['s_action']=='geturl':
-#                            v['v1']=remoteObj
-#                        else:
-#                            v['htmRaw']=remoteObj
-
                         if v['s_action']=='read' and v['regex']>'' and v['htmRaw']>'':
                             # get finished - run regex, populate v(alues) and rep(ort) if regex is defined
                             v['nomatch']=''
@@ -344,6 +333,8 @@ class CURLLoader:
                                 rerep='Processor scrape:';
                                 for i in range(1,len(match.groups())+1):
                                     val=match.group(i)
+                                    if val is None:
+                                        val=''
                                     key='v'+str(i)
                                     rerep=rerep+"\n "+key+'='+val
                                     rep[key]=val
@@ -389,21 +380,33 @@ class CURLLoader:
                         arg=match.group(3)
 
                         if subj=='if' or subj=='elseif':
-                            if if_satisfied:
-                                if_end=True
+                            if if_stacklen>0 and subj=='elseif' and if_stack[-1]["if_satisfied"]:
+                                if_stack[-1]["if_end"]=True
                             else:
+                                if subj=='if':
+                                    if if_stacklen>0 and (if_stack[-1]["if_satisfied"]==False or if_stack[-1]["if_end"]==True):
+                                        if_skip=True
+                                    else:
+                                        if_skip=False
+                                    if_stack.append({
+                                    	"if_next": False,
+                                    	"if_satisfied": False,
+                                    	"if_end": if_skip
+                                    })
+                                    if_stacklen=len(if_stack)
                                 boolObj=self.if_eval(arg, v)
                                 if(boolObj["error"]==True):
                                     return self.proc_error(boolObj["data"] + "\n" + line)
 
                             if boolObj["data"]==True:
-                                if_satisfied=True
-                                if_next=False
+                                if_stack[-1]["if_satisfied"]=True
+                                if_stack[-1]["if_next"]=False
                             else:
-                                if_next=True
+                                if_stack[-1]["if_next"]=True
 
                             if verbose>0:
-                                print "Proc debug "+subj+" => "+str(bool)
+                                print "Proc debug "+subj+" => "+str(boolObj["data"])
+
                             continue
 
                         if match.group(2)=='=':
@@ -455,9 +458,7 @@ class CURLLoader:
                             elif subj=='report_val':
                                 match=lparse.search(arg)
                                 if match is None:
-                                    print "Processor syntax error: "+line
-                                    SetInfoText("")
-                                    return -1
+                                    return self.proc_error("syntax error: "+line)
                                 ke=match.group(1)
                                 va=match.group(3)
                                 if va[0:1]=="'":
@@ -500,6 +501,8 @@ class CURLLoader:
                                     rerep='Processor match '+arg+':';
                                     for i in range(1,len(match.groups())+1):
                                         val=match.group(i)
+                                        if val is None:
+                                            val=''
                                         key='v'+str(i)
                                         rerep=rerep+"\n "+key+'='+val
                                         v[key]=val
@@ -631,7 +634,10 @@ class CURLLoader:
                 sep='?'
                 report='Processor: phase 3 - scrape and report'
                 for i in range(1,len(match.groups())+1):
-                    val=urllib.quote_plus(match.group(i))
+                    valtmp=match.group(i)
+                    if valtmp is None:
+                        valtmp=''
+                    val=urllib.quote_plus(valtmp)
                     tgt=tgt+sep+'v'+str(i)+'='+val
                     sep='&'
                     report=report+"\n v"+str(i)+": "+val
@@ -790,6 +796,8 @@ class NIPLVars:
             return ''
 
     def __setitem__(self,key,value):
+        if value is None:
+            value=''
         self.data[key]=value
 
     def defaults(self):
