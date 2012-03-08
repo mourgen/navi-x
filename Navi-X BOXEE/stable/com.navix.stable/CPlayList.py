@@ -1059,7 +1059,7 @@ class CPlayList:
 #                if self.processor != '':
 #                    tmp.processor = self.processor   
 #                else: #hard coded processor
-#                    tmp.processor = "http://navix.turner3d.net/proc/youtube"
+#                    tmp.processor = "http://www.navixtreme.com/proc/youtube"
 #                self.list.append(tmp)                
 #
 #        #check if there is a next page in the html. Get the last one in the page.

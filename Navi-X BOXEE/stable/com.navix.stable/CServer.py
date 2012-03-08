@@ -76,7 +76,7 @@ class CServer:
     #              saving locally, or an empty string if the login failed.
     ######################################################################  
     def nxLogin(self, username, password):
-        return getRemote('http://navix.turner3d.net/login/',{
+        return getRemote('http://www.navixtreme.com/login/',{
             'method':'post',
             'postdata':urllib.urlencode({'username':username,'password':password})
         })['content']
@@ -135,7 +135,7 @@ class CServer:
         #return 0
                    
         #rate mediaitem
-        result=getRemote('http://navix.turner3d.net/rate/',{
+        result=getRemote('http://www.navixtreme.com/rate/',{
             'method':'post',
             'postdata':urllib.urlencode({'url':mediaitem.URL,'rating':rating}),
             'cookie':'nxid='+nxserver.user_id

@@ -110,7 +110,7 @@ class Navi_API:
         if len(password) == 0: return -2
 
         #login to the Navi-X server
-        cookies = urlopen(self.app, 'http://navix.turner3d.net/members/',{
+        cookies = urlopen(self.app, 'http://www.navixtreme.com/members/',{
                     'method':'post',
                     'action':'read',
                     'postdata':urllib.urlencode({'action':'takelogin', 'ajax':1, 'username':username,'password':password, 'rndval':int(time.time()) })
@@ -134,7 +134,7 @@ class Navi_API:
             self.app.gui.SetLabel(20011, self.app.local['1'])
 
             #Sync ip with device
-            urlopen(self.app, 'http://navix.turner3d.net/members/',{
+            urlopen(self.app, 'http://www.navixtreme.com/members/',{
                     'method':'post',
                     'action':'read',
                     'postdata':urllib.urlencode({
@@ -172,7 +172,7 @@ class Navi_API:
         if self.is_user_logged_in() == False:
             self.app.gui.ShowDialogNotification(self.app.local['58'])
         else:
-            result=urlopen(self.app, 'http://navix.turner3d.net/rate/',{
+            result=urlopen(self.app, 'http://www.navixtreme.com/rate/',{
                 'method':'post',
                 'action':'read',
                 'postdata':urllib.urlencode({'url':item.path,'rating':rating}),
@@ -188,7 +188,7 @@ class Navi_API:
     ### get favorites
     def getFavorite(self):
         if self.favorite_id == '':
-            data = urlopen(self.app, 'http://navix.turner3d.net/playlist/mine.plx',{
+            data = urlopen(self.app, 'http://www.navixtreme.com/playlist/mine.plx',{
                     'action':'read',
                 })['content']
             try:
@@ -197,7 +197,7 @@ class Navi_API:
                 Log(self.app, 'NAVI-X: Favorite plx id: %s' % self.favorite_id)
             except:
                 #create favorite plx
-                favorite_id = urlopen(self.app, 'http://navix.turner3d.net/mylists/',{
+                favorite_id = urlopen(self.app, 'http://www.navixtreme.com/mylists/',{
                         'method':'post',
                         'action':'read',
                         'postdata':urllib.urlencode({
@@ -214,7 +214,7 @@ class Navi_API:
                 else:
                     self.favorite_id = favorite_id
 
-                urlopen(self.app, 'http://navix.turner3d.net/mylists/',{
+                urlopen(self.app, 'http://www.navixtreme.com/mylists/',{
                     'method':'post',
                     'action':'read',
                     'postdata':urllib.urlencode({
@@ -222,10 +222,10 @@ class Navi_API:
                         'name':'Navi-X Favorite Readme','player':'','playpath':'','plugin_type':'music','processor':'','text_local':1,
                         'this_list_id':'','thumb':'',
                         'txt':  'Thank you for using Navi-X.\n\n'+ \
-                                'The favorite section has been adapted since the previous Navi-X version. All your favorites are now stored online at http://navix.turner3d.net.  As long as you are logged in you can add items to your favorites from the menu.\n\n' + \
+                                'The favorite section has been adapted since the previous Navi-X version. All your favorites are now stored online at http://www.navixtreme.com.  As long as you are logged in you can add items to your favorites from the menu.\n\n' + \
                                 'When you are logged out you see the top 24h of all users instead of your personal favorites.\n'+ \
                                 'Any items added will be by default stored as private and will not be visible by other users!\n\n'+ \
-                                'You can also import and manage your favorites online using the playlist editor. See also http://navix.turner3d.net. \n\n'+ \
+                                'You can also import and manage your favorites online using the playlist editor. See also http://www.navixtreme.com. \n\n'+ \
                                 'Have fun using Navi-X!',
                         'type':'text','rndval':int(time.time())
                     }),
@@ -235,7 +235,7 @@ class Navi_API:
                 Log(self.app, 'NAVI-X: Favorite plx id: %s' % self.favorite_id)
             self.save()
 
-        data = urlopen(self.app, 'http://navix.turner3d.net/mylists/?action=edit&id=%s' % self.favorite_id,{
+        data = urlopen(self.app, 'http://www.navixtreme.com/mylists/?action=edit&id=%s' % self.favorite_id,{
                 'action':'read',
                 'cookie':self.cookie
             })['content']
@@ -259,7 +259,7 @@ class Navi_API:
         if thumb and not thumb_exists(thumb):
             thumb = ''
 
-        result = urlopen(self.app, 'http://navix.turner3d.net/mylists/',{
+        result = urlopen(self.app, 'http://www.navixtreme.com/mylists/',{
                 'method':'post',
                 'action':'read',
                 'postdata':urllib.urlencode({
@@ -291,7 +291,7 @@ class Navi_API:
 
     ### delete favorite
     def delFavorite(self, item):
-        result = urlopen(self.app, 'http://navix.turner3d.net/mylists/',{
+        result = urlopen(self.app, 'http://www.navixtreme.com/mylists/',{
                 'method':'post',
                 'action':'read',
                 'postdata':urllib.urlencode({

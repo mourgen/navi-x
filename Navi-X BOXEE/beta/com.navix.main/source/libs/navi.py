@@ -108,11 +108,11 @@ class Navi_APP(Navi_VARS):
 
     def get_favorite(self):
         if self.api.is_user_logged_in():
-            item = Navi_ITEM(self, {'name':self.local['3'], 'type':'playlist', 'URL':'http://navix.turner3d.net/playlist/%s/favorite.plx' % self.api.favorite_id})
+            item = Navi_ITEM(self, {'name':self.local['3'], 'type':'playlist', 'URL':'http://www.navixtreme.com/playlist/%s/favorite.plx' % self.api.favorite_id})
             data = self.api.loads(item, cache=0)
             return self.playlist(self, data)
         else:
-            item = Navi_ITEM(self, {'name':self.local['3'], 'type':'playlist', 'URL':'http://navix.turner3d.net/playlist/week.plx', "thumb":"icons/icon_week.png"})
+            item = Navi_ITEM(self, {'name':self.local['3'], 'type':'playlist', 'URL':'http://www.navixtreme.com/playlist/week.plx', "thumb":"icons/icon_week.png"})
             data = self.api.loads(item)
             return self.playlist(self, data)
     
