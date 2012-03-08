@@ -136,7 +136,7 @@ home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
 searchhistory_file = 'search.dat'
-nxserver_URL = 'http://navix.turner3d.net'
+nxserver_URL = 'http://www.navixtreme.com'
 
 url_open_timeout = 30 #30 seconds
 page_size = 200 #display maximum 200 entries on one page

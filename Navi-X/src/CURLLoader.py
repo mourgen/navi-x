@@ -59,7 +59,7 @@ class CURLLoader:
         if mediaitem.processor != '':
             result = self.geturl_processor(mediaitem)
         elif URL.find('http://www.youtube.com') != -1:
-            mediaitem.processor = "http://navix.turner3d.net/proc/youtube"
+            mediaitem.processor = "http://www.navixtreme.com/proc/youtube"
             result = self.geturl_processor(mediaitem)
         elif URL[:4] == 'http':
             if mediaitem.processed == True:
