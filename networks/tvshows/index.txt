@@ -79,6 +79,12 @@ URL=http://navix.turner3d.net/scrape/cbs/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_crackle.png
 #URL=http://navix.turner3d.net/scrape/crackletv/
 
+type=playlist
+name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
+thumb=http://navix.turner3d.net/justme4u2c/images/CW.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/CW.pl
+description=**** XBMC Only ****/description
+
 #type=playlist
 #name=Discovery Channel
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_dsc.png
@@ -109,19 +115,22 @@ thumb=http://navix.turner3d.net/justme4u2c/images/Food_Network.png
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
 date=2012-02-02
 
-#type=playlist
-#name=GSN (Game Show Network)
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/500px-GSN_logosvg.png
-#date=2011-03-22
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GSN.pl
-#description=(*** Not Xbox friendly streams ***) 
-#GSN is a multimedia entertainment company that offers original and classic game programming via its 73-million subscriber television network and online games sites. GSN's cross-platform content puts winning within reach for viewers and participants, whether through GSN's popular TV game shows, gsn.com's free casual games or its WorldWinner competitive cash tournaments./description
+type=playlist
+name=GSN (Game Show Network)
+thumb=http://navix.turner3d.net/justme4u2c/images/GSN.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/GSN.pl
 
 type=playlist
 name=HGTV
 thumb=http://navix.turner3d.net/justme4u2c/images/HGTV_Logo.jpg
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/HGTV.pl
 date=2012-02-02
+
+type=playlist
+name=History Channel [COLOR=FF00FFFF](XBMC only)[/COLOR]
+thumb=http://navix.turner3d.net/justme4u2c/images/HistoryChannel.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
+description=**** XBMC Only ****/description
 
 type=video
 name=HSN - LIVE (XBMC Only)
@@ -179,11 +188,10 @@ URL=http://navix.turner3d.net/scrape/nbc/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_nfb_ca.jpg
 #URL=http://navix.turner3d.net/scrape/nfb_ca/
 
-#type=playlist
-#name=Onion News Network
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20News/onnlogo.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/OnionNewsNetwork.pl
-#date=2011-1-28
+type=playlist
+name=Onion News Network
+thumb=http://navix.turner3d.net/justme4u2c/images/Onion_News_Network.jpg
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 
 type=playlist
 name=PBS
@@ -223,6 +231,12 @@ URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/2012SISwimsuit.pl
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_syfy.gif
 #URL=http://navix.turner3d.net/scrape/scifi/
 
+type=playlist
+name=TMZ
+thumb=http://navix.turner3d.net/justme4u2c/images/TMZ.png
+date=2012-02-29
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/TMZ.pl
+
 #type=playlist
 #name=The Learning Channel
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_tlc.png
@@ -237,6 +251,17 @@ URL=http://navix.turner3d.net/scrape/trutv/
 #name=TWiT Broadcast
 #URL=http://bglive-a.bitgravity.com/twit/live/high
 #thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
+
+type=playlist
+name=USA Network
+thumb=http://navix.turner3d.net/justme4u2c/images/USA.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
+
+type=playlist
+name=WB [COLOR=FF00FFFF](XBMC only)[/COLOR]
+thumb=http://navix.turner3d.net/justme4u2c/images/WB.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/WB.pl
+description=**** XBMC Only ****/description
 
 #type=playlist
 #name=YouTube Shows
