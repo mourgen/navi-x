@@ -89,28 +89,6 @@ URL=http://www.nba.com/rss/barkleyzone.rss
 processor=http://navix.turner3d.net/proc/nba
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
 
-type=rss:video
-name=UEFA.com Weekly Edition
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/uefa.png
-URL=http://pipes.yahoo.com/pipes/pipe.run?_id=8b2dd1dcb7cb6821b86c32d74448c888&_render=rss
-processor=http://justme4u2c.zymichost.com/UEFA.php
-background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/uefa_champions_league.jpg
-player=default
-rating=-1.00
-description=UEFA.com Weekly Edition (Real-Time Updated)
-The official site of the European governing body of the sport with results from the UEFA Champions League, and the UEFA Cup. Daily news, photographs, videos .../description
-
-type=rss:video
-name=Sports Illustrated.com (Newest Videos)
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/sportsillustrated.jpg
-URL=http://pipes.yahoo.com/pipes/pipe.run?_id=6aa99b69765bbdf863b72e4986dcf437&_render=rss
-processor=http://justme4u2c.zymichost.com/SportsIllustrated.php
-background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/2654378.jpg
-player=default
-rating=-1.00
-description=Sports Illustrated.com (Newest Videos) (Real-Time Updated)
-SI.com - sports news, scores, photos, columns and expert analysis from the world of sports including NFL, NBA, NHL, MLB, NASCAR, college basketball, .../description
-
 type=rss:
 name=MLB.com Video Podcast
 thumb=http://a1.phobos.apple.com/us/r30/Podcasts/db/34/ea/ps.ofndxkac.170x170-75.jpg
@@ -119,33 +97,3 @@ background=http://i254.photobucket.com/albums/hh98/justme4u2cme/bg-bodyLow.jpg
 player=default
 rating=-1.00
 description=A daily dose of hits from MLB.com. This all-star lineup includes news, features, highlights and analysis. Interviews with game-shapers and movers: from the players on the field to the the front office brass and the media that cover them -- this daily download a must-listen./description
-
-type=rss:video
-name=Versus (Most Recent Videos)
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/main_logo_beta.png
-URL=http://www.dapper.net/transform.php?dappName=VersusMostRecentVideos&transformer=RSS&extraArg_title=title&extraArg_description[]=thumbnail&applyToUrl=http%3A%2F%2Fwww.versus.com%2Fvideos%2F
-processor=http://justme4u2c.zymichost.com/Versus.php
-background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/logo_versus-150x128.gif
-player=default
-rating=-1.00
-description=Versus.com, formerly the Outdoor Life Network, offers the latest in sports programming including Professional Bullriding, College Football, NHL, Cycling, Hunting, MMA, Fishing and Indycar..../description
-
-type=rss:video
-name=YesNetwork.com - Latest Videos
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/YES_Network_logo.png
-URL=http://pipes.yahoo.com/pipes/pipe.run?_id=b21056cd8be63a0b8dd30acb85b3ced6&_render=rss
-processor=http://justme4u2c.zymichost.com/YesNetwork.php
-background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/YES-bgtile.jpg
-player=dvdplayer
-rating=-1.00
-description=Comprehensive coverage of the New York Yankees, New Jersey Nets and New York, Major League Baseball (MLB), National Basketball Association(NBA), .../description
-
-type=rss:video
-name=NBA on Metacafe
-thumb=http://s4.mcstatic.com/image/user_photo_landscape_large/10602659/nba.jpg
-URL=http://www.metacafe.com/nba/rss.xml
-processor=http://justme4u2c.zymichost.com/Metacafe.php
-background=http://i254.photobucket.com/albums/hh98/justme4u2cme/metacafe1.png
-player=default
-rating=-1.00
-description=NBA on Metacafe/description
