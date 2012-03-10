@@ -62,12 +62,7 @@ description=VEVO is a music video website. (U.S.A. Only and Canada Only)/descrip
 #URL=http://navix.turner3d.net/scrape/top40charts/
 #description=(broken) Seems there is nothing to scraper anymore on the site or site has been changed./description
 
-#type=playlist
-#name=Librivox Audio Books
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
-#URL=http://navix.turner3d.net/scrape/librivox/
-#type=xml_shoutcast
-#name=Police Scanners
-#URL=http://www.shoutcast.com/sbin/newxml.phtml?genre=Scanner
-#thumb=http://www.navi-x.org/playlists/shoutcast/shoutcast.png
-#thumb=http://testtikkiew.googlecode.com/files/broken.png
+type=playlist
+name=Librivox Audio Books
+thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
+URL=http://navix.turner3d.net/scrape/librivox/
