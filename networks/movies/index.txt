@@ -38,7 +38,7 @@ URL=http://navix.turner3d.net/scrape/httpfilm/
 date=2012-3-07
 
 type=playlist
-name=IceFilms.info (XBMC Only)
+name=IceFilms.info
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png
 URL=http://navix.turner3d.net/scrape/icefilms/
 date=2012-2-02
