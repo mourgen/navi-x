@@ -12,6 +12,12 @@ URL=http://www.navi-x.org/playlists/apple.plx
 date=2011-3-19
 
 type=playlist
+name=1 Channel
+thumb=
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
+date=2012-03-10
+
+type=playlist
 name=66 Stage
 URL=http://navix.turner3d.net/scrape/66stage/list/movies
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_66stage.png
@@ -32,19 +38,43 @@ URL=http://navix.turner3d.net/scrape/divxstage/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
 
 type=playlist
-name=HTTPfilm.com
+name=Extramina
+thumb=http://navix.turner3d.net/boseman/images/x_logo.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_extramina
+date=2012-03-10
+
+type=playlist
+name=FastpassTV
+thumb=http://navix.turner3d.net/boseman/images/fastpasstv.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=getmovies
+date=2012-03-10
+
+type=playlist
+name=HTTPfilm
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_httpfilm.png
 URL=http://navix.turner3d.net/scrape/httpfilm/
-date=2012-3-07
+date=2012-03-07
 
 type=playlist
 name=IceFilms.info
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png
 URL=http://navix.turner3d.net/scrape/icefilms/
-date=2012-2-02
+date=2012-02-02
 
 type=playlist
 name=Movie25
 thumb=http://navix.turner3d.net/justme4u2c/images/Movie25.jpg
 URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl
-date=2012-2-02
+date=2012-02-02
+
+type=playlist
+name=Movie2K
+thumb=http://navix.turner3d.net/boseman/images/movie2K_logo.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=getmenu/en/Movies
+date=2012-03-10
+
+type=playlist
+name=Project Free Movies
+thumb=http://navix.turner3d.net/boseman/images/projectfree4.gif
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
+date=2012-03-10
