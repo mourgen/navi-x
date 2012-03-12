@@ -13,7 +13,7 @@ date=2011-3-19
 
 type=playlist
 name=1 Channel
-thumb=
+thumb=http://lh6.googleusercontent.com/UvwQimcpx320dyqeWbyY6TtxPTmwX4uvxkfa0K_0jwJLLjOyZgrCY5j132ohwB80qOKlBx_cRGqS-LEZaboZYkSPYg
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
 date=2012-03-10
 
@@ -78,3 +78,32 @@ name=Project Free Movies
 thumb=http://navix.turner3d.net/boseman/images/projectfree4.gif
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
 date=2012-03-10
+
+type=playlist
+name=StageVu Search
+thumb=boseman22.dyndns-server.com/images/sv_logo.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
+description=(02-21-11) - Added Ascii Sort
+(09-29-10) - Added Phrase option to assure the name field contains the keyword (case ignored).
+Fixed bug in keywords with spaces forcing truncation
+date=2012-03-11
+
+type=playlist
+name=VeeHD
+thumb=http://navix.turner3d.net/boseman/images/V_logo.gif
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd
+description=1-31-11 Added support for Go To Page in multi page results
+date=2012-03-11
+
+type=playlist
+name=Videofriender Extended Search
+thumb=http://navix.turner3d.net/boseman/images/vf_logo.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
+description=(01-27-11) Uses the turner3d processor again.
+date=2012-03-11
+
+type=playlist
+name=Watchseries-Online
+thumb=http://navix.turner3d.net/boseman/images/watchseries-online_logo.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries-online
+date=2012-03-11
