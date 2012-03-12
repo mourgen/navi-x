@@ -221,17 +221,6 @@ URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).p
 date=2012-02-02
 
 type=playlist
-name=Sports Illustrated Swimsuit
-thumb=http://navix.turner3d.net/justme4u2c/images/2012SISwimsuitCover.jpg
-date=2012-02-18
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/2012SISwimsuit.pl
-
-#type=playlist
-#name=SyFy
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_syfy.gif
-#URL=http://navix.turner3d.net/scrape/scifi/
-
-type=playlist
 name=TMZ
 thumb=http://navix.turner3d.net/justme4u2c/images/TMZ.png
 date=2012-02-29
