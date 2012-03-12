@@ -5,27 +5,27 @@ view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
 type=playlist
-name=- News
+name=News
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/index.txt 
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
-name=- Sports
+name=Sports
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/sports/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
-name=- Kids
+name=Kids
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/kids/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
-name=- Games
+name=Games
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/games/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
 type=playlist
-name=- Video Sharing Sites
+name=Video Sharing Sites
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/video_sites/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
