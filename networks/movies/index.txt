@@ -81,7 +81,7 @@ date=2012-03-10
 
 type=playlist
 name=StageVu Search
-thumb=boseman22.dyndns-server.com/images/sv_logo.png
+thumb=http://userlogos.org/files/logos/jumpordie/stagevu_01.png
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
 description=(02-21-11) - Added Ascii Sort
 (09-29-10) - Added Phrase option to assure the name field contains the keyword (case ignored).
@@ -100,10 +100,4 @@ name=Videofriender Extended Search
 thumb=http://navix.turner3d.net/boseman/images/vf_logo.png
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
 description=(01-27-11) Uses the turner3d processor again./description
-date=2012-03-11
-
-type=playlist
-name=Watchseries-Online
-thumb=http://navix.turner3d.net/boseman/images/watchseries-online_logo.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries-online
 date=2012-03-11
