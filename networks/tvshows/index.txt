@@ -247,10 +247,11 @@ name=TruTV
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_trutv.gif
 URL=http://navix.turner3d.net/scrape/trutv/
 
-#type=video
-#name=TWiT Broadcast
-#URL=http://bglive-a.bitgravity.com/twit/live/high
-#thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
+type=video
+name=TWiT Broadcast (XBMC Only)
+URL=http://bglive-a.bitgravity.com/twit/live/high
+thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
+date=2012-03-11
 
 type=playlist
 name=USA Network
@@ -268,10 +269,8 @@ description=**** XBMC Only ****/description
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_youtube_shows.jpg
 #URL=http://navix.turner3d.net/scrape/youtube_shows/
 
-#type=playlist
-#name=VeeHD
-#thumb=http://static.veehd.com/logo.gif
-#URL=http://navix.turner3d.net/cgi-bin/parsers/veehd.cgi
-#URL=http://76.77.191.9/cgi-bin/Scrapers/veehd
-#description=Tikkiew : Use same URL of Navi-Xtreme scraper instead of Boseman's scraper.
-#/description
+type=playlist
+name=Watchseries TV
+thumb=http://navix.turner3d.net/boseman/images/watchseries_logo.png
+URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries
+date=2012-03-11
