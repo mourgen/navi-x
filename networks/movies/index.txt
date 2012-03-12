@@ -13,7 +13,7 @@ date=2011-3-19
 
 type=playlist
 name=1 Channel
-thumb=http://lh6.googleusercontent.com/UvwQimcpx320dyqeWbyY6TtxPTmwX4uvxkfa0K_0jwJLLjOyZgrCY5j132ohwB80qOKlBx_cRGqS-LEZaboZYkSPYg
+thumb=http://www.fileden.com/files/2010/8/4/2932808/1channel.jpg
 URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
 date=2012-03-10
 
