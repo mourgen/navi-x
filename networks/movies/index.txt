@@ -26,6 +26,12 @@ type=playlist
 name=Animefreak.tv
 URL=http://navix.turner3d.net/scrape/animefreak/
 thumb=http://navix.turner3d.net/images/backgrounds/thumb_animefreak.jpg
+type=playlist
+name=B Movies
+thumb=http://navix.turner3d.net/justme4u2c/images/bMovies.png
+date=2012-03-16
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/bMovies.pl
+date=2012-03-16
 
 type=playlist
 name=Crackle Movies
