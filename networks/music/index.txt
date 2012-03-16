@@ -13,10 +13,16 @@ thumb=http://www.navi-x.org/playlists/shoutcast/shoutcast.png
 description=(semi-broken) Some playlist are empty and possible some streams don't work./description
 
 type=playlist
-name=Grooveshark
-URL=http://navix.turner3d.net/scrape/grooveshark/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
-date=2011-2-6
+name=Mixtapes.tv
+thumb=http://navix.turner3d.net/justme4u2c/images/Mixtape.tv.png
+date=2012-03-13
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
+
+#type=playlist
+#name=Grooveshark
+#URL=http://navix.turner3d.net/scrape/grooveshark/
+#thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
+#date=2011-2-6
 
 type=playlist
 name=RadioTime
@@ -25,6 +31,12 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/music/radiotime.txt
 #description= Tikkiew : Original playlist type|is|opml  URL|is|http://opml.radiotime.com/Browse.ashx , 
 but changed it to add Search. As requested by a user.description
 date=2010-12-23
+
+type=playlist
+name=SKY.fm
+thumb=http://navix.turner3d.net/justme4u2c/images/SKY.jpg
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
+date=2012-03-16
 
 type=playlist
 name=TuneIn
@@ -57,7 +69,7 @@ URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Vevo.pl
 description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
 
 #type=playlist
-#name=(broken) Top 40 Charts
+#name=Top 40 Charts
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_top40-charts.png
 #URL=http://navix.turner3d.net/scrape/top40charts/
 #description=(broken) Seems there is nothing to scraper anymore on the site or site has been changed./description
