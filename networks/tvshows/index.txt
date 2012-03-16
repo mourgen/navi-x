@@ -61,13 +61,11 @@ URL=http://navix.turner3d.net/scrape/adultswim/
 #thumb=http://navix.turner3d.net/images/backgrounds/thumb_bet.png
 #URL=http://navix.turner3d.net/scrape/bet/
 
-#type=playlist
-#name=Bravo
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Bravo_TVsvg.png
-#date=2011-03-22
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/BravoTV.pl
-#description=With more breakout stars and critically acclaimed original series than any other network on cable, Bravo's original programming --- from hot cuisine to haute couture --- delivers the best in food, fashion, beauty, design and pop culture to the most engaged, upscale and educated audience in cable.
-#Bravo is a program service of NBC Universal Cable Entertainment, a division of NBC Universal one of the world's leading media and entertainment companies in the development, production, and marketing of entertainment, news and information to a global audience./description
+type=playlist
+name=Bravo
+thumb=http://navix.turner3d.net/justme4u2c/images/Bravo.png
+URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/BravoTV.pl
+date=2012-03-16
 
 type=playlist
 name=CBS
