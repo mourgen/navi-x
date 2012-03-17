@@ -1,6 +1,11 @@
-Welcome to Navi-X for Boxee v1.43
+Welcome to Navi-X for Boxee v1.45
 
 Changelog:
+-------------------------------------------------------------------------------
+1.45
+-Nested "if" statements
+-Updated portal references to point to navixtreme.com
+
 -------------------------------------------------------------------------------
 1.44
 -Fixed HTML-only playback
