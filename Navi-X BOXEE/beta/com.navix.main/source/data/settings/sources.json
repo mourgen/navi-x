@@ -4,57 +4,57 @@
             "type": "playlist",
             "tag": "tv",
             "name": "4KidsTV",
-            "URL": "http://navix.turner3d.net/scrape/4kidstv/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_4kidstv.jpg"
+            "URL": "http://www.navixtreme.com/scrape/4kidstv/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_4kidstv.jpg"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "66 Stage TV",
-            "URL": "http://navix.turner3d.net/scrape/66stage/cat/tv",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_66stage.png"
+            "URL": "http://www.navixtreme.com/scrape/66stage/cat/tv",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_66stage.png"
         },
         {
             "type": "playlist",
             "tag": "movie",
             "name": "66 Stage Movies",
-            "URL": "http://navix.turner3d.net/scrape/66stage/list/movies",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_66stage.png"
+            "URL": "http://www.navixtreme.com/scrape/66stage/list/movies",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_66stage.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "66 Stage",
-            "URL": "http://navix.turner3d.net/scrape/66stage/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_66stage.png"
+            "URL": "http://www.navixtreme.com/scrape/66stage/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_66stage.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "ABC",
-            "URL": "http://navix.turner3d.net/scrape/abc/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_abc.png"
+            "URL": "http://www.navixtreme.com/scrape/abc/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_abc.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Adult Swim",
-            "URL": "http://navix.turner3d.net/scrape/adultswim/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_adult_swim.png"
+            "URL": "http://www.navixtreme.com/scrape/adultswim/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Animal Planet",
-            "URL": "http://navix.turner3d.net/scrape/discovery/animal",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_discovery_animal.png"
+            "URL": "http://www.navixtreme.com/scrape/discovery/animal",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_discovery_animal.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "Animefreak.tv",
-            "URL": "http://navix.turner3d.net/scrape/animefreak/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_animefreak.jpg"
+            "URL": "http://www.navixtreme.com/scrape/animefreak/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_animefreak.jpg"
         },
         {
             "type": "playlist",
@@ -67,29 +67,29 @@
             "type": "playlist",
             "tag": "tv",
             "name": "BET",
-            "URL": "http://navix.turner3d.net/scrape/bet/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_bet.png"
+            "URL": "http://www.navixtreme.com/scrape/bet/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_bet.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "CBS Sports",
-            "URL": "http://navix.turner3d.net/scrape/cbs_sports/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_cbssports.gif"
+            "URL": "http://www.navixtreme.com/scrape/cbs_sports/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_cbssports.gif"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "CBS",
-            "URL": "http://navix.turner3d.net/scrape/cbs/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_cbs.png"
+            "URL": "http://www.navixtreme.com/scrape/cbs/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_cbs.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "CNN",
-            "URL": "http://navix.turner3d.net/scrape/cnn/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_cnn.png"
+            "URL": "http://www.navixtreme.com/scrape/cnn/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_cnn.png"
         },
         {
             "type": "playlist",
@@ -102,78 +102,78 @@
             "type": "playlist",
             "tag": "movie",
             "name": "Crackle Movies",
-            "URL": "http://navix.turner3d.net/scrape/cracklemovies/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_crackle.png"
+            "URL": "http://www.navixtreme.com/scrape/cracklemovies/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_crackle.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Crackle TV",
-            "URL": "http://navix.turner3d.net/scrape/crackletv/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_crackle.png"
+            "URL": "http://www.navixtreme.com/scrape/crackletv/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_crackle.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "Dailymotion user lists",
-            "URL": "http://navix.turner3d.net/playlist/15649/dailymotion_user_lists.plx",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_dailymotion.jpg"
+            "URL": "http://www.navixtreme.com/playlist/15649/dailymotion_user_lists.plx",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg"
         },
         {
             "type": "playlist",
             "tag": "movie",
             "name": "DivxStage",
-            "URL": "http://navix.turner3d.net/scrape/divxstage/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png"
+            "URL": "http://www.navixtreme.com/scrape/divxstage/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Discovery Channel",
-            "URL": "http://navix.turner3d.net/scrape/discovery/dsc",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_discovery_dsc.png"
+            "URL": "http://www.navixtreme.com/scrape/discovery/dsc",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_discovery_dsc.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "eBaum's World",
-            "URL": "http://navix.turner3d.net/scrape/ebaumsworld/",
+            "URL": "http://www.navixtreme.com/scrape/ebaumsworld/",
             "thumb": "http://media.ebaumsworld.com/img/headerlogo.png"
         },
         {
             "type": "playlist",
             "tag": "movie",
             "name": "Filmtrailer.com",
-            "URL": "http://navix.turner3d.net/scrape/filmtrailer/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_filmtrailer.gif"
+            "URL": "http://www.navixtreme.com/scrape/filmtrailer/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_filmtrailer.gif"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "Fragg.me",
-            "URL": "http://navix.turner3d.net/scrape/fraggme/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_fraggme.gif"
+            "URL": "http://www.navixtreme.com/scrape/fraggme/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_fraggme.gif"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "G4TV",
-            "URL": "http://navix.turner3d.net/scrape/g4tv/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png"
+            "URL": "http://www.navixtreme.com/scrape/g4tv/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_g4tv.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "GameFAQs",
-            "URL": "http://navix.turner3d.net/scrape/gamefaqs/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_gamefaqs.png"
+            "URL": "http://www.navixtreme.com/scrape/gamefaqs/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_gamefaqs.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "GameTrailers.com",
-            "URL": "http://navix.turner3d.net/scrape/gametrailers/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif"
+            "URL": "http://www.navixtreme.com/scrape/gametrailers/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_gametrailers.gif"
         },
         {
             "type": "playlist",
@@ -185,44 +185,44 @@
         {
             "type": "playlist",
             "name": "IceFilms",
-            "URL": "http://navix.turner3d.net/scrape/icefilms/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png",
+            "URL": "http://www.navixtreme.com/scrape/icefilms/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_icefilms.png",
             "tag": "movie"
         },
         {
             "type": "playlist",
             "tag": "audio",
             "name": "Librivox Audio Books",
-            "URL": "http://navix.turner3d.net/scrape/librivox/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_librivox.png"
+            "URL": "http://www.navixtreme.com/scrape/librivox/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_librivox.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Live Well HD",
-            "URL": "http://navix.turner3d.net/scrape/livewellhd/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_livewellhd.gif"
+            "URL": "http://www.navixtreme.com/scrape/livewellhd/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_livewellhd.gif"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "Maxim",
-            "URL": "http://navix.turner3d.net/scrape/maxim/channel/Movies",
-            "thumb": "http://navix.turner3d.net/images/logo_maxim.jpg"
+            "URL": "http://www.navixtreme.com/scrape/maxim/channel/Movies",
+            "thumb": "http://www.navixtreme.com/images/logo_maxim.jpg"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "Maxim",
-            "URL": "http://navix.turner3d.net/scrape/maxim/",
-            "thumb": "http://navix.turner3d.net/images/logo_maxim.jpg"
+            "URL": "http://www.navixtreme.com/scrape/maxim/",
+            "thumb": "http://www.navixtreme.com/images/logo_maxim.jpg"
         },
         {
             "type": "playlist",
             "tag": "audio",
             "name": "MTV Music Videos",
-            "URL": "http://navix.turner3d.net/scrape/mtv_music/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg"
+            "URL": "http://www.navixtreme.com/scrape/mtv_music/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_mtv.jpg"
         },
         {
             "type": "playlist",
@@ -235,127 +235,127 @@
             "type": "playlist",
             "tag": "tv",
             "name": "National Geographic",
-            "URL": "http://navix.turner3d.net/scrape/natgeo/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_natgeo.jpg"
+            "URL": "http://www.navixtreme.com/scrape/natgeo/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_natgeo.jpg"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "NBC",
-            "URL": "http://navix.turner3d.net/scrape/nbc/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_nbc.jpg"
+            "URL": "http://www.navixtreme.com/scrape/nbc/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_nbc.jpg"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "NFB",
-            "URL": "http://navix.turner3d.net/scrape/nfb_ca/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_nfb_ca.jpg"
+            "URL": "http://www.navixtreme.com/scrape/nfb_ca/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_nfb_ca.jpg"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "NFL",
-            "URL": "http://navix.turner3d.net/scrape/nfl/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_nfl.jpg"
+            "URL": "http://www.navixtreme.com/scrape/nfl/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_nfl.jpg"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Nick",
-            "URL": "http://navix.turner3d.net/scrape/nick/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_nick.gif"
+            "URL": "http://www.navixtreme.com/scrape/nick/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_nick.gif"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "PBS Kids",
-            "URL": "http://navix.turner3d.net/scrape/pbskids/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_pbskids.png"
+            "URL": "http://www.navixtreme.com/scrape/pbskids/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_pbskids.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "PBS",
-            "URL": "http://navix.turner3d.net/scrape/pbs/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_pbs.gif"
+            "URL": "http://www.navixtreme.com/scrape/pbs/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "Planet Green",
-            "URL": "http://navix.turner3d.net/scrape/discovery/planetgreen",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_discovery_planetgreen.png"
+            "URL": "http://www.navixtreme.com/scrape/discovery/planetgreen",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_discovery_planetgreen.png"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "PokerTube",
-            "URL": "http://navix.turner3d.net/scrape/pokertube/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif"
+            "URL": "http://www.navixtreme.com/scrape/pokertube/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_pokertube.gif"
         },
         {
             "type": "playlist",
             "tag": "audio",
             "name": "Radiolala",
-            "URL": "http://navix.turner3d.net/scrape/radiolala/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_radiolala.png"
+            "URL": "http://www.navixtreme.com/scrape/radiolala/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_radiolala.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "SyFy",
-            "URL": "http://navix.turner3d.net/scrape/scifi/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_syfy.gif"
+            "URL": "http://www.navixtreme.com/scrape/scifi/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_syfy.gif"
         },
         {
             "type": "playlist",
             "tag": "video",
             "name": "That Guy With The Glasses",
-            "URL": "http://navix.turner3d.net/scrape/tgwtg/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_tgwtg2.png"
+            "URL": "http://www.navixtreme.com/scrape/tgwtg/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_tgwtg2.png"
         },
         {
             "type": "playlist",
             "tag": "audio",
             "name": "Top 40 Charts",
-            "URL": "http://navix.turner3d.net/scrape/top40charts/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_top40-charts.png"
+            "URL": "http://www.navixtreme.com/scrape/top40charts/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_top40-charts.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "TLC",
-            "URL": "http://navix.turner3d.net/scrape/discovery/tlc",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_discovery_tlc.png"
+            "URL": "http://www.navixtreme.com/scrape/discovery/tlc",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_discovery_tlc.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "TruTV",
-            "URL": "http://navix.turner3d.net/scrape/trutv/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_trutv.gif"
+            "URL": "http://www.navixtreme.com/scrape/trutv/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_trutv.gif"
         },
         {
             "type": "playlist",
             "tag": "movie",
             "name": "VidIcs",
-            "URL": "http://navix.turner3d.net/scrape/vidics/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_vidics.png"
+            "URL": "http://www.navixtreme.com/scrape/vidics/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_vidics.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "VidIcs",
-            "URL": "http://navix.turner3d.net/scrape/vidics/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_vidics.png"
+            "URL": "http://www.navixtreme.com/scrape/vidics/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_vidics.png"
         },
         {
             "type": "playlist",
             "tag": "tv",
             "name": "YouTube Shows",
-            "URL": "http://navix.turner3d.net/scrape/youtube_shows/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_youtube_shows.jpg"
+            "URL": "http://www.navixtreme.com/scrape/youtube_shows/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_youtube_shows.jpg"
         },
         {
             "type": "playlist",
@@ -396,8 +396,8 @@
             "type": "playlist",
             "tag": "audio",
             "name": "Grooveshark",
-            "URL": "http://navix.turner3d.net/scrape/grooveshark/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png"
+            "URL": "http://www.navixtreme.com/scrape/grooveshark/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png"
         },
         {
             "type": "playlist",
@@ -437,21 +437,21 @@
             "tag": "movie",
             "name": "Videofriender",
             "URL": "http://76.77.191.9/cgi-bin/Scrapers/vfsearch",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif"
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_videofriender.gif"
         },
         {
             "type": "playlist",
             "tag": "movie",
             "name": "Megavideo Premium Login",
-            "URL": "http://navix.turner3d.net/scrape/mvloginset/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_megavideo.png"
+            "URL": "http://www.navixtreme.com/scrape/mvloginset/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_megavideo.png"
         },
         {
             "type": "json",
             "tag": "tv",
             "name": "CNN Podcasts",
             "URL": "http://pipes.yahoo.com/pipes/pipe.run?_id=0d637dc84d04d475648640c142814f2e&_render=json",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_cnn.png"
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_cnn.png"
         },
         {
             "type": "json",
@@ -500,7 +500,7 @@
             "tag": "video",
             "name": "Gamekings (Dutch)",
             "URL": "http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GameKings.pl?q=gamekings/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_gamekings.jpg"
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_gamekings.jpg"
         },
         {
             "type": "playlist",
@@ -569,42 +569,42 @@
             "type": "playlist",
             "tag": "navix",
             "name": "Popular 24 hours",
-            "URL": "http://navix.turner3d.net/playlist/day.plx",
+            "URL": "http://www.navixtreme.com/playlist/day.plx",
             "thumb": "icons/icon_24h.png"
         },
         {
             "type": "playlist",
             "tag": "navix",
             "name": "Popular 7 days",
-            "URL": "http://navix.turner3d.net/playlist/week.plx",
+            "URL": "http://www.navixtreme.com/playlist/week.plx",
             "thumb": "icons/icon_week.png"
         },
         {
             "type": "playlist",
             "tag": "navix",
             "name": "Popular Newest",
-            "URL": "http://navix.turner3d.net/playlist/update.plx",
+            "URL": "http://www.navixtreme.com/playlist/update.plx",
             "thumb": "icons/icon_recent.png"
         },
         {
             "type": "playlist",
             "tag": "navix",
             "name": "Newest",
-            "URL": "http://navix.turner3d.net/playlist/new.plx",
+            "URL": "http://www.navixtreme.com/playlist/new.plx",
             "thumb": "icons/icon_new.png"
         },
         {
             "type": "playlist",
             "tag": "navix",
             "name": "My Playlists",
-            "URL": "http://navix.turner3d.net/playlist/mine.plx",
+            "URL": "http://www.navixtreme.com/playlist/mine.plx",
             "thumb": "icons/icon_playlist.png"
         },
         {
             "type": "playlist",
             "tag": "navix",
             "name": "UserBase",
-            "URL": "http://navix.turner3d.net/playlist/50274/user_lists.plx",
+            "URL": "http://www.navixtreme.com/playlist/50274/user_lists.plx",
             "thumb": "icons/icon_playlist.png"
         }
     ],
@@ -612,71 +612,71 @@
         {
             "type": "playlist",
             "name": "66 Stage",
-            "URL": "http://navix.turner3d.net/scrape/66stage/search/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_66stage.png",
+            "URL": "http://www.navixtreme.com/scrape/66stage/search/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_66stage.png",
             "genre": "video"
         },
         {
             "type": "playlist",
             "name": "CNN Videos",
-            "URL": "http://navix.turner3d.net/scrape/cnn/search/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_cnn.png",
+            "URL": "http://www.navixtreme.com/scrape/cnn/search/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_cnn.png",
             "genre": "news"
         },
         {
             "type": "playlist",
             "name": "Divx Stage",
-            "URL": "http://navix.turner3d.net/scrape/divxstage/?s=",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png",
+            "URL": "http://www.navixtreme.com/scrape/divxstage/?s=",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png",
             "genre": "video"
         },
         {
             "type": "playlist",
             "name": "eBaum's World videos",
-            "URL": "http://navix.turner3d.net/scrape/ebaumsworld/search/",
+            "URL": "http://www.navixtreme.com/scrape/ebaumsworld/search/",
             "thumb": "http://media.ebaumsworld.com/img/headerlogo.png",
             "genre": "video"
         },
         {
             "type": "playlist",
             "name": "Game Trailers",
-            "URL": "http://navix.turner3d.net/scrape/gametrailers/search/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif",
+            "URL": "http://www.navixtreme.com/scrape/gametrailers/search/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_gametrailers.gif",
             "genre": "games"
         },
         {
             "type": "playlist",
             "name": "G4TV",
-            "URL": "http://navix.turner3d.net/scrape/g4tv/search/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png",
+            "URL": "http://www.navixtreme.com/scrape/g4tv/search/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_g4tv.png",
             "genre": "games"
         },
         {
             "type": "playlist",
             "name": "Librivox Audio Books",
-            "URL": "http://navix.turner3d.net/scrape/librivox/search/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_librivox.png",
+            "URL": "http://www.navixtreme.com/scrape/librivox/search/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_librivox.png",
             "genre": "audio"
         },
         {
             "type": "playlist",
             "name": "MTV Artists",
-            "URL": "http://navix.turner3d.net/scrape/mtv_music/artistsearch/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg",
+            "URL": "http://www.navixtreme.com/scrape/mtv_music/artistsearch/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_mtv.jpg",
             "genre": "audio"
         },
         {
             "type": "playlist",
             "name": "PokerTube",
-            "URL": "http://navix.turner3d.net/scrape/pokertube/freetext/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif",
+            "URL": "http://www.navixtreme.com/scrape/pokertube/freetext/",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_pokertube.gif",
             "genre": "video"
         },
         {
             "type": "playlist",
             "name": "VidIcs",
-            "URL": "http://navix.turner3d.net/scrape/vidics/list/?s=",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_vidics.png",
+            "URL": "http://www.navixtreme.com/scrape/vidics/list/?s=",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_vidics.png",
             "genre": "tv"
         },
         {
@@ -697,13 +697,13 @@
             "type": "playlist",
             "name": "Videofriender",
             "URL": "http://76.77.191.9/cgi-bin/Scrapers/vfsearch?q=search/",
-            "thumb": "http://navix.turner3d.net/images/backgrounds/thumb_videofriender.gif",
+            "thumb": "http://www.navixtreme.com/images/backgrounds/thumb_videofriender.gif",
             "genre": "video"
         },
         {
             "type": "json",
             "name": "Navi Xtreme",
-            "URL": "http://navix.turner3d.net/search_api?q=",
+            "URL": "http://www.navixtreme.com/search_api?q=",
             "genre": "navi",
             "extended": true
         },
