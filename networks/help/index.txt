@@ -19,13 +19,21 @@ name=Navi-Xtreme Forums (Boxee Only)
 URL=http://navix.turner3d.net/forums
 description=This works for Boxee Box users only!!/description
 
-type=playlist
+type=rss:download
 name=Download Navi-X Updates
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4c061566044d9e6e47ff1310f6062923%26_render%3Djson%26t2%3Ddownload
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=a4a5071c7d45c8c74a46b2941c9c8495&_render=rss&t2=download#type=rss
 
-#type=rss
-#name=View Reported Issues with Navi-X
-#URL=http://code.google.com/feeds/p/navi-x/issueupdates/basic
+type=rss
+name=View Reported Issues
+URL=http://pipes.yahoo.com/pipes/pipe.run?_id=681d39a9c9ba58457db3ac8ef03a7391&_render=rss
+
+type=rss:atom
+name=Navi-Xtreme - Latest Posts
+URL=http://navix.turner3d.net/feeds/newtopics.xml
+
+type=rss:atom
+name=Navi-Xtreme - New Topics
+URL=http://navix.turner3d.net/feeds/newtopics.xml
 
 type=html
 name=Navi-X Terms of Use
