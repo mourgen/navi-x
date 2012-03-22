@@ -10,8 +10,8 @@ title=Navi-X Media Portal
 type=playlist
 name=Navi-Xtreme Media Portal
 description=Email turner3d@gmail.com for questions and comments about Navi-Xtreme Media Portal./description
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/playlist/index.plx
+thumb=http://www.navixtreme.com/images/logo.jpg
+URL=http://www.navixtreme.com/playlist/index.plx
 #
 type=playlist
 name=Navi-X Networks Portal

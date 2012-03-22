@@ -9,10 +9,10 @@ logo=http://www.navi-x.org/playlists/logo.png
 #
 type=playlist
 name=Navi-Xtreme Media Portal
-description=Visit http://navix.turner3d.net. Email turner3d@gmail.com for questions and comments./description
-thumb=http://navix.turner3d.net/images/logo.jpg
+description=Visit http://www.navixtreme.com. Email turner3d@gmail.com for questions and comments./description
+thumb=http://www.navixtreme.com/images/logo.jpg
 view=thumbnails
-URL=http://navix.turner3d.net/playlist/50242/navi-xtreme_nxportal_home.plx
+URL=http://www.navixtreme.com/playlist/50242/navi-xtreme_nxportal_home.plx
 #
 type=playlist
 name=Browse History
