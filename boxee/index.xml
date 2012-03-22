@@ -18,8 +18,8 @@
     <app>
        <id>com.navix.main</id>
        <name>Navi-X Remix</name>
-       <version>4.06</version>
-       <description>Navi-X Remix - UNSUPPORTED - If you have issues, please use 1.44</description>
+       <version>4.07</version>
+       <description>Navi-X Remix - UNSUPPORTED - If you have technical issues, please use 1.44</description>
        <thumb>http://navi-x.googlecode.com/svn/trunk/boxee/thumb.png</thumb>
        <repositoryid>com.navix</repositoryid>
        <repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
