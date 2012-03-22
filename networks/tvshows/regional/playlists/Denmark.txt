@@ -6,12 +6,12 @@ description=/description
 #
 type=playlist
 name=LIVE TV - Denmark
-URL=http://navix.turner3d.net/playlist/11594/denmark.plx
+URL=http://www.navixtreme.com/playlist/11594/denmark.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal/description
 #
 type=playlist
 name=Denmark (DR Only) 2009.06.14
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/playlist/15678/denmark_(dr_only)_2009.06.14.plx
+thumb=http://www.navixtreme.com/images/logo.jpg
+URL=http://www.navixtreme.com/playlist/15678/denmark_(dr_only)_2009.06.14.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal/description
 #

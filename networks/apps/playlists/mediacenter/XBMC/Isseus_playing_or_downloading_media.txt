@@ -13,7 +13,7 @@ I would call this an issue with the way XBMC does things since it's the only str
 
 Downloading
 1.cannot download file.
-Not all items are able to download. Most of the time you will get a message : cannot download file. But unfortunally not always. One of the reasons can be that there is a  false url on his/her playlist on navix.turner3d.net. And the dead link checker can't see there isn't a file in there.
+Not all items are able to download. Most of the time you will get a message : cannot download file. But unfortunally not always. One of the reasons can be that there is a  false url on his/her playlist on www.navixtreme.com. And the dead link checker can't see there isn't a file in there.
 2.restarting download
 When you restarted Navi-X in the middle of the download. Some downloads doesn't go further. This you will only know for now with trial and error. Remove that link on download queue and download the file again.
 

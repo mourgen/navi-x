@@ -11,25 +11,25 @@ URL=http://www.navi-x.org/playlists/youtube/index.plx
 
 #type=search
 #name=Search Dailymotion
-#URL=http://navix.turner3d.net/search/dailymotion/
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_dailymotion.jpg
+#URL=http://www.navixtreme.com/search/dailymotion/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
 
 #type=playlist
 #name=Dailymotion User Lists
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_dailymotion.jpg
-#URL=http://navix.turner3d.net/playlist/15649/dailymotion_user_lists.plx
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
+#URL=http://www.navixtreme.com/playlist/15649/dailymotion_user_lists.plx
 
 type=playlist
 name=Fragg.me
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_fraggme.gif
-URL=http://navix.turner3d.net/scrape/fraggme/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_fraggme.gif
+URL=http://www.navixtreme.com/scrape/fraggme/
 
 #type=search
 #name=Search Guba.com
-#URL=http://navix.turner3d.net/search/guba/
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_guba.gif
+#URL=http://www.navixtreme.com/search/guba/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_guba.gif
 
 #type=search
 #name=Search Vimeo.com
-#URL=http://navix.turner3d.net/search/vimeo/
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_vimeo.gif
+#URL=http://www.navixtreme.com/search/vimeo/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_vimeo.gif

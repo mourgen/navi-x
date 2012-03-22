@@ -6,13 +6,13 @@ logo=http://website.navi-x.org/networks/logo.jpg
 
 #type=playlist
 #name=CBS Sports
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_cbssports.gif
-#URL=http://navix.turner3d.net/scrape/cbs_sports/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_cbssports.gif
+#URL=http://www.navixtreme.com/scrape/cbs_sports/
 
 type=playlist
 name=ESPN
-thumb=http://navix.turner3d.net/justme4u2c/images/ESPN.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/ESPN.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/ESPN.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/ESPN.pl
 date=2012-02-02
 
 #type=playlist
@@ -23,14 +23,14 @@ date=2012-02-02
 
 type=playlist
 name=Fox Sports
-thumb=http://navix.turner3d.net/justme4u2c/images/Fox_Sports.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoxSports.pl?q=foxsports/
+thumb=http://www.navixtreme.com/justme4u2c/images/Fox_Sports.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoxSports.pl?q=foxsports/
 date=2012-02-02
 
 type=playlist
 name=NFL
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_nfl.jpg
-URL=http://navix.turner3d.net/scrape/nfl/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_nfl.jpg
+URL=http://www.navixtreme.com/scrape/nfl/
 
 #type=rss:video
 #name=UFC - Latest Videos
@@ -54,7 +54,7 @@ type=rss:video
 name=MLSSOCCER.COM - Latest Videos
 thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/500px-MLS_Logosvg.png
 URL=http://pipes.yahoo.com/pipes/pipe.run?_id=65187f24e174a748863e14f07d49973b&_render=rss
-processor=http://navix.turner3d.net/proc/youtube
+processor=http://www.navixtreme.com/proc/youtube
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/MLS_Logo.jpg
 description=Major League Soccer (MLS) is a professional soccer league based in the United States, sanctioned by the United States Soccer Federation (U.S. Soccer). The league comprises 16 teams, 15 in the U.S. and one in Canada  and is scheduled to become 18 teams for the 2011 season and 19 teams by 2012. MLS represents the top tier of the American and Canadian soccer pyramids.
 Major League Soccer was founded in 1993 as part of the United States's bid to host the 1994 FIFA World Cup. The first season took place in 1996 beginning with 10 teams. Seasons run from late March or early April to November, with teams playing 30 regular season games each. Eight teams compete in the postseason MLS Cup Playoffs culminating in the championship game, MLS Cup./description
@@ -63,7 +63,7 @@ date=2012-02-02
 type=playlist
 name=Nascar.com
 thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/nascar-logo.jpg
-URL=http://navix.turner3d.net/playlist/25784/nascar.com.plx
+URL=http://www.navixtreme.com/playlist/25784/nascar.com.plx
 description=Videos from the The official site of NASCAR, the National Association for Stock Car Auto Racing, Nascar.com/description
 date=2012-02-02
 
@@ -71,7 +71,7 @@ type=rss:video
 name=NBA.com -  Top Videos
 thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo.jpg
 URL=http://pipes.yahoo.com/pipes/pipe.run?_id=db8ad3abedfc938bc8b245275793d082&_render=rss
-processor=http://navix.turner3d.net/proc/nba
+processor=http://www.navixtreme.com/proc/nba
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
 description=NBA.com -  Top Videos/description
 
@@ -79,14 +79,14 @@ type=rss:video
 name=NBA.com - TNT Overtime
 thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo.jpg
 URL=http://www.nba.com/broadband/tnt_overtime.xml
-processor=http://navix.turner3d.net/proc/nba
+processor=http://www.navixtreme.com/proc/nba
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
 
 type=rss:video
 name=NBA.com - Barkley Zone Video
 thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo.jpg
 URL=http://www.nba.com/rss/barkleyzone.rss
-processor=http://navix.turner3d.net/proc/nba
+processor=http://www.navixtreme.com/proc/nba
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/nba_logo2-1.png
 
 type=rss:

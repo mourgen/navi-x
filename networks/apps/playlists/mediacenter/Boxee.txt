@@ -18,7 +18,7 @@ type=video
 name=Boxee Demo
 thumb=http://i3.ytimg.com/vi/Vd6q8ch4pbI/default.jpg
 URL=http://www.youtube.com/watch?v=Vd6q8ch4pbI
-processor=http://navix.turner3d.net/proc/youtube
+processor=http://www.navixtreme.com/proc/youtube
 description=Demo of 4 minutes 10 februari 2009. Made by youtube user ncsuwebdev. She shows and tell what Boxee can do./description
 #
 type=list_note
@@ -26,7 +26,7 @@ name=Boxee app Navi-X 1.0 and Next release
 thumb=
 background=default
 URL=
-description=1.0 release of Navi-X on Boxee. Thanks to Jimqode and Frank. No need to report any feauture requests. At the moment the goal for Navi-X Boxee was simply to get all the media to play.  Not to port abilities of XBMC Navi-X script to Boxee Navi-X app. Because at the moment the Boxee API lacks some functions, that will make this much easier to do. No estimated release time of an update (as far as I know). If anyone else is interested to help update the app. Tell this on navix.turner3d.net or on Boxee forums. If there is an update you will probably read it on Navi_X twitter or on Boxee forums./description
+description=1.0 release of Navi-X on Boxee. Thanks to Jimqode and Frank. No need to report any feauture requests. At the moment the goal for Navi-X Boxee was simply to get all the media to play.  Not to port abilities of XBMC Navi-X script to Boxee Navi-X app. Because at the moment the Boxee API lacks some functions, that will make this much easier to do. No estimated release time of an update (as far as I know). If anyone else is interested to help update the app. Tell this on www.navixtreme.com or on Boxee forums. If there is an update you will probably read it on Navi_X twitter or on Boxee forums./description
 #
 type=list_note
 name=How to install Boxee Navi-X app
@@ -47,7 +47,7 @@ name=How to Use Boxee
 date=2010-08-12
 thumb=http://i2.ytimg.com/vi/ecXEMiFcv5E/default.jpg
 URL=http://www.youtube.com/watch?v=ecXEMiFcv5E
-processor=http://navix.turner3d.net/proc/youtube
+processor=http://www.navixtreme.com/proc/youtube
 description=Made by youtube user thoughtshots 1 augustus 2010. Qoute thoughtshots :
 
 This is a complete guide to using the Boxee Beta application. Boxee is a free to use media center application that provides you with a clean and easy to use interface for viewing and browsing media files on your computer. In this video, I go through the basics of using the interface, how to access the two different types of content, and demo the Boxee remote app./description

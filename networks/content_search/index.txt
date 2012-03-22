@@ -5,13 +5,13 @@ logo=http://website.navi-x.org/networks/logo.png
 #
 type=search
 name=Search Navi-Xtreme
-URL=http://navix.turner3d.net/playlist/search/
-thumb=http://navix.turner3d.net/images/logo.jpg
+URL=http://www.navixtreme.com/playlist/search/
+thumb=http://www.navixtreme.com/images/logo.jpg
 #
 type=playlist
 name=Navi-Xtreme Extended Search
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_navsearch
+thumb=http://www.navixtreme.com/images/logo.jpg
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_navsearch
 player=default
 rating=-1.00
 description=08-31-10 Add predefined item, modified predefined playlist search
@@ -36,8 +36,8 @@ Searching for Playlist type, I need to have Mode set to Name and Phrase set to o
 #
 type=playlist
 name=Video Search
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_gsearchv20
+thumb=http://www.navixtreme.com/images/logo.jpg
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_gsearchv20
 player=default
 rating=5.00
 description=(01-19-12) Added video reference to IMDb from the TMDb search function
@@ -79,84 +79,84 @@ Virtually the same as V1 above (wip), except interface selects by site, rather t
 #
 type=search
 name=Search Dailymotion
-URL=http://navix.turner3d.net/search/dailymotion/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_dailymotion.jpg
+URL=http://www.navixtreme.com/search/dailymotion/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
 #
 type=search
 name=Search DivXStage
-URL=http://navix.turner3d.net/scrape/divxstage/?s=
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
+URL=http://www.navixtreme.com/scrape/divxstage/?s=
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png
 #
 type=search
 name=Search Extramina
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_extramina?q=search/
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina?q=search/
 thumb=http://profile.ak.fbcdn.net/hprofile-ak-ash2/48910_100000452142540_411_n.jpg
 #
 type=search
 name=Search Fast Pass TV
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=search/
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=search/
 thumb=http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg
 #
 type=playlist
 name=Search Grooveshark
-URL=http://navix.turner3d.net/scrape/grooveshark/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
+URL=http://www.navixtreme.com/scrape/grooveshark/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png
 date=2011-2-6
 #
 type=search
 name=Search iTunes Podcasts
-URL=http://navix.turner3d.net/scrape/podcasts/search/
+URL=http://www.navixtreme.com/scrape/podcasts/search/
 thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
 #
 type=search
 name=Search Librivox
-URL=http://navix.turner3d.net/scrape/librivox/search/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
+URL=http://www.navixtreme.com/scrape/librivox/search/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_librivox.png
 #
 type=search
 name=Search Movie25.com
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl?q=search/
-thumb=http://navix.turner3d.net/justme4u2c/images/Movie25.jpg
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl?q=search/
+thumb=http://www.navixtreme.com/justme4u2c/images/Movie25.jpg
 #
 type=search
 name=Search Movie2k
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=search//
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=search//
 #
 type=search
 name=Search Public Domain Movies
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/public?q=search/1/
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/public?q=search/1/
 #
 type=playlist
 name=Search StageVu
 thumb=http://stagevu.com/img/white/newtitle.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
 #
 type=search
 name=Search VeeHD
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd?q=search/
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd?q=search/
 thumb=http://static.veehd.com/logo.gif
 #
 type=search
 name=Search Videofriender
-URL=http://navix.turner3d.net/search/videofriender/
+URL=http://www.navixtreme.com/search/videofriender/
 thumb=http://videofriender.com/images/logo.png?1218389123
 #
 type=playlist
 name=Search Videofriender (Extended)
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
 thumb=http://videofriender.com/images/logo.png?1218389123
 #
 type=search
 name=Search Vimeo
-URL=http://navix.turner3d.net/search/vimeo/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_vimeo.gif
+URL=http://www.navixtreme.com/search/vimeo/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_vimeo.gif
 #
 type=search
 name=Search Watch Series
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries?q=search/
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries?q=search/
 thumb=http://watchseries.eu/images/logo-hover.png
 #
 type=search
 name=Search YouTube
-URL=http://navix.turner3d.net/search/youtube/
+URL=http://www.navixtreme.com/search/youtube/
 thumb=http://www.navi-x.org/playlists/youtube/logo.png

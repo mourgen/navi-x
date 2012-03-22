@@ -16,7 +16,7 @@ URL=http://gdata.youtube.com/feeds/base/users/AssociatedPress/uploads?alt=rss&v=
 
 type=playlist
 name=CNN.com
-URL=http://navix.turner3d.net/scrape/cnn/
+URL=http://www.navixtreme.com/scrape/cnn/
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://website.navi-x.org/networks/logos/cnn.jpg
 

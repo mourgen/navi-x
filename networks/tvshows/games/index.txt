@@ -6,8 +6,8 @@ logo=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=G4TV Website
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png
-URL=http://navix.turner3d.net/scrape/g4tv/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_g4tv.png
+URL=http://www.navixtreme.com/scrape/g4tv/
 
 type=playlist
 name=G4TV Podcast
@@ -16,38 +16,38 @@ URL=http://www.navi-x.org/playlists/podcasts/Technology/g4tv.plx
 
 type=playlist
 name=GameFAQ's
-URL=http://navix.turner3d.net/scrape/gamefaqs/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamefaqs.png
+URL=http://www.navixtreme.com/scrape/gamefaqs/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_gamefaqs.png
 
 type=playlist
 name=GameSpot
-thumb=http://navix.turner3d.net/justme4u2c/images/Gamespot.jpg
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/GameSpot.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Gamespot.jpg
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/GameSpot.pl
 
 #type=playlist
 #name=GameTrailers.com
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_gametrailers.gif
-#URL=http://navix.turner3d.net/scrape/gametrailers/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_gametrailers.gif
+#URL=http://www.navixtreme.com/scrape/gametrailers/
 
 type=playlist
 name=IGN
-thumb=http://navix.turner3d.net/justme4u2c/images/IGN.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/IGN.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/IGN.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/IGN.pl
 date=2012-02-02
 
 #type=playlist
 #name=Machinima
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_machinima.jpg
-#URL=http://navix.turner3d.net/scrape/machinima/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_machinima.jpg
+#URL=http://www.navixtreme.com/scrape/machinima/
 
 #type=playlist
 #name=(broken) Gamekings
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.png
-#URL=http://navix.turner3d.net/scrape/gamekings/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_gamekings.png
+#URL=http://www.navixtreme.com/scrape/gamekings/
 
 #type=playlist
 #name=Gamekings (Dutch)
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.jpg
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_gamekings.jpg
 #URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GameKings.pl
 #URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/GameKings.pl?q=gamekings/
 #description=Complete (full) site scraper. Will remove when turner3d fixes his original Gamkeings site scraper./description
@@ -55,7 +55,7 @@ date=2012-02-02
 
 #type=playlist
 #name=Gamekings (Dutch)
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.jpg
-#URL=http://navix.turner3d.net/playlist/50142/gamekings.plx
-#URL=http://navix.turner3d.net/playlist/49914/gamekings.tv.plx
-#processor=http://navix.turner3d.net/proc/gamekings
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_gamekings.jpg
+#URL=http://www.navixtreme.com/playlist/50142/gamekings.plx
+#URL=http://www.navixtreme.com/playlist/49914/gamekings.tv.plx
+#processor=http://www.navixtreme.com/proc/gamekings

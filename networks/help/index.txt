@@ -1,8 +1,8 @@
 version=8
 title=Help and Support
-background=http://navix.turner3d.net/images/backgrounds/bkg_navix_bh_plain.jpg
+background=http://www.navixtreme.com/images/backgrounds/bkg_navix_bh_plain.jpg
 logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
-description=Please visit http://navix.turner3d.net for full Navi-X support!  Team Navi-X/description
+description=Please visit http://www.navixtreme.com for full Navi-X support!  Team Navi-X/description
 #
 type=html
 name=Navi-X Wiki Help Articles and FAQ on GoogleCode (Boxee Only)
@@ -11,12 +11,12 @@ description=This works for Boxee Box users only!!/description
 
 type=html
 name=Navi-Xtreme Chat Shoutbox (Boxee Only)
-URL=http://navix.turner3d.net
+URL=http://www.navixtreme.com
 description=This works for Boxee Box users only!!/description
 
 type=html
 name=Navi-Xtreme Forums (Boxee Only)
-URL=http://navix.turner3d.net/forums
+URL=http://www.navixtreme.com/forums
 description=This works for Boxee Box users only!!/description
 
 type=rss:download
@@ -29,12 +29,12 @@ URL=http://pipes.yahoo.com/pipes/pipe.run?_id=681d39a9c9ba58457db3ac8ef03a7391&_
 
 type=rss:atom
 name=Navi-Xtreme - Latest Posts
-URL=http://navix.turner3d.net/feeds/newtopics.xml
+URL=http://www.navixtreme.com/feeds/newtopics.xml
 
 type=rss:atom
 name=Navi-Xtreme - New Topics
-URL=http://navix.turner3d.net/feeds/newtopics.xml
+URL=http://www.navixtreme.com/feeds/newtopics.xml
 
 type=html
 name=Navi-X Terms of Use
-URL=http://navix.turner3d.net/terms/
+URL=http://www.navixtreme.com/terms/

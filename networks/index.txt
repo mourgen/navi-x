@@ -48,7 +48,7 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 #type=playlist
 #name=theStreamDB (XBMC Only)
-#URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D3ef1acd333db60bac49eb0df6a481011%26_render%3Djson
+#URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D3ef1acd333db60bac49eb0df6a481011%26_render%3Djson
 #thumb=http://icons.iconarchive.com/icons/robsonbillponte/cartoon/256/TV-icon.png
 #icon=http://website.navi-x.org/networks/icon.png
 

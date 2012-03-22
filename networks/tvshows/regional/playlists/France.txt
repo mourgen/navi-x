@@ -5,25 +5,25 @@ logo=http://website.navi-x.org/networks/logo.jpg
 #
 type=playlist
 name=LIVE TV - French
-URL=http://navix.turner3d.net/playlist/15391/live_tv__french.plx
+URL=http://www.navixtreme.com/playlist/15391/live_tv__french.plx
 player=default
 #
 type=playlist
 name=Football news France
 thumb=http://www.mistersport.com/products_images/z12149.jpg
-URL=http://navix.turner3d.net/playlist/11611/football_news_france.plx
+URL=http://www.navixtreme.com/playlist/11611/football_news_france.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal
 /description
 #
 type=playlist
 name=Franci's
-URL=http://navix.turner3d.net/playlist/14625/francis.plx
+URL=http://www.navixtreme.com/playlist/14625/francis.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal
 /description
 #
 type=playlist
 name=Vero's frenchy stuff
-URL=http://navix.turner3d.net/playlist/17709/veros_frenchy_stuff.plx
+URL=http://www.navixtreme.com/playlist/17709/veros_frenchy_stuff.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal
 /description
 #
@@ -31,7 +31,7 @@ type=playlist
 name=Alain Carraze, video-blog Saison 2
 thumb=http://media.canal-plus.com/image/98/1/121981.106.jpg
 date=2009-10-08
-URL=http://navix.turner3d.net/playlist/19631/alain_carraze_videoblog_saison_2.plx
+URL=http://www.navixtreme.com/playlist/19631/alain_carraze_videoblog_saison_2.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal
 /description
 #

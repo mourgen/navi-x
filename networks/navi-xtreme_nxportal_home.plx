@@ -1,19 +1,19 @@
 version=1
-background=http://navix.turner3d.net/images/backgrounds/bkg_navix_bh_plain.jpg
+background=http://www.navixtreme.com/images/backgrounds/bkg_navix_bh_plain.jpg
 title=navi-xtreme [COLOR=FF888888]»[/COLOR] nxportal home
-logo=http://navix.turner3d.net/images/logos/logo.png
+logo=http://www.navixtreme.com/images/logos/logo.png
 
 type=playlist
 name=My Playlists
-thumb=http://navix.turner3d.net/images/logos/user.png
-URL=http://navix.turner3d.net/playlist/mine.plx
+thumb=http://www.navixtreme.com/images/logos/user.png
+URL=http://www.navixtreme.com/playlist/mine.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=Search
-thumb=http://navix.turner3d.net/images/logos/search.png
-URL=http://navix.turner3d.net/plx/search.plx
+thumb=http://www.navixtreme.com/images/logos/search.png
+URL=http://www.navixtreme.com/plx/search.plx
 player=default
 rating=-1.00
 
@@ -26,49 +26,49 @@ rating=-1.00
 
 type=playlist
 name=Site Scrapers
-thumb=http://navix.turner3d.net/images/logos/scrape.png
-URL=http://navix.turner3d.net/playlist/2229/realtime_scrapers.plx
+thumb=http://www.navixtreme.com/images/logos/scrape.png
+URL=http://www.navixtreme.com/playlist/2229/realtime_scrapers.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=User Lists
-thumb=http://navix.turner3d.net/images/logos/users.png
-URL=http://navix.turner3d.net/playlist/50274/user_lists.plx
+thumb=http://www.navixtreme.com/images/logos/users.png
+URL=http://www.navixtreme.com/playlist/50274/user_lists.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=Most-viewed 24 hours
-thumb=http://navix.turner3d.net/images/logos/viewed.png
-URL=http://navix.turner3d.net/playlist/day.plx
+thumb=http://www.navixtreme.com/images/logos/viewed.png
+URL=http://www.navixtreme.com/playlist/day.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=Most-viewed 7 days
-thumb=http://navix.turner3d.net/images/logos/viewed.png
-URL=http://navix.turner3d.net/playlist/week.plx
+thumb=http://www.navixtreme.com/images/logos/viewed.png
+URL=http://www.navixtreme.com/playlist/week.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=Most-recently updated
-thumb=http://navix.turner3d.net/images/logos/newest.png
-URL=http://navix.turner3d.net/playlist/update.plx
+thumb=http://www.navixtreme.com/images/logos/newest.png
+URL=http://www.navixtreme.com/playlist/update.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=Latest media entries
-thumb=http://navix.turner3d.net/images/logos/newest.png
-URL=http://navix.turner3d.net/playlist/new.plx
+thumb=http://www.navixtreme.com/images/logos/newest.png
+URL=http://www.navixtreme.com/playlist/new.plx
 player=default
 rating=-1.00
 
 type=playlist
 name=Help and Support
-thumb=http://navix.turner3d.net/images/logos/logo.png
+thumb=http://www.navixtreme.com/images/logos/logo.png
 URL=http://website.navi-x.org/-networks/Media_Center_Section_&_Help_and_Support/Help_and_Support/index.plx
 player=default
 rating=-1.00

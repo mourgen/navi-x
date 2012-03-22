@@ -55,7 +55,7 @@ type=video
 name=How to setup your favourites on Navi-X
 thumb=http://i3.ytimg.com/vi/22HuX8JzVus/default.jpg
 URL=http://youtube.com/v/22HuX8JzVus.swf
-processor=http://navix.turner3d.net/proc/youtube
+processor=http://www.navixtreme.com/proc/youtube
 player=default
 description=I would suggest to put these playlist in your favorites
 Navi-X Networks, Navi-Xtreme Search and Navi-Xtreme Site Scrapers.
@@ -66,7 +66,7 @@ Xbox controller: White button.
 Apple TV remote : Press and hold the menu button./description
 #
 #type=playlist
-#name=Navi-X Playlist building tips : not only xbmc related : will hide this I refer users now to navix.turner3d.net/forums •  Help and Support • Playlist editor: The Basics and
+#name=Navi-X Playlist building tips : not only xbmc related : will hide this I refer users now to www.navixtreme.com/forums •  Help and Support • Playlist editor: The Basics and
 #thumb=default
 #URL=http://www.box.net/rssdownload/342848388/navix_playlist_building_tips.plx
 #

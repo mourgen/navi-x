@@ -6,28 +6,28 @@ logo=http://website.navi-x.org/networks/logo.jpg
 type=playlist
 name=Televisoras Dominicanas
 thumb=http://website.navi-x.org/networks/logo.jpg
-URL=http://navix.turner3d.net/playlist/14528/televisoras_dominicanas.plx
+URL=http://www.navixtreme.com/playlist/14528/televisoras_dominicanas.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal
 Don't know where to find this in Xtreme/description
 #
 type=playlist
 name=TV - DOMINICANA
 thumb=http://www.televisiondominicana.tv/img/logo_tv_dominicana2.gif
-URL=http://navix.turner3d.net/playlist/3943/tv__dominicana.plx
+URL=http://www.navixtreme.com/playlist/3943/tv__dominicana.plx
 player=default
 description=TELEVISION DOMINICANA - direct link of the playlist on Navi-Xtreme Media Portal»SAMTROM MEDIA CENTER (Esp-Eng-Deu)/description
 #
 type=playlist
 name=RADIO - DOMINICANA
 thumb=http://ceirberea.blogdiario.com/img/radio-ven.gif
-URL=http://navix.turner3d.net/playlist/3950/radio__dominicana.plx
+URL=http://www.navixtreme.com/playlist/3950/radio__dominicana.plx
 player=default
 description=RADIO - direct link of the playlist on Navi-Xtreme Media Portal»SAMTROM MEDIA CENTER (Esp-Eng-Deu)/description
 #
 type=playlist
 name=PODCAST - DOMINICANA
 thumb=http://www.flagoftheday.com/images/flags/Flag_Dominicanrepublic.jpg
-URL=http://navix.turner3d.net/playlist/3946/podcast__dominicana.plx
+URL=http://www.navixtreme.com/playlist/3946/podcast__dominicana.plx
 player=mplayer
 description=POSCAST CON SABOR CRIOYO - direct link of the playlist on Navi-Xtreme Media Portal»SAMTROM MEDIA CENTER (Esp-Eng-Deu)/description
 #

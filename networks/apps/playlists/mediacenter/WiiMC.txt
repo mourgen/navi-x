@@ -13,6 +13,6 @@ description=Simple answer. This is done because most of the videos and audios do
 Therefore there is a special playlist made for Navi-X. And you will not be able to access and read this playlist on WiiMC.
 People are working in there free time to make WiiMC more compatible with Navi-X. There will be no estimated time on an update.
 But don't expect a full compatibility in the near time. And if you are interest and capable to make it more compatible,
-you should probably contact first turner3d. www.navi-x.org » Contact Us. Or on forums of www.navix.turner3d.net.
+you should probably contact first turner3d. www.navi-x.org » Contact Us. Or on forums of www.www.navixtreme.com.
 /description
 #

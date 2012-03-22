@@ -6,19 +6,19 @@ logo=http://website.navi-x.org/networks/logo.png
 #
 type=playlist
 name=gh.ffshrine.org    video game music
-URL=http://navix.turner3d.net/scrape/ffshrine_b/
+URL=http://www.navixtreme.com/scrape/ffshrine_b/
 date=2010-08-31
 #description=« place this here only not certain if this belongs here./description
 description=Quote website: The ultimate resources on the net for video game music and media./description
 #
 #type=playlist
 #name=Xbox Applications « moved to apps ?
-#URL=http://navix.turner3d.net/playlist/1793/test.plx
+#URL=http://www.navixtreme.com/playlist/1793/test.plx
 #description=Software you could use on the Xbox./description
 #
 type=playlist
 name=Roms
-URL=http://navix.turner3d.net/playlist/19860/test.plx
+URL=http://www.navixtreme.com/playlist/19860/test.plx
 description=Roms are a copy of the original video game (mostly packed into a .zip format). That can be played with an emulator./description
 #
 type=list_note
@@ -26,30 +26,30 @@ name=Xbox only
 #
 type=playlist
 name=Xbox Emulators
-URL=http://navix.turner3d.net/playlist/19465/emulators.plx
+URL=http://www.navixtreme.com/playlist/19465/emulators.plx
 description=Emulators are like a mini program console, which allows you to play roms./description
 #
 
 type=playlist
 name=Xbox Mods
-URL=http://navix.turner3d.net/playlist/20808/test.plx
+URL=http://www.navixtreme.com/playlist/20808/test.plx
 description=Mods are made by the general public or a developer, and can be entirely new games in themselves, but mods are not standalone software and require the user to have the original release in order to run. They can include new items, weapons, characters, enemies, models, textures, levels, story lines, music, and game modes./description
 #
 type=playlist
 name=Xbox DLC
-URL=http://navix.turner3d.net/playlist/20789/test.plx
+URL=http://www.navixtreme.com/playlist/20789/test.plx
 description=When xbox live was around they used to have dlc or downloadable content for games like more maps, roster, cars, planes, etc. but with these installers you dont need xbox live anymore just a modded xbox./description
 #
 type=playlist
 name=Xbox Games
-URL=http://navix.turner3d.net/playlist/20848/test.plx
+URL=http://www.navixtreme.com/playlist/20848/test.plx
 #
 type=playlist
 name=Xbox Game Demos
-URL=http://navix.turner3d.net/playlist/20862/test.plx
+URL=http://www.navixtreme.com/playlist/20862/test.plx
 #
 type=playlist
 name=Xbox Homebrew Games
-#URL=http://navix.turner3d.net/playlist/20874/test.plx
-URL=http://navix.turner3d.net/playlist/36641/xbox_homebrew_games.plx
+#URL=http://www.navixtreme.com/playlist/20874/test.plx
+URL=http://www.navixtreme.com/playlist/36641/xbox_homebrew_games.plx
 description=Homebrew games are pc games ported to the Xbox./description

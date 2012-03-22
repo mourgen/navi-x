@@ -4,13 +4,13 @@ title=Spanish
 type=playlist
 name=Live TV - Spain
 thumb=http://www.travelblog.org/World/flags/spain-large-flag-sp.gif
-URL=http://navix.turner3d.net/playlist/18709/live_tv__spain_.plx
+URL=http://www.navixtreme.com/playlist/18709/live_tv__spain_.plx
 description=direct link of the playlist on Navi-Xtreme User Media/description
 #
 type=playlist
 name=LIVE TV - Spanish
 date=2009-05-28
-URL=http://navix.turner3d.net/playlist/15396/live_tv__spanish.plx
+URL=http://www.navixtreme.com/playlist/15396/live_tv__spanish.plx
 player=default
 description=Original Playlist/description
 #

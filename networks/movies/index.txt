@@ -14,81 +14,81 @@ date=2011-3-19
 type=playlist
 name=1 Channel
 thumb=http://www.fileden.com/files/2010/8/4/2932808/1channel.jpg
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&q=getmedia/section/
 date=2012-03-10
 
 type=playlist
 name=66 Stage
-URL=http://navix.turner3d.net/scrape/66stage/list/movies
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_66stage.png
+URL=http://www.navixtreme.com/scrape/66stage/list/movies
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_66stage.png
 
 type=playlist
 name=Animefreak.tv
-URL=http://navix.turner3d.net/scrape/animefreak/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_animefreak.jpg
+URL=http://www.navixtreme.com/scrape/animefreak/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_animefreak.jpg
 type=playlist
 name=B Movies
-thumb=http://navix.turner3d.net/justme4u2c/images/bMovies.png
+thumb=http://www.navixtreme.com/justme4u2c/images/bMovies.png
 date=2012-03-16
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/bMovies.pl
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/bMovies.pl
 date=2012-03-16
 
 type=playlist
 name=Crackle Movies
-URL=http://navix.turner3d.net/scrape/cracklemovies/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_crackle.png
+URL=http://www.navixtreme.com/scrape/cracklemovies/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_crackle.png
 
 type=playlist
 name=DivXStage
-URL=http://navix.turner3d.net/scrape/divxstage/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_divxstage.png
+URL=http://www.navixtreme.com/scrape/divxstage/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png
 
 type=playlist
 name=Extramina
-thumb=http://navix.turner3d.net/boseman/images/x_logo.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_extramina
+thumb=http://www.navixtreme.com/boseman/images/x_logo.png
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina
 date=2012-03-10
 
 type=playlist
 name=FastpassTV
-thumb=http://navix.turner3d.net/boseman/images/fastpasstv.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=getmovies
+thumb=http://www.navixtreme.com/boseman/images/fastpasstv.png
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=getmovies
 date=2012-03-10
 
 type=playlist
 name=HTTPfilm
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_httpfilm.png
-URL=http://navix.turner3d.net/scrape/httpfilm/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_httpfilm.png
+URL=http://www.navixtreme.com/scrape/httpfilm/
 date=2012-03-07
 
 type=playlist
 name=IceFilms.info
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_icefilms.png
-URL=http://navix.turner3d.net/scrape/icefilms/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_icefilms.png
+URL=http://www.navixtreme.com/scrape/icefilms/
 date=2012-02-02
 
 type=playlist
 name=Movie25
-thumb=http://navix.turner3d.net/justme4u2c/images/Movie25.jpg
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Movie25.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Movie25.jpg
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl
 date=2012-02-02
 
 type=playlist
 name=Movie2K
-thumb=http://navix.turner3d.net/boseman/images/movie2K_logo.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=getmenu/en/Movies
+thumb=http://www.navixtreme.com/boseman/images/movie2K_logo.png
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=getmenu/en/Movies
 date=2012-03-10
 
 type=playlist
 name=Project Free Movies
-thumb=http://navix.turner3d.net/boseman/images/projectfree4.gif
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
+thumb=http://www.navixtreme.com/boseman/images/projectfree4.gif
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
 date=2012-03-10
 
 type=playlist
 name=StageVu Search
 thumb=http://userlogos.org/files/logos/jumpordie/stagevu_01.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_svsearch
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
 description=(02-21-11) - Added Ascii Sort
 (09-29-10) - Added Phrase option to assure the name field contains the keyword (case ignored).
 Fixed bug in keywords with spaces forcing truncation
@@ -96,14 +96,14 @@ date=2012-03-11
 
 type=playlist
 name=VeeHD
-thumb=http://navix.turner3d.net/boseman/images/V_logo.gif
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_veehd
+thumb=http://www.navixtreme.com/boseman/images/V_logo.gif
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd
 description=1-31-11 Added support for Go To Page in multi page results
 date=2012-03-11
 
 type=playlist
 name=Videofriender Extended Search
-thumb=http://navix.turner3d.net/boseman/images/vf_logo.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_vfsearch
+thumb=http://www.navixtreme.com/boseman/images/vf_logo.png
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
 description=(01-27-11) Uses the turner3d processor again./description
 date=2012-03-11

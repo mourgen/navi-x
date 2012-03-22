@@ -13,7 +13,7 @@ thumb=http://wegoinin.com/wp-content/uploads/2009/08/aandelogo.jpg
 type=html
 name=ABC
 URL=http://abc.go.com/watch
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_abc.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_abc.png
 
 type=html
 name=ABC Family
@@ -28,7 +28,7 @@ thumb=http://4.bp.blogspot.com/_Cry2hN-xUQM/TM2oXXjM6zI/AAAAAAAACPg/IpZxBoZl234/
 type=html
 name=Adult Swim
 URL=http://video.adultswim.com/episodes/index.html	
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_adult_swim.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png
 
 type=html
 name=AMC
@@ -38,7 +38,7 @@ thumb=http://images2.wikia.nocookie.net/__cb20091107160204/logopedia/images/thum
 type=html
 name=Animal Planet
 URL=http://animal.discovery.com/tv/tv-shows.html
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_animal.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_animal.png
 
 type=html
 name=Associated Press (AP)
@@ -53,7 +53,7 @@ thumb=http://greenfamilymotors.com/Images/BarrettJacksonLogo.jpg
 type=html
 name=BET
 URL=http://www.bet.com/shows.html
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_bet.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_bet.png
 
 type=html
 name=Bravo (Not Boxee Friendly)
@@ -68,7 +68,7 @@ thumb=http://www.thundercatsnow.com/wp-content/uploads/2011/02/Cartoon_Network_l
 type=html
 name=CBS
 URL=http://www.cbs.com/video
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_cbs.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_cbs.png
 
 type=html
 name=CBS News
@@ -83,7 +83,7 @@ thumb=http://www.cocktailmatch.com/users/156/blog/CBS%20Sports%20logo.jpg
 type=html
 name=CNN
 URL=http://www.cnn.com
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_cnn.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_cnn.png
 
 type=html
 name=Comedy Central
@@ -138,7 +138,7 @@ thumb=http://www.mmaconvert.com/wp-content/uploads/post-images/fx_logo.jpg
 type=html
 name=G4TV
 URL=http://www.g4tv.com/shows/index.html
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_g4tv.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_g4tv.png
 
 type=html
 name=Golf Channel
@@ -168,7 +168,7 @@ thumb=http://www.leganpromotions.net/images/logo/ifc-logo.png
 type=html
 name=Live Well HD
 URL=http://livewellnetwork.com/index
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_livewellhd.gif
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_livewellhd.gif
 
 type=html
 name=Military Channel
@@ -183,17 +183,17 @@ thumb=http://topuspost.com/wp-content/uploads/2011/03/msnbc.com-logo.jpg
 type=html
 name=MTV
 URL=http://www.mtv.com/videos/home.jhtml
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_mtv.jpg
 
 type=html
 name=National Geographic
 URL=http://channel.nationalgeographic.com/channel/videos/feeds/cv-seo/Full-Episodes/All-Full-Episodes/
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_natgeo.jpg
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_natgeo.jpg
 
 type=html
 name=Nickelodeon
 URL=http://www.nick.com/videos/all-videos
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_nick.gif
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_nick.gif
 
 type=html
 name=Nick Jr
@@ -218,12 +218,12 @@ thumb=http://dishtv.com/blog/wp-content/uploads/2011/03/oxygen-logo.jpg
 type=html
 name=PBS
 URL=http://video.pbs.org
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_pbs.gif
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif
 
 type=html
 name=Planet Green
 URL=http://planetgreen.discovery.com/videos
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_planetgreen.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_planetgreen.png
 
 type=html
 name=Spike
@@ -233,7 +233,7 @@ thumb=http://www.marketingshift.com/resources/spike_logo.gif
 type=html
 name=SyFy
 URL=http://www.syfy.com/rewind
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_syfy.gif
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_syfy.gif
 
 type=html
 name=TBS
@@ -253,7 +253,7 @@ thumb=http://www.lyngsat-logo.com/hires/tt/tennis_channel.png
 type=html
 name=TLC
 URL=http://tlc.discovery.com/tv/tv-shows.html
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_tlc.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_tlc.png
 
 type=html
 name=TNT
@@ -263,7 +263,7 @@ thumb=http://www.jameskarhu.com/images/TNT_LOGO.jpg
 type=html
 name=Tru TV
 URL=http://www.trutv.com/video/full-episodes.html
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_trutv.gif
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_trutv.gif
 
 type=html
 name=TV Guide

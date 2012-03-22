@@ -6,38 +6,38 @@ description=/description
 #
 type=playlist
 name=LIVE TV - Italian
-URL=http://navix.turner3d.net/playlist/15393/live_tv__italian.plx
+URL=http://www.navixtreme.com/playlist/15393/live_tv__italian.plx
 #
 type=playlist
 name=Italia
-URL=http://navix.turner3d.net/playlist/13973/italia.plx
+URL=http://www.navixtreme.com/playlist/13973/italia.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal/description
 #
 type=playlist
 name=Bandiera Italia
 thumb=http://www.standard-tech.it/linea58/images/bandiera_italia.jpg
-URL=http://navix.turner3d.net/playlist/14552/italia.plx
+URL=http://www.navixtreme.com/playlist/14552/italia.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal/description
 #
 type=playlist
 name=Italia FILM
 thumb=http://tbn3.google.com/images?q=tbn:3ctXoeWgSEAmiM:http://storiaitalia.altervista.org/italia.gif
-URL=http://navix.turner3d.net/playlist/14622/italia_film.plx
+URL=http://www.navixtreme.com/playlist/14622/italia_film.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal/description
 #
 type=playlist
 name=Video-Film italiani
 thumb=http://www1.istockphoto.com/file_thumbview_approve/4852772/2/istockphoto_4852772_film_reel.jpg
-URL=http://navix.turner3d.net/playlist/2379/videofilm_italiani.plx
+URL=http://www.navixtreme.com/playlist/2379/videofilm_italiani.plx
 #
 type=playlist
 name=Italiani
 thumb=http://tbn1.google.com/images?q=tbn:SPltd0bhVjY0WM:http://www.iicstoccarda.esteri.it/IIC_Stoccarda/webform/..%255C..%255CIICManager%255CUpload%255CIMG%255C%255CStoccarda%255CDeutschlandItalienFlagge.jpg
-URL=http://navix.turner3d.net/playlist/4219/italiani.plx
+URL=http://www.navixtreme.com/playlist/4219/italiani.plx
 description=direct link of the playlist on Navi-Xtreme Media Portal > Quentin.TV [ German, English, Italiani ] /description
 #
 type=playlist
 name=Italy - Italia franzz
-thumb=http://navix.turner3d.net/images/logo.jpg
-URL=http://navix.turner3d.net/playlist/19295/italy__italia_franzz.plx
+thumb=http://www.navixtreme.com/images/logo.jpg
+URL=http://www.navixtreme.com/playlist/19295/italy__italia_franzz.plx
 #

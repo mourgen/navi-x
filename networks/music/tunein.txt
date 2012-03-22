@@ -9,39 +9,39 @@ URL=http://opml.radiotime.com/Browse.ashx?c=local
 
 type=search
 name=Search Radiotime
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3Dhttp%253A%252F%252Fopml.radiotime.com%252FSearch.ashx%253Fquery%253D
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3Dhttp%253A%252F%252Fopml.radiotime.com%252FSearch.ashx%253Fquery%253D
 
 type=list_note
 name=By Location
 
 type=playlist
 name=Africa
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101215
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101215
 
 type=playlist
 name=Antarctica
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr100292
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr100292
 
 type=playlist
 name=Asia
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101216
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101216
 
 type=playlist
 name=Australasia
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr100297
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr100297
 
 type=playlist
 name=Central America
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101320
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101320
 
 type=playlist
 name=Europe
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101217
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101217
 
 type=playlist
 name=North America
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101218
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101218
 
 type=playlist
 name=South America
-URL=http://navix.turner3d.net/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101219
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3D%20http%253A//opml.radiotime.com/Browse.ashx%253Fid%253Dr101219

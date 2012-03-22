@@ -37,97 +37,97 @@ date=2011-3-19
 
 type=playlist
 name=66 Stage
-URL=http://navix.turner3d.net/scrape/66stage/cat/tv
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_66stage.png
+URL=http://www.navixtreme.com/scrape/66stage/cat/tv
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_66stage.png
 
 type=playlist
 name=ABC
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_abc.png
-URL=http://navix.turner3d.net/scrape/abc/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_abc.png
+URL=http://www.navixtreme.com/scrape/abc/
 
 type=playlist
 name=Adult Swim
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_adult_swim.png
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png
 #thumb=http://testtikkiew.googlecode.com/files/broken.png
-URL=http://navix.turner3d.net/scrape/adultswim/
+URL=http://www.navixtreme.com/scrape/adultswim/
 
 #type=playlist
 #name=Animal Planet
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_animal.png
-#URL=http://navix.turner3d.net/scrape/discovery/animal
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_animal.png
+#URL=http://www.navixtreme.com/scrape/discovery/animal
 
 #type=playlist
 #name=BET
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_bet.png
-#URL=http://navix.turner3d.net/scrape/bet/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_bet.png
+#URL=http://www.navixtreme.com/scrape/bet/
 
 type=playlist
 name=Bravo
-thumb=http://navix.turner3d.net/justme4u2c/images/Bravo.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/BravoTV.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Bravo.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl
 date=2012-03-16
 
 type=playlist
 name=CBS
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_cbs.png
-URL=http://navix.turner3d.net/scrape/cbs/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_cbs.png
+URL=http://www.navixtreme.com/scrape/cbs/
 
 #type=playlist
 #name=Crackle TV
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_crackle.png
-#URL=http://navix.turner3d.net/scrape/crackletv/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_crackle.png
+#URL=http://www.navixtreme.com/scrape/crackletv/
 
 type=playlist
 name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://navix.turner3d.net/justme4u2c/images/CW.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/CW.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/CW.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/CW.pl
 description=**** XBMC Only ****/description
 
 #type=playlist
 #name=Discovery Channel
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_dsc.png
-#URL=http://navix.turner3d.net/scrape/discovery/dsc
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_dsc.png
+#URL=http://www.navixtreme.com/scrape/discovery/dsc
 
 type=playlist
 name=DIY Network
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_diynetwork.png
-URL=http://navix.turner3d.net/scrape/diynetwork/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_diynetwork.png
+URL=http://www.navixtreme.com/scrape/diynetwork/
 date=2012-02-02
 
 type=playlist
 name=E! Online
-thumb=http://navix.turner3d.net/justme4u2c/images/E!.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/E!Online.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/E!.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/E!Online.pl
 player=default
 rating=-1.00
 
 type=playlist
 name=Engadget
-thumb=http://navix.turner3d.net/justme4u2c/images/Engadget.png
+thumb=http://www.navixtreme.com/justme4u2c/images/Engadget.png
 date=2012-02-15
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Engadget.pl
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Engadget.pl
 
 type=playlist
 name=Food Network
-thumb=http://navix.turner3d.net/justme4u2c/images/Food_Network.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Food_Network.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
 date=2012-02-02
 
 type=playlist
 name=GSN (Game Show Network)
-thumb=http://navix.turner3d.net/justme4u2c/images/GSN.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/GSN.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/GSN.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/GSN.pl
 
 type=playlist
 name=HGTV
-thumb=http://navix.turner3d.net/justme4u2c/images/HGTV_Logo.jpg
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/HGTV.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/HGTV_Logo.jpg
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl
 date=2012-02-02
 
 type=playlist
 name=History Channel [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://navix.turner3d.net/justme4u2c/images/HistoryChannel.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/HistoryChannel.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
 description=**** XBMC Only ****/description
 
 type=video
@@ -137,9 +137,9 @@ thumb=http://website.navi-x.org/networks/logos/hsn.jpg
 
 type=playlist
 name=Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
-thumb=http://navix.turner3d.net/justme4u2c/images/JustinTV.png
+thumb=http://www.navixtreme.com/justme4u2c/images/JustinTV.png
 date=2012-02-12
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/JustinTV.pl
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl
 player=default
 rating=-1.00
 description=*** BOXEE Only ***/description
@@ -151,24 +151,24 @@ thumb=http://www.king-cart.com/store/knifeandgunshow/ShowLogo.jpg
 
 type=playlist
 name=Live Well HD
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_livewellhd.gif
-URL=http://navix.turner3d.net/scrape/livewellhd/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_livewellhd.gif
+URL=http://www.navixtreme.com/scrape/livewellhd/
 
 type=playlist
 name=Maxim
-thumb=http://navix.turner3d.net/images/logo_maxim.jpg
-URL=http://navix.turner3d.net/scrape/maxim/
+thumb=http://www.navixtreme.com/images/logo_maxim.jpg
+URL=http://www.navixtreme.com/scrape/maxim/
 
 type=playlist
 name=Mekong TV
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_mekongtv.png
-URL=http://navix.turner3d.net/scrape/mekongtv/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_mekongtv.png
+URL=http://www.navixtreme.com/scrape/mekongtv/
 date=2012-02-02
 
 type=playlist
 name=National Geographic
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_natgeo.jpg
-URL=http://navix.turner3d.net/scrape/natgeo/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_natgeo.jpg
+URL=http://www.navixtreme.com/scrape/natgeo/
 
 type=playlist
 name=NASA
@@ -178,61 +178,61 @@ date=2011-3-19
 
 type=playlist
 name=NBC
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_nbc.jpg
-URL=http://navix.turner3d.net/scrape/nbc/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_nbc.jpg
+URL=http://www.navixtreme.com/scrape/nbc/
 
 #type=playlist
 #name=(broken) NFB
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_nfb_ca.jpg
-#URL=http://navix.turner3d.net/scrape/nfb_ca/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_nfb_ca.jpg
+#URL=http://www.navixtreme.com/scrape/nfb_ca/
 
 type=playlist
 name=Onion News Network
-thumb=http://navix.turner3d.net/justme4u2c/images/Onion_News_Network.jpg
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Onion_News_Network.jpg
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 
 type=playlist
 name=PBS
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_pbs.gif
-URL=http://navix.turner3d.net/scrape/pbs/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif
+URL=http://www.navixtreme.com/scrape/pbs/
 
 #type=playlist
 #name=Planet Green
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_planetgreen.png
-#URL=http://navix.turner3d.net/scrape/discovery/planetgreen
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_planetgreen.png
+#URL=http://www.navixtreme.com/scrape/discovery/planetgreen
 
 type=playlist
 name=Pokerstars TV
-thumb=http://navix.turner3d.net/justme4u2c/images/PokerstarsTV.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/PokerStars.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/PokerstarsTV.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
 date=2012-02-02
 
 #type=playlist
 #name=PokerTube
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_pokertube.gif
-#URL=http://navix.turner3d.net/scrape/pokertube/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_pokertube.gif
+#URL=http://www.navixtreme.com/scrape/pokertube/
 
 type=playlist
 name=Revision3
-thumb=http://navix.turner3d.net/justme4u2c/images/Revision3.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Revision3.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
 date=2012-02-02
 
 type=playlist
 name=TMZ
-thumb=http://navix.turner3d.net/justme4u2c/images/TMZ.png
+thumb=http://www.navixtreme.com/justme4u2c/images/TMZ.png
 date=2012-02-29
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/TMZ.pl
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/TMZ.pl
 
 #type=playlist
 #name=The Learning Channel
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_discovery_tlc.png
-#URL=http://navix.turner3d.net/scrape/discovery/tlc
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_tlc.png
+#URL=http://www.navixtreme.com/scrape/discovery/tlc
 
 type=playlist
 name=TruTV
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_trutv.gif
-URL=http://navix.turner3d.net/scrape/trutv/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_trutv.gif
+URL=http://www.navixtreme.com/scrape/trutv/
 
 type=video
 name=TWiT Broadcast (XBMC Only)
@@ -242,22 +242,22 @@ date=2012-03-11
 
 type=playlist
 name=USA Network
-thumb=http://navix.turner3d.net/justme4u2c/images/USA.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
+thumb=http://www.navixtreme.com/justme4u2c/images/USA.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
 
 type=playlist
 name=WB [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://navix.turner3d.net/justme4u2c/images/WB.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/WB.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/WB.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/WB.pl
 description=**** XBMC Only ****/description
 
 #type=playlist
 #name=YouTube Shows
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_youtube_shows.jpg
-#URL=http://navix.turner3d.net/scrape/youtube_shows/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_youtube_shows.jpg
+#URL=http://www.navixtreme.com/scrape/youtube_shows/
 
 type=playlist
 name=Watchseries TV
-thumb=http://navix.turner3d.net/boseman/images/watchseries_logo.png
-URL=http://navix.turner3d.net/cgi-bin/boseman/Scrapers/ct_watchseries
+thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
 date=2012-03-11

@@ -14,14 +14,14 @@ description=(semi-broken) Some playlist are empty and possible some streams don'
 
 type=playlist
 name=Mixtapes.tv
-thumb=http://navix.turner3d.net/justme4u2c/images/Mixtape.tv.png
+thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
 date=2012-03-13
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
 
 #type=playlist
 #name=Grooveshark
-#URL=http://navix.turner3d.net/scrape/grooveshark/
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_grooveshark.png
+#URL=http://www.navixtreme.com/scrape/grooveshark/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png
 #date=2011-2-6
 
 type=playlist
@@ -34,8 +34,8 @@ date=2010-12-23
 
 type=playlist
 name=SKY.fm
-thumb=http://navix.turner3d.net/justme4u2c/images/SKY.jpg
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
+thumb=http://www.navixtreme.com/justme4u2c/images/SKY.jpg
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
 date=2012-03-16
 
 type=playlist
@@ -46,7 +46,7 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/music/tunein.txt
 http://m.box.net/index.php?rm=box_v2_download_file&file_id=f_1135133951&resize=0
 description= 
 If there are no big issues or no big complaints this will soon replace the old Radiotime.
-When you find an issue report it on the forums on navix.turner3d.net.
+When you find an issue report it on the forums on www.navixtreme.com.
 Unfortunately since this is a scraper in opposite as the old one. It will not get local radio channels as the old Radiotime.
 
 2011 12 november : The streams doesn't work yet on the Boxee new Nav-X 4. version.
@@ -54,27 +54,27 @@ Unfortunately since this is a scraper in opposite as the old one. It will not ge
 
 type=playlist
 name=Radiolala
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_radiolala.png
-URL=http://navix.turner3d.net/scrape/radiolala/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_radiolala.png
+URL=http://www.navixtreme.com/scrape/radiolala/
 
 #type=playlist
 #name=MTV Music Videos
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_mtv.jpg
-#URL=http://navix.turner3d.net/scrape/mtv_music/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_mtv.jpg
+#URL=http://www.navixtreme.com/scrape/mtv_music/
 
 type=playlist
 name=Vevo (U.S.A. and Canada Only)
-thumb=http://navix.turner3d.net/justme4u2c/images/Vevo.png
-URL=http://navix.turner3d.net/cgi-bin/justme4u2c/scrapers/Vevo.pl
+thumb=http://www.navixtreme.com/justme4u2c/images/Vevo.png
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl
 description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
 
 #type=playlist
 #name=Top 40 Charts
-#thumb=http://navix.turner3d.net/images/backgrounds/thumb_top40-charts.png
-#URL=http://navix.turner3d.net/scrape/top40charts/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_top40-charts.png
+#URL=http://www.navixtreme.com/scrape/top40charts/
 #description=(broken) Seems there is nothing to scraper anymore on the site or site has been changed./description
 
 type=playlist
 name=Librivox Audio Books
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_librivox.png
-URL=http://navix.turner3d.net/scrape/librivox/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_librivox.png
+URL=http://www.navixtreme.com/scrape/librivox/

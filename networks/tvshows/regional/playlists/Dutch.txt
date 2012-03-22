@@ -7,42 +7,42 @@ type=playlist
 name=Nederlandse Internet Televisie
 date=2009-05-29
 thumb=http://i703.photobucket.com/albums/ww31/tikkiew/fanart/thumbnails/folder.jpg?t=1255538151
-URL=http://navix.turner3d.net/playlist/15503/nederlandse_internet_televisie.plx
+URL=http://www.navixtreme.com/playlist/15503/nederlandse_internet_televisie.plx
 player=default
 #
 type=playlist
 name=Videos van websites
 date=2010-09-12
-URL=http://navix.turner3d.net/playlist/15514/videos_van_websites.plx
+URL=http://www.navixtreme.com/playlist/15514/videos_van_websites.plx
 player=default
 rating=-1.00
 #
 type=playlist
 name=Videos van  Gemiste TV programma's (leeg)
 date=2010-09-12
-URL=http://navix.turner3d.net/playlist/15512/videos_van_tv_programmas.plx
+URL=http://www.navixtreme.com/playlist/15512/videos_van_tv_programmas.plx
 player=default
 rating=-1.00
 #
 type=playlist
 name=nl.filmtrailer.com
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_filmtrailer_nl.jpg
-URL=http://navix.turner3d.net/scrape/filmtrailer/nl
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_filmtrailer_nl.jpg
+URL=http://www.navixtreme.com/scrape/filmtrailer/nl
 description=direct link of the Site Scraper » Filmtrailer » The Netherlands»/description
 #
 type=playlist
 name=Gamekings.TV
-thumb=http://navix.turner3d.net/images/backgrounds/thumb_gamekings.jpg
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_gamekings.jpg
 date=2010-09-15
-URL=http://navix.turner3d.net/playlist/50142/gamekings.plx
-#URL=http://navix.turner3d.net/playlist/49914/gamekings.tv.plx
+URL=http://www.navixtreme.com/playlist/50142/gamekings.plx
+#URL=http://www.navixtreme.com/playlist/49914/gamekings.tv.plx
 player=default
 rating=-1.00
 #
 type=playlist
 name=Muziek Videos
 date=2009-05-29
-URL=http://navix.turner3d.net/playlist/15515/muziek_videos.plx
+URL=http://www.navixtreme.com/playlist/15515/muziek_videos.plx
 thumb=http://i703.photobucket.com/albums/ww31/tikkiew/fanart/thumbnails/Music_Panels__Compiled_by_smashmeth.jpg
 player=default
 #
@@ -55,14 +55,14 @@ player=default
 #
 type=playlist
 name=Podcast
-URL=http://navix.turner3d.net/playlist/15426/nederlandse_podcast.plx
+URL=http://www.navixtreme.com/playlist/15426/nederlandse_podcast.plx
 player=default
 thumb=http://brainwashed.com/podcast/nodcast.gif
 rating=-1.00
 #
 type=playlist
 name=Radiozenders
-URL=http://navix.turner3d.net/playlist/15432/nederlandse_radiozenders.plx
+URL=http://www.navixtreme.com/playlist/15432/nederlandse_radiozenders.plx
 player=default
 thumb=http://www.dichtbijoosterhout.nl/wp-content/uploads/tdomf/1216/radio-onair.jpg
 rating=-1.00
@@ -70,7 +70,7 @@ rating=-1.00
 type=playlist
 name=Tekst feeds
 date=2009-05-29
-URL=http://navix.turner3d.net/playlist/15501/o.a_nieuws_headliners.plx
+URL=http://www.navixtreme.com/playlist/15501/o.a_nieuws_headliners.plx
 thumb=http://th08.deviantart.com/fs36/300W/f/2008/275/7/c/Document_Icon_by_Silver_PyroTech.jpg
 player=default
 #
