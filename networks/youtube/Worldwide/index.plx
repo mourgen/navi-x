@@ -20,27 +20,27 @@ URL=http://gdata.youtube.com/feeds/base/standardfeeds/most_recent?max-results=50
 #
 type=playlist
 name=Most Viewed
-URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/MV.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/Worldwide/MV.plx
 #
 type=playlist
 name=Top Rated
-URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/TR.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/Worldwide/TR.plx
 #
 type=playlist
 name=Top Favorites
-URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/TF.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/Worldwide/TF.plx
 #
 type=playlist
 name=Most Discussed
-URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/MD.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/Worldwide/MD.plx
 #
 type=playlist
 name=Most Linked
-URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/ML.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/Worldwide/ML.plx
 #
 type=playlist
 name=Most Responded
-URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/MR.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/Worldwide/MR.plx
 #
 type=rss:video
 name=Recently Featured
