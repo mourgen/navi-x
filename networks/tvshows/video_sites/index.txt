@@ -7,7 +7,7 @@ logo=http://website.navi-x.org/networks/logo.png
 type=playlist
 name=YouTube
 thumb=http://www.navi-x.org/playlists/youtube/logo.png
-URL=http://www.navi-x.org/playlists/youtube/index.plx
+URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
 
 #type=search
 #name=Search Dailymotion
