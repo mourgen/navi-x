@@ -1,51 +1,145 @@
 version=8
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 title=Navi-X Networks - TV Shows - News - MSNBC News
 
 type=rss
 name=The Today Show
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-TDY-PODCAST-M4V.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://podcast.msnbc.com/audio/podcast/images/TDY_071005_VideoPodcastLogo.jpg
 
 type=rss
 name=Morning Joe
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-SCARBOROUGH-NETCAST-M4V.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://msnbc.vo.llnwd.net/e1/audio/podcast/images/pdv_morningjoe.jpg
 
 type=rss
 name=Nightly News with Brian Williams
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-NN-NETCAST-M4V.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://msnbc.vo.llnwd.net/e1/audio/podcast/images/pdv_nn_netcast.jpg
 
 type=rss
 name=Meet the Press with David Gregory
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-MTP-NETCAST-M4V.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://msnbc.vo.llnwd.net/e1/audio/podcast/images/pdv_mtp_netcast.jpg
 
 type=rss
 name=The Rachel Maddow Show
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-MADDOW-NETCAST-M4V.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://msnbc.vo.llnwd.net/e1/audio/podcast/images/pd_Rachel_video.jpg
 
 type=rss
 name=Mad Money with Jim Cramer
 URL=http://podcast.cnbc.com/mmpodcast/lightninground.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://s13.podbean.com/image-logo/0/16886_logo.jpg
 
 type=rss
 name=Your Business
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/MSNBC-YB-NETCAST-M4V.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://msnbcpod.vo.llnwd.net/content/audio/podcast/images/pdv_yb_netcast_070628.jpg
 
 type=rss
 name=ZeitGeist
 URL=http://podcastfeeds.nbcnews.com/audio/podcast/pdm_zeitgeist.xml
-http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
+background=http://navi-x.googlecode.com/svn/trunk/networks/images/bg.png
 thumb=http://msnbcpod.vo.llnwd.net/content/audio/podcast/images/pdm_zeitgeist_logo.jpg
+
+type=note
+name=---------- MSNBC TV (Boxee Only) ----------
+URL=
+
+type=html
+name=Way Too Early with Willie Geist
+URL=http://www.msnbc.msn.com/id/26852192/ns/msnbc_tv-zeitgeist/
+thumb=http://msnbcmedia.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/geist.grid-2x2.png
+
+type=html
+name=Morning Joe
+URL=http://www.msnbc.msn.com/id/3036789/ns/msnbc_tv-morning_joe/
+thumb=http://msnbcmedia2.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/joe.grid-2x2.png
+
+type=html
+name=The Daily Rundown
+URL=http://rundown.msnbc.msn.com/
+thumb=http://msnbcmedia2.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/rundown.grid-2x2.png
+
+type=html
+name=Jansing & Co.
+URL=http://jansing.msnbc.com/
+thumb=http://msnbcmedia1.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/jansing.grid-2x2.png
+
+type=html
+name=Now with Alex Wagner
+URL=http://nowwithalex.msnbc.com/
+thumb=http://msnbcmedia2.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/wagner.grid-2x2.png
+
+type=html
+name=Andrea Mitchell Reports
+URL=http://andrea.msnbc.com/
+thumb=http://msnbcmedia4.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/mitchell.grid-2x2.png
+
+type=html
+name=News Nation with Tamron Hall
+URL=http://newsnation.msnbc.com/
+thumb=http://msnbcmedia1.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/hall.grid-2x2.png
+
+type=html
+name=Martin Bashir
+URL=http://bashir.msnbc.com/
+thumb=http://msnbcmedia3.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/bashir.grid-2x2.png
+
+type=html
+name=The Dylan Ratigan Show
+URL=http://dylan.msnbc.com/
+thumb=http://msnbcmedia.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/ratigan.grid-2x2.png
+
+type=html
+name=Politics Nation with Al Sharpton
+URL=http://politicsnation.msnbc.com/
+thumb=http://msnbcmedia4.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/sharpton.grid-2x2.png
+
+type=html
+name=Hard Ball with Chris Matthews
+URL=http://hardball.msnbc.com/
+thumb=http://msnbcmedia2.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/hardball.grid-2x2.png
+
+type=html
+name=The ED Show
+URL=http://www.msnbc.msn.com/id/45755822/ns/msnbc_tv-the_ed_show/
+thumb=http://msnbcmedia4.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/ed.grid-2x2.png
+
+type=html
+name=The Rachel Maddow Show
+URL=http://rachel.msnbc.com/
+thumb=http://msnbcmedia1.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/rachel.grid-2x2.png
+
+type=html
+name=The Last Word with Lawrence O'Donnell
+URL=http://www.msnbc.msn.com/id/45755883/ns/msnbc_tv-the_last_word/
+thumb=http://msnbcmedia3.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/lawrence.grid-2x2.png
+
+type=html
+name=UP with Chris Hayes
+URL=http://upwithchrishayes.msnbc.msn.com/
+thumb=http://msnbcmedia.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/hayes.grid-2x2.png
+
+type=html
+name=Melissa Harris-Perry
+URL=http://mhpshow.msnbc.com/
+thumb=http://msnbcmedia1.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/harris-perry.grid-2x2.png
+
+type=html
+name=Weekends with Alex Witt
+URL=http://www.msnbc.msn.com/id/45226436/ns/msnbc_tv-weekends_with_alex_witt/
+thumb=http://msnbcmedia.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/witt.grid-2x2.png
+
+type=html
+name=Documentaries
+URL=http://www.msnbc.msn.com/id/3036750/ns/msnbc_tv-documentaries/
+thumb=http://msnbcmedia4.msn.com/j/MSNBC/Components/ShowFronts/MSNBC-TV/img/hosts/docs.grid-2x2.png
