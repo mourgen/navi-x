@@ -52,11 +52,17 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 #thumb=http://icons.iconarchive.com/icons/robsonbillponte/cartoon/256/TV-icon.png
 #icon=http://website.navi-x.org/networks/icon.png
 
-type=rss:video
-name=TVsector (XBMC Only)
-URL=http://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/tvsector.jpg
-icon=http://website.navi-x.org/networks/icon.png
+#type=rss:video
+#name=TVsector (XBMC Only)
+#URL=http://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
+#thumb=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/tvsector.jpg
+#icon=http://website.navi-x.org/networks/icon.png
+
+type=playlist
+name=Live TV
+URL=http://navi-x.googlecode.com/svn/trunk/networks/live_tv/index.txt
+thumb=http://website.navi-x.org/networks/logos/main_menu/tvshows.png
+icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Websites (Boxee Box Only)
