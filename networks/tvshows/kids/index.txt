@@ -25,9 +25,9 @@ logo=http://website.navi-x.org/networks/logo.png
 #thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbskids.png
 #URL=http://www.navixtreme.com/scrape/pbskids/
 
-type=rss
-name=Vintage Tooncast
-URL=http://feeds.gespod.nl/VintageToonCast
+#type=rss
+#name=Vintage Tooncast (broken)
+#URL=http://rss.vintagetooncast.com/podcast.xml
 
 type=playlist
 name=Sesame Street

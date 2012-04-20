@@ -24,13 +24,13 @@ URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
 #thumb=http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png
 #date=2011-2-6
 
-type=playlist
-name=RadioTime
-thumb=http://www.navi-x.org/playlists/radiotime.jpg
-URL=http://navi-x.googlecode.com/svn/trunk/networks/music/radiotime.txt
+#type=playlist
+#name=RadioTime (deprecated - replaced by TuneIn)
+#thumb=http://www.navi-x.org/playlists/radiotime.jpg
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/music/radiotime.txt
 #description= Tikkiew : Original playlist type|is|opml  URL|is|http://opml.radiotime.com/Browse.ashx , 
-but changed it to add Search. As requested by a user.description
-date=2010-12-23
+but changed it to add Search. As requested by a user./description
+#date=2010-12-23
 
 type=playlist
 name=SKY.fm
@@ -43,14 +43,6 @@ name=TuneIn
 thumb=http://d3bwsr3zpy54hy.cloudfront.net/201111111626/img/products/appicon-free.png
 #thumb=http://ipad-os.net/wp-content/uploads/2011/10/Tunein.jpg
 URL=http://navi-x.googlecode.com/svn/trunk/networks/music/tunein.txt
-http://m.box.net/index.php?rm=box_v2_download_file&file_id=f_1135133951&resize=0
-description= 
-If there are no big issues or no big complaints this will soon replace the old Radiotime.
-When you find an issue report it on the forums on www.navixtreme.com.
-Unfortunately since this is a scraper in opposite as the old one. It will not get local radio channels as the old Radiotime.
-
-2011 12 november : The streams doesn't work yet on the Boxee new Nav-X 4. version.
-./description
 
 type=playlist
 name=Radiolala
