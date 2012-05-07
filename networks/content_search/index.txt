@@ -11,10 +11,10 @@ thumb=http://www.navixtreme.com/images/logo.jpg
 type=playlist
 name=Navi-Xtreme Extended Search
 thumb=http://www.navixtreme.com/images/logo.jpg
-URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_navsearch
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_navsearchaoff
 player=default
 rating=-1.00
-description=08-31-10 Add predefined item, modified predefined playlist search
+#description=08-31-10 Add predefined item, modified predefined playlist search
 
 08-08-10 Bug fix on some single entry search results
 
@@ -40,7 +40,7 @@ thumb=http://www.navixtreme.com/images/logo.jpg
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_gsearchv20
 player=default
 rating=5.00
-description=(01-19-12) Added video reference to IMDb from the TMDb search function
+#description=(01-19-12) Added video reference to IMDb from the TMDb search function
 (10-23-11) Added IMDb duration, Genres, Directors, Writers, and Cast to the Description on the IMDb video results
 (04-11-11) Added time length to Megavideo entries.  Changed format for clarity per suggestions from Pitcher.
 (03-07-11) Megavideo now returns the results in length of time sorted order, then by title.  Based on a request.
