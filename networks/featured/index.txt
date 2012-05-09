@@ -1,0 +1,13 @@
+version=8
+background=http://website.navi-x.org/networks/bg.jpg
+title=Navi-X Networks - Featured Content
+view=thumbnails
+logo=http://website.navi-x.org/networks/logo.png
+description=Welcome to the new featured content section in Navi-X! When new content is made available, it will be highlighted here in this playlist. - Team Navi-X/description
+
+type=playlist
+name=WatchSeries (TV Shows)
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
+thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
+
+
