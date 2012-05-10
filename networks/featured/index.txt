@@ -10,4 +10,8 @@ name=WatchSeries (TV Shows)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
 thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
 
+type=playlist
+name=k1m05's Live TV
+URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
+thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
 
