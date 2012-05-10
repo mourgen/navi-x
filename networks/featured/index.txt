@@ -6,17 +6,20 @@ logo=http://website.navi-x.org/networks/logo.png
 description=Welcome to the new featured content section in Navi-X! When new content is made available, it will be highlighted here in this playlist. - Team Navi-X/description
 
 type=playlist
-name=WatchSeries (TV Shows)
+name=WatchSeries (scraper/processor)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
 thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
 
 type=playlist
-name=k1m05's Live TV
+name=k1m05's Live TV (user playlist)
 URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
 thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
 
 type=playlist
-name=Sport-X Live Sport Channels
+name=Sport-X Live Sport Channels (user playlist)
 URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
 thumb=http://i1121.photobucket.com/albums/l514/k1m05_/sportx.jpg
 
+type=playlist
+name=TV Shows (user playlist)
+URL=http://www.navixtreme.com/playlist/58434/tv_shows.plx
