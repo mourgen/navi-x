@@ -15,3 +15,8 @@ name=k1m05's Live TV
 URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
 thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
 
+type=playlist
+name=Sport-X Live Sport Channels
+URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
+thumb=http://i1121.photobucket.com/albums/l514/k1m05_/sportx.jpg
+
