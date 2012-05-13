@@ -223,12 +223,13 @@ class CURLLoader:
                 inst_prev=inst
                 v['NIPL']=inst
                 lines=inst.splitlines()
-                if len(lines) < 1:
+                eof=len(lines)
+                if eof < 1:
                     return self.proc_error("nothing returned from phase "+str(phase))
-                linenum=0
-                for line in lines:
+                linenum=-1
+                while linenum<eof:
                     linenum=linenum+1
-                    line=re.sub('^\s*', '', line)
+                    line=re.sub('^\s*', '', lines[linenum])
 
                     if verbose>0 and src_printed==False:
                         print "Processor NIPL source:\n"+inst
@@ -245,8 +246,8 @@ class CURLLoader:
                     if line[:1]=='#' or line[:2]=='//' or line=='':
                         continue
 
-                    if if_stacklen>0 and line[0:3]!='if ' and line[0:5]!='endif':
-                        if if_stack[-1]["if_end"] and line!='endif':
+                    if if_stacklen>0 and line[0:3]!='if ' and line!='endif' and line!='endwhile':
+                        if if_stack[-1]["if_end"] and line!='endif' and line!='endwhile':
                             if verbose>1:
                                 print "    ^^^ skipped"
                             continue
@@ -269,6 +270,20 @@ class CURLLoader:
                         if_stack.pop()
                         if_stacklen=len(if_stack)
                         continue
+
+                    elif line=='endwhile' and if_stacklen>0:
+                        # process next loop iteration
+                        wresult=self.while_eval(if_stack[-1],v)
+                        if wresult["error"]:
+                            return self.proc_error(wresult["message"])
+                        if verbose>1:
+                            print wresult["message"]
+                        if wresult["match"]:
+                            linenum=if_stack[-1]["loopstart"]
+                        else:
+                            if_stack.pop()
+                            if_stacklen=len(if_stack)
+                            continue
 
                     elif line=='scrape':
                         str_info="Processor:"
@@ -330,7 +345,7 @@ class CURLLoader:
                             p=re.compile(v['regex'])
                             match=p.search(v['htmRaw'])
                             if match:
-                                rerep='Processor scrape:';
+                                rerep='Processor scrape:'
                                 for i in range(1,len(match.groups())+1):
                                     val=match.group(i)
                                     if val is None:
@@ -406,6 +421,41 @@ class CURLLoader:
 
                             if verbose>0:
                                 print "Proc debug "+subj+" => "+str(boolObj["data"])
+
+                            continue
+
+                        if subj=='while':
+                            if_stack.append({
+                            	"if_next": False,
+                            	"if_satisfied": False,
+                            	"if_end": False,
+                            	"type": "while",
+                            	"regex": re.compile(v['regex']),
+                            	"loopstart": 0,
+                            	"execcount": 0
+                            })
+                            if_stacklen=len(if_stack)
+                            
+                            wmatch=lparse.search(arg)
+                            if wmatch is None:
+                                return self.proc_error("syntax error: "+line)
+                            wsubj=wmatch.group(1)
+                            warg=wmatch.group(3)
+                            if wsubj=='match':
+                                if_stack[-1]["subtype"]='re'
+                                if_stack[-1]["regex"]=re.compile(v['regex'])
+                                if_stack[-1]["haystack"]=v[warg]
+                                if_stack[-1]["searchstart"]=0
+                                if_stack[-1]["loopstart"]=linenum # code block start -1
+                            else:
+                                return self.proc_error("unrecognized while condition '"+wsubj+"'")
+                            
+                            # evaluate while
+                            wresult=self.while_eval(if_stack[-1],v)
+                            if wresult["error"]:
+                                return self.proc_error(wresult["message"])
+                            if verbose>1:
+                                print wresult["message"]
 
                             continue
 
@@ -684,6 +734,8 @@ class CURLLoader:
 # Parameters : str_in = condition(s) to test
 #            : v = NIPLVars
 # Return     : object: value=boolean, err=""
+# To do      : implement other types of conditions - pass in flag
+#              through v object
 ######################################################################
     def if_eval(self, str_in, v):
         match=self.multiIfTest.search(str_in)
@@ -723,6 +775,50 @@ class CURLLoader:
                 "data": bool
             }
             
+######################################################################
+# Description: evaluate while loop iteration; modifies if_stack and v
+#              by reference
+#              
+# Parameters : if_obj = active entry of if_stack
+#            : v = NIPLVars
+# Return     : object: error=boolean, match=boolean, message=""
+######################################################################
+    def while_eval(self, if_obj, v):
+        if_obj["execcount"]=if_obj["execcount"]+1
+        if if_obj["execcount"]>500:
+            return {
+            	"error": True,
+            	"match": False,
+              "message": "While loop exceeded maximum iteration count"
+             }
+        for i in range(1,11):
+            ke='v'+str(i)
+            v[ke]=''
+        match=if_obj['regex'].search(if_obj['haystack'][if_obj['searchstart']:])
+        rerep='Processor while iteration:'
+        if match is None:
+            rerep=rerep+' no match'
+            if_obj["if_end"]=True
+            return {
+            	"error": False,
+            	"match": False,
+            	"message": rerep
+            }
+        
+        if_obj["searchstart"]=if_obj["searchstart"]+match.end()
+        for i in range(1,len(match.groups())+1):
+            val=match.group(i)
+            if val is None:
+                val=''
+            key='v'+str(i)
+            rerep=rerep+"\n "+key+'='+val
+            v[key]=val
+
+        return {
+        	"error": False,
+        	"match": True,
+        	"message": rerep
+        }
     
 ######################################################################
 # Description: evaluate single condition
