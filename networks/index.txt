@@ -47,7 +47,7 @@ thumb=http://website.navi-x.org/networks/logos/main_menu/apps.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
-name=Live TV
+name=Live TV (XBMC Only)
 URL=http://navi-x.googlecode.com/svn/trunk/networks/live_tv/index.txt
 thumb=http://website.navi-x.org/networks/logos/main_menu/tvshows.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
