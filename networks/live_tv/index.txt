@@ -5,27 +5,27 @@ view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
 type=playlist
-name=k1m05' Live TV
+name=Live TV
 URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
 date=2012-06-01
 
 type=playlist
-name=k1m05' Live TV Movies
+name=Live TV Movies
 URL=http://www.navixtreme.com/playlist/65692/k1m05_live_tv_movies.plx
 date=2012-06-01
 
 type=playlist
-name=k1m05' Live TV Music
+name=Live TV Music
 URL=http://www.navixtreme.com/playlist/65693/k1m05_live_tv_music.plx
 date=2012-06-01
 
 type=playlist
-name=k1m05' Live TV News
+name=Live TV News
 URL=http://www.navixtreme.com/playlist/65691/k1m05_live_tv_news.plx
 date=2012-06-01
 
 type=playlist
-name=k1m05' Live TV Live Sports
+name=Live TV Live Sports
 URL=http://www.navixtreme.com/playlist/64924/k1m05_live_tv_live_sports.plx
 date=2012-06-01
 
