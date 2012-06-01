@@ -11,16 +11,6 @@ URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
 thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
 
 type=playlist
-name=k1m05's Live TV (user playlist)
-URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
-thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
-
-type=playlist
-name=Sport-X Live Sport Channels (user playlist)
-URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
-thumb=http://i1121.photobucket.com/albums/l514/k1m05_/sportx.jpg
-
-type=playlist
 name=TV Shows (user playlist)
 URL=http://www.navixtreme.com/playlist/58434/tv_shows.plx
 
@@ -28,3 +18,4 @@ type=playlist
 name=Adult Swim
 URL=http://www.navixtreme.com/playlist/19201/adult_swim.plx
 thumb=http://images.sodahead.com/polls/001170413/large_Adult_Swim_Logo_answer_2_xlarge.jpeg
+
