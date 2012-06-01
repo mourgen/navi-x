@@ -10,8 +10,8 @@ URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
 date=2012-06-01
 
 type=playlist
-name=http://www.navixtreme.com/playlist/65692/k1m05_live_tv_movies.plx
-URL=k1m05' Live TV Movies
+name=k1m05' Live TV Movies
+URL=http://www.navixtreme.com/playlist/65692/k1m05_live_tv_movies.plx
 date=2012-06-01
 
 type=playlist
