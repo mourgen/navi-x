@@ -46,23 +46,12 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
 thumb=http://website.navi-x.org/networks/logos/main_menu/apps.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
-#type=playlist
-#name=theStreamDB (XBMC Only)
-#URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D3ef1acd333db60bac49eb0df6a481011%26_render%3Djson
-#thumb=http://icons.iconarchive.com/icons/robsonbillponte/cartoon/256/TV-icon.png
-#icon=http://website.navi-x.org/networks/icon.png
-
-#type=rss:video
-#name=TVsector (XBMC Only)
-#URL=http://dl.dropbox.com/u/32753417/Apple%20TV/Streams/LiveStreams-JohnnyBravo.xml
-#thumb=http://navi-x.googlecode.com/svn/trunk/networks/ironbill/tvsector.jpg
-#icon=http://website.navi-x.org/networks/icon.png
-
 type=playlist
 name=Live TV
 URL=http://navi-x.googlecode.com/svn/trunk/networks/live_tv/index.txt
 thumb=http://website.navi-x.org/networks/logos/main_menu/tvshows.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
+date=2012-06-01
 
 type=playlist
 name=Websites (Boxee Box Only)
@@ -71,7 +60,7 @@ thumb=http://website.navi-x.org/networks/logos/main_menu/websites.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=rss
-name=Twitter on Navi-X
+name=Navi-X on Twitter
 URL=http://twitter.com/statuses/user_timeline/46791316.rss
 thumb=http://website.navi-x.org/networks/logos/main_menu/twitter_logo.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/images/twitter_icon.png
