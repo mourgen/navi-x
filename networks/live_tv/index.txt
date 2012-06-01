@@ -4,22 +4,34 @@ title=Navi-X Networks - Live TV
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
-#type=playlist
-#name=SuperTV
-#date=2012-04-18
-#URL=http://navi-x.googlecode.com/svn/trunk/networks/live_tv/supertv.txt
+type=playlist
+name=k1m05' Live TV
+URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
+date=2012-06-01
 
-#type=playlist
-#name=rtmpGUI
-#date=2012-04-18
-#URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D56048fe566faf82a04af5ca00722ec67%26_render%3Djson%26t1%3D18%252B
+type=playlist
+name=http://www.navixtreme.com/playlist/65692/k1m05_live_tv_movies.plx
+URL=k1m05' Live TV Movies
+date=2012-06-01
 
-#type=playlist
-#name=blackoutworm's list
-#date=2012-04-18
-#URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3Dfcc6111853b2421b4616b2a31233d501%26_render%3Djson
+type=playlist
+name=k1m05' Live TV Music
+URL=http://www.navixtreme.com/playlist/65693/k1m05_live_tv_music.plx
+date=2012-06-01
 
-type=text
-name=Live TV will disappear soon
-date=2012-05-30
-URL=http://testtikkiew.googlecode.com/svn/trunk/Navi-X%20Networks%20Live%20TV.txt
+type=playlist
+name=k1m05' Live TV News
+URL=http://www.navixtreme.com/playlist/65691/k1m05_live_tv_news.plx
+date=2012-06-01
+
+type=playlist
+name=k1m05' Live TV Live Sports
+URL=http://www.navixtreme.com/playlist/64924/k1m05_live_tv_live_sports.plx
+date=2012-06-01
+
+type=playlist
+name=Sport-X Live Sports Channels
+URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
+date=2012-06-01
+
+
