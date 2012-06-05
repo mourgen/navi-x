@@ -8,6 +8,7 @@ type=playlist
 name=Featured Content
 URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
 thumb=http://www.intraco.be/UserFiles/Image/new_sticker.png_tmp.png
+icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 date=2012-06-05
 
 type=playlist
