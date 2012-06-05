@@ -1,9 +1,12 @@
 version=8
-background=http://website.navi-x.org/networks/bg.jpg
+background=http://farm9.staticflickr.com/8162/7335570534_9f997d879b_o_d.jpg
 title=Navi-X Networks - Featured Content
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
-description=Welcome to the new featured content section in Navi-X! When new content is made available, it will be highlighted here in this playlist. - Team Navi-X/description
+
+type=list_note
+name=Welcome to the new featured content section in Navi-X! When new content is made available, it will be highlighted here in this playlist. - Team Navi
+URL=none
 
 type=playlist
 name=WatchSeries (scraper)
@@ -18,39 +21,52 @@ description by watchseries.eu -
 Here you can watch online all the newest episodes from your favorites series like Glee, Office, Grey's Anatomy, Gossip Girl, How I Met Your Mother, Dexter, House, Family Guy, The Simpsons, Two And A Half Men, etc without any registration. This website is free of charge, and we only post links to the actual streaming websites that hosts them, we are not the intellectual owners of the videos posted here./description
 
 type=playlist
+name=k1m05' Live Tv
+thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
+URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
+
+type=playlist
 name=TV Shows (user playlist)
 URL=http://www.navixtreme.com/playlist/58434/tv_shows.plx
+
+type=playlist
+name=Sport-X Live Sport Channels
+thumb=http://i1121.photobucket.com/albums/l514/k1m05_/sportx.jpg
+URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
+
+type=playlist
+name=Boseman's Playlist
+URL=http://www.navixtreme.com/playlist/65856/bosemans_playlists.plx
+
+type=playlist
+name=JustMe4U2C's Site Scrapers
+URL=http://www.navixtreme.com/playlist/43095/justme4u2c_site_scrapers.plx
 
 type=playlist
 name=Adult Swim (user playlist)
 URL=http://www.navixtreme.com/playlist/19201/adult_swim.plx
 thumb=http://images.sodahead.com/polls/001170413/large_Adult_Swim_Logo_answer_2_xlarge.jpeg
-description=
-Made by iRoNBiLL
-The origin of playlist -
-Navi-Xtreme Media Portal > Users Lists > User Media by User > iRoNBiLL > iRoNBiLL's Playlist > Adult Swim
 
-description by iRoNBiLL
-A catalogue of Adult Swim shows and episodes. Enjoy! - iRoNBiLL./description
+type=playlist
+name=Cartoon Network
+URL=http://www.navixtreme.com/playlist/28122/cartoon_network.plx
+thumb=http://images1.wikia.nocookie.net/__cb20080812025039/uncyclopedia/images/archive/1/11/20080823130820!Cartoonnetwork_0.jpg
+
+type=playlist
+name=Live Cams (private)
+URL=http://www.navixtreme.com/playlist/64545/live_cams_private.plx
+
+type=playlist
+name=MediaNET
+URL=http://www.navixtreme.com/playlist/64166/medianet.plx
 
 type=playlist
 name=FRONTLINE (scraper)
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif
 URL=http://www.navixtreme.com/scrape/pbs/program/frontline/FRONTLINE
-description=
-Made by turner3d. 
-The origin of playlist -
-Navi-Xtreme Media Portal > Site Scrapers > PBS >  FRONTLINE 
-
-description by tvrage.com -
-Since January 1983, Frontline has served as American public television's - PBS - flagship public affairs series. Hailed upon its television broadcast debut as "the last best hope for broadcast documentaries," FRONTLINE's stature over 20 seasons is reaffirmed each week through incisive documentaries covering the scope and complexity of the human experience.
-
-Since its inception, Frontline has never shied away from tough, controversial issues or complex stories. Frontline remains committed to providing a primetime venue for engaging documentaries that fully explore and illuminate the critical issues of our times.
-
-Frontline remains the only regularly scheduled long-form public-affairs documentary series on American television, producing more hours of documentary programming than all the commercial networks combined./description
 
 type=search
-name=Music Artist Search / Youtube meets Music databases
+name=Music Artist Search / YouTube meets Music databases
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D57044ea973f17e4a96875284ecba7d7a%26_render%3Djson%26A%3D
 description=
 made by tikkiew. 
