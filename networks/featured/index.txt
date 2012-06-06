@@ -21,7 +21,7 @@ description by watchseries.eu -
 Here you can watch online all the newest episodes from your favorites series like Glee, Office, Grey's Anatomy, Gossip Girl, How I Met Your Mother, Dexter, House, Family Guy, The Simpsons, Two And A Half Men, etc without any registration. This website is free of charge, and we only post links to the actual streaming websites that hosts them, we are not the intellectual owners of the videos posted here./description
 
 type=playlist
-name=k1m05' Live Tv
+name=k1m05' Live Tv (user playlist)
 thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
 URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
 
@@ -30,16 +30,16 @@ name=TV Shows (user playlist)
 URL=http://www.navixtreme.com/playlist/58434/tv_shows.plx
 
 type=playlist
-name=Sport-X Live Sport Channels
+name=Sport-X Live Sport Channels (user playlist)
 thumb=http://i1121.photobucket.com/albums/l514/k1m05_/sportx.jpg
 URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
 
 type=playlist
-name=Boseman's Playlist
+name=Boseman's Playlist (user playlist & scrapers)
 URL=http://www.navixtreme.com/playlist/65856/bosemans_playlists.plx
 
 type=playlist
-name=JustMe4U2C's Site Scrapers
+name=JustMe4U2C's Site Scrapers (scrapers)
 URL=http://www.navixtreme.com/playlist/43095/justme4u2c_site_scrapers.plx
 
 type=playlist
@@ -48,16 +48,16 @@ URL=http://www.navixtreme.com/playlist/19201/adult_swim.plx
 thumb=http://images.sodahead.com/polls/001170413/large_Adult_Swim_Logo_answer_2_xlarge.jpeg
 
 type=playlist
-name=Cartoon Network
+name=Cartoon Network (user playlist)
 URL=http://www.navixtreme.com/playlist/28122/cartoon_network.plx
 thumb=http://images1.wikia.nocookie.net/__cb20080812025039/uncyclopedia/images/archive/1/11/20080823130820!Cartoonnetwork_0.jpg
 
 type=playlist
-name=Live Cams (private)
+name=Live Cams (user playlist)
 URL=http://www.navixtreme.com/playlist/64545/live_cams_private.plx
 
 type=playlist
-name=MediaNET
+name=MediaNET (user playlist)
 URL=http://www.navixtreme.com/playlist/64166/medianet.plx
 
 type=playlist
@@ -66,7 +66,7 @@ thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif
 URL=http://www.navixtreme.com/scrape/pbs/program/frontline/FRONTLINE
 
 type=search
-name=Music Artist Search / YouTube meets Music databases
+name=Music Artist Search / YouTube meets Music databases (scraper)
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D57044ea973f17e4a96875284ecba7d7a%26_render%3Djson%26A%3D
 description=
 made by tikkiew. 
