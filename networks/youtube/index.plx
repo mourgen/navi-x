@@ -4,14 +4,32 @@ background=default
 logo=http://www.navi-x.org/playlists/youtube/logo.png
 title=Youtube Index
 #
-type=search_youtube
+type=search
 name=Youtube Video Search
-processor=http://www.navixtreme.com/proc/youtube
+thumb=http://www.navi-x.org/playlists/youtube/logo.png
+URL=http://www.navixtreme.com/search/youtube/
 #
-type=search:rss:video
-name=YouTube Author Name Search
-processor=http://www.navixtreme.com/proc/youtube
-URL=http://gdata.youtube.com/feeds/base/videos?max-results=50&alt=rss&orderby=published&author=
+type=search
+name=YouTube Channels matching query:
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3FA%3Dchannels%26D%3Dq%26T2%3D1%26_id%3D2ce96b7f8ef8436a74256029ce825499%26_render%3Djson%26T1%3D
+#
+type=search
+name=Youtube Channel (Exact Author Name)
+thumb=http://icons.iconarchive.com/icons/tribalmarkings/colorflow/256/youtube-icon.png
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D149f162770126abc24c2a2932fb25f0e%26_render%3Djson%26U1%3D
+#
+type=search
+name=YouTube Playlists matching query:
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3FA%3Dplaylists%26B%3Dsnippets%26D%3Dq%26T2%3D1%26_id%3D2ce96b7f8ef8436a74256029ce825499%26_render%3Djson%26T1%3D
+#
+#type=search_youtube
+#name=Youtube Video Search
+#processor=http://www.navixtreme.com/proc/youtube
+#
+#type=search:rss:video
+#name=YouTube Author Name Search
+#processor=http://www.navixtreme.com/proc/youtube
+#URL=http://gdata.youtube.com/feeds/base/videos?max-results=50&alt=rss&orderby=published&author=
 #
 type=playlist
 name=Worldwide
