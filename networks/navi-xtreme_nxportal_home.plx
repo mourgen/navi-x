@@ -82,3 +82,7 @@ thumb=http://www.navixtreme.com/images/logos/logo.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/help/index.txt
 player=default
 rating=-1.00
+
+type=list_note
+name=This is the playlist home on Navi-X on GoogleCode
+URL=
