@@ -10,7 +10,7 @@ logo=http://www.navi-x.org/playlists/logo.png
 type=playlist
 name=Navi-Xtreme Media Portal
 description=Visit http://www.navixtreme.com. Email turner3d@gmail.com for questions and comments./description
-thumb=http://www.navixtreme.com/images/logo-xbmchub.jpg
+thumb=http://www.navixtreme.com/images/logos/logo-xbmchub.png
 view=thumbnails
 URL=http://www.navixtreme.com/playlist/50242/navi-xtreme_nxportal_home.plx
 #
