@@ -98,7 +98,7 @@ type=playlist
 name=VeeHD
 thumb=http://www.navixtreme.com/boseman/images/V_logo.gif
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd
-description=1-31-11 Added support for Go To Page in multi page results
+description=1-31-11 Added support for Go To Page in multi page results/description
 date=2012-03-11
 
 type=playlist
