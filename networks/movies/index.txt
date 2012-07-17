@@ -89,16 +89,11 @@ type=playlist
 name=StageVu Search
 thumb=http://userlogos.org/files/logos/jumpordie/stagevu_01.png
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
-description=(02-21-11) - Added Ascii Sort
-(09-29-10) - Added Phrase option to assure the name field contains the keyword (case ignored).
-Fixed bug in keywords with spaces forcing truncation
-date=2012-03-11
 
 type=playlist
 name=VeeHD
 thumb=http://www.navixtreme.com/boseman/images/V_logo.gif
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd
-
 
 type=playlist
 name=Videofriender Extended Search
