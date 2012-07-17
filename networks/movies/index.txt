@@ -98,12 +98,9 @@ type=playlist
 name=VeeHD
 thumb=http://www.navixtreme.com/boseman/images/V_logo.gif
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd
-description=1-31-11 Added support for Go To Page in multi page results/description
-date=2012-03-11
+
 
 type=playlist
 name=Videofriender Extended Search
 thumb=http://www.navixtreme.com/boseman/images/vf_logo.png
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
-description=(01-27-11) Uses the turner3d processor again./description
-date=2012-03-11
