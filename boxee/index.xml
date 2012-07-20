@@ -1,11 +1,11 @@
 <apps>
- <app>
-  <id>com.navix.stable</id>
+  <app>
+  <id>com.navix.stable-1.46</id>
   <name>Navi-X</name>
-  <version>1.45</version>
-  <description>Navi-X v1.45 - A "content aggregator" that provides access to all kinds of multimedia content, listed on a public directory of user contributed listings or playlists for playing on your TV or PC! Visit navix.turner3d.net for details.</description>
+  <version>1.46</version>
+  <description>Navi-X v1.46 - A "content aggregator" that provides access to all kinds of multimedia content, listed on a public directory of user contributed listings or playlists for playing on your TV or PC! Visit navix.turner3d.net for details.</description>
   <thumb>http://navi-x.googlecode.com/svn/trunk/boxee/navix_thumb.png</thumb>
-  <repositoryid>com.navix</repositoryid>
+  <repositoryid>org.navix.app</repositoryid>
   <repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
   <media>video</media>
   <copyright>Team Navi-X</copyright>
@@ -14,5 +14,5 @@
   <startWindow>default</startWindow>
   <platform>all</platform>
   <minversion>0.9.14</minversion>
- </app>
+  </app>
 </apps>
