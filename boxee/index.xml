@@ -1,0 +1,18 @@
+<apps>
+<app>
+<id>org.navix.stable</id>
+<name>Navi-X</name>
+<version>1.47</version>
+<description>Navi-X v1.47 - A "content aggregator" that provides access to all kinds of multimedia content, listed on a public directory of user contributed listings or playlists for playing on your TV or PC! Visit www.navixtreme.com for details.</description>
+<thumb>http://navi-x.googlecode.com/svn/trunk/boxee/navix_thumb.png</thumb>
+<repositoryid>org.navix</repositoryid>
+<repository>http://navi-x.googlecode.com/svn/trunk/boxee</repository>
+<media>video</media>
+<copyright>teamnavix</copyright>
+<email>xironbillx@gmail.com</email>
+<type>skin</type>
+<startWindow>default</startWindow>
+<platform>all</platform>
+<minversion>0.9.14</minversion>
+</app>
+</apps>
