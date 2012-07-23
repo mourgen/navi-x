@@ -1,7 +1,7 @@
 <repository>
 <id>com.navix</id>
 <url>http://navi-x.googlecode.com/svn/trunk/boxee/</url>
-<name>The Navi-X Repository for Boxee on GoogleCode</name>
+<name>Navi-X for Boxee</name>
 <thumb>http://website.navi-x.org/networks/boxee/navix_icon.png</thumb>
 <description>This repository contains the Navi-X app for Boxee.</description>
 </repository>
