@@ -80,6 +80,12 @@ URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=getmenu/en
 date=2012-03-10
 
 type=playlist
+name=Noobroom
+thumb=http://www.navixtreme.com/boseman/images/noobroom_logo.png
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_noobroom
+date=2012-07-25
+
+type=playlist
 name=Project Free Movies
 thumb=http://www.navixtreme.com/boseman/images/projectfree4.gif
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
