@@ -52,7 +52,7 @@ date=2012-03-10
 type=playlist
 name=FastpassTV
 thumb=http://www.navixtreme.com/boseman/images/fastpasstv.png
-URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=getmovies
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv
 date=2012-03-10
 
 type=playlist
