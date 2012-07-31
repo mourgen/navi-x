@@ -4,10 +4,16 @@ logo=http://www.navi-x.org/playlists/logo.png
 title=XBMC Scripts + skins
 
 type=script:navi-x
-name=(script) 2012/01/17 Navi-X v3.7.5 (All XBMC platforms)
+name=(script) 2012/07/30 Navi-X v3.7.6 (All XBMC platforms)
+date=2012-07-30
+URL=http://navi-x.googlecode.com/files/Navi-X_v37_6.zip
+description=New bigger viewing area, several menu related bugs and downloading bug./description
+
+type=script:navi-x
+name=(script) 2012/03/22 Navi-X v3.7.5 (All XBMC platforms)
 date=2012-03-22
 URL=http://navi-x.googlecode.com/files/Navi-X_v37_5.zip
-description=Navi-X login will not work without this uipdate/description
+description=Navi-X login will not work without this update/description
 
 type=script:navi-x
 name=(script) 2012/01/17 Navi-X v3.7.4 (All XBMC platforms)
