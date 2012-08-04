@@ -12,150 +12,151 @@ type=playlist
 name=Navi-Xtreme Extended Search
 thumb=http://www.navixtreme.com/images/logo.jpg
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_navsearchaoff
-player=default
-rating=-1.00
-#description=08-31-10 Add predefined item, modified predefined playlist search
 
-08-08-10 Bug fix on some single entry search results
-
-v4 - Added Media site link support for searching string for a particular media site only
-
-v3.5 - serious work done to parameter passing and duplicates.  Fixed many bugs.
-
-08-06-10 adds removal of duplicate URL option
-
-3.1 adds sorting of the names
-
-Identical to Navi-X Extended Search except now uses JSON.
-
-An attempt at applying Turner's new database api to a search engine giving user options to extend search options.  May be the same effect as the Search in the main menu, but hey....any coding chance is a good one right now.
-
-The following are anomolies with the scraper:
-
-Searching for Playlist type, I need to have Mode set to Name and Phrase set to on for a successful search./description
-#
 type=playlist
 name=Video Search
 thumb=http://www.navixtreme.com/images/logo.jpg
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_gsearchv20
-player=default
-rating=5.00
-#description=(01-19-12) Added video reference to IMDb from the TMDb search function
-(10-23-11) Added IMDb duration, Genres, Directors, Writers, and Cast to the Description on the IMDb video results
-(04-11-11) Added time length to Megavideo entries.  Changed format for clarity per suggestions from Pitcher.
-(03-07-11) Megavideo now returns the results in length of time sorted order, then by title.  Based on a request.
-(02-23-11) Includes Boseman's Media Television in Navi-Xtreme results  
-(02-19-11) Fixed recent issue where Navi-Xtreme search was not returning the selected "Exact" keyword results.  Introduced with improved search results below.
-(02-11-11) Improved search results for Navi-Xtreme
-(12-16-10) Added JustMe4u2c's Zalaa Search engine
 
-(12-15-10) Added search all sites to the by site list.
-Re-arranged the search by site area to add additional search engines which are not a part of the scraper.
+type=playlist
+name=Search 1Channel
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&phpsessid=lgo6jrt2gq3olh9pn0pm8gvmh1&cookies=1&serverid=a1&lolwtf=1&q=searchtype
+thumb=http://www.fileden.com/files/2010/8/4/2932808/1channel.jpg
 
-(12-07-10) Updated Megavideo for site format changes
- Changed sorted output order to be case insensitive.
+type=search
+name=Search CNN Videos
+URL=http://www.navixtreme.com/scrape/cnn/search/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_cnn.png
 
-10-31-10 Added Megavideo Search option.  Note that Novamov does not work currently since the scripts current host is blocked from Novamov.  Novamov has been disabled in Search Videos section.  It remains in the selective Search Site Videos, hoping that it will someday be resolved. 
-
-10-17-10 Added IMDb group search with Top 250 
-No longer shows trailers from IMDB that reside on Hulu....since the processor cannot handle them anyway
-Fixed bug that showed a blank name in IMDb results based on the media type
-
-10-10-10 Now incorporates the Version 1 results if selected
-
-10-09-10 IMDb Processor had some real issues.  Seems to be working now on all formats I have checked.  If anyone runs into trailers that do not, please let me know.  Some are rtmp so they may need Dharma for success.
-
-10-08-10 New IMDb processor to handle other media types plus rtmp.  Modifications to IMDB to match recent Dharma scraper changes; Returns appropriate results again.
-
-10-07-10 Added IMDB Title list to select from and IMDB Trailers when available.  Also included a continuation of search based on the media info sites selection.
-
-10-05-10 Added Movie Information section at bottom.  IMDB not so great.    It only returns 1 result from the top 
-of Popular .
-Must be really accurate with name or search for the id.
-
-TMDb will return the IMDB id (if available) and allow direct search from there as well as allow linkage to trailer if available.
-
-Virtually the same as V1 above (wip), except interface selects by site, rather than a single dimension list./description
-#
 type=search
 name=Search Dailymotion
 URL=http://www.navixtreme.com/search/dailymotion/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
-#
+
 type=search
 name=Search DivXStage
 URL=http://www.navixtreme.com/scrape/divxstage/?s=
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png
-#
+
 type=search
 name=Search Extramina
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina?q=search/
 thumb=http://profile.ak.fbcdn.net/hprofile-ak-ash2/48910_100000452142540_411_n.jpg
-#
+
 type=search
 name=Search Fast Pass TV
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=search/
 thumb=http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg
-#
+
+type=search
+name=Search Food Network
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl?q=search/
+thumb=http://www.navixtreme.com/justme4u2c/images/Food_Network.png
+
+type=search
+name=Search Google Video
+URL=http://www.navixtreme.com/search/google/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_google.gif
+
 type=playlist
 name=Search Grooveshark
 URL=http://www.navixtreme.com/scrape/grooveshark/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png
-date=2011-2-6
-#
+
+type=search
+name=Search HGTV
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl?q=search/
+thumb=http://www.navixtreme.com/justme4u2c/images/HGTV.png
+
+type=search
+name=Search HTTPFilm
+URL=http://www.navixtreme.com/scrape/httpfilm/search/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_httpfilm.png
+
+type=search
+name=Search IceFilms
+URL=http://www.navixtreme.com/scrape/icefilms/search/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_icefilms.png
+
 type=search
 name=Search iTunes Podcasts
 URL=http://www.navixtreme.com/scrape/podcasts/search/
 thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
-#
+
+type=search
+name=Search Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl?q=search/
+thumb=http://www.navixtreme.com/justme4u2c/images/JustinTV.png
+
 type=search
 name=Search Librivox
 URL=http://www.navixtreme.com/scrape/librivox/search/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_librivox.png
-#
+
+type=search
+name=Search Mixtapes.tv
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl?q=search/
+thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
+
 type=search
 name=Search Movie25.com
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/Movie25.jpg
-#
+
 type=search
 name=Search Movie2k
-URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=search//
-#
+URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2
+thumb=http://87.106.7.69/OnlineVideosWebService/Icons/movie2k.to.png
+
 type=search
 name=Search Public Domain Movies
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/public?q=search/1/
-#
+
 type=playlist
 name=Search StageVu
 thumb=http://stagevu.com/img/white/newtitle.png
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
-#
+
+type=search
+name=Search TuneIn
+URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3Dhttp%253A%252F%252Fopml.radiotime.com%252FSearch.ashx%253Fquery%253D
+thumb=http://d3bwsr3zpy54hy.cloudfront.net/201111111626/img/products/appicon-free.png
+
 type=search
 name=Search VeeHD
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd?q=search/
 thumb=http://static.veehd.com/logo.gif
-#
+
+type=playlist
+name=Search Vevo
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl?q=search/
+thumb=http://www.navixtreme.com/justme4u2c/images/Vevo.png
+
 type=search
 name=Search Videofriender
 URL=http://www.navixtreme.com/search/videofriender/
 thumb=http://videofriender.com/images/logo.png?1218389123
-#
+
 type=playlist
 name=Search Videofriender (Extended)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
 thumb=http://videofriender.com/images/logo.png?1218389123
-#
+
+type=search
+name=Search VidIcs
+URL=http://www.navixtreme.com/scrape/vidics/list/Any/Any/Any/LatestFirst/1/
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_vidics.png
+
 type=search
 name=Search Vimeo
 URL=http://www.navixtreme.com/search/vimeo/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_vimeo.gif
-#
+
 type=search
 name=Search Watch Series
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries?q=search/
 thumb=http://watchseries.eu/images/logo-hover.png
-#
+
 type=search
 name=Search YouTube
 URL=http://www.navixtreme.com/search/youtube/
