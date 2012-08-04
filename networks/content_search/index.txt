@@ -24,7 +24,7 @@ URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&ge
 thumb=http://www.fileden.com/files/2010/8/4/2932808/1channel.jpg
 
 type=search
-name=Search CNN Videos
+name=Search CNN Videos (Videos)
 URL=http://www.navixtreme.com/scrape/cnn/search/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_cnn.png
 
