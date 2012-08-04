@@ -36,5 +36,5 @@ name=Navi-Xtreme - New Topics
 URL=http://www.navixtreme.com/feeds/newtopics.xml
 
 type=html
-name=Navi-X Terms of Use
+name=Navi-X Terms of Use - www.navixtreme.com/terms
 URL=http://www.navixtreme.com/terms/
