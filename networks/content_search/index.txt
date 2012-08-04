@@ -19,7 +19,7 @@ thumb=http://www.navixtreme.com/images/logo.jpg
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_gsearchv20
 
 type=playlist
-name=Search 1Channel
+name=Search 1Channel (Movies & TV Shows)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=&phpsessid=lgo6jrt2gq3olh9pn0pm8gvmh1&cookies=1&serverid=a1&lolwtf=1&q=searchtype
 thumb=http://www.fileden.com/files/2010/8/4/2932808/1channel.jpg
 
@@ -29,135 +29,135 @@ URL=http://www.navixtreme.com/scrape/cnn/search/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_cnn.png
 
 type=search
-name=Search Dailymotion
+name=Search Dailymotion (Videos)
 URL=http://www.navixtreme.com/search/dailymotion/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
 
 type=search
-name=Search DivXStage
+name=Search DivXStage (Movies)
 URL=http://www.navixtreme.com/scrape/divxstage/?s=
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png
 
 type=search
-name=Search Extramina
+name=Search Extramina (Movies)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina?q=search/
 thumb=http://profile.ak.fbcdn.net/hprofile-ak-ash2/48910_100000452142540_411_n.jpg
 
 type=search
-name=Search Fast Pass TV
+name=Search Fast Pass TV (Movies)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv?q=search/
 thumb=http://profile.ak.fbcdn.net/hprofile-ak-snc4/211028_123415584408300_2470108_n.jpg
 
 type=search
-name=Search Food Network
+name=Search Food Network (TV Shows)
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/Food_Network.png
 
 type=search
-name=Search Google Video
+name=Search Google Video (Videos)
 URL=http://www.navixtreme.com/search/google/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_google.gif
 
 type=playlist
-name=Search Grooveshark
+name=Search Grooveshark (Music)
 URL=http://www.navixtreme.com/scrape/grooveshark/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png
 
 type=search
-name=Search HGTV
+name=Search HGTV (TV Shows)
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/HGTV.png
 
 type=search
-name=Search HTTPFilm
+name=Search HTTPFilm (Movies)
 URL=http://www.navixtreme.com/scrape/httpfilm/search/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_httpfilm.png
 
 type=search
-name=Search IceFilms
+name=Search IceFilms (Movies & TV Shows)
 URL=http://www.navixtreme.com/scrape/icefilms/search/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_icefilms.png
 
 type=search
-name=Search iTunes Podcasts
+name=Search iTunes Podcasts (Video & Audio Podcasts)
 URL=http://www.navixtreme.com/scrape/podcasts/search/
 thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
 
 type=search
-name=Search Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
+name=Search Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR] (Live Streams - Video)
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/JustinTV.png
 
 type=search
-name=Search Librivox
+name=Search Librivox (Audio Books)
 URL=http://www.navixtreme.com/scrape/librivox/search/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_librivox.png
 
 type=search
-name=Search Mixtapes.tv
+name=Search Mixtapes.tv (Music)
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
 
 type=search
-name=Search Movie25.com
+name=Search Movie25.com (Movies)
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/Movie25.jpg
 
 type=search
-name=Search Movie2k
+name=Search Movie2k (Movies)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2
 thumb=http://87.106.7.69/OnlineVideosWebService/Icons/movie2k.to.png
 
 type=search
-name=Search Public Domain Movies
+name=Search Public Domain Movies (Movies)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/public?q=search/1/
 
 type=playlist
-name=Search StageVu
+name=Search StageVu (Movies)
 thumb=http://stagevu.com/img/white/newtitle.png
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
 
 type=search
-name=Search TuneIn
+name=Search TuneIn (Live Streams - Music)
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3Dhttp%253A%252F%252Fopml.radiotime.com%252FSearch.ashx%253Fquery%253D
 thumb=http://d3bwsr3zpy54hy.cloudfront.net/201111111626/img/products/appicon-free.png
 
 type=search
-name=Search VeeHD
+name=Search VeeHD (Movies)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd?q=search/
 thumb=http://static.veehd.com/logo.gif
 
 type=playlist
-name=Search Vevo
+name=Search Vevo (Music Videos)
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl?q=search/
 thumb=http://www.navixtreme.com/justme4u2c/images/Vevo.png
 
 type=search
-name=Search Videofriender
+name=Search Videofriender (Movies)
 URL=http://www.navixtreme.com/search/videofriender/
 thumb=http://videofriender.com/images/logo.png?1218389123
 
 type=playlist
-name=Search Videofriender (Extended)
+name=Search Videofriender (Extended) (Movies)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
 thumb=http://videofriender.com/images/logo.png?1218389123
 
 type=search
-name=Search VidIcs
+name=Search VidIcs (Movies)
 URL=http://www.navixtreme.com/scrape/vidics/list/Any/Any/Any/LatestFirst/1/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_vidics.png
 
 type=search
-name=Search Vimeo
+name=Search Vimeo (Videos)
 URL=http://www.navixtreme.com/search/vimeo/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_vimeo.gif
 
 type=search
-name=Search Watch Series
+name=Search Watch Series (TV Shows)
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries?q=search/
 thumb=http://watchseries.eu/images/logo-hover.png
 
 type=search
-name=Search YouTube
+name=Search YouTube (Videos)
 URL=http://www.navixtreme.com/search/youtube/
 thumb=http://www.navi-x.org/playlists/youtube/logo.png
