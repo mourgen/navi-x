@@ -16,19 +16,6 @@ thumb=http://www.creativeapplications.net/wp-content/uploads/2008/12/flickr_logo
 date=2012-05-31
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D967d88d505f78df16bd8379cee56ae93%26_render%3Djson
 
-#type=rss_flickr_daily
-#name=Flickr Interesting Photos
-#thumb=http://www.creativeapplications.net/wp-content/uploads/2008/12/flickr_logo.jpg
-#background=http://website.navi-x.org/networks/bg_yellow.png
-#URL=http://www.flourish.org/news/flickr-daily-interesting.xml
-#icon=http://website.navi-x.org/networks/icon.png
-
-#type=rss_flickr_daily
-#name=Flickr Daily Photo
-#thumb=http://www.creativeapplications.net/wp-content/uploads/2008/12/flickr_logo.jpg
-#background=http://website.navi-x.org/networks/bg_yellow.png
-#URL=http://www.flourish.org/news/flickr-daily-interesting-one.xml
-
 type=rss:image
 name=Photobucket - Recent Images
 URL=http://feed.photobucket.com/recent/images/feed.rss
