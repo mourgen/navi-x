@@ -25,7 +25,6 @@ name=CNN Podcasts
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/cnn.txt
 background=http://website.navi-x.org/networks/bg.png
 thumb=http://website.navi-x.org/networks/logos/cnn.jpg
-#desription=Tikkiew, I will redo the CNN playlist myself. Thanks!/description
 
 type=playlist
 name=MSNBC News
