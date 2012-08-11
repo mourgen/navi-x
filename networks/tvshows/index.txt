@@ -144,10 +144,10 @@ player=default
 rating=-1.00
 description=*** BOXEE Only ***/description
 
-type=video
-name=Knife and Gun Show - LIVE
-URL=mms://stream.netro.ca/thebroadcastchannel
-thumb=http://www.king-cart.com/store/knifeandgunshow/ShowLogo.jpg
+#type=video
+#name=Knife and Gun Show - LIVE
+#URL=mms://stream.netro.ca/thebroadcastchannel
+#thumb=http://www.king-cart.com/store/knifeandgunshow/ShowLogo.jpg
 
 type=playlist
 name=Live Well HD
