@@ -38,10 +38,10 @@ name=Crackle Movies
 URL=http://www.navixtreme.com/scrape/cracklemovies/
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_crackle.png
 
-type=playlist
-name=DivXStage
-URL=http://www.navixtreme.com/scrape/divxstage/
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png
+#type=playlist
+#name=DivXStage
+#URL=http://www.navixtreme.com/scrape/divxstage/
+#thumb=http://www.navixtreme.com/images/backgrounds/thumb_divxstage.png
 
 type=playlist
 name=Extramina
