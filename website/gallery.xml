@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simpleviewergallery maxImageWidth="640" maxImageHeight="480" textColor="0xFFFFFF" frameColor="0x00FF00" frameWidth="0" stagePadding="40" navPadding="40" thumbnailColumns="3" thumbnailRows="3" navPosition="left" vAlign="center" hAlign="center" title="Navi-X Photo Gallery" enableRightClickOpen="true" backgroundImagePath="" imagePath="" thumbPath="">
+<image>
+	<filename>navi1.jpg</filename>
+	<caption>This is the home portal for Navi-X on XBMC. This is where your entertainment adventure begins.</caption>	
+</image>
+<image>
+	<filename>navi2.jpg</filename>
+	<caption>Navi-Xtreme Media Portal is where you can add your own links to content on the internet and share them as playlists. You can catalogue your favorite shows anyway you like and add backgrounds, logos and custom artwork of your own! This is where the world shares what they find on the internet!</caption>	
+</image>
+<image>
+	<filename>navi3.jpg</filename>
+	<caption>Navi-X Networks is an organized compilation of content not from users, but services offered via Navi-Xtreme, random internet sources and users scraping projects. Categorization includes, TV Shows, Movies, Music, Podcasts, Pictures and Apps from content that can be found through an internet browser.</caption>	
+</image>
+<image>
+	<filename>navi4.jpg</filename>
+	<caption>This is our YouTube section where we pull in content through the YouTube. We also aggregate content from many site API's in order to make content on the internet easy to find.</caption>	
+</image>
+<image>
+	<filename>navi5.jpg</filename>
+	<caption>Apple Movie Trailers offers you high definition previews for recently released movies and upcoming films. If you have trouble finding a good movie in theaters, check this playlist out for good ideas!</caption>	
+</image>
+<image>
+	<filename>navi6.jpg</filename>
+	<caption>The list of user contributed playlists seems to go on forever! When you add something to a playlist on Navi-Xtreme, it becomes available to other people around the world in seconds!</caption>	
+</image>
+<image>
+	<filename>navi7.jpg</filename>
+	<caption>New content listed in Navi-X Networks highlights new content and user projects from Navi-X users made available periodically in Navi-X!</caption>	
+</image>
+<image>
+	<filename>navi8.jpg</filename>
+	<caption>We also use scrapers to gather content from available online sources and pool them into an easy to browse interface. Here is a list sources for TV Shows.</caption>	
+</image>
+<image>
+	<filename>navi9.jpg</filename>
+	<caption>Other websites can also integrate their offerings with us in their own custom format... even for apps!</caption>	
+</image>
+</simpleviewergallery>
