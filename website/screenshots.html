@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="shortcut icon" href="favicon.ico" >
+
+<title>Navi-X Media Browser - Home Page</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+	background-image:url(images/bg.png)
+ 
+.style11 {
+	font-size: small;
+	line-height: 150%;
+}
+</style>
+<script type="text/javascript" src="swfobject.js"></script>
+<style type="text/css">	
+	/* hide from ie on mac \*/
+	html {
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	#flashcontent {
+		height: 100%;
+	}
+	/* end hide */
+ 
+	body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: #000000;
+		color:#ffffff;
+		font-family:sans-serif;
+		font-size:20;
+	}
+	
+	a {	
+		color:#cccccc;
+	}
+</style>
+</head>
+
+<body background="images/bg.png">
+	<div id="flashcontent">SimpleViewer requires JavaScript and the Flash Player. <a href="http://www.macromedia.com/go/getflashplayer/">Get Flash.</a></div>	
+	<script type="text/javascript">
+	
+		var fo = new SWFObject("viewer.swf", "viewer", "100%", "100%", "8", "#000000");
+		
+		// SIMPLEVIEWER CONFIGURATION OPTIONS
+		// To use an option, uncomment it by removing the "//" at the start of the line
+		// For a description of config options, go to: 
+		// http://www.airtightinteractive.com/simpleviewer/options.html
+		
+		//fo.addVariable("xmlDataPath", "gallery.xml");
+		//fo.addVariable("firstImageIndex", "5");	
+		//fo.addVariable("langOpenImage", "Open Image in New Window");
+		//fo.addVariable("langAbout", "About");	
+		//fo.addVariable("preloaderColor", "0xFFFFFF");
+		
+		fo.write("flashcontent");	
+	</script>	
+
+
+ 
+ 
+<!-- end #header-wrapper -->
+ 
+<div id="page" style="width: 962px">
+	<div id="content">
+		<div class="post">
+			<div class="entry">
+				<center>
+				<center>
+				<p class="style11">
+				<img src="images/screenshots.png" /></p>
+				</center>
+				</center>
+			</div>
+		</div>
+	</div>
+	<!-- end #content -->
+	<div id="sidebar">
+<ul>
+<br><br><br><br><br><br>
+			<li>
+				<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 3,
+  interval: 6000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#333333',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#000000',
+      color: '#ffffff',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('navi_x').start();
+</script>
+<br><br>
+<img src="images/platforms.jpg" />
+</li>
+</div>
+<!-- end #page -->
+</div>
+	<font color="lime">&nbsp;
+</body>
+</html>
