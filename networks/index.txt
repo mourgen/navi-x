@@ -2,7 +2,7 @@ version=8
 title=Navi-X Networks
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
-background=http://website.navi-x.org/networks/bg.jpg
+background=background1.jpg
 
 #type=playlist
 #name=Featured Content
