@@ -1,114 +1,21 @@
 version=8
-background=http://farm8.staticflickr.com/7073/7340463614_bc830c8f44_b_d.jpg
-#background=http://farm8.staticflickr.com/7217/7339588188_40deab5521_b.jpg
+background=http://www.steamboatpics.com/wp-content/uploads/2012/10/Fall-postZoom.jpg
 title=Navi-X Networks - Featured Content
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
 type=list_note
-name=Welcome to the new featured content section in Navi-X! When new content is made available, it will be highlighted here in this playlist. - Team Navi
+name=Welcome to the Fall edition of featured content on Navi-X! Pallisvans put in some time into a Navi-X Skin and... well, see for yourself! Great work buddy! - Team Navi-X
 URL=none
 
-type=playlist
-name=WatchSeries (scraper)
-URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
-thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
-date=2012-06-05
-description=Made by Boseman. 
+type=script:navi-x
+name=ReFocus-Big Skin for Navi-X
+URL=http://navi-x-skins.googlecode.com/files/Navi-X-reFocusBig_v37_6.zip
+thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
+date=2012-10-21
 
-description by watchseries.eu -
-Here you can watch online all the newest episodes from your favorites series. This website is free of charge, and we only post links to the actual streaming websites that hosts them, we are not the intellectual owners of the videos posted here./description
-
-type=playlist
-name=k1m05' Live Tv (user playlist)
-date=2012-06-05
-thumb=http://i1121.photobucket.com/albums/l514/k1m05_/navix.png
-URL=http://www.navixtreme.com/playlist/63452/k1m05_live_tv.plx
-description=Made by k1m05.
-/description
-
-type=playlist
-name=TV Shows (user playlist)
-URL=http://www.navixtreme.com/playlist/58434/tv_shows.plx
-date=2012-06-05
-description=Made by whufclee.
-/description
-
-type=playlist
-name=Sport-X Live Sport Channels (user playlist)
-thumb=http://i1121.photobucket.com/albums/l514/k1m05_/sportx.jpg
-URL=http://www.navixtreme.com/playlist/64875/sport-x_live_sport_channels.plx
-date=2012-06-05
-description=Made by k1m05.
-/description
-
-type=playlist
-name=Boseman's Playlist (user playlist & scrapers)
-URL=http://www.navixtreme.com/playlist/65856/bosemans_playlists.plx
-date=2012-06-05
-description=Made by Boseman.
-/description
-
-type=playlist
-name=JustMe4U2C's Site Scrapers (scrapers)
-URL=http://www.navixtreme.com/playlist/43095/justme4u2c_site_scrapers.plx
-date=2012-06-05
-description=Made by JustMe4u2c.
-/description
-
-type=playlist
-name=Adult Swim (user playlist)
-URL=http://www.navixtreme.com/playlist/19201/adult_swim.plx
-thumb=http://images.sodahead.com/polls/001170413/large_Adult_Swim_Logo_answer_2_xlarge.jpeg
-date=2012-06-05
-description=Made by iRoNBiLL.
-/description
-
-type=playlist
-name=Cartoon Network (user playlist)
-URL=http://www.navixtreme.com/playlist/28122/cartoon_network.plx
-thumb=http://images1.wikia.nocookie.net/__cb20080812025039/uncyclopedia/images/archive/1/11/20080823130820!Cartoonnetwork_0.jpg
-date=2012-06-05
-description=Made by Dominator01.
-/description
-
-type=playlist
-name=Live Cams (user playlist)
-URL=http://www.navixtreme.com/playlist/64545/live_cams_private.plx
-date=2012-06-05
-
-type=playlist
-name=MediaNET (user playlist)
-URL=http://www.navixtreme.com/playlist/64166/medianet.plx
-date=2012-06-05
-description=Made by tigger4046.
-/description
-
-type=playlist
-name=FRONTLINE (scraper)
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif
-URL=http://www.navixtreme.com/scrape/pbs/program/frontline/FRONTLINE
-date=2012-06-05
-description=Made by turner3d. Sub playlist of PBS.
-
-description by tvrage.com -
-Since its inception, Frontline has never shied away from tough, controversial issues or complex stories. Frontline remains committed to providing a primetime venue for engaging documentaries that fully explore and illuminate the critical issues of our times
-/description
-
-type=search
-name=Music Artist Search / YouTube meets Music databases (scraper)
-URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D57044ea973f17e4a96875284ecba7d7a%26_render%3Djson%26A%3D
-date=2012-06-05
-description=Made by tikkiew. 
-
-description by tikkiew - 
-Search for you artist/band and get the songs on youtube of their albums. 
-Note : It will occasionally/often find wrong videos of the song on youtube. Simply because there in no video of that song on youtube or the search find the wrong video we would want or the video is regional blocked on youtube. But mostly if you search for the popular and latest albums. The results are better.
-
-Databases used - 
-Musicbrainz.org : artist search, artist albums + tracks list and youtube channel of artist.
-Last.fm : similair artist and artist image + description and last.fm top tracks.
-Freebase.com : album description.
-Fanart.tv : album image
-/description
-
+type=script:navi-x
+name=ReFocus Skin for Navi-X
+URL=http://navi-x-skins.googlecode.com/files/Navi-X-reFocus_v37_6.zip
+thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
+date=2012-10-21
