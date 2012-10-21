@@ -40,6 +40,16 @@ thumb=http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png
 URL=http://www.navixtreme.com/scrape/adultswim/
 
 type=playlist
+name=Animefreak.tv
+thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_animefreak.jpg
+URL=http://www.navixtreme.com/scrape/animefreak/
+
+type=playlist
+name=BBC Archive
+thumb=http://www.straumr.dk/host/BBC_Archive_inv.png
+URL=http://www.straumr.dk/host/BBC_Archive_scraper_plx.php
+
+type=playlist
 name=Bravo
 thumb=http://www.navixtreme.com/justme4u2c/images/Bravo.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl?q=bravo/
