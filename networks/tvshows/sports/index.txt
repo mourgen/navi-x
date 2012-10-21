@@ -5,6 +5,13 @@ view=thumbnails
 logo=http://website.navi-x.org/networks/logo.jpg
 
 type=playlist
+name=CBS Sports
+thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_cbssports.gif
+URL=http://www.navixtreme.com/scrape/cbs_sports/
+player=default
+rating=-1.00
+
+type=playlist
 name=ESPN
 thumb=http://scrape.navixtreme.com/justme4u2c/images/ESPN.png
 date=2012-10-17
