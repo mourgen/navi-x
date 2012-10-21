@@ -68,6 +68,6 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=rss
 name=Navi-X on Twitter
-URL=http://twitter.com/statuses/user_timeline/46791316.rss
+URL=http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
 thumb=http://navi-x.googlecode.com/svn/trunk/website/images/twitter_logo.png
 icon=http://navi-x.googlecode.com/svn/trunk/website/images/twitter_icon.png
