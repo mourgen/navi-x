@@ -28,7 +28,6 @@ type=playlist
 name=YouTube
 thumb=http://www.navi-x.org/playlists/youtube/logo.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
-date=2011-3-19
 
 type=playlist
 name=ABC
@@ -38,24 +37,12 @@ URL=http://www.navixtreme.com/scrape/abc/
 type=playlist
 name=Adult Swim
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png
-#thumb=http://testtikkiew.googlecode.com/files/broken.png
 URL=http://www.navixtreme.com/scrape/adultswim/
-
-#type=playlist
-#name=Animal Planet
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_animal.png
-#URL=http://www.navixtreme.com/scrape/discovery/animal
-
-#type=playlist
-#name=BET
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_bet.png
-#URL=http://www.navixtreme.com/scrape/bet/
 
 type=playlist
 name=Bravo
 thumb=http://www.navixtreme.com/justme4u2c/images/Bravo.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl
-date=2012-03-16
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl?q=bravo/
 
 type=playlist
 name=CBS
@@ -65,59 +52,49 @@ URL=http://www.navixtreme.com/scrape/cbs/
 type=playlist
 name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
 thumb=http://www.navixtreme.com/justme4u2c/images/CW.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/CW.pl
-description=**** XBMC Only ****/description
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/CW.pl
 
 type=playlist
 name=DIY Network
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_diynetwork.png
 URL=http://www.navixtreme.com/scrape/diynetwork/
-date=2012-02-02
 
 type=playlist
 name=E! Online
-thumb=http://www.navixtreme.com/justme4u2c/images/E!.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/E!Online.pl
-player=default
-rating=-1.00
+thumb=http://scrape.navixtreme.com/justme4u2c/images/E!.png
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/E!Online.pl
 
 type=playlist
 name=Engadget
 thumb=http://www.navixtreme.com/justme4u2c/images/Engadget.png
-date=2012-02-15
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Engadget.pl
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Engadget.pl
 
 type=playlist
 name=Food Network
 thumb=http://www.navixtreme.com/justme4u2c/images/Food_Network.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
-date=2012-02-02
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
 
 type=playlist
 name=GSN (Game Show Network)
 thumb=http://www.navixtreme.com/justme4u2c/images/GSN.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/GSN.pl
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/GSN.pl
 
 type=playlist
 name=HGTV
 thumb=http://www.navixtreme.com/justme4u2c/images/HGTV_Logo.jpg
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl
 date=2012-02-02
 
 type=playlist
 name=History Channel [COLOR=FF00FFFF](XBMC only)[/COLOR]
 thumb=http://www.navixtreme.com/justme4u2c/images/HistoryChannel.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
-description=**** XBMC Only ****/description
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
 
 type=playlist
 name=Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
 thumb=http://www.navixtreme.com/justme4u2c/images/JustinTV.png
 date=2012-02-12
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl
-player=default
-rating=-1.00
-description=*** BOXEE Only ***/description
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl
 
 type=playlist
 name=Live Well HD
@@ -133,7 +110,6 @@ type=playlist
 name=Mekong TV
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_mekongtv.png
 URL=http://www.navixtreme.com/scrape/mekongtv/
-date=2012-02-02
 
 type=playlist
 name=National Geographic
@@ -159,25 +135,22 @@ URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 type=playlist
 name=Pokerstars TV
 thumb=http://www.navixtreme.com/justme4u2c/images/PokerstarsTV.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
-date=2012-02-02
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
 
 type=playlist
 name=Revision3
 thumb=http://www.navixtreme.com/justme4u2c/images/Revision3.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
-date=2012-02-02
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
 
 type=playlist
 name=Sesame Street
 thumb=http://www.navixtreme.com/justme4u2c/images/SesameStreet.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
 type=playlist
 name=TMZ
 thumb=http://www.navixtreme.com/justme4u2c/images/TMZ.png
-date=2012-02-29
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/TMZ.pl
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/TMZ.pl
 
 type=playlist
 name=TruTV
@@ -188,23 +161,18 @@ type=video
 name=TWiT Broadcast (XBMC Only)
 URL=http://bglive-a.bitgravity.com/twit/live/high
 thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
-date=2012-03-11
 
 type=playlist
 name=USA Network
 thumb=http://www.navixtreme.com/justme4u2c/images/USA.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
 
 type=playlist
 name=WB Kids
 thumb=http://scrape.navixtreme.com/justme4u2c/images/Kids_WB.png
-date=2012-10-18
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
-player=default
-rating=-1.00
 
 type=playlist
 name=Watchseries TV
 thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
-URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
-date=2012-03-11
+URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
