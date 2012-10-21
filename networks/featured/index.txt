@@ -10,13 +10,13 @@ URL=none
 
 type=script:navi-x
 name=ReFocus-Big Skin for Navi-X
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/Navi-X-ReFocus-Big.zip
+URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/Navi-X-ReFocus-Big2.zip
 thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
 date=2012-10-21
 
 type=script:navi-x
 name=ReFocus Skin for Navi-X
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/Navi-X-ReFocus.zip
+URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/Navi-X-ReFocus2.zip
 thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
 date=2012-10-21
 
