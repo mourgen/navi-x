@@ -9,27 +9,8 @@ name=YouTube
 thumb=http://www.navi-x.org/playlists/youtube/logo.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
 
-#type=search
-#name=Search Dailymotion
-#URL=http://www.navixtreme.com/search/dailymotion/
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
-
-#type=playlist
-#name=Dailymotion User Lists
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_dailymotion.jpg
-#URL=http://www.navixtreme.com/playlist/15649/dailymotion_user_lists.plx
-
 type=playlist
 name=Fragg.me
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_fraggme.gif
 URL=http://www.navixtreme.com/scrape/fraggme/
 
-#type=search
-#name=Search Guba.com
-#URL=http://www.navixtreme.com/search/guba/
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_guba.gif
-
-#type=search
-#name=Search Vimeo.com
-#URL=http://www.navixtreme.com/search/vimeo/
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_vimeo.gif
