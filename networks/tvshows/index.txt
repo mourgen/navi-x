@@ -14,11 +14,6 @@ name=Sports
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/sports/index.txt
 thumb=http://website.navi-x.org/networks/logo.png
 
-#type=playlist
-#name=Kids
-#URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/kids/index.txt
-#thumb=http://website.navi-x.org/networks/logo.png
-
 type=playlist
 name=Games
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/games/index.txt
