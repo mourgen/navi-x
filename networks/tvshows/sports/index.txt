@@ -4,22 +4,13 @@ title=Navi-X Networks - TV Shows - Sports
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.jpg
 
-#type=playlist
-#name=CBS Sports
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_cbssports.gif
-#URL=http://www.navixtreme.com/scrape/cbs_sports/
-
 type=playlist
 name=ESPN
-thumb=http://www.navixtreme.com/justme4u2c/images/ESPN.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/ESPN.pl
-date=2012-02-02
-
-#type=playlist
-#name=ESPN Deportes
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/ESPN/espn_top_nav_logo_deportes.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/ESPNDeportes.pl
-#date=2011-1-28
+thumb=http://scrape.navixtreme.com/justme4u2c/images/ESPN.png
+date=2012-10-17
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/ESPN.pl
+player=default
+rating=-1.00
 
 type=playlist
 name=Fox Sports
@@ -31,24 +22,6 @@ type=playlist
 name=NFL
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_nfl.jpg
 URL=http://www.navixtreme.com/scrape/nfl/
-
-#type=rss:video
-#name=UFC - Latest Videos
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/ufc-logo.jpg
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=fccaf87e7c7a5579674329db9924b346&_render=rss
-#processor=http://justme4u2c.zymichost.com/UFC.php
-#background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/UFC1main-bg.png
-#player=default
-#rating=-1.00
-#description=UFC.com - Latest Videos/description
-
-#type=playlist
-#name=TheGolfChannel Video News
-#thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/500px-Golf_Channel_logosvg.png
-#URL=http://justme4u2c-navi-x.dyndns-server.com/cgi-bin/TheGolfChannel.pl
-#player=default
-#rating=-1.00
-#description=Video News from TheGolfChannel.com rss feed/description
 
 type=rss:video
 name=MLSSOCCER.COM - Latest Videos
