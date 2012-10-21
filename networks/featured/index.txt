@@ -1,11 +1,10 @@
 version=8
 background=http://www.steamboatpics.com/wp-content/uploads/2012/10/Fall-postZoom.jpg
 title=Navi-X Networks - Featured Content
-view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
 type=list_note
-name=Welcome to the Fall edition of featured content on Navi-X! Pallisvans put in some time into a Navi-X Skin and... well, see for yourself! Great work buddy! - Team Navi-X
+name=Welcome to the Fall edition of featured content on Navi-X! Pallisvans put in some time into a Navi-X Skin (XBMC Only) and... well, see for yourself! Great work buddy! - Team Navi-X
 URL=none
 
 type=script:navi-x
