@@ -266,9 +266,3 @@ name=Watchseries TV
 thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
 URL=http://www.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
 date=2012-03-11
-
-type=playlist
-name=WB Kids
-thumb=http://www.navixtreme.com/justme4u2c/images/Kids_WB.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
-date=2012-02-02
