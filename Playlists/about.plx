@@ -13,7 +13,7 @@ URL=systeminfo
 #
 type=rss
 name=Navi-X on Twitter
-URL=http://twitter.com/statuses/user_timeline/46791316.rss
+URL=https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
 #
 type=atom
 name=What other people tweet about Navi-X
