@@ -40,6 +40,11 @@ thumb=http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png
 URL=http://www.navixtreme.com/scrape/adultswim/
 
 type=playlist
+name=Animal Planet
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_animal.png
+URL=http://www.navixtreme.com/scrape/discovery/animal
+
+type=playlist
 name=Animefreak.tv
 thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_animefreak.jpg
 URL=http://www.navixtreme.com/scrape/animefreak/
@@ -63,6 +68,11 @@ type=playlist
 name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
 thumb=http://www.navixtreme.com/justme4u2c/images/CW.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/CW.pl
+
+type=playlist
+name=Discovery Channel
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_dsc.png
+URL=http://www.navixtreme.com/scrape/discovery/dsc
 
 type=playlist
 name=DIY Network
@@ -143,6 +153,11 @@ thumb=http://www.navixtreme.com/justme4u2c/images/Onion_News_Network.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 
 type=playlist
+name=Planet Green
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_planetgreen.png
+URL=http://www.navixtreme.com/scrape/discovery/planetgreen
+
+type=playlist
 name=Pokerstars TV
 thumb=http://www.navixtreme.com/justme4u2c/images/PokerstarsTV.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
@@ -156,6 +171,18 @@ type=playlist
 name=Sesame Street
 thumb=http://www.navixtreme.com/justme4u2c/images/SesameStreet.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
+
+type=playlist
+name=SyFy
+thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_syfy.gif
+URL=http://www.navixtreme.com/scrape/scifi/
+player=default
+rating=-1.00
+
+type=playlist
+name=The Learning Channel
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_tlc.png
+URL=http://www.navixtreme.com/scrape/discovery/tlc
 
 type=playlist
 name=TMZ
