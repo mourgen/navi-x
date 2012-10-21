@@ -27,6 +27,14 @@ background=http://website.navi-x.org/networks/bg.png
 thumb=http://website.navi-x.org/networks/logos/cnn.jpg
 
 type=playlist
-name=MSNBC News
+name=MSNBC
+thumb=http://scrape.navixtreme.com/justme4u2c/images/MSNBC.png
+date=2012-10-18
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/MSNBC.pl
+player=default
+rating=-1.00
+
+type=playlist
+name=MSNBC Podcasts
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/msnbc.txt
 thumb=http://website.navi-x.org/networks/logos/msnbc.jpg
