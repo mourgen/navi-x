@@ -31,11 +31,6 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
 date=2011-3-19
 
 type=playlist
-name=66 Stage
-URL=http://www.navixtreme.com/scrape/66stage/cat/tv
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_66stage.png
-
-type=playlist
 name=ABC
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_abc.png
 URL=http://www.navixtreme.com/scrape/abc/
@@ -67,21 +62,11 @@ name=CBS
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_cbs.png
 URL=http://www.navixtreme.com/scrape/cbs/
 
-#type=playlist
-#name=Crackle TV
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_crackle.png
-#URL=http://www.navixtreme.com/scrape/crackletv/
-
 type=playlist
 name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
 thumb=http://www.navixtreme.com/justme4u2c/images/CW.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/CW.pl
 description=**** XBMC Only ****/description
-
-#type=playlist
-#name=Discovery Channel
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_dsc.png
-#URL=http://www.navixtreme.com/scrape/discovery/dsc
 
 type=playlist
 name=DIY Network
@@ -125,11 +110,6 @@ thumb=http://www.navixtreme.com/justme4u2c/images/HistoryChannel.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
 description=**** XBMC Only ****/description
 
-type=video
-name=HSN - LIVE (XBMC Only)
-URL=http://a1797.l8175151796.c81751.g.lm.akamaistream.net/D/1797/81751/v0001/reflector:51796
-thumb=http://website.navi-x.org/networks/logos/hsn.jpg
-
 type=playlist
 name=Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
 thumb=http://www.navixtreme.com/justme4u2c/images/JustinTV.png
@@ -138,11 +118,6 @@ URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl
 player=default
 rating=-1.00
 description=*** BOXEE Only ***/description
-
-#type=video
-#name=Knife and Gun Show - LIVE
-#URL=mms://stream.netro.ca/thebroadcastchannel
-#thumb=http://www.king-cart.com/store/knifeandgunshow/ShowLogo.jpg
 
 type=playlist
 name=Live Well HD
@@ -176,36 +151,16 @@ name=NBC
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_nbc.jpg
 URL=http://www.navixtreme.com/scrape/nbc/
 
-#type=playlist
-#name=(broken) NFB
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_nfb_ca.jpg
-#URL=http://www.navixtreme.com/scrape/nfb_ca/
-
 type=playlist
 name=Onion News Network
 thumb=http://www.navixtreme.com/justme4u2c/images/Onion_News_Network.jpg
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
-
-type=playlist
-name=PBS
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbs.gif
-URL=http://www.navixtreme.com/scrape/pbs/
-
-#type=playlist
-#name=Planet Green
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_planetgreen.png
-#URL=http://www.navixtreme.com/scrape/discovery/planetgreen
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 
 type=playlist
 name=Pokerstars TV
 thumb=http://www.navixtreme.com/justme4u2c/images/PokerstarsTV.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
 date=2012-02-02
-
-#type=playlist
-#name=PokerTube
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_pokertube.gif
-#URL=http://www.navixtreme.com/scrape/pokertube/
 
 type=playlist
 name=Revision3
@@ -239,12 +194,6 @@ type=playlist
 name=USA Network
 thumb=http://www.navixtreme.com/justme4u2c/images/USA.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
-
-type=playlist
-name=WB [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://www.navixtreme.com/justme4u2c/images/WB.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/WB.pl
-description=**** XBMC Only ****/description
 
 type=playlist
 name=WB Kids
