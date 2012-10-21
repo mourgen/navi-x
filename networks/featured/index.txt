@@ -19,3 +19,7 @@ name=ReFocus Skin for Navi-X
 URL=http://navi-x-skins.googlecode.com/files/Navi-X-reFocus_v37_6.zip
 thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
 date=2012-10-21
+
+type=script:navi-x
+name=Original Default Skin for Navi-X
+URL=http://navi-x.googlecode.com/files/Navi-X_v37_6.zip
