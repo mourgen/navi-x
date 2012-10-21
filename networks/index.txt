@@ -5,7 +5,7 @@ logo=http://website.navi-x.org/networks/logo.png
 background=background1.jpg
 
 type=playlist
-name=Featured Content - TESTING ONLY!
+name=Featured Content
 URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
 thumb=http://www.intraco.be/UserFiles/Image/new_sticker.png_tmp.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
