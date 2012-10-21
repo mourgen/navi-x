@@ -4,44 +4,13 @@ title=Navi-X Networks - TV Shows - Kids
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
-#type=playlist
-#name=4KidsTV 
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_4kidstv.jpg
-#URL=http://www.navixtreme.com/scrape/4kidstv/
-#processor=http://justme4u2c.zymichost.com/4kidstv.php
-
-#type=playlist
-#name=Cartoon Network (broken) 
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_cn.png
-#URL=http://www.navixtreme.com/scrape/cn/
-
-#type=playlist
-#name=Nick
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_nick.gif
-#URL=http://www.navixtreme.com/scrape/nick/
-
-#type=playlist
-#name=PBS Kids (broken)
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_pbskids.png
-#URL=http://www.navixtreme.com/scrape/pbskids/
-
-#type=rss
-#name=Vintage Tooncast (broken)
-#URL=http://rss.vintagetooncast.com/podcast.xml
-
 type=playlist
 name=Sesame Street
 thumb=http://www.navixtreme.com/justme4u2c/images/SesameStreet.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
 type=playlist
 name=WB Kids
 thumb=http://www.navixtreme.com/justme4u2c/images/Kids_WB.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
-date=2012-02-02
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
 
-#type=playlist
-#name=Nick Jr.
-#thumb=http://i1180.photobucket.com/albums/x420/NaviXJustme4u2c/Navi-X/500px-Nick_Jr_logo_2009svg.png
-#URL=http://www.navixtreme.com/playlist/49906/nick_jr.plx
-#date=2011-3-05
