@@ -15,13 +15,13 @@ rating=-1.00
 type=playlist
 name=Fox Sports
 thumb=http://www.navixtreme.com/justme4u2c/images/Fox_Sports.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoxSports.pl?q=foxsports/
+URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoxSports.pl?q=foxsports/
 date=2012-02-02
 
 type=playlist
 name=NFL
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_nfl.jpg
-URL=http://www.navixtreme.com/scrape/nfl/
+URL=http://scrape.navixtreme.com/scrape/nfl/
 
 type=rss:video
 name=MLSSOCCER.COM - Latest Videos
@@ -31,13 +31,6 @@ processor=http://www.navixtreme.com/proc/youtube
 background=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/Justme4u2c%20Sports%20Network/MLS_Logo.jpg
 description=Major League Soccer (MLS) is a professional soccer league based in the United States, sanctioned by the United States Soccer Federation (U.S. Soccer). The league comprises 16 teams, 15 in the U.S. and one in Canada  and is scheduled to become 18 teams for the 2011 season and 19 teams by 2012. MLS represents the top tier of the American and Canadian soccer pyramids.
 Major League Soccer was founded in 1993 as part of the United States's bid to host the 1994 FIFA World Cup. The first season took place in 1996 beginning with 10 teams. Seasons run from late March or early April to November, with teams playing 30 regular season games each. Eight teams compete in the postseason MLS Cup Playoffs culminating in the championship game, MLS Cup./description
-date=2012-02-02
-
-type=playlist
-name=Nascar.com
-thumb=http://i254.photobucket.com/albums/hh98/justme4u2cme/Navi-X%20Playlists/nascar-logo.jpg
-URL=http://www.navixtreme.com/playlist/25784/nascar.com.plx
-description=Videos from the The official site of NASCAR, the National Association for Stock Car Auto Racing, Nascar.com/description
 date=2012-02-02
 
 type=rss:video
