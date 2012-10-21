@@ -145,7 +145,7 @@ URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType
 type=playlist
 name=Sesame Street
 thumb=http://www.navixtreme.com/justme4u2c/images/SesameStreet.png
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
+URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
 type=playlist
 name=TMZ
