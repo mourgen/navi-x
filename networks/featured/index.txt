@@ -1,10 +1,10 @@
 version=8
-background=http://www.steamboatpics.com/wp-content/uploads/2012/10/Fall-postZoom.jpg
+background=http://www.picturesofwinter.net/scenewinter-4444.jpg
 title=Navi-X Networks - Featured Content
 logo=http://website.navi-x.org/networks/logo.png
 
 type=list_note
-name=Welcome to the Fall edition of featured content on Navi-X! Pallisvans put in some time into a Navi-X Skin (XBMC Only) and... well, see for yourself! Great work buddy! - Team Navi-X
+name=Welcome to the Winter 2012 edition of featured content on Navi-X! Pallisvans put in some time into a Navi-X Skin (XBMC Only) and... well, see for yourself! Great work buddy! - Team Navi-X
 URL=none
 
 type=script:navi-x
@@ -24,6 +24,6 @@ name=Original Default Skin for Navi-X
 URL=http://navi-x.googlecode.com/files/Navi-X_v37_6.zip
 
 type=playlist
-name=Dirty Jeez - Born and Raised (Adult Content)
+name=Dirty Jeez - Born and Raised (Mature Audiences)
 URL=http://www.navixtreme.com/playlist/82373/dirty_jeez__born_and_raised.plx
 date=2012-11-10
