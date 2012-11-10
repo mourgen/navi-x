@@ -22,3 +22,7 @@ date=2012-10-21
 type=script:navi-x
 name=Original Default Skin for Navi-X
 URL=http://navi-x.googlecode.com/files/Navi-X_v37_6.zip
+
+type=playlist
+name=Dirty Jeez - Born and Raised (Adult Content)
+URL=http://www.navixtreme.com/playlist/82373/dirty_jeez__born_and_raised.plx
