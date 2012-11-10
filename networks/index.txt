@@ -6,7 +6,7 @@ background=http://digitalblasphemy.com/graphics/640x480/winterborn2k121640.jpg
 
 type=playlist
 name=Featured Content
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
+URL=http://www.navixtreme.com/playlist/82387/navi-x_networks_-_featured_content.plx
 thumb=http://www.intraco.be/UserFiles/Image/new_sticker.png_tmp.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 date=2012-10-21
