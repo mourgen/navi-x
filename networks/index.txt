@@ -14,7 +14,7 @@ date=2012-10-21
 type=playlist
 name=Search Navi-X
 URL=http://navi-x.googlecode.com/svn/trunk/networks/content_search/index.txt
-thumb=http://clansmkr.comze.com/images/logo.png
+thumb=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
