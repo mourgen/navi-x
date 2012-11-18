@@ -24,7 +24,7 @@ name=Original Default Skin for Navi-X
 URL=http://navi-x.googlecode.com/files/Navi-X_v37_6.zip
 
 type=playlist
-name=Dorkly - Videogame Comedy
+name=Dorkly - Videogame Comedy (Mature Audiences)
 URL=http://www.navixtreme.com/playlist/83217/dorkly_-_videogame_comedy.plx
 thumb=http://twimg0-a.akamaihd.net/profile_images/927669667/twitter_icon.jpg
 date=2012-11-18
