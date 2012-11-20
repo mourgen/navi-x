@@ -4,6 +4,11 @@ title=Navi-X Networks - Podcasts
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
+type=video
+name=STREAMtest
+URL=rtmp://213.55.98.102/live/livestream
+
+rtmp://213.55.98.102/live/livestream
 type=playlist
 name=Apple iTunes Podcasts
 URL=http://www.navixtreme.com/scrape/podcasts/
