@@ -6,6 +6,11 @@ logo=http://website.navi-x.org/networks/logo.png
 description=/description
 
 type=playlist
+name=Movie & Film Search
+URL=http://julesallen77.com/Navi-J/imdb/GenreY.php
+date=2012-11-25
+
+type=playlist
 name=Apple Movie Trailers
 thumb=http://www.navi-x.org/playlists/apple.png
 URL=http://www.navi-x.org/playlists/apple.plx
