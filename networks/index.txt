@@ -1,7 +1,7 @@
 version=8
 title=Navi-X Networks
 view=thumbnails
-logo=http://website.navi-x.org/networks/logo.png
+#logo=http://website.navi-x.org/networks/logo.png
 background=http://digitalblasphemy.com/graphics/640x480/winterborn2k121640.jpg
 
 type=playlist
