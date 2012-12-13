@@ -4,7 +4,7 @@ version=1
 background=default
 #third line indicates the title
 title=Navi-X Home
-logo=http://www.navi-x.org/playlists/logo.png
+#logo=http://www.navi-x.org/playlists/logo.png
 
 #Next the playlist content
 type=playlist
