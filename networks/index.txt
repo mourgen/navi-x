@@ -54,19 +54,6 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
 thumb=http://clansmkr.comze.com/images/apps.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
-type=playlist
-name=Live TV (XBMC Only)
-URL=http://navi-x.googlecode.com/svn/trunk/networks/live_tv/index.txt
-thumb=http://clansmkr.comze.com/images/tvshows.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
-date=2012-06-01
-
-type=playlist
-name=Websites (Boxee Box Only)
-URL=http://navi-x.googlecode.com/svn/trunk/networks/websites/index.plx
-thumb=http://clansmkr.comze.com/images/websites.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
-
 type=rss
 name=Navi-X on Twitter
 URL=http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
