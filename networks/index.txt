@@ -56,7 +56,7 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Gaming Networks
-URL=http://gamingnetworks.googlecode.com/files/GamingNetworks.plx
+URL=http://www.fileden.com/files/2009/11/13/2649692/GamingNetworks2.plx
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 date=2013-01-23
 
