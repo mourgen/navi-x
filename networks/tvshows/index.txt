@@ -193,5 +193,4 @@ type=playlist
 name=Watchseries TV
 thumb=http://navix.zapto.org/watchseries/images/logo.png
 #thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
-URL=http://navix.zapto.org/watchseries/
-#URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchseries
+URL=http://navix.zapto.org/watchseries/home.plx
