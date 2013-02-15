@@ -89,6 +89,11 @@ URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
 date=2012-03-10
 
 type=playlist
+name=SolarMovie
+thumb=http://navix.zapto.org/solarmovie/images/logo.png
+URL=http://navix.zapto.org/solarmovie/home.plx
+
+type=playlist
 name=StageVu Search
 thumb=http://userlogos.org/files/logos/jumpordie/stagevu_01.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
