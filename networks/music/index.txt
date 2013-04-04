@@ -7,10 +7,10 @@ description=/description
 
 type=playlist
 name=Shoutcast Internet Radio
-URL=http://www.navi-x.org/playlists/shoutcast/shoutcast.plx
-thumb=http://www.navi-x.org/playlists/shoutcast/shoutcast.png
+URL=http://navi-x.mooo.com/shoutcast.plx
+thumb=http://navi-x.mooo.com/shoutcast.png
 #thumb=http://testtikkiew.googlecode.com/files/broken.png
-description=(semi-broken) Some playlist are empty and possible some streams don't work./description
+#description=(semi-broken) Some playlist are empty and possible some streams don't work./description
 
 type=playlist
 name=Mixtapes.tv
