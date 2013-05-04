@@ -2,7 +2,7 @@ version=8
 title=Navi-X Networks
 view=thumbnails
 #logo=http://website.navi-x.org/networks/logo.png
-background=http://wallpoh.com/wp-content/uploads/2013/04/New-Summer-Wallpaper-HD.jpg
+background=http://scenery-wallpapers.com/wallpapers/vista_summer_sea_beach_wallpaper_by_booterboys-1440x900.jpg
 
 type=playlist
 name=Featured Content
