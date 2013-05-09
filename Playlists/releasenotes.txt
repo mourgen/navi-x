@@ -6,7 +6,7 @@ Changes Navi-X 3.7.7
 
 -Navi-X now remembers the view selection in the Browse history, favorites and download pages. E.g. if thumbnails view is selected in the favorite page then thumbnail view is automatically selected next time the page is opened.
 
--reorganized the home page. Less icon, default thumbnails view.
+-reorganized the home page. Less icons, default thumbnails view.
 
 -Added support for playback via XBMC PAPlayer.
 
