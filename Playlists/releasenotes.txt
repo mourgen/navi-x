@@ -1,8 +1,8 @@
 Changes Navi-X 3.7.7
 
--Navi-X skin update. Several menus and icons have been updated.
+-Navi-X skin update. Several menus and icons updated.
 
--Smart caching support. Pages are cached inside the Navi-X app. Pages expire and are reloaded after a calculated time. The expire time based on the page change frequency. Pages that change less frequent are cached for longer period of time. Smart caching is enabled by default but can be disabled from the context menu.
+-Smart caching support. Pages are cached inside the Navi-X app. Pages expire and are reloaded after a calculated time. The expire time is based on the page change frequency. Pages that change less frequent are cached for longer period of time. Smart caching is enabled by default but can be disabled from the context menu.
 
 -Navi-X now remembers the view selection in the Browse history, favorites and download pages. E.g. if thumbnails view is selected in the favorite page then thumbnail view is automatically selected next time the page is opened.
 
