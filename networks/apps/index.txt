@@ -3,10 +3,6 @@ background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - Apps
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
-type=playlist
-name=Gaming Networks
-URL=http://www.navixtreme.com/playlist/39820/test.plx
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
 
 type=playlist
 name=Xbox Apps (for Modified Xbox 1)
