@@ -2,15 +2,15 @@ version=8
 title=Navi-X Networks
 view=thumbnails
 #logo=http://website.navi-x.org/networks/logo.png
-background=http://scenery-wallpapers.com/wallpapers/vista_summer_sea_beach_wallpaper_by_booterboys-1440x900.jpg
+background=http://wallpaperswide.com/download/media_center_living_room-wallpaper-1920x1080.jpg
 
-type=playlist
-name=Featured Content
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
+#type=playlist
+#name=Featured Content
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
 #URL=http://www.navixtreme.com/playlist/82387/navi-x_networks_-_featured_content.plx
-thumb=http://www.intraco.be/UserFiles/Image/new_sticker.png_tmp.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
-date=2012-11-18
+#thumb=http://www.intraco.be/UserFiles/Image/new_sticker.png_tmp.png
+#icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
+#date=2012-11-18
 
 type=playlist
 name=Search Navi-X
@@ -57,6 +57,7 @@ icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 type=playlist
 name=Gaming Networks
 URL=http://www.fileden.com/files/2009/11/13/2649692/GamingNetworks2.plx
+thumb=http://clansmkr.comze.com/images/apps.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 date=2013-01-23
 
