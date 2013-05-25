@@ -54,13 +54,6 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
 thumb=http://clansmkr.comze.com/images/apps.png
 icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
-type=playlist
-name=Gaming Networks
-URL=http://www.fileden.com/files/2009/11/13/2649692/GamingNetworks2.plx
-thumb=http://clansmkr.comze.com/images/apps.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
-date=2013-01-23
-
 type=rss
 name=Navi-X on Twitter
 URL=http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
