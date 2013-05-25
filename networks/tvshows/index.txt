@@ -174,11 +174,6 @@ name=TruTV
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_trutv.gif
 URL=http://www.navixtreme.com/scrape/trutv/
 
-type=playlist
-name=TV-Links
-thumb=http://navix.zapto.org/tvlinks/images/logo.png
-URL=http://navix.zapto.org/tvlinks/home.plx
-
 type=video
 name=TWiT Broadcast (XBMC Only)
 URL=http://bglive-a.bitgravity.com/twit/live/high
