@@ -4,21 +4,6 @@ background=http://www.navixtreme.com/images/backgrounds/bkg_navix_bh_plain.jpg
 logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
 description=Please visit http://www.navixtreme.com for full Navi-X support!  Team Navi-X/description
 #
-type=html
-name=Navi-X Wiki Help Articles and FAQ on GoogleCode (Boxee Only)
-URL=http://code.google.com/p/navi-x/w/list?can=2&q=&sort=pagename&colspec=PageName
-description=This works for Boxee Box users only!!/description
-
-type=html
-name=Navi-Xtreme Chat Shoutbox (Boxee Only)
-URL=http://www.navixtreme.com
-description=This works for Boxee Box users only!!/description
-
-type=html
-name=Navi-Xtreme Forums (Boxee Only)
-URL=http://www.navixtreme.com/forums
-description=This works for Boxee Box users only!!/description
-
 type=rss:download
 name=Download Navi-X Updates
 URL=http://pipes.yahoo.com/pipes/pipe.run?_id=a4a5071c7d45c8c74a46b2941c9c8495&_render=rss&t2=download#type=rss
@@ -34,7 +19,3 @@ URL=http://www.navixtreme.com/feeds/newtopics.xml
 type=rss:atom
 name=Navi-Xtreme - New Topics
 URL=http://www.navixtreme.com/feeds/newtopics.xml
-
-type=html
-name=Navi-X Terms of Use - www.navixtreme.com/terms
-URL=http://www.navixtreme.com/terms/
