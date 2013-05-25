@@ -1,16 +1,7 @@
 version=8
 title=Navi-X Networks
 view=thumbnails
-#logo=http://website.navi-x.org/networks/logo.png
-background=http://navi-x.googlecode.com/svn/trunk/networks/images/new1.jpg
-
-#type=playlist
-#name=Featured Content
-#URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
-#URL=http://www.navixtreme.com/playlist/82387/navi-x_networks_-_featured_content.plx
-#thumb=http://www.intraco.be/UserFiles/Image/new_sticker.png_tmp.png
-#icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
-#date=2012-11-18
+background=https://navi-x.googlecode.com/svn/trunk/networks/images/new1.jpg
 
 type=playlist
 name=Search Navi-X
