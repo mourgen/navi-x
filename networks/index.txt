@@ -38,6 +38,11 @@ name=Apps
 URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/apps.png
 
+type=playlist
+name=Help and Support
+URL=http://navi-x.googlecode.com/svn/trunk/networks/help/index.txt
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
+
 type=rss
 name=Navi-X on Twitter
 URL=http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
