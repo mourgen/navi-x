@@ -20,7 +20,7 @@ URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
 
 type=playlist
 name=TuneIn
-thumb=http://d3bwsr3zpy54hy.cloudfront.net/201111111626/img/products/appicon-free.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/TuneIn-Radio-Logo2.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/music/tunein.txt
 
 type=playlist
