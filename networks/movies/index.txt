@@ -7,26 +7,16 @@ type=playlist
 name=Movie & Film Search
 URL=http://julesallen77.com/Navi-J/imdb/GenreY.php
 thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
-date=2012-11-25
-
-#type=playlist
-#name=Apple Movie Trailers
-#thumb=http://www.navi-x.org/playlists/apple.png
-#URL=http://www.navi-x.org/playlists/apple.plx
-#date=2011-3-19
 
 type=playlist
 name=1 Channel
 thumb=http://www.userlogos.org/files/logos/Sanjay/1ch.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=sort=release&phpsessid=enput50sruuqbqo0l4529jdfd4&cookies=1&server
-date=2012-03-10
 
 type=playlist
 name=B Movies
 thumb=http://www.navixtreme.com/justme4u2c/images/bMovies.png
-date=2012-03-16
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/bMovies.pl
-date=2012-03-16
 
 type=playlist
 name=Crackle Movies
@@ -37,13 +27,11 @@ type=playlist
 name=Extramina
 thumb=http://www.navixtreme.com/boseman/images/x_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina
-date=2012-03-10
 
 #type=playlist
 #name=FastpassTV
 #thumb=http://www.navixtreme.com/boseman/images/fastpasstv.png
 #URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv
-#date=2012-03-10
 
 type=playlist
 name=HTTPfilm
@@ -55,31 +43,26 @@ type=playlist
 name=IceFilms.info
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_icefilms.png
 URL=http://scrape.navixtreme.com/scrape/icefilms/
-date=2012-02-02
 
 type=playlist
 name=Movie25
 thumb=http://www.navixtreme.com/justme4u2c/images/Movie25.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl
-date=2012-02-02
 
 type=playlist
 name=Movie2K
 thumb=http://www.navixtreme.com/boseman/images/movie2K_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=getmenu/en/Movies
-date=2012-03-10
 
 type=playlist
 name=Noobroom
 thumb=http://www.navixtreme.com/boseman/images/noobroom_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_noobroom
-date=2012-07-25
 
 type=playlist
 name=Project Free Movies
 thumb=http://www.navixtreme.com/boseman/images/projectfree4.gif
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
-date=2012-03-10
 
 type=playlist
 name=SolarMovie
