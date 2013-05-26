@@ -22,13 +22,11 @@ type=playlist
 name=Music
 URL=http://navi-x.googlecode.com/svn/trunk/networks/music/index.txt
 thumb=http://clansmkr.comze.com/images/music.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Podcasts
 URL=http://navi-x.googlecode.com/svn/trunk/networks/podcasts/index.txt 
 thumb=http://clansmkr.comze.com/images/podcasts.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Pictures
