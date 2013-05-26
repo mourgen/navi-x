@@ -191,5 +191,4 @@ URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
 type=playlist
 name=Watchseries TV
 thumb=http://navix.zapto.org/watchseries/images/logo.png
-#thumb=http://www.navixtreme.com/boseman/images/watchseries_logo.png
 URL=http://navix.zapto.org/watchseries/home.plx
