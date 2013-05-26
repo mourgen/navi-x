@@ -8,14 +8,6 @@ name=Movie & Film Search
 URL=http://julesallen77.com/Navi-J/imdb/GenreY.php
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
-type=playlist
-name=Bee TV Guide
-thumb=http://scrape.navixtreme.com/boseman/images/btvguide_logo.png
-URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_btvguide
-date=2013-01-26
-player=default
-rating=-1.00
-
 #type=playlist
 #name=1 Channel
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/1ch.png
