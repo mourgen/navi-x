@@ -8,7 +8,6 @@ name=Shoutcast Internet Radio
 URL=http://navi-x.mooo.com/shoutcast.plx
 thumb=http://navi-x.mooo.com/shoutcast.png
 
-
 type=playlist
 name=Mixtapes.tv
 thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
