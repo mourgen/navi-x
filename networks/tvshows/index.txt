@@ -40,8 +40,8 @@ URL=http://www.navixtreme.com/scrape/adultswim/
 
 type=playlist
 name=Animefreak.tv
-thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_animefreak.jpg
-URL=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_animefreak.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_animefreak.jpg
+URL=http://www.navixtreme.com/scrape/animefreak/
 
 #type=playlist
 #name=Bee TV Guide
