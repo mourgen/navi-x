@@ -43,13 +43,13 @@ name=Animefreak.tv
 thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_animefreak.jpg
 URL=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_animefreak.jpg
 
-type=playlist
-name=Bee TV Guide
-thumb=http://scrape.navixtreme.com/boseman/images/btvguide_logo.png
-URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_btvguide
-date=2013-01-26
-player=default
-rating=-1.00
+#type=playlist
+#name=Bee TV Guide
+#thumb=http://scrape.navixtreme.com/boseman/images/btvguide_logo.png
+#URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_btvguide
+#date=2013-01-26
+#player=default
+#rating=-1.00
 
 type=playlist
 name=Bravo
