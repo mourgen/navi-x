@@ -69,13 +69,13 @@ name=StageVu Search
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/stagevu_01.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
 
-type=playlist
-name=TV Release
-thumb=http://scrape.navixtreme.com/boseman/images/tv-release_logo.png
-URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_tvrelease
-date=2013-01-14
-player=default
-rating=-1.00
+#type=playlist
+#name=TV Release
+#thumb=http://scrape.navixtreme.com/boseman/images/tv-release_logo.png
+#URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_tvrelease
+#date=2013-01-14
+#player=default
+#rating=-1.00
 
 type=playlist
 name=VeeHD
