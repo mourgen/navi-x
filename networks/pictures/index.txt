@@ -25,7 +25,7 @@ thumb=http://www.digitalblasphemy.com/graphics/dbfoot.png
 
 type=playlist
 name=The Big Picture - Boston.com
-thumb=http://a6.mzstatic.com/us/r1000/014/Purple/d8/c9/08/mzi.zevxlzbu.175x175-75.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/big_picture.jpg
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A//pipes.yahoo.com/pipes/pipe.run%3F_id%3D1e9d2efdaa6c55666cb45651bc886cd9%26_render%3Djson
 
 type=playlist
