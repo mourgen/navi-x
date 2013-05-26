@@ -28,10 +28,10 @@ name=YouTube
 URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Youtube_Logo_2005.png
 
-type=playlist
-name=ABC
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_abc.png
-URL=http://www.navixtreme.com/scrape/abc/
+#type=playlist
+#name=ABC
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_abc.png
+#URL=http://www.navixtreme.com/scrape/abc/
 
 type=playlist
 name=Adult Swim
