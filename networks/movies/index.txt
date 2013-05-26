@@ -6,7 +6,7 @@ view=thumbnails
 type=playlist
 name=Movie & Film Search
 URL=http://julesallen77.com/Navi-J/imdb/GenreY.php
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
 type=playlist
 name=1 Channel
