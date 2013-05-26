@@ -8,6 +8,7 @@ description=/description
 type=playlist
 name=Movie & Film Search
 URL=http://julesallen77.com/Navi-J/imdb/GenreY.php
+thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
 date=2012-11-25
 
 #type=playlist
