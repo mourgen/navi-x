@@ -6,118 +6,118 @@ view=thumbnails
 type=playlist
 name=News
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/news/index.txt 
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
 
 type=playlist
 name=Sports
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/sports/index.txt
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
 
 type=playlist
 name=Games
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/games/index.txt
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
 
 type=playlist
 name=Video Sharing Sites
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/video_sites/index.txt
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
 
 type=playlist
 name=YouTube
-thumb=http://upload.wikimedia.org/wikipedia/en/b/b5/Youtube_Logo_2005.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
 
 type=playlist
 name=ABC
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_abc.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_abc.png
 URL=http://www.navixtreme.com/scrape/abc/
 
 type=playlist
 name=Adult Swim
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_adult_swim.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_adult_swim.png
 URL=http://www.navixtreme.com/scrape/adultswim/
 
 type=playlist
 name=Animefreak.tv
 thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_animefreak.jpg
-URL=http://www.navixtreme.com/scrape/animefreak/
+URL=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_animefreak.jpg
 
 type=playlist
 name=Bravo
-thumb=http://www.navixtreme.com/justme4u2c/images/Bravo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Bravo.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl?q=bravo/
 
 type=playlist
 name=CBS
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_cbs.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_cbs.png
 URL=http://www.navixtreme.com/scrape/cbs/
 
 type=playlist
 name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://www.navixtreme.com/justme4u2c/images/CW.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/CW.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/CW.pl
 
 type=playlist
 name=DIY Network
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_diynetwork.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_diynetwork.png
 URL=http://www.navixtreme.com/scrape/diynetwork/
 
 type=playlist
 name=E! Online
-thumb=http://scrape.navixtreme.com/justme4u2c/images/E!.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/E.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/E!Online.pl
 
 type=playlist
 name=Engadget
-thumb=http://www.navixtreme.com/justme4u2c/images/Engadget.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Engadget.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Engadget.pl
 
 type=playlist
 name=Food Network
-thumb=http://www.navixtreme.com/justme4u2c/images/Food_Network.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Food_Network.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/FoodNetwork.pl
 
 type=playlist
 name=GSN (Game Show Network)
-thumb=http://www.navixtreme.com/justme4u2c/images/GSN.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/GSN.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/GSN.pl
 
 type=playlist
 name=HGTV
-thumb=http://www.navixtreme.com/justme4u2c/images/HGTV_Logo.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/HGTV_Logo.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl
 date=2012-02-02
 
 type=playlist
 name=History Channel [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://www.navixtreme.com/justme4u2c/images/HistoryChannel.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/HGTV_Logo.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
 
 type=playlist
 name=Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
-thumb=http://www.navixtreme.com/justme4u2c/images/JustinTV.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/JustinTV.png
 date=2012-02-12
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/JustinTV.pl
 
 type=playlist
 name=Live Well HD
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_livewellhd.gif
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_livewellhd.gif
 URL=http://www.navixtreme.com/scrape/livewellhd/
 
 type=playlist
 name=Maxim
-thumb=http://www.navixtreme.com/images/logo_maxim.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo_maxim.jpg
 URL=http://www.navixtreme.com/scrape/maxim/
 
 type=playlist
 name=Mekong TV
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_mekongtv.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_mekongtv.png
 URL=http://www.navixtreme.com/scrape/mekongtv/
 
 type=playlist
 name=National Geographic
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_natgeo.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_natgeo.jpg
 URL=http://www.navixtreme.com/scrape/natgeo/
 
 #type=playlist
@@ -128,67 +128,67 @@ URL=http://www.navixtreme.com/scrape/natgeo/
 
 type=playlist
 name=NBC
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_nbc.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_nbc.jpg
 URL=http://www.navixtreme.com/scrape/nbc/
 
 type=playlist
 name=Onion News Network
-thumb=http://www.navixtreme.com/justme4u2c/images/Onion_News_Network.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Onion_News_Network.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 
 type=playlist
 name=Pokerstars TV
-thumb=http://www.navixtreme.com/justme4u2c/images/PokerstarsTV.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/PokerstarsTV.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
 
 type=playlist
 name=Revision3
-thumb=http://www.navixtreme.com/justme4u2c/images/Revision3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Revision3.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
 
 type=playlist
 name=Sesame Street
-thumb=http://www.navixtreme.com/justme4u2c/images/SesameStreet.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/SesameStreet.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
 type=playlist
 name=SyFy
-thumb=http://www.navixtreme.com.nyud.net/images/backgrounds/thumb_syfy.gif
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_syfy.gif
 URL=http://www.navixtreme.com/scrape/scifi/
 player=default
 rating=-1.00
 
 type=playlist
 name=The Learning Channel
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_discovery_tlc.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_discovery_tlc.png
 URL=http://www.navixtreme.com/scrape/discovery/tlc
 
 type=playlist
 name=TMZ
-thumb=http://www.navixtreme.com/justme4u2c/images/TMZ.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/TMZ.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/TMZ.pl
 
 type=playlist
 name=TruTV
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_trutv.gif
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_trutv.gif
 URL=http://www.navixtreme.com/scrape/trutv/
 
 type=video
 name=TWiT Broadcast (XBMC Only)
 URL=http://bglive-a.bitgravity.com/twit/live/high
-thumb=http://www.thisweekinphoto.com/wp-content/uploads/2010/07/twit-logo.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/twit-logo.jpg
 
 type=playlist
 name=USA Network
-thumb=http://www.navixtreme.com/justme4u2c/images/USA.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/USA.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
 
 type=playlist
 name=WB Kids
-thumb=http://scrape.navixtreme.com/justme4u2c/images/Kids_WB.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Kids_WB.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
 
 type=playlist
 name=Watchseries TV
-thumb=http://navix.zapto.org/watchseries/images/logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo1.png
 URL=http://navix.zapto.org/watchseries/home.plx
