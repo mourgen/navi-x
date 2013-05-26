@@ -25,16 +25,16 @@ URL=http://navi-x.googlecode.com/svn/trunk/networks/music/tunein.txt
 
 type=playlist
 name=Radiolala
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_radiolala.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Radiolala2.png
 URL=http://www.navixtreme.com/scrape/radiolala/
 
 type=playlist
 name=Vevo (U.S.A. and Canada Only)
-thumb=http://www.navixtreme.com/justme4u2c/images/Vevo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Vevo-logo-640x2232.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl
 description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
 
 type=playlist
 name=Librivox Audio Books
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_librivox.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/librivox-logo2.png
 URL=http://www.navixtreme.com/scrape/librivox/
