@@ -3,7 +3,7 @@ title=Help and Support
 background=http://i1061.photobucket.com/albums/t461/billdaly111/bg.jpg
 description=Please visit www.Navixtreme.com/forums or www.XBMCHub.com/forums for Navi-X support!  Team Navi-X/description
 #
-type=rss:download
+type=playlist
 name=UPDATE NAVI-X
 URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts.plx
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
