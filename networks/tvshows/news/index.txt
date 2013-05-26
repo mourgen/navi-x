@@ -3,7 +3,7 @@ background=http://website.navi-x.org/networks/bg.jpg
 title=Navi-X Networks - TV Shows - News
 view=thumbnails
 
-type=rss:video#type=playlist
+#type=rss:video#type=playlist
 #name=ABC News
 #URL=http://www.box.net/rssdownload/664046428/abc.txt
 #thumb=http://website.navi-x.org/networks/logos/abc.jpg
