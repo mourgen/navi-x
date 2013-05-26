@@ -6,15 +6,19 @@ description=Please visit www.Navixtreme.com/forums or www.XBMCHub.com/forums for
 type=rss:download
 name=Download Navi-X Updates
 URL=http://pipes.yahoo.com/pipes/pipe.run?_id=a4a5071c7d45c8c74a46b2941c9c8495&_render=rss&t2=download#type=rss
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
 type=rss
 name=View Reported Issues
 URL=http://pipes.yahoo.com/pipes/pipe.run?_id=681d39a9c9ba58457db3ac8ef03a7391&_render=rss
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
 type=rss:atom
 name=Navi-Xtreme - Latest Posts
 URL=http://www.navixtreme.com/feeds/newtopics.xml
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
 type=rss:atom
 name=Navi-Xtreme - New Topics
 URL=http://www.navixtreme.com/feeds/newtopics.xml
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
