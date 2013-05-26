@@ -154,10 +154,10 @@ name=Revision3
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Revision3.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
 
-type=playlist
-name=Sesame Street
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/SesameStreet.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
+#type=playlist
+#name=Sesame Street
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/SesameStreet.png
+#URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
 type=playlist
 name=SyFy
