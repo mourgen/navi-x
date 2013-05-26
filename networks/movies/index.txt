@@ -6,80 +6,80 @@ view=thumbnails
 type=playlist
 name=Movie & Film Search
 URL=http://julesallen77.com/Navi-J/imdb/GenreY.php
-thumb=http://navi-x.googlecode.com/svn/trunk/networks/navi-x3.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/navi-x3.png
 
 type=playlist
 name=1 Channel
-thumb=http://www.userlogos.org/files/logos/Sanjay/1ch.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/1ch.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ck_1channel?mediatype=&genretype=&sorttype=sort=release&phpsessid=enput50sruuqbqo0l4529jdfd4&cookies=1&server
 
 type=playlist
 name=B Movies
-thumb=http://www.navixtreme.com/justme4u2c/images/bMovies.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/bMovies.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/bMovies.pl
 
 type=playlist
 name=Crackle Movies
 URL=http://www.navixtreme.com/scrape/cracklemovies/
-thumb=http://scrape.navixtreme.com/images/backgrounds/thumb_crackle.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_crackle.png
 
 type=playlist
 name=Extramina
-thumb=http://www.navixtreme.com/boseman/images/x_logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/x_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina
 
 #type=playlist
 #name=FastpassTV
-#thumb=http://www.navixtreme.com/boseman/images/fastpasstv.png
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/fastpasstv.png
 #URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_fastpasstv
 
 type=playlist
 name=HTTPfilm
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_httpfilm.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_httpfilm.png
 URL=http://scrape.navixtreme.com/scrape/httpfilm/
 date=2012-03-07
 
 type=playlist
 name=IceFilms.info
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_icefilms.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_icefilms.png
 URL=http://scrape.navixtreme.com/scrape/icefilms/
 
 type=playlist
 name=Movie25
-thumb=http://www.navixtreme.com/justme4u2c/images/Movie25.jpg
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Movie25.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl
 
 type=playlist
 name=Movie2K
-thumb=http://www.navixtreme.com/boseman/images/movie2K_logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/movie2K_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_movie2kv2?q=getmenu/en/Movies
 
 type=playlist
 name=Noobroom
-thumb=http://www.navixtreme.com/boseman/images/noobroom_logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/noobroom_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_noobroom
 
 type=playlist
 name=Project Free Movies
-thumb=http://www.navixtreme.com/boseman/images/projectfree4.gif
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/projectfree4.gif
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_freetv?q=getmovies
 
 type=playlist
 name=SolarMovie
-thumb=http://navix.zapto.org/solarmovie/images/logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo.png
 URL=http://navix.zapto.org/solarmovie/home.plx
 
 type=playlist
 name=StageVu Search
-thumb=http://userlogos.org/files/logos/jumpordie/stagevu_01.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/stagevu_01.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_svsearch
 
 type=playlist
 name=VeeHD
-thumb=http://www.navixtreme.com/boseman/images/V_logo.gif
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/V_logo.gif
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd
 
 type=playlist
 name=Videofriender Extended Search
-thumb=http://www.navixtreme.com/boseman/images/vf_logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/vf_logo.png
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
