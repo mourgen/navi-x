@@ -1,7 +1,7 @@
 version=8
 title=Navi-X Networks
 view=thumbnails
-background=http://navi-x.googlecode.com/svn/trunk/networks/new1.jpg
+background=http://farm3.staticflickr.com/2834/8835486138_11677cc59f_o.jpg
 
 type=playlist
 name=Search Navi-X
