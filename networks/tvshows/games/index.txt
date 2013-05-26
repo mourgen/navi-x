@@ -11,7 +11,7 @@ URL=http://www.navixtreme.com/scrape/g4tv/
 
 type=playlist
 name=G4TV Podcast
-thumb=default
+thumb=http://www.navixtreme.com/images/backgrounds/thumb_g4tv.png
 URL=http://www.navi-x.org/playlists/podcasts/Technology/g4tv.plx
 
 type=playlist
