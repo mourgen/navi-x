@@ -7,19 +7,16 @@ type=playlist
 name=Search Navi-X
 URL=http://navi-x.googlecode.com/svn/trunk/networks/content_search/index.txt
 thumb=http://icons.iconarchive.com/icons/icons-land/vista-elements/256/Search-icon.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=TV Shows
 URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/index.txt
 thumb=http://clansmkr.comze.com/images/tvshows.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Movies
 URL=http://navi-x.googlecode.com/svn/trunk/networks/movies/index.txt
 thumb=http://clansmkr.comze.com/images/movies.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Music
@@ -37,16 +34,13 @@ type=playlist
 name=Pictures
 URL=http://navi-x.googlecode.com/svn/trunk/networks/pictures/index.txt
 thumb=http://clansmkr.comze.com/images/pictures.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=playlist
 name=Apps
 URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
 thumb=http://clansmkr.comze.com/images/apps.png
-icon=http://navi-x.googlecode.com/svn/trunk/networks/icon.png
 
 type=rss
 name=Navi-X on Twitter
 URL=http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
 thumb=http://clansmkr.comze.com/images/twitter_logo.png
-icon=http://navi-x.googlecode.com/svn/trunk/website/images/twitter_icon.png
