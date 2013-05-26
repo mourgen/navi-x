@@ -1,6 +1,6 @@
 version=8
 title=Help and Support
-background=http://www.navixtreme.com/images/backgrounds/bkg_navix_bh_plain.jpg
+background=http://farm3.staticflickr.com/2834/8835486138_11677cc59f_o.jpg
 logo=http://navi-x.googlecode.com/svn/trunk/networks/logo.png
 description=Please visit http://www.navixtreme.com for full Navi-X support!  Team Navi-X/description
 #
