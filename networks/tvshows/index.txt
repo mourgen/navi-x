@@ -189,6 +189,14 @@ thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Kids_WB.png
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/WBKids.pl
 
 type=playlist
+name=Watch Cartoon Online
+thumb=http://scrape.navixtreme.com/boseman/images/watchcartoononline_logo.png
+URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_watchcartoononline
+date=2012-12-31
+player=default
+rating=-1.00
+
+type=playlist
 name=Watchseries TV
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo1.png
 URL=http://navix.zapto.org/watchseries/home.plx
