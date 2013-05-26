@@ -1,5 +1,5 @@
 version=8
-background=http://farm3.staticflickr.com/2834/8835486138_11677cc59f_o.jpg
+background=http://i1061.photobucket.com/albums/t461/billdaly111/bg.jpg
 title=Navi-X Networks - Search Content
 logo=http://website.navi-x.org/networks/logo.png
 #
