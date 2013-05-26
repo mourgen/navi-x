@@ -2,8 +2,6 @@ version=8
 background=http://farm3.staticflickr.com/2834/8835486138_11677cc59f_o.jpg
 title=Navi-X Networks - Movies
 view=thumbnails
-#logo=http://website.navi-x.org/networks/logo.png
-description=/description
 
 type=playlist
 name=Movie & Film Search
