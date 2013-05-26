@@ -2,46 +2,26 @@ version=8
 background=http://farm3.staticflickr.com/2834/8835486138_11677cc59f_o.jpg
 title=Navi-X Networks - Music
 view=thumbnails
-logo=http://website.navi-x.org/networks/logo.png
-description=/description
 
 type=playlist
 name=Shoutcast Internet Radio
 URL=http://navi-x.mooo.com/shoutcast.plx
 thumb=http://navi-x.mooo.com/shoutcast.png
-#thumb=http://testtikkiew.googlecode.com/files/broken.png
-#description=(semi-broken) Some playlist are empty and possible some streams don't work./description
+
 
 type=playlist
 name=Mixtapes.tv
 thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
-date=2012-03-13
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
-
-#type=playlist
-#name=Grooveshark
-#URL=http://www.navixtreme.com/scrape/grooveshark/
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_grooveshark.png
-#date=2011-2-6
-
-#type=playlist
-#name=RadioTime (deprecated - replaced by TuneIn)
-#thumb=http://www.navi-x.org/playlists/radiotime.jpg
-#URL=http://navi-x.googlecode.com/svn/trunk/networks/music/radiotime.txt
-#description= Tikkiew : Original playlist type|is|opml  URL|is|http://opml.radiotime.com/Browse.ashx , 
-but changed it to add Search. As requested by a user./description
-#date=2010-12-23
 
 type=playlist
 name=SKY.fm
 thumb=http://www.navixtreme.com/justme4u2c/images/SKY.jpg
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
-date=2012-03-16
 
 type=playlist
 name=TuneIn
 thumb=http://d3bwsr3zpy54hy.cloudfront.net/201111111626/img/products/appicon-free.png
-#thumb=http://ipad-os.net/wp-content/uploads/2011/10/Tunein.jpg
 URL=http://navi-x.googlecode.com/svn/trunk/networks/music/tunein.txt
 
 type=playlist
@@ -49,22 +29,11 @@ name=Radiolala
 thumb=http://www.navixtreme.com/images/backgrounds/thumb_radiolala.png
 URL=http://www.navixtreme.com/scrape/radiolala/
 
-#type=playlist
-#name=MTV Music Videos
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_mtv.jpg
-#URL=http://www.navixtreme.com/scrape/mtv_music/
-
 type=playlist
 name=Vevo (U.S.A. and Canada Only)
 thumb=http://www.navixtreme.com/justme4u2c/images/Vevo.png
 URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl
 description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
-
-#type=playlist
-#name=Top 40 Charts
-#thumb=http://www.navixtreme.com/images/backgrounds/thumb_top40-charts.png
-#URL=http://www.navixtreme.com/scrape/top40charts/
-#description=(broken) Seems there is nothing to scraper anymore on the site or site has been changed./description
 
 type=playlist
 name=Librivox Audio Books
