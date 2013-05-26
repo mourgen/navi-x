@@ -23,5 +23,3 @@ type=playlist
 name=Revision3
 thumb=http://navi-x.mooo.com/revision3.png
 URL=http://navi-x.mooo.com/revision3/revision3-MP4-HD.plx
-
-
