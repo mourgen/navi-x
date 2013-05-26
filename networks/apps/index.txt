@@ -7,15 +7,17 @@ logo=http://website.navi-x.org/networks/logo.png
 type=playlist
 name=Xbox Apps (for Modified Xbox 1)
 URL=http://www.navixtreme.com/playlist/39888/xbox_applications.plx
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/xbmc-icon2.png
 
 type=playlist
 name=XBMC Unofficial Add-on Repositories (XBMC Only)
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A//pipes.yahoo.com/pipes/pipe.run%3F_id%3D6045e49745bf8620eb4816fd332ccdff%26_render%3Djson
-#URL=http://pipes.yahoo.com/pipes/pipe.run?_id=6bce5503e3eed7ac27f0cdc9eb6a0626&_render=rss
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/xbmc-icon2.png
 
 type=playlist
 name=Navi-X Plugin (XBMC Only)
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3Df7b1903fb8aca8077084a04cec3b6fd6%26_render%3Djson
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
 
 
