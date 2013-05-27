@@ -149,10 +149,10 @@ URL=http://www.navixtreme.com/scrape/nbc/
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/PokerstarsTV.png
 #URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/PokerStars.pl
 
-type=playlist
-name=Revision3
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Revision3.png
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
+#type=playlist
+#name=Revision3
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Revision3.png
+#URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Revision3(MediaType).pl
 
 #type=playlist
 #name=Sesame Street
