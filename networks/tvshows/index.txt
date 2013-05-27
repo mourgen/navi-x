@@ -123,10 +123,10 @@ URL=http://www.navixtreme.com/scrape/livewellhd/
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_mekongtv.png
 #URL=http://www.navixtreme.com/scrape/mekongtv/
 
-type=playlist
-name=National Geographic
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_natgeo.jpg
-URL=http://www.navixtreme.com/scrape/natgeo/
+#type=playlist
+#name=National Geographic
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_natgeo.jpg
+#URL=http://www.navixtreme.com/scrape/natgeo/
 
 #type=playlist
 #name=NASA
