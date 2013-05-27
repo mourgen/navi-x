@@ -39,10 +39,10 @@ name=IceFilms.info
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_icefilms.png
 URL=http://scrape.navixtreme.com/scrape/icefilms/
 
-type=playlist
-name=Movie25
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Movie25.jpg
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl
+#type=playlist
+#name=Movie25
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Movie25.jpg
+#URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/Movie25.pl
 
 type=playlist
 name=Movie2K
