@@ -56,10 +56,10 @@ URL=http://www.navixtreme.com/scrape/animefreak/
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Bravo.png
 #URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl?q=bravo/
 
-type=playlist
-name=CBS
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_cbs.png
-URL=http://www.navixtreme.com/scrape/cbs/
+#type=playlist
+#name=CBS
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_cbs.png
+#URL=http://www.navixtreme.com/scrape/cbs/
 
 type=playlist
 name=The CW [COLOR=FF00FFFF](XBMC only)[/COLOR]
