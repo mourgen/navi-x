@@ -113,10 +113,10 @@ name=Live Well HD
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_livewellhd.gif
 URL=http://www.navixtreme.com/scrape/livewellhd/
 
-type=playlist
-name=Maxim
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo_maxim.jpg
-URL=http://www.navixtreme.com/scrape/maxim/
+#type=playlist
+#name=Maxim
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo_maxim.jpg
+#URL=http://www.navixtreme.com/scrape/maxim/
 
 type=playlist
 name=Mekong TV
