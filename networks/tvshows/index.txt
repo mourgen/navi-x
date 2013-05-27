@@ -166,10 +166,10 @@ URL=http://www.navixtreme.com/scrape/scifi/
 player=default
 rating=-1.00
 
-type=playlist
-name=The Learning Channel
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_discovery_tlc.png
-URL=http://www.navixtreme.com/scrape/discovery/tlc
+#type=playlist
+#name=The Learning Channel
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_discovery_tlc.png
+#URL=http://www.navixtreme.com/scrape/discovery/tlc
 
 type=playlist
 name=TMZ
