@@ -47,3 +47,4 @@ type=rss
 name=Navi-X on Twitter
 URL=http://api.twitter.com/1/statuses/user_timeline.rss?screen_name=navi_x
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/twitter_logo.png
+background=http://i1061.photobucket.com/albums/t461/billdaly111/bg.jpg
