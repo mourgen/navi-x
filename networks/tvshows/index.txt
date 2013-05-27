@@ -97,10 +97,10 @@ thumb=http://i1061.photobucket.com/albums/t461/billdaly111/HGTV_Logo.jpg
 URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HGTV.pl
 date=2012-02-02
 
-type=playlist
-name=History Channel [COLOR=FF00FFFF](XBMC only)[/COLOR]
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/HistoryChannel.png
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
+#type=playlist
+#name=History Channel [COLOR=FF00FFFF](XBMC only)[/COLOR]
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/HistoryChannel.png
+#URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/HistoryChannel.pl
 
 type=playlist
 name=Justin TV [COLOR=FF00FF00](Boxee only)[/COLOR]
