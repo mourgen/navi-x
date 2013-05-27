@@ -118,10 +118,10 @@ URL=http://www.navixtreme.com/scrape/livewellhd/
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/logo_maxim.jpg
 #URL=http://www.navixtreme.com/scrape/maxim/
 
-type=playlist
-name=Mekong TV
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_mekongtv.png
-URL=http://www.navixtreme.com/scrape/mekongtv/
+#type=playlist
+#name=Mekong TV
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_mekongtv.png
+#URL=http://www.navixtreme.com/scrape/mekongtv/
 
 type=playlist
 name=National Geographic
