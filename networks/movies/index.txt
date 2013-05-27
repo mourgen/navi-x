@@ -82,7 +82,7 @@ name=VeeHD
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/V_logo.gif
 URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_veehd
 
-type=playlist
-name=Videofriender Extended Search
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/vf_logo.png
-URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
+#type=playlist
+#name=Videofriender Extended Search
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/vf_logo.png
+#URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_vfsearch
