@@ -159,12 +159,12 @@ URL=http://www.navixtreme.com/scrape/nbc/
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/SesameStreet.png
 #URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SesameStreet.pl
 
-type=playlist
-name=SyFy
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_syfy.gif
-URL=http://www.navixtreme.com/scrape/scifi/
-player=default
-rating=-1.00
+#type=playlist
+#name=SyFy
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_syfy.gif
+#URL=http://www.navixtreme.com/scrape/scifi/
+#player=default
+#rating=-1.00
 
 #type=playlist
 #name=The Learning Channel
