@@ -28,11 +28,11 @@ thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_crackle.png
 #thumb=http://i1061.photobucket.com/albums/t461/billdaly111/x_logo.png
 #URL=http://scrape.navixtreme.com/cgi-bin/boseman/Scrapers/ct_extramina
 
-type=playlist
-name=HTTPfilm
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_httpfilm.png
-URL=http://scrape.navixtreme.com/scrape/httpfilm/
-date=2012-03-07
+#type=playlist
+#name=HTTPfilm
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_httpfilm.png
+#URL=http://scrape.navixtreme.com/scrape/httpfilm/
+#date=2012-03-07
 
 type=playlist
 name=IceFilms.info
