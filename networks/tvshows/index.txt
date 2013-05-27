@@ -186,10 +186,10 @@ name=TWiT Broadcast (XBMC Only)
 URL=http://bglive-a.bitgravity.com/twit/live/high
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/twit-logo.jpg
 
-type=playlist
-name=USA Network
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/USA.png
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
+#type=playlist
+#name=USA Network
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/USA.png
+#URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/USA_Network.pl?q=main/
 
 type=playlist
 name=WB Kids
