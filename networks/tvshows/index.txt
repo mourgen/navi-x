@@ -139,10 +139,10 @@ name=NBC
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/thumb_nbc.jpg
 URL=http://www.navixtreme.com/scrape/nbc/
 
-type=playlist
-name=Onion News Network
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Onion_News_Network.jpg
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
+#type=playlist
+#name=Onion News Network
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Onion_News_Network.jpg
+#URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/OnionNewsNetwork.pl
 
 type=playlist
 name=Pokerstars TV
