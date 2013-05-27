@@ -23,7 +23,7 @@ name=Navi-Xtreme - New Topics
 URL=http://www.navixtreme.com/feeds/newtopics.xml
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
-type=rss
+type=atom
 name=What Are People Saying About Navi-X on Twitter?
 URL=http://search.twitter.com/search.atom?q=navi-x
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
