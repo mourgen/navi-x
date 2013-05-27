@@ -51,10 +51,10 @@ URL=http://www.navixtreme.com/scrape/animefreak/
 #player=default
 #rating=-1.00
 
-type=playlist
-name=Bravo
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Bravo.png
-URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl?q=bravo/
+#type=playlist
+#name=Bravo
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Bravo.png
+#URL=http://scrape.navixtreme.com/cgi-bin/justme4u2c/scrapers/BravoTV.pl?q=bravo/
 
 type=playlist
 name=CBS
