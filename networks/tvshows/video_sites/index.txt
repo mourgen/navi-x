@@ -1,16 +1,16 @@
 version=8
-background=http://website.navi-x.org/networks/bg.jpg
+background=http://i1061.photobucket.com/albums/t461/billdaly111/bg.jpg
 title=Navi-X Networks - TV Shows - Video Sharing Sites
 view=thumbnails
 logo=http://website.navi-x.org/networks/logo.png
 
 type=playlist
 name=YouTube
-thumb=http://www.navi-x.org/playlists/youtube/logo.png
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Youtube_Logo_2005.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/youtube/index.plx
 
 type=playlist
 name=Fragg.me
-thumb=http://www.navixtreme.com/images/backgrounds/thumb_fraggme.gif
+thumb=http://www.madebynomo.co.uk/wp-content/uploads/2012/12/Fragg-logo-originals-logo.jpg
 URL=http://www.navixtreme.com/scrape/fraggme/
 
