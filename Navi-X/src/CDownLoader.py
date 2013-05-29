@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -258,15 +258,16 @@ class CDownLoader(threading.Thread):
                         ext = match.group(1)
 
             # processed youtube URL
-            match=re.search('youtube\.com/.*?&itag=(\d+)', loc_url)
-            if match:
-                fmt=int(match.group(1))
-                if [5,6,34,35].index(fmt) >= 0:
-                    ext='.flv'
-                elif [43,44,45,46,100,101,46,102].index(fmt) >= 0:
-                    ext='.webm'
-                else:
-                    ext='.mp4' # [18,22,37,38,83,82,85,84] - default to instead of testing for
+#the code below is failing. Do we still need it?
+#            match=re.search('youtube\.com/.*?&itag=(\d+)', loc_url)
+#            if match:
+#                fmt=int(match.group(1))
+#                if [5,6,34,35].index(fmt) >= 0:
+#                    ext='.flv'
+#                elif [43,44,45,46,100,101,46,102].index(fmt) >= 0:
+#                    ext='.webm'
+#                else:
+#                    ext='.mp4' # [18,22,37,38,83,82,85,84] - default to instead of testing for
 
         # safety net
         if len(ext)>6:

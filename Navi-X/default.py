@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -35,7 +35,7 @@ __scriptname__ = "Navi-X"
 __author__ = "Navi-X team"
 __url__ = "http://code.google.com/p/navi-x/"
 __credits__ = "Navi-X team"
-__version__ = "3.75"
+__version__ = "3.77"
 
 addon = xbmcaddon.Addon(id='script.navi-x')
 RootDir = addon.getAddonInfo('path')

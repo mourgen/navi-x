@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -63,6 +63,7 @@ BUTTON_LEFT = 125
 LIST_LIST4 = 127
 BUTTON_RATE = 128
 LIST_LIST5 = 129
+BUTTON_RIGHT = 130
 
 ######################################################################
 # Description: creates internal variables for the widget controls
@@ -73,7 +74,7 @@ def load_skin(window):
     #images
     window.bg = window.getControl(IMAGE_BG)
     window.bg1 = window.getControl(IMAGE_BG1)
-    window.logo = window.getControl(IMAGE_LOGO)
+    #window.logo = window.getControl(IMAGE_LOGO)
     window.user_thumb = window.getControl(IMAGE_THUMB)
     window.download_logo = window.getControl(IMAGE_DLLOGO)
     window.rating = window.getControl(IMAGE_RATING)    
@@ -127,6 +128,8 @@ def load_skin(window):
     window.list4.addItem(item)      
     item = xbmcgui.ListItem("Rate It") 
     window.list4.addItem(item)   
+    item = xbmcgui.ListItem("Reload Playlist") 
+    window.list4.addItem(item)      
     item = xbmcgui.ListItem("More Options...") 
     window.list4.addItem(item)   
     

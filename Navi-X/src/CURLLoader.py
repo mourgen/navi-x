@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -45,6 +45,7 @@ except: Emulating = False
 class CURLLoader:
     def __init__(self, parent=0):
         self.parent=parent
+        self.processed=False
 
 ######################################################################
 # Description: This class is used to retrieve the direct URL of given
@@ -68,7 +69,7 @@ class CURLLoader:
                 result = self.geturl_redirect(URL, mediaitem) 
         else:
             self.loc_url = URL
-        
+               
         return result
 
 ######################################################################

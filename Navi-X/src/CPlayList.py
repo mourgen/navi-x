@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -72,6 +72,7 @@ class CPlayList:
         self.playmode = 'default'
         self.view = 'default'        
         self.start_index = 0
+        self.expires = ''
         self.list = []
         self.data = {}
     
@@ -136,6 +137,7 @@ class CPlayList:
         loader.load(self.URL, proxy=proxy)
         if loader.state != 0:
             return -2
+               
         data = loader.data.splitlines()
         
         #defaults
@@ -163,6 +165,7 @@ class CPlayList:
         self.processor = mediaitem.processor
         self.playmode = 'default'         
         self.start_index = 0
+        self.expires = ''
 
         #parse playlist entries 
         counter = 0
@@ -465,12 +468,13 @@ class CPlayList:
                 #get the thumb
                 index = m.find('<media:thumbnail')
                 if index != -1:
-                    index2 = m.find('url=', index+16)
-                    if index2 != -1:
-                        index3 = m.find('"', index2+5)
-                        if index3 != -1:
-                            value = m[index2+5:index3]
-                            tmp.thumb = value
+                    tmp.thumb = self.findRSSattribute(m, index+16, 'url', tmp.thumb)
+#                    index2 = m.find('url=', index+16)
+#                    if index2 != -1:
+#                        index3 = m.find('"', index2+5)
+#                        if index3 != -1:
+#                            value = m[index2+5:index3]
+#                            tmp.thumb = value
                             
                 if tmp.thumb == 'default':
                     #no thumb image found, therefore grab any jpg image in the item
@@ -1458,6 +1462,10 @@ class CPlayList:
             f.write('player=' + self.player + '\n')
         if self.playmode != 'default':            
             f.write('playmode=' + self.playmode + '\n')
+        if self.view != 'default':            
+            f.write('view=' + self.view + '\n')           
+        if self.expires != '':            
+            f.write('expires=' + self.expires + '\n')                       
         f.write('#\n')
 
         for i in range(start, end):
@@ -1512,3 +1520,22 @@ class CPlayList:
             return "" 
      
         return year + '-' + month + '-' + day + ' ' + tim
+               
+    ######################################################################        
+    def findRSSattribute(self, datastring, startpos, attribute, defaultstring):
+        index = datastring.find(attribute, startpos)
+        if index != -1:
+            index1 = datastring.find('"', index+len(attribute))
+            index2 = datastring.find("'", index+len(attribute))
+           
+            if (index1 != -1) and ((index2 == -1) or (index1 < index2)):
+                index3 = datastring.find('"', index1+1)
+                if index3 != -1:
+                    return datastring[index1+1:index3]
+                
+            if (index2 != -1) and ((index1 == -1) or (index2 < index1)):
+                index3 = datastring.find("'", index2+1)
+                if index3 != -1:
+                    return datastring[index2+1:index3]
+
+        return defaultstring

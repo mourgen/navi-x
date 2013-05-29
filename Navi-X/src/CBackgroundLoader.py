@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -61,17 +61,20 @@ class CBackgroundLoader(threading.Thread):
           
         self.counter=0
         self.URL = ''
+        self.URL2 = ''
         self.page = 0
         
     def run(self):
         while self.killed == False:   
             time.sleep(0.1) #delay 0,1 second 
-            
+                       
             if self.MainWindow.list == self.MainWindow.list5:           
                 self.LoadThumbPanelView()          
             else:
                 self.LoadThumbListView()                
-                
+            
+            self.LoadBackGroundImage()
+    
             self.UpdateTime()            
     def kill(self):
         self.killed = True
@@ -109,9 +112,9 @@ class CBackgroundLoader(threading.Thread):
                     ext = getFileExtension(m)
 
                     loader = CFileLoader2() #file loader
-                    loader.load(m, imageCacheDir + "thumb." + ext, timeout=2, proxy="INCACHE", content_type='image')
+                    loader.load(m, imageCacheDir + "thumb." + ext, timeout=30, proxy="INCACHE", content_type='image')
                     if loader.state != 0:
-                        loader.load(m, imageCacheDir + "thumb." + ext, timeout=2, proxy="ENABLED", content_type='image')
+                        loader.load(m, imageCacheDir + "thumb." + ext, timeout=30, proxy="ENABLED", content_type='image')
                         if (self.MainWindow.state_busy == 0) and \
                            (self.URL == self.MainWindow.URL) and \
                            (self.MainWindow.list == self.MainWindow.list5) and \
@@ -160,7 +163,7 @@ class CBackgroundLoader(threading.Thread):
                             if (ext != 'jpg') and (ext != 'png') and (ext != 'gif'):
                                 ext = ''
                             loader = CFileLoader2() #file loader
-                            loader.load(m, imageCacheDir + "thumb." + ext, proxy="ENABLED", content_type='image')
+                            loader.load(m, imageCacheDir + "thumb." + ext, timeout=30, proxy="ENABLED", content_type='image')
                             if loader.state == 0: #success
                                 self.MainWindow.thumb_visible = True
                                 thumb_update = True
@@ -172,7 +175,7 @@ class CBackgroundLoader(threading.Thread):
                    
                 index2 = self.MainWindow.getPlaylistPosition()
 
-            if self.MainWindow.thumb_visible == True:
+            if (self.MainWindow.state_busy == 0) and (self.MainWindow.thumb_visible == True):
                 if thumb_update == True:
                     self.MainWindow.user_thumb.setVisible(0)
                     self.MainWindow.user_thumb.setImage("")
@@ -183,7 +186,44 @@ class CBackgroundLoader(threading.Thread):
                 self.MainWindow.user_thumb.setVisible(0)
         except:
             print "LoadThumbListView() failed."
-            
+
+
+    ######################################################################
+    # Description: Displays the logo or media item thumb on left side of
+    #              the screen.
+    # Parameters : -
+    # Return     : -
+    ######################################################################
+    def LoadBackGroundImage(self):
+        if (self.URL2 != self.MainWindow.URL) and (self.MainWindow.state_busy == 0):
+            self.URL2 = self.MainWindow.URL
+                       
+            #set the background image   
+            if self.MainWindow.disable_background == 'false':
+                m = self.MainWindow.playlist.background
+            else:
+                m = 'default'
+                
+            if m == 'default':
+                m = self.MainWindow.default_background
+               
+            if m == 'default': #default BG image
+                self.MainWindow.bg.setImage(imageDir + background_image1)
+                self.MainWindow.bg1.setImage(imageDir + background_image2)
+                self.MainWindow.background = m
+            elif m != 'previous': #URL to image located elsewhere
+                ext = getFileExtension(m)
+                loader = CFileLoader2() #file loader
+                loader.load(m, imageCacheDir + "background." + ext, timeout=30, proxy="ENABLED", content_type='image')
+                if loader.state == 0:
+                    self.MainWindow.bg.setImage(loader.localfile)
+                    self.MainWindow.bg1.setImage(imageDir + background_image2)
+                else:
+                    self.MainWindow.bg.setImage(imageDir + background_image1)
+                    self.MainWindow.bg1.setImage(imageDir + background_image2)
+                    self.MainWindow.background = m
+                
+        
     ######################################################################
     # Description: Update the time
     # Parameters : -

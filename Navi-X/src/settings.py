@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -37,6 +37,7 @@ ACTION_PREV_ITEM       = 15
 ACTION_XBUTTON	       = 18 #'X'
 ACTION_YBUTTON 	       = 34	#'Y'
 ACTION_MOUSEMOVE       = 90 # Mouse has moved
+ACTION_MOUSEMOVE2      = 107 # Mouse has moved
 ACTION_PREVIOUS_MENU2  = 92 #'Back'
 ACTION_CONTEXT_MENU    = 117 # pops up the context menu
 ACTION_CONTEXT_MENU2   = 229 # pops up the context menu (remote control "title" button)
@@ -121,7 +122,7 @@ useLibrtmp=os.path.exists(xbmc.translatePath('special://xbmc/system/players/dvdp
 ######################################################################
 #program version: Combination of version and subversion
 Version='3' 
-SubVersion='7.5'
+SubVersion='7.7'
 
 favorite_file='favorites.plx' #the favorite list is also a playlist
 downloads_file='downlmenu.plx' #the downloads list is also a playlist
@@ -130,15 +131,15 @@ downloads_complete='downloads.plx'
 parent_list='blacklist.plx'
 history_list='history.plx'
 plxVersion = '8'
-home_URL_old='http://www.navi-x.org/playlists/home.plx'
-home_URL='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
-home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
+home_URL_old='http://navi-x.googlecode.com/svn/trunk/Playlists/home.plx'
+home_URL='http://navi-x.googlecode.com/svn/trunk/Playlists/home2.plx'
+home_URL_mirror='http://navi-x.googlecode.com/svn/trunk/Playlists/home2.plx'
 background_image1 = 'background1.jpg'
 background_image2 = 'background2.png'
 searchhistory_file = 'search.dat'
 nxserver_URL = 'http://www.navixtreme.com'
 
-url_open_timeout = 30 #30 seconds
+url_open_timeout = 60 #60 seconds
 page_size = 200 #display maximum 200 entries on one page
 history_size = 50 #maximum of entries in the history list
 

@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -102,7 +102,7 @@ class CTextView(xbmcgui.WindowXMLDialog):
         #first load the background image
         if (mediaitem.background != 'default'): #default BG image
             ext = getFileExtension(mediaitem.background)
-            loader.load(mediaitem.background, imageCacheDir + "backtextview." + ext, 8, proxy="ENABLED")
+            loader.load(mediaitem.background, imageCacheDir + "backtextview." + ext, 5, proxy="ENABLED")
             if loader.state == 0: #if this fails we still continue
                 self.bg.setImage(loader.localfile)
         

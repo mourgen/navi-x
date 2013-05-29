@@ -1,6 +1,6 @@
 #############################################################################
 #
-#   Copyright (C) 2011 Navi-X
+#   Copyright (C) 2013 Navi-X
 #
 #   This file is part of Navi-X.
 #
@@ -35,6 +35,7 @@ import re, os, time, datetime, traceback
 import shutil
 import zipfile
 import ftplib
+import filecmp
 from settings import *
 from libs2 import *
 from CServer import *
@@ -45,6 +46,10 @@ except: Emulating = False
 #todo: Add support for FTP files.
 
 class CFileLoader2:
+    def __init__(self):
+        self.metadata = {}
+        self.metadata["expires"]='0'
+
     ######################################################################
     # Description: Downloads a file in case of URL and returns absolute
     #              path to the local file.
@@ -55,7 +60,7 @@ class CFileLoader2:
     def load(self, URL, localfile='', timeout=0, proxy="CACHING", \
              content_type= '', retries=0):
               
-        if (URL == ''):# or (localfile == ''):
+        if (URL == ''):
             self.state = -1 #failed
             return
         
@@ -88,14 +93,19 @@ class CFileLoader2:
                 else:
                     self.state =  -1 #failed 
             elif (not((proxy == "ENABLED") and (os.path.exists(destfile) == True))):
-                if URL[:3] == 'ftp':
-                    self.loadFTP(URL, destfile, timeout, proxy, content_type, retries)
-                else:
-                    self.loadHTTP(URL, destfile, timeout, proxy, content_type, retries)                       
-            else: #file is inside the cache
+                #option CACHING or SMARTCACHE is set
+                if proxy == "SMARTCACHE":
+                    self.loadSmartCache(URL, destfile, timeout, proxy, content_type, retries) 
+                else: #option CACHING or DISABLED
+                    self.deleteMetaData(destfile)
+                    if URL[:3] == 'ftp':                       
+                        self.loadFTP(URL, destfile, timeout, proxy, content_type, retries)
+                    else:
+                        self.loadHTTP(URL, destfile, timeout, proxy, content_type, retries)
+            else: #(proxy == "ENABLED") and (os.path.exists(destfile) == True)
                 self.localfile = destfile
                 self.state = 0 #success
-                
+               
                 if localfile == '':
                     try:
                         f = open(self.localfile, 'r')
@@ -120,7 +130,66 @@ class CFileLoader2:
                     f.close()
                 except IOError:
                     self.state =  -1 #failed
-            
+    
+    ######################################################################
+    # Description: Reads a file using smart caching
+    # Parameters : URL=source, localfile=destination
+    # Return     : -
+    ######################################################################           
+    def loadSmartCache(self, URL, localfile='', timeout=0, proxy="CACHING", \
+                  content_type= '', retries=0):
+
+        expires = 3600 #seconds
+
+        if os.path.exists(localfile) == True:
+               
+            self.readMetaData(localfile)
+                        
+            if self.metadata["expires"] != '0':
+                expires = int(self.metadata["expires"])
+                #check if the file is expired
+                creationtime = os.path.getmtime(localfile)
+                currenttime = time.time()
+                deltatime = currenttime - creationtime
+#                Message(str(expires-deltatime))
+                
+                if deltatime < expires:
+                    self.localfile = localfile
+                    self.state = 0 #success
+                    
+                    try:
+                        f = open(self.localfile, 'r')
+                        self.data = f.read()
+                        f.close()
+                    except IOError:
+                        self.state =  -1 #failed                        
+                    
+                    return      
+                      
+                #rename the existing (expired file)
+                os.rename(localfile, localfile + ".old")
+               
+        #load the file
+        if URL[:3] == 'ftp':
+            self.loadFTP(URL, localfile, timeout, proxy, content_type, retries)
+        else:
+            self.loadHTTP(URL, localfile, timeout, proxy, content_type, retries) 
+        
+        if os.path.exists(localfile + ".old") == True:
+            #compare the file
+            if filecmp.cmp(self.localfile, localfile + ".old") == True:
+                if expires < (128*3600):
+                    expires = expires * 2
+            else:
+                expires = 3600
+                        
+            os.remove(localfile + ".old")
+ 
+        self.metadata["expires"] = str(expires)
+        self.writeMetaData(self.localfile)
+                
+        #end of function
+        
     ######################################################################
     # Description: Downloads a file in case of URL and returns absolute
     #              path to the local file.
@@ -134,13 +203,10 @@ class CFileLoader2:
             socket_setdefaulttimeout(timeout)
         self.state = -1 #failure
         counter = 0
-                
+              
         while (counter <= retries) and (self.state != 0):
             counter = counter + 1 
             try:
-
-                
-            
                 cookies = ''
                 if URL.find(nxserver_URL) != -1:
                     cookies = 'platform=' + platform + '; version=' + Version +'.'+ SubVersion
@@ -151,15 +217,17 @@ class CFileLoader2:
                     values = { 'User-Agent' : 'Mozilla/4.0 (compatible;MSIE 7.0;Windows NT 6.0)'}
                         
                 #print values
-                                   
+                                 
                 req = urllib2.Request(URL, None, values)
+
                 #req = urllib2.Request(URL)
                 f = urllib2.urlopen(req)
-                
+                                         
                 headers = f.info()
-                                                
-                type = headers['Content-Type']
-                    
+                 
+                type = headers.get('Content-Type', '')                              
+#                type = headers['Content-Type']
+
                 if (content_type != '') and (type.find(content_type)  == -1):
                     #unexpected type
                     if timeout != 0:
@@ -179,7 +247,8 @@ class CFileLoader2:
                   
             except IOError, e:
                 if hasattr(e, 'reason'):
-                    print 'We failed to reach a server.'
+                    #Message("Failed to reach the server. Reason: %s" %(e.reason))
+                    print 'failed to get URL=' + URL 
                     print 'Reason: ', e.reason
                 elif hasattr(e, 'code'):
                     print 'The server could not fulfill the request.'
@@ -317,3 +386,36 @@ class CFileLoader2:
         
         #end function
         
+    ######################################################################
+    # Description: Read the meta data of the file
+    # Parameters : file: the file for which to read metadata
+    # Return     : -
+    ######################################################################        
+    def readMetaData(self, file):              
+        try:
+            with open(file + '.info') as metafile:
+                for line in metafile:
+                    name, var = line.partition("=")[::2]
+                    self.metadata[name.strip()] = var
+        except IOError:
+            return
+
+    ######################################################################
+    # Description: Write the meta data of the file
+    # Parameters : file: the file for which to write metadata
+    # Return     : -
+    ######################################################################
+    def writeMetaData(self, file):
+        f=open(file + '.info', 'w')
+        for line in self.metadata:
+            f.write(line + '=' + self.metadata[line])
+        f.close()
+       
+    ######################################################################
+    # Description: Write the meta data of the file
+    # Parameters : file: the file for which to write metadata
+    # Return     : -
+    ######################################################################
+    def deleteMetaData(self, file):
+        if os.path.exists(file + '.info') == True:
+            os.remove(file + '.info')
