@@ -36,6 +36,8 @@ import shutil
 import zipfile
 import ftplib
 import filecmp
+import md5
+#import hashlib
 from settings import *
 from libs2 import *
 from CServer import *
@@ -70,11 +72,15 @@ class CFileLoader2:
         if (URL[:4] == 'http') or (URL[:3] == 'ftp'):
             sum_str = ''
             if proxy != "DISABLED":
-                sum = 0
-                #calculate hash of URL
-                for i in range(len(URL)):
-                    sum = sum + (ord(URL[i]) * i)
-                sum_str = str(sum)
+
+#                sum = 0
+#                #calculate hash of URL
+#                for i in range(len(URL)):
+#                    sum = sum + (ord(URL[i]) * i)
+#                sum_str = str(sum)
+
+#                sum_str=hashlib.md5(URL).hexdigest()
+                sum_str=md5.new(URL).hexdigest()
             
             if localfile != '':
                 ext_pos = localfile.rfind('.') #find last '.' in the string
@@ -391,24 +397,32 @@ class CFileLoader2:
     # Parameters : file: the file for which to read metadata
     # Return     : -
     ######################################################################        
-    def readMetaData(self, file):              
+    def readMetaData(self, file):
+
         try:
-            with open(file + '.info') as metafile:
-                for line in metafile:
-                    name, var = line.partition("=")[::2]
-                    self.metadata[name.strip()] = var
+            f = open(file + '.info', 'r')
+            # read was only returning a single string - need array
+            metafile = f.readlines()
+            f.close()
+            for line in metafile:
+                #name, var = line.partition("=")[::2]
+                
+                # won't handle multiple "=", but works in XBMC4Xbox
+                name, var = line.strip().split("=")
+                self.metadata[name.strip()] = var
         except IOError:
             return
-
+            
     ######################################################################
     # Description: Write the meta data of the file
     # Parameters : file: the file for which to write metadata
     # Return     : -
     ######################################################################
     def writeMetaData(self, file):
+        self.metadata['test']='stuff'
         f=open(file + '.info', 'w')
         for line in self.metadata:
-            f.write(line + '=' + self.metadata[line])
+            f.write(line + '=' + self.metadata[line] + '\n')
         f.close()
        
     ######################################################################
