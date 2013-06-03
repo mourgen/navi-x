@@ -4,7 +4,7 @@ view=thumbnails
 #
 type=playlist
 name=Navi-Xtreme Portal
-thumb=http://www.navixtreme.com/images/logos/logo-xbmchub.png
+thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/logo-xbmchub.png
 view=thumbnails
 URL=http://www.navixtreme.com/playlist/50242/navi-xtreme_nxportal_home.plx
 #
