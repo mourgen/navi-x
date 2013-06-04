@@ -9,8 +9,8 @@ title=Navi-X Home
 #Next the playlist content
 type=playlist
 name=Navi-Xtreme Media Portal
-description=Visit http://www.navixtreme.com. Email turner3d@gmail.com for questions and comments./description
-thumb=http://www.navixtreme.com/images/logos/logo-xbmchub.png
+description=Visit http://www.navixtreme.com./description
+thumb=http://scrape.navixtreme.com/images/logos/logo-xbmchub.png
 view=thumbnails
 URL=http://www.navixtreme.com/playlist/50242/navi-xtreme_nxportal_home.plx
 
