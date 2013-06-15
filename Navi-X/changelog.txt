@@ -1,6 +1,14 @@
 Navi-X Changelog:
 
 -------------------------------------------------------------------------------
+3.7.8
+
+-modified CFileLoader.py; readMetaData was throwing syntax error on XBMC4Xbox
+-NIPL interpreter modifications
+  * normalized line parsing
+  * rebuilt flow control engine from ground up (if/elseif/else/endif/while/endwhile logic)
+
+-------------------------------------------------------------------------------
 3.7.5
 
 Moved primary portal domain to navixtreme.com

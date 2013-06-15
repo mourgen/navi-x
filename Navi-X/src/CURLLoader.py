@@ -22,7 +22,7 @@
 #############################################################################
 #
 # CURLLoader:
-# This class Retrieves the URL to a media item which the XBMC player 
+# This class Retrieves the URL to a media item which the XBMC player
 # understands.
 #############################################################################
 
@@ -75,7 +75,7 @@ class CURLLoader:
 ######################################################################
 # Description: This class is used to retrieve the real URL of 
 #              a media item. The XBMC player sometimes fails to handle
-#              HTTP redirection. Therefore we do it here.           
+#              HTTP redirection. Therefore we do it here.
 # Parameters : URL=source URL
 # Return     : 0=successful, -1=fail
 ######################################################################
@@ -98,13 +98,13 @@ class CURLLoader:
             f.close()            
         except IOError:
             return {"code": 1} # failed
-        
+
         #always return true    
         return {"code":0}
 
 ######################################################################
 # Description: Retrieve playback parameters using a remote processor
-#              
+#
 # Parameters : mediaitem = mediaitem to open
 # Return     : 0=successful, -1=fail
 ######################################################################
@@ -146,6 +146,12 @@ class CURLLoader:
 
             v=NIPLVars()
 
+            ## no-argument command detection
+            noarg_parse=re.compile('^(scrape|play|report|else|endif|endwhile)$')
+
+            ## flow control statements
+            fcparse=re.compile('^(if|endif|while|endwhile)$')
+
             ## command parser
             lparse=re.compile('^([^ =]+)([ =])(.+)$')
 
@@ -154,7 +160,7 @@ class CURLLoader:
 
             self.multiIfTest=re.compile('^\(')
             self.conditionExtract=re.compile('\(\s*([^\(\)]+)\s*\)')
-            self.ifparse=re.compile('^([^<>=!]+)\s*([!<>=]+)\s*(.+)$');
+            self.ifparse=re.compile('^([^<>=!]+)\s*([!<>=]+)\s*(.+)$')
 
 
             nookies=NookiesRead(mediaitem.processor)
@@ -167,8 +173,8 @@ class CURLLoader:
                 phase=phase+1
                 rep={}
 
-                if_stack=[]
-                if_stacklen=0
+                control_stack=[]
+                control_stacklen=0
 
                 src_printed=False
 
@@ -202,7 +208,9 @@ class CURLLoader:
                 while linenum<eof:
                     # Note: while loop will need to set linenum to linenum-1 since it is incremented at start of block
                     linenum=linenum+1
+                    self.linenum_display=linenum+2
                     line=re.sub('^\s*', '', lines[linenum])
+                    self.line_display=line
 
                     if verbose>0 and src_printed==False:
                         print "Processor NIPL source:\n"+inst
@@ -210,55 +218,160 @@ class CURLLoader:
 
                     if line>'' and verbose>1:
                         str_report="NIPL line "+str(linenum)+": "+line
-                        
-                        if if_stacklen>0 and verbose>2 and (if_stack[-1]["if_next"] or if_stack[-1]["if_satisfied"] or if_stack[-1]["if_end"]):
-                            str_report=str_report+"\n (IF: satisfied="+str(if_stack[-1]["if_satisfied"])+", skip to next="+str(if_stack[-1]["if_next"])+", skip to end="+str(if_stack[-1]["if_end"])+")"
-                        print str_report
 
                     # skip comments and blanks
                     if line[:1]=='#' or line[:2]=='//' or line=='':
                         continue
 
-                    if if_stacklen>0 and line[0:3]!='if ' and line!='endif' and line!='endwhile':
-                        if if_stack[-1]["if_end"] and line!='endif' and line!='endwhile':
-                            if verbose>1:
-                                print "    ^^^ skipped"
-                            continue
-    
-                        if if_stack[-1]["if_next"] and line[0:6]!='elseif' and line!='else' and line!='endif':
-                            if verbose>1:
-                                print "    ^^^ skipped"
+                    # parse subj & args
+                    subj='';
+                    arg='';
+                    is_assignment=False
+
+                    match=noarg_parse.search(line)
+                    if match:
+                        subj=match.group(1)
+                        #print "noarg_parse match"
+                    else:
+                        match=lparse.search(line)
+                        #print "MG ["+match.group(1)+"], ["+match.group(2)+"], ["+match.group(3)+"]"
+                        if match is None:
+                            return self.proc_error("syntax error: "+line)
+                        subj=match.group(1)
+                        arg=match.group(3)
+                        if match.group(2)=='=':
+                            is_assignment=True
+
+                    if verbose>2:
+                        print "-----------------------------"
+                        print line
+
+                    ### flow control
+
+                    cflag=False
+                    if control_stacklen>0:
+
+                        l=control_stack[-1]
+                        if v["debug_flow"] > "":
+                            print "control type:"+l["type"]+" block_do:"+str(l["block_do"])+" child_depth:"+str(l["child_depth"])
+
+                        # nested condition tracking
+                        if control_stack[-1]["block_do"]==False and (subj=='if' or subj=='while'):
+                            control_stack[-1]["child_depth"]=control_stack[-1]["child_depth"]+1
+                            if v["debug_flow"]>"":
+                                print "Child depth: "+str(control_stack[-1]["child_depth"])
+
+                        if control_stack[-1]["child_depth"]>0 and (subj=='endif' or subj=='endwhile'):
+                            control_stack[-1]["child_depth"]=control_stack[-1]["child_depth"]-1
+                            cflag=True
+                            if v["debug_flow"]>"":
+                                print "Child depth: "+str(control_stack[-1]["child_depth"])
+
+                        if control_stack[-1]["child_depth"]>0 or cflag:
+                            if v["debug_flow"]>"":
+                                print "    ^^^ skipped: child"
                             continue
 
-                    ### 0-argument methods / commands
+                        # current-level logic
+                        if control_stack[-1]["type"]=='if' and subj!='elseif' and subj!='else' and subj!='endif' and control_stack[-1]["block_do"]==False:
+                            if v["debug_flow"]>"":
+                                print "    ^^^ skipped: if"
+                            continue
+                        elif control_stack[-1]["type"]=='while' and subj!='endwhile' and control_stack[-1]["block_do"]==False:
+                            if v["debug_flow"]>"":
+                                print "    ^^^ skipped: while"
+                            continue
 
-                    if line=='else' and if_stacklen>0:
-                        if if_stack[-1]["if_satisfied"]:
-                            if_stack[-1]["if_end"]=True
+
+                    ### if / elseif / else / endif
+
+                    if subj=='if':
+                        boolObj=self.if_eval(arg, v)
+                        if(boolObj["error"]==True):
+                            return self.proc_error(boolObj["data"] + "\n" + line)
+
+                        control_stack.append({
+                        	"block_do": boolObj["data"],
+                        	"if_satisfied": boolObj["data"],
+                        	"type": "if",
+                        	"child_depth": 0
+                        })
+                        control_stacklen=len(control_stack)
+
+                    elif subj=='elseif':
+                        if control_stacklen==0 or control_stack[-1]["type"]!='if':
+                            return self.proc_error("elseif without if")
+                        if control_stack[-1]["if_satisfied"]:
+                            control_stack[-1]["block_do"]=False
                         else:
-                            if_stack[-1]["if_next"]=False
-                        continue
+                            boolObj=self.if_eval(arg, v)
+                            if(boolObj["error"]==True):
+                                return self.proc_error(boolObj["data"] + "\n" + line)
+                            control_stack[-1]["if_satisfied"]=boolObj["data"]
+                            control_stack[-1]["block_do"]=boolObj["data"]
 
-                    elif line=='endif' and if_stacklen>0:   # reset if params
-                        if_stack.pop()
-                        if_stacklen=len(if_stack)
-                        continue
+                    elif subj=='else':
+                        if control_stacklen==0 or control_stack[-1]["type"]!='if':
+                            return self.proc_error("else without if")
+                        control_stack[-1]["block_do"]=not control_stack[-1]["if_satisfied"]
 
-                    elif line=='endwhile' and if_stacklen>0:
-                        # process next loop iteration
-                        wresult=self.while_eval(if_stack[-1],v)
+                    elif subj=='endif':
+                        if control_stacklen==0 or control_stack[-1]["type"]!='if':
+                            return self.proc_error("endif without if")
+                        control_stack.pop()
+                        control_stacklen=len(control_stack)
+
+                    ### while / endwhile
+
+                    elif subj=='while':
+                        control_stack.append({
+                        	"type": "while",
+                        	"block_do": True,
+                        	"loopstart": linenum,
+                        	"execcount": 0,
+                        	"child_depth": 0
+                        })
+                        control_stacklen=len(control_stack)
+
+                        # determine loop type
+                        wmatch=lparse.search(arg)
+                        if wmatch is None:
+                            return self.proc_error("syntax error: "+line)
+                        wsubj=wmatch.group(1)
+                        warg=wmatch.group(3)
+                        if wsubj=='match':
+                            control_stack[-1]["subtype"]='re'
+                            control_stack[-1]["regex"]=re.compile(v['regex'])
+                            control_stack[-1]["haystack"]=v[warg]
+                            control_stack[-1]["searchstart"]=0
+                        else:
+                            return self.proc_error("unrecognized while condition '"+wsubj+"'")
+
+                        wresult=self.while_eval(control_stack[-1],v)
+                        if wresult["error"]:
+                            return self.proc_error(wresult["message"])
+                        if verbose>1:
+                            print wresult["message"]
+
+                    elif subj=='endwhile':
+
+                        if control_stacklen==0 or control_stack[-1]["type"]!='while':
+                            return self.proc_error("endwhile without while")
+                        wresult=self.while_eval(control_stack[-1],v)
                         if wresult["error"]:
                             return self.proc_error(wresult["message"])
                         if verbose>1:
                             print wresult["message"]
                         if wresult["match"]:
-                            linenum=if_stack[-1]["loopstart"]
+                            linenum=control_stack[-1]["loopstart"]
                         else:
-                            if_stack.pop()
-                            if_stacklen=len(if_stack)
+                            control_stack.pop()
+                            control_stacklen=len(control_stack)
                             continue
 
-                    elif line=='scrape':
+                    ### standard methods / commands
+
+                    elif subj=='scrape':
                         str_info="Processor:"
                         if phase>1:
                             str_info=str_info+" phase "+str(phase)
@@ -339,13 +452,13 @@ class CURLLoader:
                         # reset scrape params to defaults
                         v.reset('scrape')
 
-                    elif line=='play':
+                    elif subj=='play':
                         if verbose==1:
                             print "Proc debug: play"
                         exflag=True
                         break
 
-                    elif line=='report':
+                    elif subj=='report':
                         rep['phase']=str(phase)
                         proc_args=urllib.urlencode(rep)
                         proc_args=re.sub('v\d+=&','&',proc_args)
@@ -359,245 +472,170 @@ class CURLLoader:
                         print str_report
                         break
 
-                    else:
-                        # parse
-                        match=lparse.search(line)
+                    elif subj=='verbose':
+                        verbose=int(arg)
+
+                    elif subj=='error':
+                        if arg[0:1]=="'":
+                            errmsg=arg[1:]
+                        else:
+                            errmsg=v[arg]
+                        return self.proc_error(errmsg)
+
+                    elif subj=='report_val':
+                        match=lparse.search(arg)
                         if match is None:
                             return self.proc_error("syntax error: "+line)
-                        subj=match.group(1)
-                        arg=match.group(3)
-
-                        if subj=='if' or subj=='elseif':
-                            if if_stacklen>0 and subj=='elseif' and if_stack[-1]["if_satisfied"]:
-                                if_stack[-1]["if_end"]=True
-                            else:
-                                if subj=='if':
-                                    if if_stacklen>0 and (if_stack[-1]["if_satisfied"]==False or if_stack[-1]["if_end"]==True):
-                                        if_skip=True
-                                    else:
-                                        if_skip=False
-                                    if_stack.append({
-                                    	"if_next": False,
-                                    	"if_satisfied": False,
-                                    	"if_end": if_skip
-                                    })
-                                    if_stacklen=len(if_stack)
-                                boolObj=self.if_eval(arg, v)
-                                if(boolObj["error"]==True):
-                                    return self.proc_error(boolObj["data"] + "\n" + line)
- 
-                            if boolObj["data"]==True:
-                                if_stack[-1]["if_satisfied"]=True
-                                if_stack[-1]["if_next"]=False
-                            else:
-                                if_stack[-1]["if_next"]=True
-
+                        ke=match.group(1)
+                        va=match.group(3)
+                        if va[0:1]=="'":
+                            rep[ke]=va[1:]
                             if verbose>0:
-                                print "Proc debug "+subj+" => "+str(boolObj["data"])
-
-                            continue
-
-                        if subj=='while':
-                            if_stack.append({
-                            	"if_next": False,
-                            	"if_satisfied": False,
-                            	"if_end": False,
-                            	"type": "while",
-                            	"regex": re.compile(v['regex']),
-                            	"loopstart": 0,
-                            	"execcount": 0
-                            })
-                            if_stacklen=len(if_stack)
-                            
-                            wmatch=lparse.search(arg)
-                            if wmatch is None:
-                                return self.proc_error("syntax error: "+line)
-                            wsubj=wmatch.group(1)
-                            warg=wmatch.group(3)
-                            if wsubj=='match':
-                                if_stack[-1]["subtype"]='re'
-                                if_stack[-1]["regex"]=re.compile(v['regex'])
-                                if_stack[-1]["haystack"]=v[warg]
-                                if_stack[-1]["searchstart"]=0
-                                if_stack[-1]["loopstart"]=linenum # code block start -1
-                            else:
-                                return self.proc_error("unrecognized while condition '"+wsubj+"'")
-                            
-                            # evaluate while
-                            wresult=self.while_eval(if_stack[-1],v)
-                            if wresult["error"]:
-                                return self.proc_error(wresult["message"])
-                            if verbose>1:
-                                print wresult["message"]
-
-                            continue
-
-                        if match.group(2)=='=':
-                            # assignment operator
-                            if arg[0:1]=="'":
-                                val=arg[1:]
-                                areport="string literal"
-                            else:
-                                val=v[arg]
-                                areport=arg
-
-                            match=dotvarparse.search(subj);
-                            if match:
-                                dp_type=match.group(1)
-                                dp_key=match.group(2)
-                                tsubj=dp_key
-                                if dp_type=='nookies':
-                                    # set nookie
-                                    treport="nookie"
-                                    NookieSet(mediaitem.processor, dp_key, val, v['nookie_expires'])
-                                    v[subj]=val
-
-                                elif dp_type=='s_headers':
-                                    # set scrape header
-                                    treport="scrape header"
-                                    headers[dp_key]=val
-
-                            else:
-                                # set variable
-                                treport="variable"
-                                tsubj=subj
-                                v[subj]=val
-
+                                print "Proc debug report value: "+ke+" set to string literal\n "+va[1:]
+                        else:
+                            rep[ke]=v[va]
                             if verbose>0:
-                                print "Proc debug "+treport+": "+tsubj+" set to "+areport+"\n "+val
+                                print "Proc debug report value: "+ke+" set to "+va+"\n "+v[va]
+
+                    elif subj=='concat':
+                        match=lparse.search(arg)
+                        if match is None:
+                            return self.proc_error("syntax error: "+line)
+                        ke=match.group(1)
+                        va=match.group(3)
+                        oldtmp=v[ke]
+                        if va[0:1]=="'":
+                            v[ke]=v[ke]+va[1:]
+                        else:
+                            v[ke]=v[ke]+v[va]
+                        if verbose>0:
+                            print "Proc debug concat:\n old="+oldtmp+"\n new="+v[ke]
+
+                    elif subj=='match':
+                        v['nomatch']=''
+                        rep['nomatch']=''
+                        for i in range(1,11):
+                            ke='v'+str(i)
+                            v[ke]=''
+                            rep[ke]=''
+                        p=re.compile(v['regex'])
+                        try:
+                            match=p.search(v[arg])
+                        except TypeError:
+                            v['nomatch']=1
+
+                        if match:
+                            rerep='Processor match '+arg+':';
+                            for i in range(1,len(match.groups())+1):
+                                val=match.group(i)
+                                if val is None:
+                                    val=''
+                                key='v'+str(i)
+                                rerep=rerep+"\n "+key+'='+val
+                                v[key]=val
+                            if verbose>0:
+                                print rerep
 
                         else:
-                            ## do command
-                            if subj=='verbose':
-                                verbose=int(arg)
+                            if verbose>0:
+                                print "Processor match: no match\n regex: "+v['regex']+"\n search: "+v[arg]
+                            v['nomatch']=1
 
-                            elif subj=='error':
-                                if arg[0:1]=="'":
-                                    errmsg=arg[1:]
-                                else:
-                                    errmsg=v[arg]
-                                return self.proc_error(errmsg)
+                    elif subj=='replace':
+                       # pre-set regex, replace var [']val
+                        match=lparse.search(arg)
+                        if match is None:
+                            return self.proc_error("syntax error: "+line)
+                        ke=match.group(1)
+                        va=match.group(3)
+                        if va[0:1]=="'":
+                            va=va[1:]
+                        else:
+                            va=v[va]
+                        oldtmp=v[ke]
+                        v[ke]=re.sub(v['regex'], va, v[ke])
+                        if verbose>0:
+                            print "Proc debug replace "+ke+":\n old="+oldtmp+"\n new="+v[ke]
 
-                            elif subj=='report_val':
-                                match=lparse.search(arg)
-                                if match is None:
-                                    return self.proc_error("syntax error: "+line)
-                                ke=match.group(1)
-                                va=match.group(3)
-                                if va[0:1]=="'":
-                                    rep[ke]=va[1:]
-                                    if verbose>0:
-                                        print "Proc debug report value: "+ke+" set to string literal\n "+va[1:]
-                                else:
-                                    rep[ke]=v[va]
-                                    if verbose>0:
-                                        print "Proc debug report value: "+ke+" set to "+va+"\n "+v[va]
+                    elif subj=='unescape':
+                        oldtmp=v[arg]
+                        v[arg]=urllib.unquote(v[arg])
+                        if verbose>0:
+                            print "Proc debug unescape:\n old="+oldtmp+"\n new="+v[arg]
 
-                            elif subj=='concat':
-                                match=lparse.search(arg)
-                                if match is None:
-                                    return self.proc_error("syntax error: "+line)
-                                ke=match.group(1)
-                                va=match.group(3)
-                                oldtmp=v[ke]
-                                if va[0:1]=="'":
-                                    v[ke]=v[ke]+va[1:]
-                                else:
-                                    v[ke]=v[ke]+v[va]
-                                if verbose>0:
-                                    print "Proc debug concat:\n old="+oldtmp+"\n new="+v[ke]
+                    elif subj=='escape':
+                        oldtmp=v[arg]
+                        v[arg]=urllib.quote_plus(v[arg])
+                        if verbose>0:
+                            print "Proc debug escape:\n old="+oldtmp+"\n new="+v[arg]
 
-                            elif subj=='match':
-                                v['nomatch']=''
-                                rep['nomatch']=''
-                                for i in range(1,11):
-                                    ke='v'+str(i)
-                                    v[ke]=''
-                                    rep[ke]=''
-                                p=re.compile(v['regex'])
-                                try:
-                                    match=p.search(v[arg])
-                                except TypeError:
-                                    v['nomatch']=1
+                    elif subj=='debug':
+                        if verbose>0:
+                            try:
+                                print "Processor debug "+arg+":\n "+v[arg]
+                            except KeyError:
+                                print "Processor debug "+arg+" - does not exist\n"
 
-                                if match:
-                                    rerep='Processor match '+arg+':';
-                                    for i in range(1,len(match.groups())+1):
-                                        val=match.group(i)
-                                        if val is None:
-                                            val=''
-                                        key='v'+str(i)
-                                        rerep=rerep+"\n "+key+'='+val
-                                        v[key]=val
-                                    if verbose>0:
-                                        print rerep
+                    elif subj=='print':
+                        if arg[0:1]=="'":
+                            print "Processor print: "+arg[1:]
+                        else:
+                            print "Processor print "+arg+":\n "+v[arg]
 
-                                else:
-                                    if verbose>0:
-                                        print "Processor match: no match\n regex: "+v['regex']+"\n search: "+v[arg]
-                                    v['nomatch']=1
+                    elif subj=='countdown':
+                        if arg[0:1]=="'":
+                            secs=arg[1:]
+                        else:
+                            secs=v[arg]
+                        cd_flag=countdown_timer(int(secs), v['countdown_title'], v['countdown_caption'])
+                        if cd_flag==False:
+                            SetInfoText("")
+                            return {"code":0}
 
-                            elif subj=='replace':
-                               # pre-set regex, replace var [']val
-                                match=lparse.search(arg)
-                                if match is None:
-                                    return self.proc_error("syntax error: "+line)
-                                ke=match.group(1)
-                                va=match.group(3)
-                                if va[0:1]=="'":
-                                    va=va[1:]
-                                else:
-                                    va=v[va]
-                                oldtmp=v[ke]
-                                v[ke]=re.sub(v['regex'], va, v[ke])
-                                if verbose>0:
-                                    print "Proc debug replace "+ke+":\n old="+oldtmp+"\n new="+v[ke]
+                    elif subj=='show_playlist':
+                        if arg[0:1]=="'":
+                            purl=arg[1:]
+                        else:
+                            purl=v[arg]
+                        print "Processor: redirecting to playlist " + purl
+                        return { "code":2, "data":purl }
 
-                            elif subj=='unescape':
-                                oldtmp=v[arg]
-                                v[arg]=urllib.unquote(v[arg])
-                                if verbose>0:
-                                    print "Proc debug unescape:\n old="+oldtmp+"\n new="+v[arg]
+                    elif is_assignment:
+                        # assignment operator
+                        if arg[0:1]=="'":
+                            val=arg[1:]
+                            areport="string literal"
+                        else:
+                            val=v[arg]
+                            areport=arg
 
-                            elif subj=='escape':
-                                oldtmp=v[arg]
-                                v[arg]=urllib.quote_plus(v[arg])
-                                if verbose>0:
-                                    print "Proc debug escape:\n old="+oldtmp+"\n new="+v[arg]
+                        match=dotvarparse.search(subj);
+                        if match:
+                            dp_type=match.group(1)
+                            dp_key=match.group(2)
+                            tsubj=dp_key
+                            if dp_type=='nookies':
+                                # set nookie
+                                treport="nookie"
+                                NookieSet(mediaitem.processor, dp_key, val, v['nookie_expires'])
+                                v[subj]=val
 
-                            elif subj=='debug':
-                                if verbose>0:
-                                    try:
-                                        print "Processor debug "+arg+":\n "+v[arg]
-                                    except KeyError:
-                                        print "Processor debug "+arg+" - does not exist\n"
+                            elif dp_type=='s_headers':
+                                # set scrape header
+                                treport="scrape header"
+                                headers[dp_key]=val
 
-                            elif subj=='print':
-                                if arg[0:1]=="'":
-                                    print "Processor print: "+arg[1:]
-                                else:
-                                    print "Processor print "+arg+":\n "+v[arg]
+                        else:
+                            # set variable
+                            treport="variable"
+                            tsubj=subj
+                            v[subj]=val
 
-                            elif subj=='countdown':
-                                if arg[0:1]=="'":
-                                    secs=arg[1:]
-                                else:
-                                    secs=v[arg]
-                                cd_flag=countdown_timer(int(secs), v['countdown_title'], v['countdown_caption'])
-                                if cd_flag==False:
-                                    SetInfoText("")
-                                    return {"code":0}
-                                    
-                            elif subj=='show_playlist':
-                                if arg[0:1]=="'":
-                                    purl=arg[1:]
-                                else:
-                                    purl=v[arg]
-                                print "Processor: redirecting to playlist " + purl
-                                return { "code":2, "data":purl }
-                            
-                            else:
-                                return self.proc_error("unrecognized method '"+subj+"'")
+                        if verbose>0:
+                            print "Proc debug "+treport+": "+tsubj+" set to "+areport+"\n "+val
+
+                    else:
+                        return self.proc_error("unrecognized method '"+subj+"'")
 
             if v['referer']>'':
                 mediaitem.referer=v['referer']
@@ -727,7 +765,7 @@ class CURLLoader:
 
 ######################################################################
 # Description: evaluate if / elseif line
-#              
+#
 # Parameters : str_in = condition(s) to test
 #            : v = NIPLVars
 # Return     : object: value=boolean, err=""
@@ -769,21 +807,21 @@ class CURLLoader:
                 "error": False,
                 "data": bool
             }
-            
-    
+
+
 ######################################################################
-# Description: evaluate while loop iteration; modifies if_stack and v
+# Description: evaluate while loop iteration; modifies control_stack and v
 #              by reference
-#              
-# Parameters : if_obj = active entry of if_stack
+#
+# Parameters : if_obj = active entry of control_stack
 #            : v = NIPLVars
 # Return     : object: error=boolean, match=boolean, message=""
 # To do      : implement other types of conditions - pass in flag
 #              through v object
 ######################################################################
-    def while_eval(self, if_obj, v):
-        if_obj["execcount"]=if_obj["execcount"]+1
-        if if_obj["execcount"]>500:
+    def while_eval(self, control_obj, v):
+        control_obj["execcount"]=control_obj["execcount"]+1
+        if control_obj["execcount"]>500:
             return {
             	"error": True,
             	"match": False,
@@ -792,18 +830,20 @@ class CURLLoader:
         for i in range(1,11):
             ke='v'+str(i)
             v[ke]=''
-        match=if_obj['regex'].search(if_obj['haystack'][if_obj['searchstart']:])
+
+        # Hard-coded to "re" type for now
+        match=control_obj['regex'].search(control_obj['haystack'][control_obj['searchstart']:])
         rerep='Processor while iteration:'
         if match is None:
             rerep=rerep+' no match'
-            if_obj["if_end"]=True
+            control_obj["block_do"]=False
             return {
             	"error": False,
             	"match": False,
             	"message": rerep
             }
-        
-        if_obj["searchstart"]=if_obj["searchstart"]+match.end()
+
+        control_obj["searchstart"]=control_obj["searchstart"]+match.end()
         for i in range(1,len(match.groups())+1):
             val=match.group(i)
             if val is None:
@@ -820,7 +860,7 @@ class CURLLoader:
 
 ######################################################################
 # Description: evaluate single condition
-#              
+#
 # Parameters : str_in = condition to test
 #            : v = NIPLVars
 # Return     : Boolean
@@ -845,11 +885,11 @@ class CURLLoader:
                     "error": True,
                     "data": exception_parse(ex)
                 }
-    
+
         else:
             ### process single if argument for >''
             bool=v[cond]>''
-        
+
         return {
             "error": False,
             "data": bool
@@ -858,13 +898,13 @@ class CURLLoader:
     
 ######################################################################
 # Description: handle processor error
-#              
+#
 # Parameters : msg = error message
 # Return     : urlopen return object
 ######################################################################
     def proc_error(self, msg):
         SetInfoText("")
-        print "Processor error: " + str(msg)
+        print "Processor error in line "+str(self.linenum_display)+"\nline: " + self.line_display+"\nerror: "+str(msg)
         return {"code":1, "data":"p:" + str(msg)}
 
 
@@ -874,7 +914,7 @@ class CURLLoader:
 #              querying dictionary elements which don't exist without
 #              crashing Python, although a couple of methods have been
 #              added for initializing and resetting the object.
-#              
+#
 # Parameters : URL=source URL
 # Return     : 0=successful, -1=fail
 ######################################################################
@@ -925,4 +965,3 @@ class NIPLVars:
         else:
             for ke in v_defaults:
                 self.data[ke]=v_defaults[ke]
-

@@ -35,7 +35,7 @@ __scriptname__ = "Navi-X"
 __author__ = "Navi-X team"
 __url__ = "http://code.google.com/p/navi-x/"
 __credits__ = "Navi-X team"
-__version__ = "3.77"
+__version__ = "3.78"
 
 addon = xbmcaddon.Addon(id='script.navi-x')
 RootDir = addon.getAddonInfo('path')
