@@ -47,7 +47,7 @@ name=File Manager
 URL=filemanager
 
 type=playlist
-name=Navi-X updates (Script Navi-X 3.7.7)
+name=Navi-X updates (Script Navi-X 3.7.8)
 thumb=default
 #icon=http://website.navi-x.org/networks/icon.png
 date=2013-05-09

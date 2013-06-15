@@ -24,7 +24,7 @@ thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/xbmclogo.png
 URL=myxbmc.plx
 #
 type=playlist
-name=Updates (3.7.7)
+name=Updates (3.7.8)
 thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/navixlogo.png
 URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts.plx
 #
