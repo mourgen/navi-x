@@ -5,7 +5,7 @@ title=Navi-X updates
 
 type=script:navi-x
 name=Navi-X v3.7.8 (All XBMC platforms)
-URL=http://navi-x.googlecode.com/files/Navi-X_v37_8.zip
+URL=http://navi-x.googlecode.com/files/Navi-X-v37_8.zip
 
 type=script:navi-x
 name=Navi-X v3.7.7 (All XBMC platforms)
