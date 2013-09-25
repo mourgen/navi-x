@@ -23,12 +23,3 @@ name=Digital Blasphemy
 URL=http://www.digitalblasphemy.com/rss/images.rss
 thumb=http://www.digitalblasphemy.com/graphics/dbfoot.png
 
-type=playlist
-name=The Big Picture - Boston.com
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/big_picture.jpg
-URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A//pipes.yahoo.com/pipes/pipe.run%3F_id%3D1e9d2efdaa6c55666cb45651bc886cd9%26_render%3Djson
-
-type=playlist
-name=Sacramento Bee - The Frame (latest photo blogs)
-thumb=http://a2.twimg.com/profile_images/78730497/frame_logo.jpg
-URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http://pipes.yahoo.com/pipes/pipe.run%3F_id%3Df7af60a1212863556d231f679794234c%26_render%3Djson
