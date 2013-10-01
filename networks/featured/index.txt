@@ -4,33 +4,29 @@ title=Navi-X Networks - Featured Content
 logo=http://website.navi-x.org/networks/logo.png
 
 type=list_note
-name=Welcome to the Winter 2012 edition of featured content on Navi-X! Pallisvans put in some time into a Navi-X Skin (XBMC Only) and... well, see for yourself! Great work buddy! - Team Navi-X
+name=This is a list of featured Navi-X members who work exceptionally hard to bring you the latest entertainment available on the internet... Enjoy! - iRoNBiLL
 URL=none
 
-type=script:navi-x
-name=ReFocus-Big Skin for Navi-X
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/Navi-X-ReFocus-Big2.zip
-thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
-date=2012-10-21
+type=search
+name=K1m05's Playlists
+URL=http://www.navixtreme.com/playlist/search/k1m05
 
-type=script:navi-x
-name=ReFocus Skin for Navi-X
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/Navi-X-ReFocus2.zip
-thumb=http://dl.dropbox.com/s/k8mrlx7u1aetd29/navixskin.jpg
-date=2012-10-21
+type=search
+name=Sports4u's Playlists
+URL=http://www.navixtreme.com/playlist/search/sports4u
 
-type=script:navi-x
-name=Original Default Skin for Navi-X
-URL=http://navi-x.googlecode.com/files/Navi-X_v37_6.zip
+type=search
+name=HackerMil's Playlists
+URL=http://www.navixtreme.com/playlist/search/hackermils
 
-type=playlist
-name=Dorkly - Videogame Comedy (Mature Audiences)
-URL=http://www.navixtreme.com/playlist/83217/dorkly_-_videogame_comedy.plx
-thumb=http://twimg0-a.akamaihd.net/profile_images/927669667/twitter_icon.jpg
-date=2012-11-18
+type=search
+name=BigBallzBaby's Playlists
+URL=http://www.navixtreme.com/playlist/search/bigballzbaby
 
-type=playlist
-name=Dirty Jeez - Born and Raised (Mature Audiences)
-URL=http://www.navixtreme.com/playlist/82373/dirty_jeez__born_and_raised.plx
-thumb=http://dl.dropbox.com/s/1dr2b4a03wqc4xt/00%20-%20Dirty_Jeez_Born_And_Raised_-_Vol_2-front-large.jpg
-date=2012-11-10
+type=search
+name=MaxPower's Playlists
+URL=http://www.navixtreme.com/playlist/search/maxpowers
+
+type=search
+name=MorePower's Playlists
+URL=http://www.navixtreme.com/playlist/search/morepowersllc
