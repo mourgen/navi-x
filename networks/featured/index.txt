@@ -4,7 +4,7 @@ title=Navi-X Networks - Featured Content
 logo=http://website.navi-x.org/networks/logo.png
 
 type=list_note
-name=This is a list of featured Navi-X members who work exceptionally hard to bring you the latest entertainment available on the internet... Enjoy! - iRoNBiLL
+name=This is a list of featured Navi-X members who work exceptionally hard to bring you the latest entertainment available on the internet! Enjoy!! - iRoNBiLL, Team Navi-X
 URL=none
 
 type=playlist
@@ -17,7 +17,7 @@ URL=http://www.navixtreme.com/playlist/search/sports4u
 
 type=playlist
 name=HackerMil's Playlists
-URL=http://www.navixtreme.com/playlist/search/hackermils
+URL=http://www.navixtreme.com/playlist/search/hackermil
 
 type=playlist
 name=BigBallzBaby's Playlists
