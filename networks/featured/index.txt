@@ -30,3 +30,8 @@ URL=http://www.navixtreme.com/playlist/search/maxpowers
 type=playlist
 name=MorePower's Playlists
 URL=http://www.navixtreme.com/playlist/search/morepower
+
+type=playlist
+name=Leezy's Playlist
+URL=http://www.navixtreme.com/playlist/97813/leezys_list_top_movies_old_skool_radio_live_streams_kidz_zone_sport_.plx
+thumb=http://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-ash4/419067_10150626871474048_414397802_n.jpg
