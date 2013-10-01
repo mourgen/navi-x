@@ -7,26 +7,26 @@ type=list_note
 name=This is a list of featured Navi-X members who work exceptionally hard to bring you the latest entertainment available on the internet... Enjoy! - iRoNBiLL
 URL=none
 
-type=search
+type=playlist
 name=K1m05's Playlists
 URL=http://www.navixtreme.com/playlist/search/k1m05
 
-type=search
+type=playlist
 name=Sports4u's Playlists
 URL=http://www.navixtreme.com/playlist/search/sports4u
 
-type=search
+type=playlist
 name=HackerMil's Playlists
 URL=http://www.navixtreme.com/playlist/search/hackermils
 
-type=search
+type=playlist
 name=BigBallzBaby's Playlists
 URL=http://www.navixtreme.com/playlist/search/bigballzbaby
 
-type=search
+type=playlist
 name=MaxPower's Playlists
 URL=http://www.navixtreme.com/playlist/search/maxpowers
 
-type=search
+type=playlist
 name=MorePower's Playlists
 URL=http://www.navixtreme.com/playlist/search/morepowersllc
