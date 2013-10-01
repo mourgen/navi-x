@@ -6,7 +6,7 @@ background=http://i1061.photobucket.com/albums/t461/billdaly111/bg.jpg
 type=playlist
 name=Featured Content
 URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
-thumb=http://terryodell.com/terrysplace/wp-content/uploads/2013/08/exclamation_point.png
+thumb=http://www.clker.com/cliparts/E/C/p/S/0/F/exclamation-mark-red-md.png
 date=2013-10-01
 
 type=playlist
