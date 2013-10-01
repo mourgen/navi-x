@@ -1,5 +1,5 @@
 version=8
-background=http://www.picturesofwinter.net/scenewinter-4444.jpg
+background=http://www.homeizea.com/wp-content/uploads/2012/09/Living-Room-Minimalist-Ideas-With-Beautiful-Colors.jpg
 title=Navi-X Networks - Featured Content
 logo=http://website.navi-x.org/networks/logo.png
 
