@@ -16,14 +16,6 @@ name=Sports4u's Playlists
 URL=http://www.navixtreme.com/playlist/search/sports4u
 
 type=playlist
-name=HackerMil's Playlists
-URL=http://www.navixtreme.com/playlist/search/hackermil
-
-type=playlist
-name=BigBallzBaby's Playlists
-URL=http://www.navixtreme.com/playlist/search/bigballzbaby
-
-type=playlist
 name=MaxPower's Playlists
 URL=http://www.navixtreme.com/playlist/search/maxpowers
 
