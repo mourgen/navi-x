@@ -8,10 +8,6 @@ name=This is a list of featured Navi-X members who work exceptionally hard to br
 URL=none
 
 type=playlist
-name=K1m05's Playlists
-URL=http://www.navixtreme.com/playlist/search/k1m05
-
-type=playlist
 name=Sports4u's Playlists
 URL=http://www.navixtreme.com/playlist/search/sports4u
 
