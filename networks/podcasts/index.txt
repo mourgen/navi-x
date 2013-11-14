@@ -4,10 +4,10 @@ title=Navi-X Networks - Podcasts
 view=thumbnails
 #logo=http://website.navi-x.org/networks/logo.png
 
-type=playlist
-name=Apple iTunes Podcasts
-URL=http://www.navixtreme.com/scrape/podcasts/
-thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
+#type=playlist
+#name=Apple iTunes Podcasts
+#URL=http://www.navixtreme.com/scrape/podcasts/
+#thumb=http://www.maclife.com/files/u220903/itunes_10_icon_380px.png
 
 type=playlist
 name=TED: Ideas worth spreading

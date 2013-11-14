@@ -3,31 +3,31 @@ title=Navi-X Networks
 view=thumbnails
 background=http://i1061.photobucket.com/albums/t461/billdaly111/bg.jpg
 
-type=playlist
-name=Featured Content
-URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
-thumb=http://www.clker.com/cliparts/E/C/p/S/0/F/exclamation-mark-red-md.png
-date=2013-10-01
+#type=playlist
+#name=Featured Content
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/featured/index.txt
+#thumb=http://www.clker.com/cliparts/E/C/p/S/0/F/exclamation-mark-red-md.png
+#date=2013-10-01
 
-type=playlist
-name=Search Navi-X
-URL=http://navi-x.googlecode.com/svn/trunk/networks/content_search/index.txt
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Search-icon.png
+#type=playlist
+#name=Search Navi-X
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/content_search/index.txt
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Search-icon.png
 
-type=playlist
-name=TV Shows
-URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/index.txt
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/tvshows.png
+#type=playlist
+#name=TV Shows
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/tvshows/index.txt
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/tvshows.png
 
-type=playlist
-name=Movies
-URL=http://navi-x.googlecode.com/svn/trunk/networks/movies/index.txt
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/movies.png
+#type=playlist
+#name=Movies
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/movies/index.txt
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/movies.png
 
-type=playlist
-name=Music
-URL=http://navi-x.googlecode.com/svn/trunk/networks/music/index.txt
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/music.png
+#type=playlist
+#name=Music
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/music/index.txt
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/music.png
 
 type=playlist
 name=Podcasts
@@ -39,15 +39,15 @@ name=Pictures
 URL=http://navi-x.googlecode.com/svn/trunk/networks/pictures/index.txt
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/pictures.png
 
-type=playlist
-name=Apps
-URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/apps.png
+#type=playlist
+#name=Apps
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/apps/index.txt
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/apps.png
 
-type=playlist
-name=Help and Support
-URL=http://navi-x.googlecode.com/svn/trunk/networks/help/index.txt
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
+#type=playlist
+#name=Help and Support
+#URL=http://navi-x.googlecode.com/svn/trunk/networks/help/index.txt
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/nxlogo.png
 
 type=rss
 name=Navi-X on Twitter
