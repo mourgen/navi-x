@@ -4,37 +4,38 @@ title=Navi-X Networks - Music
 view=thumbnails
 
 type=playlist
+name=Librivox Audio Books
+thumb=http://i1061.photobucket.com/albums/t461/billdaly111/librivox-logo2.png
+URL=http://www.navixtreme.com/scrape/librivox/
+
+#type=playlist
+#name=Mixtapes.tv
+#thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
+#URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
+
+type=playlist
 name=Shoutcast Internet Radio
 URL=http://navi-x.mooo.com/shoutcast.plx
 thumb=http://navi-x.mooo.com/shoutcast.png
 
-type=playlist
-name=Mixtapes.tv
-thumb=http://www.navixtreme.com/justme4u2c/images/Mixtape.tv.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Mixtapes.tv.pl
-
-type=playlist
-name=SKY.fm
-thumb=http://www.navixtreme.com/justme4u2c/images/SKY.jpg
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
+#type=playlist
+#name=SKY.fm
+#thumb=http://www.navixtreme.com/justme4u2c/images/SKY.jpg
+#URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/SKYfm.pl?q=main/
 
 type=playlist
 name=TuneIn
 thumb=http://i1061.photobucket.com/albums/t461/billdaly111/TuneIn-Radio-Logo2.png
 URL=http://navi-x.googlecode.com/svn/trunk/networks/music/tunein.txt
 
-type=playlist
-name=Radiolala
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Radiolala2.png
-URL=http://www.navixtreme.com/scrape/radiolala/
+#type=playlist
+#name=Radiolala
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Radiolala2.png
+#URL=http://www.navixtreme.com/scrape/radiolala/
 
-type=playlist
-name=Vevo (U.S.A. and Canada Only)
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Vevo-logo-640x2232.png
-URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl
-description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
+#type=playlist
+#name=Vevo (U.S.A. and Canada Only)
+#thumb=http://i1061.photobucket.com/albums/t461/billdaly111/Vevo-logo-640x2232.png
+#URL=http://www.navixtreme.com/cgi-bin/justme4u2c/scrapers/Vevo.pl
+#description=VEVO is a music video website. (U.S.A. Only and Canada Only)/description
 
-type=playlist
-name=Librivox Audio Books
-thumb=http://i1061.photobucket.com/albums/t461/billdaly111/librivox-logo2.png
-URL=http://www.navixtreme.com/scrape/librivox/

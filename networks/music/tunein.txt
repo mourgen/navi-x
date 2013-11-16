@@ -1,14 +1,18 @@
 version=0
 title=Tunein 
-logo=http://d3bwsr3zpy54hy.cloudfront.net/201111111626/img/products/appicon-free.png
+logo=http://upload.wikimedia.org/wikipedia/en/5/53/TuneIn_logo.png
 #logo=http://ipad-os.net/wp-content/uploads/2011/10/Tunein.jpg
 #
 type=opml
-name=Local Radio
+name=Local Radio (opml version)
 URL=http://opml.radiotime.com/Browse.ashx?c=local
 
+type=playlist
+name=Tunein (opml version) 
+URL=http://navi-x.googlecode.com/svn/trunk/networks/music/radiotime.txt
+
 type=search
-name=Search Radiotime
+name=Search Tunein
 URL=http://www.navixtreme.com/cgi-bin/json2plx.cgi?url=http%3A%2F%2Fpipes.yahoo.com%2Fpipes%2Fpipe.run%3F_id%3D4da18567fc105a6a7e61c450067c626a%26_render%3Djson%26U1%3Dhttp%253A%252F%252Fopml.radiotime.com%252FSearch.ashx%253Fquery%253D
 
 type=list_note
