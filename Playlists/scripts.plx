@@ -4,6 +4,11 @@ logo=http://navi-x.googlecode.com/svn/trunk/Playlists/navixlogo.png
 title=Navi-X updates
 
 type=script:navi-x
+name=Navi-X v3.8.0 (All XBMC platforms)
+URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/files/Navi-X-3.8.0.zip
+
+
+type=script:navi-x
 name=Navi-X v3.7.8 (All XBMC platforms)
 URL=http://navi-x.googlecode.com/files/Navi-X-v37_8.zip
 
