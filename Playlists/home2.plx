@@ -23,8 +23,14 @@ name=My XBMC
 thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/xbmclogo.png
 URL=myxbmc.plx
 #
-type=playlist
-name=Updates (3.7.8)
-thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/navixlogo.png
-URL=http://navi-x.googlecode.com/svn/trunk/Playlists/scripts.plx
+type=text
+name=XBMCHUB Notes
+thumb=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/art/button-xbmchub.png
+URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/Playlists/hubnotes.txt
 #
+type=playlist
+name=Updates (3.8.0)
+thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/navixlogo.png
+URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/Playlists/scripts.plx
+#
+
