@@ -24,13 +24,14 @@ thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/xbmclogo.png
 URL=myxbmc.plx
 #
 type=text
-name=XBMCHUB Notes
-thumb=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/art/button-xbmchub.png
-URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/Playlists/hubnotes.txt
+name=TVADDONS Notes
+thumb=http://i.imgur.com/NAiexjN.png
+URL=http://sahara.tvaddons.ag/playlists/hubnotes.txt
 #
 type=playlist
 name=Updates (3.8.0)
 thumb=http://navi-x.googlecode.com/svn/trunk/Playlists/navixlogo.png
-URL=http://offshoregit.com/navixtreme/navi-x-support-files/raw/master/Playlists/scripts.plx
+URL=http://sahara.tvaddons.ag/playlists/scripts.plx
 #
+
 
